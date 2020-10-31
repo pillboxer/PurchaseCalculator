@@ -1,0 +1,8 @@
+[
+    {
+        "title" : "General Purchase",
+        "uuid" : "5428b92d-0cb3-4370-a5dd-2ba15d58fefb",
+        "questionIDs" : ["465031ca-8531-47b6-8113-2be805d665b1", "b5f19954-725b-4c7d-8de7-b920be083126"],
+        "initialScore" : 10
+    }
+]

@@ -1,0 +1,39 @@
+[
+    {
+        "title" : "What percentage of your yearly take home pay is that?",
+        "uuid" : "465031ca-8531-47b6-8113-2be805d665b1",
+        "removeForPremiumMembers" : true,
+        "questionOptions" :
+        [{
+            "title" : "0 - 0.5%",
+            "multiplier" : 1.05
+        },
+        {
+            "title" : "0.5 - 5%",
+            "multiplier" : 0.9
+        },
+        {
+            "title" : "5 - 10%",
+            "multiplier" : 0.75
+        },
+        {
+            "title" : ">10%",
+            "multiplier" : 0.65
+        }
+        ]
+    },
+    {
+        "title" : "Do you have something that already provides 80% of its benefit already?",
+        "uuid" : "b5f19954-725b-4c7d-8de7-b920be083126",
+        "questionOptions" :
+        [{
+            "title" : "YES",
+            "multiplier" : 0.7
+        },
+        {
+            "title" : "NO",
+            "multiplier" : 1.1
+        }
+        ]
+    }
+]

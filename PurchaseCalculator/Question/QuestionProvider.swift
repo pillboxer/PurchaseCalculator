@@ -24,7 +24,9 @@ class QuestionProvider: ObservableObject {
     }
     
     @Published var questions: [Question]?
+    private var currentQuestion: Question?
     private var calculator: Calculator?
+    @Published var currentScore = 0.0
     @Published var error: QuestionProviderError?
     
     init() {
@@ -44,8 +46,19 @@ class QuestionProvider: ObservableObject {
         }
     }
     
-    func select(option: QuestionOption) {
+    private func deselectCurrentOption() {
+        if let option = currentQuestion?.selectedOption {
+            calculator?.deselectOption(option)
+        }
+    }
+    
+    func select(option: QuestionOption, question: Question) {
+        currentQuestion = question
+        deselectCurrentOption()
+        currentQuestion?.selectedOption = option
+
         calculator?.selectOption(option)
+        currentScore = calculator!.score
     }
     
 }

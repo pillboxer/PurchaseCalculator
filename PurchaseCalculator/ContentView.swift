@@ -12,6 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         if let questions = provider.questions {
+            Text("\(provider.currentScore)")
             QuestionsView(questions: questions)
         }
         else if let error = provider.error ?? QuestionProvider.QuestionProviderError.noQuestionsAvailable {
@@ -25,10 +26,9 @@ struct QuestionsView: View {
     var body: some View {
         VStack {
             ForEach(questions) { question in
-                let options = question.questionOptions ?? []
                 Text(question.title)
                     .padding()
-                QuestionOptionsView(options: options)
+                QuestionOptionsView(question: question)
                 Divider()
             }
         }
@@ -38,13 +38,14 @@ struct QuestionsView: View {
 
 struct QuestionOptionsView: View {
     @EnvironmentObject var provider: QuestionProvider
-    var options: [QuestionOption]
+    var question: Question
 
     var body: some View {
         HStack {
+            let options = question.questionOptions ?? []
             ForEach(options) { option in
                 Button(action: {
-                    provider.select(option: option)
+                    provider.select(option: option, question: question)
                 }) {
                     Text(option.title)
                 }

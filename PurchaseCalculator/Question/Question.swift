@@ -16,7 +16,6 @@ class Question: Decodable, Identifiable {
     let requiresInput: Bool?
     let removeForPremiumMembers: Bool?
     let showForPremiumMembers: Bool?
-    
     var selectedOption: QuestionOption?
     
     var firstOption: QuestionOption? {

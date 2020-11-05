@@ -23,5 +23,8 @@ class Calculator {
         score *= option.multiplier
     }
     
+    func deselectOption(_ option: QuestionOption) {
+        score /= option.multiplier
+    }
     
 }

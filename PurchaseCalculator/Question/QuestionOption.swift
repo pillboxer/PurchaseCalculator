@@ -13,3 +13,12 @@ class QuestionOption: Decodable, Identifiable {
     let multiplier: Double
     
 }
+
+// MARK: - Equatable Conformance
+extension QuestionOption: Equatable {
+    
+    static func == (lhs: QuestionOption, rhs: QuestionOption) -> Bool {
+        lhs.id == rhs.id
+    }
+
+}

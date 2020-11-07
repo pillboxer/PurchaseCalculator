@@ -8,10 +8,12 @@
 import SystemKit
 
 class QuestionCategory: Decodable {
+    
     let title: String
     let uuid: String
-    let questionIDs: [String]
+    let questionGroupID: String
     let initialScore: Double
+    let resultAdvice: [ResultAdvice]
     
     static func decodeLocal() throws -> [QuestionCategory] {
         do {
@@ -24,8 +26,11 @@ class QuestionCategory: Decodable {
     
     func questions() throws -> [Question] {
         do {
-            let json = try JSONDecoder.decodeLocalJSON(file: "Questions", type: [Question].self)
-            return json.filter { questionIDs.contains($0.uuid) }
+            let groupsJSON = try JSONDecoder.decodeLocalJSON(file: "QuestionGroups", type: [QuestionGroup].self)
+            let questionsJSON = try JSONDecoder.decodeLocalJSON(file: "Questions", type: [Question].self)
+            let matchingGroupIDs = groupsJSON.filter { questionGroupID == $0.uuid }.first?.questionIDs ?? []
+            return questionsJSON.filter { matchingGroupIDs.contains($0.uuid) }
+            
         }
         catch  {
             throw error
@@ -41,4 +46,9 @@ class QuestionCategory: Decodable {
         }
     }
     
+}
+
+struct ResultAdvice: Decodable {
+    let title: String
+    let threshold: Double
 }

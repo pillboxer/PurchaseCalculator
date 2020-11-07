@@ -5,15 +5,11 @@
 //  Created by Henry Cooper on 31/10/2020.
 //
 
-import Foundation
+import Combine
 
-class Calculator {
+class Calculator: ObservableObject {
     
-    private(set) var score: Double {
-        didSet {
-            print("I am now: \(score)")
-        }
-    }
+    @Published private(set) var score: Double
     
     init(initialScore: Double) {
         self.score = initialScore

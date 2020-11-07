@@ -6,8 +6,11 @@
 //
 
 import SystemKit
+import Combine
 
 class QuestionProvider: ObservableObject {
+    
+    var cancellable: AnyCancellable?
     
     enum QuestionProviderError: LocalizedError {
         case providerError(Int)
@@ -23,32 +26,49 @@ class QuestionProvider: ObservableObject {
         }
     }
     
+    // MARK: - Published
     @Published var questions: [Question]?
-    private var currentQuestion: Question?
-    private var calculator: Calculator?
     @Published var currentScore = 0.0
     @Published var error: QuestionProviderError?
     
-    init() {
+    private var category: QuestionCategory
+    private var currentQuestion: Question?
+    private var calculator: Calculator
+    
+    var thresholdDescription: String {
+        let results = category.resultAdvice.sorted { $0.threshold < $1.threshold }
+        for result in results {
+            if currentScore < result.threshold {
+                return result.title
+            }
+        }
+        return results.last?.title ?? "Could Not Get Result"
+    }
+    
+    init?() {
         do {
             let categories = try QuestionCategory.decodeLocal()
-            guard let category = categories.first else {
+            guard let first = categories.first else {
                 error = .noQuestionsAvailable
-                return
+                return nil
             }
+            self.category = first
             let questions = try category.questions()
-            calculator = Calculator(initialScore: category.initialScore)
             self.questions = questions
+            calculator = Calculator(initialScore: category.initialScore)
+            startObservingCalculator()
         }
         catch let error {
-            let code = (error as? SystemKitError)?.code ?? 999
+            let sysError = (error as? SystemKitError)
+            let code = sysError?.code ?? 999
             self.error = .providerError(code)
+            return nil
         }
     }
     
     private func deselectCurrentOption() {
         if let option = currentQuestion?.selectedOption {
-            calculator?.deselectOption(option)
+            calculator.deselectOption(option)
         }
     }
     
@@ -57,8 +77,29 @@ class QuestionProvider: ObservableObject {
         deselectCurrentOption()
         currentQuestion?.selectedOption = option
 
-        calculator?.selectOption(option)
-        currentScore = calculator!.score
+        calculator.selectOption(option)
+        currentScore = calculator.score
     }
     
+    func reset() {
+        questions?.forEach { $0.selectedOption = nil }
+        currentScore = 0
+        
+    }
+    
+}
+
+
+// MARK: - Providing Observation
+extension QuestionProvider {
+    
+    private func startObservingCalculator() {
+        cancellable = calculator.objectWillChange.sink(receiveValue: { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.currentScore = strongSelf.calculator.score
+        })
+    }
+
 }

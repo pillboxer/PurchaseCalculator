@@ -11,32 +11,11 @@ import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - Properties
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "PurchaseCalculatorDataModel")
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                fatalError("Could Not Load Persistent Container")
-            }
-        }
-        return container
-    }()
-        
-}
-
-// MARK: - Core Data
-extension AppDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        User.deleteAll()
+        return true
+    }
     
-    var context: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-        
-    private func deleteAllPurchases() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "PotentialPurchase")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        try! persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: context)
-    }
-
 }
 
 // MARK: - Other Extensions

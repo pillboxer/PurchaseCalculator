@@ -8,28 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var provider: QuestionProvider
-
+    @ObservedObject var model = NewUserDataModel()
     var body: some View {
         NavigationView {
-            if let questions = provider.questions {
-                    PotentialPurchaseFormView(questions: questions)
-            }
-            else if let error = provider.error ?? QuestionProvider.QuestionProviderError.noQuestionsAvailable {
-                Text(error.errorDescription)
+            if !User.doesExist {
+                NewUserView().environmentObject(model)
             }
         }
-
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        if let provider = QuestionProvider() {
-            ContentView().environmentObject(provider)
-        }
-        else {
-            ContentView()
-        }
+        ContentView()
     }
 }

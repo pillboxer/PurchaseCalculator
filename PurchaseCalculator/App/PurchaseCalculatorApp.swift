@@ -12,14 +12,7 @@ struct PurchaseCalculatorApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            if let provider = QuestionProvider() {
-                ContentView()
-                    .environmentObject(provider)
-                    .environment(\.managedObjectContext, appDelegate.context)
-            }
-            else {
-                ContentView()
-            }
+            ContentView()
         }
     }
 }

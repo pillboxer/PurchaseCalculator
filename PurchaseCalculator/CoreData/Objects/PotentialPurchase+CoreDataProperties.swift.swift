@@ -2,7 +2,7 @@
 //  PotentialPurchase+CoreDataProperties.swift
 //  PurchaseCalculator
 //
-//  Created by Henry Cooper on 06/11/2020.
+//  Created by Henry Cooper on 08/11/2020.
 //
 //
 

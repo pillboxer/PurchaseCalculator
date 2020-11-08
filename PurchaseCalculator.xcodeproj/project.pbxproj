@@ -13,6 +13,8 @@
 		86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026297254D72EC0085ACD5 /* PurchaseCalculatorTests.swift */; };
 		860262BB254D739D0085ACD5 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262BA254D739D0085ACD5 /* Question.swift */; };
 		860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262C2254D74260085ACD5 /* QuestionOption.swift */; };
+		86446FD525582A3700D0AC5E /* PurchaseAttributeValueQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86446FD425582A3700D0AC5E /* PurchaseAttributeValueQuestions.json */; };
+		86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */; };
 		86789DF3254D759F00A198C0 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86789DF2254D759F00A198C0 /* Questions.json */; };
 		86789E3D254D7C3400A198C0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262BA254D739D0085ACD5 /* Question.swift */; };
 		86789E41254D7C3600A198C0 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86789DF2254D759F00A198C0 /* Questions.json */; };
@@ -21,17 +23,24 @@
 		86789F08254D9D5E00A198C0 /* QuestionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* QuestionCategory.swift */; };
 		86789F10254DA0BD00A198C0 /* QuestionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* QuestionCategory.swift */; };
 		867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */; };
-		867E2A8C25559493002B618C /* PotentialPurchase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8A25559493002B618C /* PotentialPurchase+CoreDataProperties.swift */; };
-		867E2A8E255594EF002B618C /* PotentialPurchaseFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8D255594EF002B618C /* PotentialPurchaseFormView.swift */; };
 		86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */; };
 		86812DE0255589D100C1245E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86812DDF255589D100C1245E /* AppDelegate.swift */; };
+		868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2725582EA700C96CFD /* CoreDataManager.swift */; };
+		868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2C2558331700C96CFD /* NewUserView.swift */; };
+		868CCB3625583F6C00C96CFD /* NewUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB3525583F6C00C96CFD /* NewUserDataModel.swift */; };
+		868CCB452558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */; };
+		868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */; };
+		868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB432558446500C96CFD /* User+CoreDataClass.swift */; };
+		868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB442558446500C96CFD /* User+CoreDataProperties.swift */; };
 		8698705E254DA9490029B2DE /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; };
 		8698705F254DA9490029B2DE /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86987068254DAE8B0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
 		8698706A254DAE8C0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
-		86987074254DB1EC0029B2DE /* QuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86987073254DB1EC0029B2DE /* QuestionProvider.swift */; };
-		86A2A5022555900900D64A54 /* PotentialPurchaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2A5012555900900D64A54 /* PotentialPurchaseListView.swift */; };
 		86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C232556AD6B0055C0B9 /* Assets.xcassets */; };
+		86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C352557333E0055C0B9 /* PurchaseCategories.json */; };
+		86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C45255735040055C0B9 /* PurchaseItems.json */; };
+		86A53C4D255735760055C0B9 /* PurchaseAttributes.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C4C255735750055C0B9 /* PurchaseAttributes.json */; };
+		86A53C5025573C180055C0B9 /* PurchaseItemAttributeMultipliers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliers.json */; };
 		86D384AA25569E7700051019 /* QuestionGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D384A925569E7700051019 /* QuestionGroups.json */; };
 		86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
 /* End PBXBuildFile section */
@@ -86,18 +95,27 @@
 		860262B4254D733E0085ACD5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		860262BA254D739D0085ACD5 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		860262C2254D74260085ACD5 /* QuestionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionOption.swift; sourceTree = "<group>"; };
+		86446FD425582A3700D0AC5E /* PurchaseAttributeValueQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseAttributeValueQuestions.json; sourceTree = "<group>"; };
+		86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PotentialPurchase+CoreDataProperties.swift.swift"; sourceTree = "<group>"; };
 		86756BDA254DA6F200E31D5A /* SystemKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SystemKit.xcodeproj; path = ../SystemKit/SystemKit.xcodeproj; sourceTree = "<group>"; };
 		86789DF2254D759F00A198C0 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
 		86789F04254D9CE400A198C0 /* QuestionCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionCategories.json; sourceTree = "<group>"; };
 		86789F07254D9D5E00A198C0 /* QuestionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCategory.swift; sourceTree = "<group>"; };
 		867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotentialPurchase+CoreDataClass.swift"; sourceTree = "<group>"; };
-		867E2A8A25559493002B618C /* PotentialPurchase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotentialPurchase+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		867E2A8D255594EF002B618C /* PotentialPurchaseFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialPurchaseFormView.swift; sourceTree = "<group>"; };
 		86812DD9255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PurchaseCalculatorDataModel.xcdatamodel; sourceTree = "<group>"; };
 		86812DDF255589D100C1245E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		86987073254DB1EC0029B2DE /* QuestionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProvider.swift; sourceTree = "<group>"; };
-		86A2A5012555900900D64A54 /* PotentialPurchaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialPurchaseListView.swift; sourceTree = "<group>"; };
+		868CCB2725582EA700C96CFD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		868CCB2C2558331700C96CFD /* NewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
+		868CCB3525583F6C00C96CFD /* NewUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDataModel.swift; sourceTree = "<group>"; };
+		868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataClass.swift"; sourceTree = "<group>"; };
+		868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		868CCB432558446500C96CFD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		868CCB442558446500C96CFD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		86A53C232556AD6B0055C0B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		86A53C352557333E0055C0B9 /* PurchaseCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
+		86A53C45255735040055C0B9 /* PurchaseItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItems.json; sourceTree = "<group>"; };
+		86A53C4C255735750055C0B9 /* PurchaseAttributes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseAttributes.json; sourceTree = "<group>"; };
+		86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItemAttributeMultipliers.json; sourceTree = "<group>"; };
 		86D384A925569E7700051019 /* QuestionGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionGroups.json; sourceTree = "<group>"; };
 		86D384AC25569F6C00051019 /* QuestionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +162,7 @@
 		86026284254D72EA0085ACD5 /* PurchaseCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				86A53C382557345B0055C0B9 /* Purchases */,
 				86D384A425569C2E00051019 /* App */,
 				860262B3254D73260085ACD5 /* Calculator */,
 				86A53C232556AD6B0055C0B9 /* Assets.xcassets */,
@@ -191,7 +210,7 @@
 				86D384AC25569F6C00051019 /* QuestionGroup.swift */,
 				86D384A925569E7700051019 /* QuestionGroups.json */,
 				860262C2254D74260085ACD5 /* QuestionOption.swift */,
-				86987073254DB1EC0029B2DE /* QuestionProvider.swift */,
+				86446FD425582A3700D0AC5E /* PurchaseAttributeValueQuestions.json */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -225,9 +244,24 @@
 			isa = PBXGroup;
 			children = (
 				867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */,
-				867E2A8A25559493002B618C /* PotentialPurchase+CoreDataProperties.swift */,
+				86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */,
+				868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */,
+				868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */,
+				868CCB432558446500C96CFD /* User+CoreDataClass.swift */,
+				868CCB442558446500C96CFD /* User+CoreDataProperties.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		86A53C382557345B0055C0B9 /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				86A53C352557333E0055C0B9 /* PurchaseCategories.json */,
+				86A53C45255735040055C0B9 /* PurchaseItems.json */,
+				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliers.json */,
+				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
+			);
+			path = Purchases;
 			sourceTree = "<group>";
 		};
 		86D384A425569C2E00051019 /* App */ = {
@@ -235,6 +269,8 @@
 			children = (
 				86026285254D72EA0085ACD5 /* PurchaseCalculatorApp.swift */,
 				86812DDF255589D100C1245E /* AppDelegate.swift */,
+				868CCB2725582EA700C96CFD /* CoreDataManager.swift */,
+				868CCB3525583F6C00C96CFD /* NewUserDataModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -243,8 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				86026287254D72EA0085ACD5 /* ContentView.swift */,
-				867E2A8D255594EF002B618C /* PotentialPurchaseFormView.swift */,
-				86A2A5012555900900D64A54 /* PotentialPurchaseListView.swift */,
+				868CCB2C2558331700C96CFD /* NewUserView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,10 +388,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A53C5025573C180055C0B9 /* PurchaseItemAttributeMultipliers.json in Resources */,
+				86446FD525582A3700D0AC5E /* PurchaseAttributeValueQuestions.json in Resources */,
 				8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */,
+				86A53C4D255735760055C0B9 /* PurchaseAttributes.json in Resources */,
 				86789F05254D9CE400A198C0 /* QuestionCategories.json in Resources */,
 				86789DF3254D759F00A198C0 /* Questions.json in Resources */,
 				86D384AA25569E7700051019 /* QuestionGroups.json in Resources */,
+				86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */,
+				86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */,
 				86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,20 +416,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A2A5022555900900D64A54 /* PotentialPurchaseListView.swift in Sources */,
+				868CCB452558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift in Sources */,
 				86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */,
 				86026288254D72EA0085ACD5 /* ContentView.swift in Sources */,
+				868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */,
 				86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */,
 				86789F08254D9D5E00A198C0 /* QuestionCategory.swift in Sources */,
+				86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */,
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
+				868CCB3625583F6C00C96CFD /* NewUserDataModel.swift in Sources */,
+				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,
 				860262BB254D739D0085ACD5 /* Question.swift in Sources */,
-				86987074254DB1EC0029B2DE /* QuestionProvider.swift in Sources */,
+				868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */,
 				867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */,
-				867E2A8E255594EF002B618C /* PotentialPurchaseFormView.swift in Sources */,
+				868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */,
 				86026286254D72EA0085ACD5 /* PurchaseCalculatorApp.swift in Sources */,
 				86987068254DAE8B0029B2DE /* Calculator.swift in Sources */,
-				867E2A8C25559493002B618C /* PotentialPurchase+CoreDataProperties.swift in Sources */,
+				868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

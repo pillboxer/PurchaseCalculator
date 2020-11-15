@@ -28,42 +28,10 @@ class PurchaseCalculatorTests: XCTestCase {
         }
     }
 
-    func testCanDecodeLocalJSON() {
-        do {
-            let json = try JSONDecoder.decodeLocalJSON(file: "Questions", type: [Question].self)
-            print(json)
-        }
-        catch let error {
-            failWithError(error)
-        }
-    }
-    
-    func testCanAccessQuestionsAfterDecodingQuestionCategoryJSON() {
-        do {
-            let categories = try QuestionCategory.decodeLocal()
-            XCTAssertNotNil(categories.first?.questions)
-        }
-        catch let error {
-            failWithError(error)
-        }
-    }
-    
-    func testCalculatorScoreIsAdjustedCorrectlyOnOptionSelection() {
-        do {
-            let categories = try QuestionCategory.decodeLocal()
-            if let category = categories.first,
-               let option = category.firstQuestion?.firstOption {
-                let calculator = Calculator(initialScore: category.initialScore)
-                calculator.selectOption(option)
-                XCTAssertEqual(10.5, calculator.score)
-            }
-            else {
-                XCTFail()
-            }
-        }
-        catch let error {
-            failWithError(error)
-        }
+    func testViewModelValuesQuestionnaireReturns() {
+        let viewModel = NewUserViewModel()
+        let questionnaire = viewModel.valuesQuestionnaire
+        XCTAssertNotNil(questionnaire)
     }
 
 }

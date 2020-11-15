@@ -11,6 +11,10 @@ class CoreDataManager {
     
     static let shared = CoreDataManager()
     
+    enum CoreDataError: LocalizedError {
+        case entityDoesNotExist
+    }
+    
     // MARK: - Properties
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PurchaseCalculatorDataModel")
@@ -31,11 +35,30 @@ class CoreDataManager {
 
 extension NSManagedObject {
     
-    static func deleteAll() {
+   @discardableResult static func deleteAll() -> Error? {
         if let entityName = NSStringFromClass(self).components(separatedBy: ".").last {
             let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
-            try? CoreDataManager.shared.moc.execute(deleteRequest)
+            do {
+                try CoreDataManager.shared.moc.execute(deleteRequest)
+            }
+            catch let error {
+                return error
+            }
+        }
+        return CoreDataManager.CoreDataError.entityDoesNotExist
+    }
+}
+
+extension NSManagedObjectContext {
+    
+    func saveWithTry() -> Error? {
+        do {
+            try save()
+            return nil
+        }
+        catch let error {
+            return error
         }
     }
 

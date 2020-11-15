@@ -21,6 +21,10 @@ public class User: NSManagedObject {
     static var doesExist: Bool {
         existingUser != nil
     }
+    
+    var purchaseValuesArray: [PurchaseAttributeValue]? {
+        purchaseValues?.allObjects as? [PurchaseAttributeValue]
+    }
 
 
 }

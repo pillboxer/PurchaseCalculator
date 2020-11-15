@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var model = NewUserDataModel()
+    @ObservedObject var model = NewUserViewModel()
     var body: some View {
         NavigationView {
             if !User.doesExist {
                 NewUserView().environmentObject(model)
+                    .navigationBarTitle("Your Purchase Calculator", displayMode: .inline)
+            }
+            else {
+                Text("Hello there")
             }
         }
     }

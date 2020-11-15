@@ -17,6 +17,8 @@ extension User {
     }
 
     @NSManaged public var purchaseValues: NSSet?
+    @NSManaged public var name: String?
+    @NSManaged public var takeHomePay: NSNumber?
 
 }
 

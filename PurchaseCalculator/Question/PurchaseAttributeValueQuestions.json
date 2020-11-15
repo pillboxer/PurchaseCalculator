@@ -3,5 +3,21 @@
     "uuid" : "d09273b6-9be9-4788-bfa2-0a5ead5f5f7e",
     "attributeID" : "72c2facd-e97f-42c4-99b3-a1d10cdd9095",
     "title" : "It is important to me that my purchases are environmentally friendly"
+    },
+    {
+    "uuid" : "cd1f61e5-c98e-4dac-aa7b-81d5b79efc46",
+    "attributeID" : "3e09225c-a1a5-4653-9046-f8369bac58ae",
+    "title" : "I try to avoid having too many large products"
+    },
+    {
+    "uuid" : "df6ce95e-d808-4575-85f0-026ff33ab0b6",
+    "attributeID" : "7d5e0d13-f0de-4589-a26e-97204bdf2dc4",
+    "title" : "My purchases should have a tangible benefit to others"
+    },
+    {
+    "uuid" : "e741e3e3-a2ae-4faa-a659-cc6080f12257",
+    "attributeID" : "f1fb1a01-b331-4d72-b5a1-dbd7fdab2ab0",
+    "title" : "It is important to me that my purchases have investment potential"
     }
+    
 ]

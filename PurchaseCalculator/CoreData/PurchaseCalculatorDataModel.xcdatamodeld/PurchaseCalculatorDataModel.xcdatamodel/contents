@@ -11,11 +11,13 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="purchaseValues" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="takeHomePay" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="purchaseValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PurchaseAttributeValue" inverseName="user" inverseEntity="PurchaseAttributeValue"/>
     </entity>
     <elements>
         <element name="PotentialPurchase" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="PurchaseAttributeValue" positionX="-63" positionY="9" width="128" height="88"/>
-        <element name="User" positionX="-54" positionY="18" width="128" height="58"/>
+        <element name="User" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>

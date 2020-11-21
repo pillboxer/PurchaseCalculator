@@ -10,6 +10,11 @@ import SystemKit
 
 class NewUserViewModel: ObservableObject, ErrorPublisher {
     
+    // MARK: - Published
+    @Published var showAlert: Bool = false
+    @Published var newUserName = ""
+    @Published var newUserTakeHomePay = ""
+    
     // MARK: - Errors
     enum NewUserViewModelAlertMessage: String {
         case takeHomePayNotANumber = "Please ensure your take home pay is a number"
@@ -20,24 +25,12 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             showAlert = true
         }
     }
-    var showAlert: Bool = false {
-        didSet {
-            objectWillChange.send()
-        }
-    }
     
     var currentErrorMessage: String?
-    
     
     // MARK: - Name
     var minimumCharactersInName = 3
     var maximumCharactersInName = 15
-    
-    var newUserName = "" {
-        didSet {
-            objectWillChange.send()
-        }
-    }
     
     // MARK: - Pay
     var maximumDigitsForTakeHomePay = 8
@@ -50,18 +43,13 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     
     var selectedCurrencyString: String {
         get {
-            return selectedCurrency.rawValue
+            return selectedCurrency.symbol
         }
         set {
-            selectedCurrency = Currency(rawValue: newValue) ?? .GBP
+            selectedCurrency = Currency.currencyForSymbol(newValue)
         }
     }
     
-    var newUserTakeHomePay = "" {
-        didSet {
-            objectWillChange.send()
-        }
-    }
     
     var currencies: [Currency] {
         Currency.allCases
@@ -105,6 +93,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             newValue.weight = attribute.value
             let takeHomePay = Double(newUserTakeHomePay) ?? 0
             user.takeHomePay = NSNumber(floatLiteral: takeHomePay)
+            user.selectedCurrency = selectedCurrency
             user.addToPurchaseValues(newValue)
         }
         if let error = context.saveWithTry() {

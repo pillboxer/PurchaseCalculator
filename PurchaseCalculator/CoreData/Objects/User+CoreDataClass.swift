@@ -26,5 +26,13 @@ public class User: NSManagedObject {
         purchaseValues?.allObjects as? [PurchaseAttributeValue]
     }
 
+    var selectedCurrency: Currency {
+        get {
+            return Currency(rawValue: selectedCurrencyString ?? "GBP") ?? .GBP
+        }
+        set {
+            selectedCurrencyString = newValue.rawValue
+        }
+    }
 
 }

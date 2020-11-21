@@ -9,8 +9,26 @@ import SystemKit
 
 class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
     
+    // MARK: - Private Stored
+    private var potentialPurchaseCost: Double = 0
     
-    // MARK: - Categories
+    // MARK: - Exposed Stored
+    var currentErrorMessage: String?
+
+    // MARK: - Published
+    @Published var potentialPurchaseBrand = ""
+    @Published var potentialPurchaseModel = ""
+    var potentialPurchaseCostDisplayInfo = "" {
+        didSet {
+            if !potentialPurchaseCostDisplayInfo.contains(symbol) {
+                self.potentialPurchaseCostDisplayInfo = symbol + potentialPurchaseCostDisplayInfo
+            }
+            potentialPurchaseCost = Double(potentialPurchaseCostDisplayInfo.dropFirst()) ?? 0
+            objectWillChange.send()
+        }
+    }
+    
+    // MARK: - Lazy
     lazy var purchaseCategories: [PurchaseCategory]? = {
         do {
             return try JSONDecoder.decodeLocalJSON(file: "PurchaseCategories", type: [PurchaseCategory].self)
@@ -31,16 +49,13 @@ class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
         }
     }()
     
+    private lazy var symbol: String = {
+         User.existingUser?.selectedCurrency.symbol ?? "£"
+    }()
+    
+    // MARK: - Exposed Functions
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
         purchaseItems?.filter { category.purchaseItemIDs.contains($0.uuid) }
     }
-    
-    // MARK: - Errors
-    var currentErrorMessage: String?
-    
-    // MARK: - Initialisation
-    init() {
-        _ = purchaseCategories
-    }
-    
+
 }

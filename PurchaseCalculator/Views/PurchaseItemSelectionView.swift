@@ -9,13 +9,19 @@ import SwiftUI
 
 struct PurchaseItemSelectionView: View {
     
+    @EnvironmentObject var model: PurchaseCategorySelectionViewModel
+    
     var items: [PurchaseItem]?
     
     var body: some View {
         if let items = items {
             List(items) { item in
-                Text(item.itemHandle)
+                NavigationLink(destination: PurchaseItemDetailsView()
+                                .environmentObject(model)) {
+                    Text(item.itemHandle)
+                }
             }
+
         }
         else {
             Text("No items to show")

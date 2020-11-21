@@ -17,7 +17,7 @@ struct NewUserView: View {
             Text(error)
         }
         else if let questions = model.valuesQuestionnaire {
-            let currencies = model.currencies.compactMap { $0.rawValue }
+            let currencies = model.currencies.compactMap { $0.symbol }
                 VStack {
                     Spacer()
                     Text("Let's Get Some Details From You To Personalise Your Results")
@@ -28,6 +28,7 @@ struct NewUserView: View {
                                            textFieldText: $model.newUserName,
                                            minimumCharacters: model.minimumCharactersInName,
                                            maximumCharacters: model.maximumCharactersInName)
+                        .font(.system(size: 12))
                         .padding()
                     NewUserTextFieldWithPicker(selections: currencies,
                                                placeholder: "Enter Your Yearly Take Home Pay",
@@ -69,8 +70,9 @@ struct NewUserTextFieldWithPicker: View {
                                    textFieldText: $textFieldText,
                                    minimumCharacters: minimumCharacters,
                                    maximumCharacters: maximumCharacters)
+                .font(.system(size: 12))
                 .keyboardType(.numberPad)
-            Picker("Hello", selection: $selection) {
+            Picker("", selection: $selection) {
                 ForEach(0..<selections.count)  { index in
                     Text(self.selections[index]).tag(self.selections[index])
                 }
@@ -97,7 +99,6 @@ struct TextFieldWithLimitView: View {
     var body: some View {
         HStack {
             TextField(placeholder, text: $textFieldText)
-                .font(.system(size: 12))
                 .onReceive(Just(textFieldText)) { text in
                     if let characters = maximumCharacters, text.count > characters {
                         textFieldText = String(text.prefix(characters))
@@ -105,7 +106,7 @@ struct TextFieldWithLimitView: View {
                 }
             Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
                 .animation(animated ? .easeIn : .none)
-                .frame(width: 15, height: 15)
+                .fixedSize()
         }
     }
     

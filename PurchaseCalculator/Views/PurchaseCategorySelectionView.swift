@@ -13,8 +13,11 @@ struct PurchaseCategorySelectionView: View {
         if let error = model.currentErrorMessage {
             Text(error)
         }
-        else {
-            Text("Ding")
+        else if let categories = model.purchaseCategories {
+            List(categories) { category in
+                Text(category.categoryHandle)
+            }
+            .navigationBarTitle("Purchase Category", displayMode: .inline)
         }
     }
 }

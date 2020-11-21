@@ -46,7 +46,7 @@ struct NewUserView: View {
                             model.showAlert = false
                         }))
                     }
-                    
+                    .padding()
                 }
             }
     }

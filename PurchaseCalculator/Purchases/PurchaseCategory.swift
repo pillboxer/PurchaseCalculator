@@ -7,10 +7,14 @@
 
 import SystemKit
 
-struct PurchaseCategory: Decodable {
+struct PurchaseCategory: Decodable, Identifiable {
     
     let categoryHandle: String
     let uuid: String
     let purchaseItemIDs: [String]
+    
+    var id: String {
+        uuid
+    }
     
 }

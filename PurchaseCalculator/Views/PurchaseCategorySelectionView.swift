@@ -15,7 +15,9 @@ struct PurchaseCategorySelectionView: View {
         }
         else if let categories = model.purchaseCategories {
             List(categories) { category in
-                Text(category.categoryHandle)
+                NavigationLink(destination: PurchaseItemSelectionView(items: model.itemsForCategory(category))) {
+                    Text(category.categoryHandle)
+                }
             }
             .navigationBarTitle("Purchase Category", displayMode: .inline)
         }

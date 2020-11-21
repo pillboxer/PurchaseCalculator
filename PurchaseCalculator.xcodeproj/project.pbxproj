@@ -52,6 +52,8 @@
 		86ABE227255F1B680013714B /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
 		86D384AA25569E7700051019 /* QuestionGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D384A925569E7700051019 /* QuestionGroups.json */; };
 		86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
+		86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */; };
+		86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +133,8 @@
 		86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionView.swift; sourceTree = "<group>"; };
 		86D384A925569E7700051019 /* QuestionGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionGroups.json; sourceTree = "<group>"; };
 		86D384AC25569F6C00051019 /* QuestionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroup.swift; sourceTree = "<group>"; };
+		86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemSelectionView.swift; sourceTree = "<group>"; };
+		86DB14D125692945003BABD5 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		86E4B56E2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,6 +277,7 @@
 				86A53C352557333E0055C0B9 /* PurchaseCategories.json */,
 				86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */,
 				86A53C45255735040055C0B9 /* PurchaseItems.json */,
+				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
 				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */,
 				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
 			);
@@ -299,6 +304,7 @@
 				86026287254D72EA0085ACD5 /* ContentView.swift */,
 				868CCB2C2558331700C96CFD /* NewUserView.swift */,
 				86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */,
+				86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -451,12 +457,14 @@
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,
 				86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */,
 				860262BB254D739D0085ACD5 /* Question.swift in Sources */,
+				86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */,
 				868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */,
 				867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */,
 				868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */,
 				86026286254D72EA0085ACD5 /* PurchaseCalculatorApp.swift in Sources */,
 				86987068254DAE8B0029B2DE /* Calculator.swift in Sources */,
 				868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */,
+				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

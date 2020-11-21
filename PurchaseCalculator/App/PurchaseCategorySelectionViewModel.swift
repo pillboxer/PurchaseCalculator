@@ -9,7 +9,8 @@ import SystemKit
 
 class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
     
-    // MARK: - Properties (Public)
+    
+    // MARK: - Categories
     lazy var purchaseCategories: [PurchaseCategory]? = {
         do {
             return try JSONDecoder.decodeLocalJSON(file: "PurchaseCategories", type: [PurchaseCategory].self)
@@ -19,6 +20,20 @@ class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
             return nil
         }
     }()
+    
+    lazy var purchaseItems: [PurchaseItem]? = {
+        do {
+            return try JSONDecoder.decodeLocalJSON(file: "PurchaseItems", type: [PurchaseItem].self)
+        }
+        catch let error {
+            publishErrorMessage(error)
+            return nil
+        }
+    }()
+    
+    func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
+        purchaseItems?.filter { category.purchaseItemIDs.contains($0.uuid) }
+    }
     
     // MARK: - Errors
     var currentErrorMessage: String?

@@ -13,7 +13,13 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Published
     @Published var showAlert: Bool = false
     @Published var newUserName = ""
-    @Published var newUserTakeHomePay = ""
+    var newUserTakeHomePay = "" {
+        didSet {
+            let first = newUserTakeHomePay.contains(selectedCurrencyString) ? "" : selectedCurrencyString
+            newUserTakeHomePay = first + newUserTakeHomePay
+            objectWillChange.send()
+        }
+    }
     
     // MARK: - Errors
     enum NewUserViewModelAlertMessage: String {
@@ -46,6 +52,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             return selectedCurrency.symbol
         }
         set {
+            newUserTakeHomePay = newValue
             selectedCurrency = Currency.currencyForSymbol(newValue)
         }
     }
@@ -58,6 +65,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Initialisation
     init() {
         _ = valuesQuestionnaire
+        newUserTakeHomePay = selectedCurrencyString
     }
     
     // MARK: - Values
@@ -107,7 +115,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Validation
     var formIsValid: Bool {
-        if Double(newUserTakeHomePay) == nil {
+        if Double(newUserTakeHomePay.dropFirst()) == nil {
             currentAlertMessage = NewUserViewModelAlertMessage.takeHomePayNotANumber.rawValue
             return false
         }

@@ -93,7 +93,7 @@ struct TextFieldWithLimitView: View {
     var maximumCharacters: Int?
     
     var animated: Bool {
-        !textFieldText.isEmpty
+        textFieldText.count > 1
     }
     
     var body: some View {

@@ -2,16 +2,19 @@
     {
         "uuid" : "8c5bb919-b527-4577-9494-8b410d5bf8fe",
         "categoryHandle" : "Consumer Electronics",
-        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a"]
+        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a",
+            "815218ab-3a62-45e2-8857-cbd6ef44dd5b",
+            "934aabb7-46e3-419f-8e22-c96e8aa178dd"
+        ]
     },
     {
         "uuid" : "4ab48839-d8ed-4381-9369-3cdfa18bbc9b",
         "categoryHandle" : "Fashion",
-        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a"]
+        "purchaseItemIDs" : ["a6be4fec-3cff-4fad-881f-e97dc3e0fee8"]
     },    {
         "uuid" : "ad978d9f-3f9a-4193-baf0-dce967ee4d38",
-        "categoryHandle" : "Subscription Services",
-        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a"]
+        "categoryHandle" : "Recurring Subscriptions",
+        "purchaseItemIDs" : ["4a46cda5-a811-4f03-a327-d5666f84ff20",]
     },    {
         "uuid" : "f86b2b34-bd9e-4f2e-ad2e-3181c930f491",
         "categoryHandle" : "Sports",
@@ -19,10 +22,10 @@
     },    {
         "uuid" : "05c60b9e-ef50-4585-b999-b2fdd4f5901f",
         "categoryHandle" : "Arts & Music",
-        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a"]
+        "purchaseItemIDs" : ["b6d8b618-61e2-4b04-bb2e-efc9e9877ccc"]
     },    {
         "uuid" : "650bf44b-9f5d-4e43-a78e-d536e2e0928f",
         "categoryHandle" : "Housewares",
-        "purchaseItemIDs" : ["97159302-c33b-4804-951b-6d439e9d3b9a"]
+        "purchaseItemIDs" : ["cf44306c-112d-427e-93b0-cf419dfba1f3"]
     }
 ]

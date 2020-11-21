@@ -7,10 +7,8 @@
 
 import Foundation
 
-protocol StringedEnum: RawRepresentable {}
-
 // MARK: - Currency
-enum Currency: String, CaseIterable, StringedEnum {
+enum Currency: String, CaseIterable {
     
     case GBP
     case USD

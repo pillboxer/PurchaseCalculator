@@ -14,5 +14,18 @@
     {
         "uuid" : "f1fb1a01-b331-4d72-b5a1-dbd7fdab2ab0",
         "handle" : "Investment Potential"
+    },
+    {
+        "uuid" : "91238712-4741-4065-a62d-51a1f37f2267",
+        "handle" : "Physical or emotional benefits"
+    },
+    {
+        "uuid" : "272d3467-f36d-488f-98a9-3eb9902aa8ed",
+        "handle" : "Long term use"
+    }.
+    {
+        "uuid" : "a4cb4c96-93bf-48fe-97c4-c8a33b6b8991",
+        "handle" : "User repairable"
     }
+    
 ]

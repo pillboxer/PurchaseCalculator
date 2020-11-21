@@ -33,5 +33,5 @@ class PurchaseCalculatorTests: XCTestCase {
         let questionnaire = viewModel.valuesQuestionnaire
         XCTAssertNotNil(questionnaire)
     }
-
+    
 }

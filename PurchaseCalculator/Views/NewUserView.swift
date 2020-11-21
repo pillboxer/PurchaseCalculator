@@ -40,6 +40,7 @@ struct NewUserView: View {
                     Button("Save") {
                         model.saveNewUser()
                     }
+                    .disabled(model.newUserName.count < model.minimumCharactersInName || model.newUserTakeHomePay.count < model.minimumDigitsForTakeHomePay)
                     .alert(isPresented: $model.showAlert) {
                         Alert(title: Text("Error"), message: Text(model.currentAlertMessage), dismissButton: .default(Text("OK"), action: {
                             model.showAlert = false

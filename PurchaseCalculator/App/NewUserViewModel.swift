@@ -8,34 +8,26 @@
 import Combine
 import SystemKit
 
-class NewUserViewModel: ObservableObject {
-    
-    // MARK: - Publishing
-    let objectWillChange = ObservableObjectPublisher()
+class NewUserViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Errors
     enum NewUserViewModelAlertMessage: String {
         case takeHomePayNotANumber = "Please ensure your take home pay is a number"
     }
     
-    var currentAlertMessage = ""
+    var currentAlertMessage = "" {
+        didSet {
+            showAlert = true
+        }
+    }
     var showAlert: Bool = false {
         didSet {
-            if showAlert == false {
-                currentAlertMessage = ""
-            }
             objectWillChange.send()
         }
     }
     
-    var currentErrorMessage: String? {
-        didSet {
-            objectWillChange.send()
-        }
-    }
-    private func publishErrorMessage(_ error: Error) {
-        currentErrorMessage = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
-    }
+    var currentErrorMessage: String?
+    
     
     // MARK: - Name
     var minimumCharactersInName = 3
@@ -75,19 +67,29 @@ class NewUserViewModel: ObservableObject {
         Currency.allCases
     }
     
+    // MARK: - Initialisation
+    init() {
+        _ = valuesQuestionnaire
+    }
+    
     // MARK: - Values
     var purchaseAttributesToWeightsMap: [String:Double] = [:]
     
-    var valuesQuestionnaire: [Question]? {
+    lazy var valuesQuestionnaire: [Question]? = {
         do {
             let questions = try JSONDecoder.decodeLocalJSON(file: "PurchaseAttributeValueQuestions", type: [Question].self)
+            for question in questions {
+                if let id = question.attributeID {
+                    purchaseAttributesToWeightsMap[id] = 0.5
+                }
+            }
             return questions
         }
         catch let error {
             publishErrorMessage(error)
             return nil
         }
-    }
+    }()
     
     // MARK: - Saving
     func saveNewUser() {
@@ -114,12 +116,12 @@ class NewUserViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Validation
     var formIsValid: Bool {
-        guard let _ = Double(newUserTakeHomePay) else {
+        if Double(newUserTakeHomePay) == nil {
             currentAlertMessage = NewUserViewModelAlertMessage.takeHomePayNotANumber.rawValue
-            showAlert = true
             return false
         }
-        return true
+        return !newUserName.isEmpty && !newUserTakeHomePay.isEmpty
     }
 }

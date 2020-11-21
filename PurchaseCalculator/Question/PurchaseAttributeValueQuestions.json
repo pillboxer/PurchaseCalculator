@@ -1,23 +1,37 @@
 [
     {
-    "uuid" : "d09273b6-9be9-4788-bfa2-0a5ead5f5f7e",
-    "attributeID" : "72c2facd-e97f-42c4-99b3-a1d10cdd9095",
-    "title" : "It is important to me that my purchases are environmentally friendly"
+        "uuid" : "d09273b6-9be9-4788-bfa2-0a5ead5f5f7e",
+        "attributeID" : "72c2facd-e97f-42c4-99b3-a1d10cdd9095",
+        "title" : "It is important to me that my purchases are environmentally friendly"
     },
     {
-    "uuid" : "cd1f61e5-c98e-4dac-aa7b-81d5b79efc46",
-    "attributeID" : "3e09225c-a1a5-4653-9046-f8369bac58ae",
-    "title" : "I try to avoid having too many large products"
+        "uuid" : "cd1f61e5-c98e-4dac-aa7b-81d5b79efc46",
+        "attributeID" : "3e09225c-a1a5-4653-9046-f8369bac58ae",
+        "title" : "I try to avoid having too many large products"
     },
     {
-    "uuid" : "df6ce95e-d808-4575-85f0-026ff33ab0b6",
-    "attributeID" : "7d5e0d13-f0de-4589-a26e-97204bdf2dc4",
-    "title" : "My purchases should have a tangible benefit to others"
+        "uuid" : "df6ce95e-d808-4575-85f0-026ff33ab0b6",
+        "attributeID" : "7d5e0d13-f0de-4589-a26e-97204bdf2dc4",
+        "title" : "My purchases should have a tangible benefit to others"
     },
     {
-    "uuid" : "e741e3e3-a2ae-4faa-a659-cc6080f12257",
-    "attributeID" : "f1fb1a01-b331-4d72-b5a1-dbd7fdab2ab0",
-    "title" : "It is important to me that my purchases have investment potential"
+        "uuid" : "e741e3e3-a2ae-4faa-a659-cc6080f12257",
+        "attributeID" : "f1fb1a01-b331-4d72-b5a1-dbd7fdab2ab0",
+        "title" : "It is important to me that my purchases have investment potential"
+    },
+    {
+        "uuid" : "af4e4b26-cda8-481e-8268-d7836c405dcf",
+        "attributeID" : "91238712-4741-4065-a62d-51a1f37f2267",
+        "title" : "Purchases should probide substantial physical or emotional benefits"
+    },
+    {
+        "uuid" : "17b17478-872c-44d4-90e2-2a148a3ec742",
+        "attributeID" : "272d3467-f36d-488f-98a9-3eb9902aa8ed",
+        "title" : "I like to use my products for many years"
+    },
+    {
+        "uuid" : "70b71706-98bd-40a8-9379-76c45a79b261",
+        "attributeID" : "a4cb4c96-93bf-48fe-97c4-c8a33b6b8991",
+        "title" : "It is important to me that my purchases are user-repariable"
     }
-    
 ]

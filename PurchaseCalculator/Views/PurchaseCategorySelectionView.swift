@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PurchaseCategorySelectionView: View {
-    @EnvironmentObject var model: PurchaseCategorySelectionViewModel
+    @EnvironmentObject var model: PurchaseEvaluationViewModel
     var body: some View {
         if let error = model.currentErrorMessage {
             Text(error)

@@ -25,13 +25,18 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             let first = newUserTakeHomePay.contains(selectedCurrencyString) ? "" : selectedCurrencyString
             let beforeClip = newUserTakeHomePay.isEmpty ? newUserTakeHomePay : first + newUserTakeHomePay
             newUserTakeHomePay = String(beforeClip.prefix(maximumDigitsForTakeHomePay))
+            if newUserTakeHomePayNumber.isZero { newUserTakeHomePay = ""}
             objectWillChange.send()
         }
     }
     
+    var newUserTakeHomePayNumber: Double {
+        Double(newUserTakeHomePay.dropFirst()) ?? 0
+    }
+    
     // MARK: - Errors
     enum NewUserViewModelAlertMessage: String {
-        case takeHomePayNotANumber = "Please ensure your take home pay is a number"
+        case takeHomePayZero = "Please ensure your take home pay is more than zero"
     }
     
     var currentAlertMessage = "" {
@@ -62,7 +67,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
         set {
             let currency = Currency.currencyForSymbol(newValue)
             selectedCurrency = Currency.currencyForSymbol(newValue)
-            newUserTakeHomePay = newUserTakeHomePay.isEmpty ? newUserTakeHomePay : currency.symbol + newUserTakeHomePay.dropFirst()
+            newUserTakeHomePay = newUserTakeHomePay.isEmpty ? newUserTakeHomePay : currency.symbol + String(Int(newUserTakeHomePayNumber))
         }
     }
     
@@ -106,7 +111,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             let newValue = PurchaseAttributeValue(context: context)
             newValue.attributeID = attribute.key
             newValue.weight = attribute.value
-            let takeHomePay = Double(newUserTakeHomePay.dropFirst()) ?? 0
+            let takeHomePay = newUserTakeHomePayNumber
             user.takeHomePay = NSNumber(floatLiteral: takeHomePay)
             user.selectedCurrency = selectedCurrency
             user.addToPurchaseValues(newValue)
@@ -122,8 +127,8 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Validation
     var formIsValid: Bool {
-        if Double(newUserTakeHomePay.dropFirst()) == nil {
-            currentAlertMessage = NewUserViewModelAlertMessage.takeHomePayNotANumber.rawValue
+        if newUserTakeHomePayNumber.isZero {
+            currentAlertMessage = NewUserViewModelAlertMessage.takeHomePayZero.rawValue
             return false
         }
         return !newUserName.isEmpty && !newUserTakeHomePay.isEmpty

@@ -7,7 +7,7 @@
 
 import SystemKit
 
-class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
+class PurchaseEvaluationViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Private Stored
     private var potentialPurchaseCost: Double = 0
@@ -57,5 +57,4 @@ class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
         purchaseItems?.filter { category.purchaseItemIDs.contains($0.uuid) }
     }
-
 }

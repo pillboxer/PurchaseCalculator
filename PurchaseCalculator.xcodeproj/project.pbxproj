@@ -43,6 +43,10 @@
 		8698705F254DA9490029B2DE /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86987068254DAE8B0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
 		8698706A254DAE8C0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
+		869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
+		869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
+		869CA345256AB187000022F7 /* PurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA344256AB187000022F7 /* PurchaseHelper.swift */; };
+		869CA349256AB8D5000022F7 /* EvaluationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA348256AB8D5000022F7 /* EvaluationManager.swift */; };
 		86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C232556AD6B0055C0B9 /* Assets.xcassets */; };
 		86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C352557333E0055C0B9 /* PurchaseCategories.json */; };
 		86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C45255735040055C0B9 /* PurchaseItems.json */; };
@@ -56,7 +60,7 @@
 		86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
 		86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */; };
 		86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */; };
-		86E4B56F2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift */; };
+		86E4B56F2568593200A52F51 /* PurchaseEvaluationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +131,10 @@
 		868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		868CCB432558446500C96CFD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		868CCB442558446500C96CFD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeMultiplierGroup.swift; sourceTree = "<group>"; };
+		869CA341256AB15F000022F7 /* PurchaseAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttribute.swift; sourceTree = "<group>"; };
+		869CA344256AB187000022F7 /* PurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHelper.swift; sourceTree = "<group>"; };
+		869CA348256AB8D5000022F7 /* EvaluationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationManager.swift; sourceTree = "<group>"; };
 		86A53C232556AD6B0055C0B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A53C352557333E0055C0B9 /* PurchaseCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
 		86A53C45255735040055C0B9 /* PurchaseItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItems.json; sourceTree = "<group>"; };
@@ -139,7 +147,7 @@
 		86DB14D125692945003BABD5 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseItemDetailsView.swift; path = PurchaseCalculator/Views/PurchaseItemDetailsView.swift; sourceTree = SOURCE_ROOT; };
 		86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClipboardTextField.swift; sourceTree = "<group>"; };
-		86E4B56E2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionViewModel.swift; sourceTree = "<group>"; };
+		86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseEvaluationViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				860262B4254D733E0085ACD5 /* Calculator.swift */,
+				869CA348256AB8D5000022F7 /* EvaluationManager.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -283,7 +292,10 @@
 				86A53C45255735040055C0B9 /* PurchaseItems.json */,
 				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
 				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */,
+				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
 				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
+				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
+				869CA344256AB187000022F7 /* PurchaseHelper.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -295,7 +307,7 @@
 				86812DDF255589D100C1245E /* AppDelegate.swift */,
 				868CCB2725582EA700C96CFD /* CoreDataManager.swift */,
 				868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */,
-				86E4B56E2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift */,
+				86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */,
 				86E4B5742569148200A52F51 /* GlobalProtocols.swift */,
 				86685D0A2561603000F139D7 /* GlobalEnums.swift */,
 			);
@@ -452,11 +464,14 @@
 				86026288254D72EA0085ACD5 /* ContentView.swift in Sources */,
 				868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */,
 				86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */,
+				869CA349256AB8D5000022F7 /* EvaluationManager.swift in Sources */,
+				869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */,
 				86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */,
+				869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */,
 				86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */,
 				86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */,
 				86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */,
-				86E4B56F2568593200A52F51 /* PurchaseCategorySelectionViewModel.swift in Sources */,
+				86E4B56F2568593200A52F51 /* PurchaseEvaluationViewModel.swift in Sources */,
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
 				868CCB3625583F6C00C96CFD /* NewUserViewModel.swift in Sources */,
@@ -471,6 +486,7 @@
 				86026286254D72EA0085ACD5 /* PurchaseCalculatorApp.swift in Sources */,
 				86987068254DAE8B0029B2DE /* Calculator.swift in Sources */,
 				86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */,
+				869CA345256AB187000022F7 /* PurchaseHelper.swift in Sources */,
 				868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */,
 				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,
 			);

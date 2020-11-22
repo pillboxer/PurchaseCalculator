@@ -9,8 +9,30 @@ import SwiftUI
 
 struct PurchaseItemDetailsView: View {
     
-    @EnvironmentObject var model: PurchaseCategorySelectionViewModel
+    @EnvironmentObject var model: PurchaseEvaluationViewModel
+    @ObservedObject var evaluationManager = EvaluationManager.shared
+    var item: PurchaseItem
     
+    var body: some View {
+        if evaluationManager.evaluationResult != nil {
+            Button("Reset") {
+                EvaluationManager.shared.evaluationResult = nil
+            }
+        }
+        else {
+            PurchaseItemFormView()
+            Button("Calculate") {
+                EvaluationManager.shared.evaluate(item, costing: 200)
+            }
+            Spacer()
+        }
+    }
+}
+
+struct PurchaseItemFormView: View {
+    
+    @EnvironmentObject var model: PurchaseEvaluationViewModel
+
     var body: some View {
         VStack {
             HStack {

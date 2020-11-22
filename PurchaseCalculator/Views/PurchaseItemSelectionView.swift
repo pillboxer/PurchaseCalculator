@@ -9,14 +9,14 @@ import SwiftUI
 
 struct PurchaseItemSelectionView: View {
     
-    @EnvironmentObject var model: PurchaseCategorySelectionViewModel
+    @EnvironmentObject var model: PurchaseEvaluationViewModel
     
     var items: [PurchaseItem]?
     
     var body: some View {
         if let items = items {
             List(items) { item in
-                NavigationLink(destination: PurchaseItemDetailsView()
+                NavigationLink(destination: PurchaseItemDetailsView(item: item)
                                 .environmentObject(model)) {
                     Text(item.itemHandle)
                 }

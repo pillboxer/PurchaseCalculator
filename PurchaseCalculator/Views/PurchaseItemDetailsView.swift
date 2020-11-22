@@ -21,24 +21,20 @@ struct PurchaseItemDetailsView: View {
             }
             TextFieldWithLimitView(placeholder: "Brand Name (eg Apple)",
                                    textFieldText: $model.potentialPurchaseBrand,
-                                   minimumCharacters: 3,
-                                   maximumCharacters: 10)
+                                   minimumCharacters: 3)
                 .padding()
             Divider()
             TextFieldWithLimitView(placeholder: "Model Name (eg iPhone)",
                                    textFieldText: $model.potentialPurchaseModel,
-                                   minimumCharacters: 3,
-                                   maximumCharacters: 10)
+                                   minimumCharacters: 3)
                 .padding()
             Divider()
             TextFieldWithLimitView(placeholder: "Cost",
                                    textFieldText: $model.potentialPurchaseCostDisplayInfo,
                                    minimumCharacters: 2,
-                                   maximumCharacters: 10)
+                                   keyboardType: .numberPad)
                 .keyboardType(.decimalPad)
                 .padding()
-            Spacer()
-
         }
         .padding()
     }

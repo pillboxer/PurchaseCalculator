@@ -11,6 +11,7 @@ class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Private Stored
     private var potentialPurchaseCost: Double = 0
+    private var maximumDigitsForPurchaseCost = 10
     
     // MARK: - Exposed Stored
     var currentErrorMessage: String?
@@ -20,10 +21,9 @@ class PurchaseCategorySelectionViewModel: ObservableObject, ErrorPublisher {
     @Published var potentialPurchaseModel = ""
     var potentialPurchaseCostDisplayInfo = "" {
         didSet {
-            if !potentialPurchaseCostDisplayInfo.contains(symbol) {
-                self.potentialPurchaseCostDisplayInfo = symbol + potentialPurchaseCostDisplayInfo
-            }
-            potentialPurchaseCost = Double(potentialPurchaseCostDisplayInfo.dropFirst()) ?? 0
+            let first = potentialPurchaseCostDisplayInfo.contains(symbol) ? "" : symbol
+            let beforeClip = potentialPurchaseCostDisplayInfo.isEmpty ? potentialPurchaseCostDisplayInfo : first + potentialPurchaseCostDisplayInfo
+            potentialPurchaseCostDisplayInfo = String(beforeClip.prefix(maximumDigitsForPurchaseCost))
             objectWillChange.send()
         }
     }

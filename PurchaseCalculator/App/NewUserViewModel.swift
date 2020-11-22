@@ -7,16 +7,24 @@
 
 import Combine
 import SystemKit
+import UIKit
 
 class NewUserViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Published
     @Published var showAlert: Bool = false
-    @Published var newUserName = ""
+    
+    var newUserName = "" {
+        didSet {
+            newUserName = String(newUserName.prefix(maximumCharactersInName))
+            objectWillChange.send()
+        }
+    }
     var newUserTakeHomePay = "" {
         didSet {
             let first = newUserTakeHomePay.contains(selectedCurrencyString) ? "" : selectedCurrencyString
-            newUserTakeHomePay = first + newUserTakeHomePay
+            let beforeClip = newUserTakeHomePay.isEmpty ? newUserTakeHomePay : first + newUserTakeHomePay
+            newUserTakeHomePay = String(beforeClip.prefix(maximumDigitsForTakeHomePay))
             objectWillChange.send()
         }
     }
@@ -52,11 +60,11 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             return selectedCurrency.symbol
         }
         set {
-            newUserTakeHomePay = newValue
+            let currency = Currency.currencyForSymbol(newValue)
             selectedCurrency = Currency.currencyForSymbol(newValue)
+            newUserTakeHomePay = newUserTakeHomePay.isEmpty ? newUserTakeHomePay : currency.symbol + newUserTakeHomePay.dropFirst()
         }
     }
-    
     
     var currencies: [Currency] {
         Currency.allCases
@@ -65,7 +73,6 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Initialisation
     init() {
         _ = valuesQuestionnaire
-        newUserTakeHomePay = selectedCurrencyString
     }
     
     // MARK: - Values
@@ -99,7 +106,7 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             let newValue = PurchaseAttributeValue(context: context)
             newValue.attributeID = attribute.key
             newValue.weight = attribute.value
-            let takeHomePay = Double(newUserTakeHomePay) ?? 0
+            let takeHomePay = Double(newUserTakeHomePay.dropFirst()) ?? 0
             user.takeHomePay = NSNumber(floatLiteral: takeHomePay)
             user.selectedCurrency = selectedCurrency
             user.addToPurchaseValues(newValue)

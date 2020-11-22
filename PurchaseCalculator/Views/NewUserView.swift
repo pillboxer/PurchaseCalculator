@@ -10,7 +10,7 @@ import Combine
 
 struct NewUserView: View {
     @EnvironmentObject var model: NewUserViewModel
-    
+    let textFieldFont = UIFont.boldSystemFont(ofSize: 12)
     @State var selected = 0
     var body: some View {
         if let error = model.currentErrorMessage {
@@ -27,17 +27,19 @@ struct NewUserView: View {
                     TextFieldWithLimitView(placeholder: "What's Your Name",
                                            textFieldText: $model.newUserName,
                                            minimumCharacters: model.minimumCharactersInName,
-                                           maximumCharacters: model.maximumCharactersInName)
-                        .font(.system(size: 12))
+                                           font: textFieldFont)
                         .padding()
                     NewUserTextFieldWithPicker(selections: currencies,
                                                placeholder: "Enter Your Yearly Take Home Pay",
                                                minimumCharacters: model.minimumDigitsForTakeHomePay,
-                                               maximumCharacters: model.maximumDigitsForTakeHomePay,
                                                textFieldText: $model.newUserTakeHomePay,
-                                               selection: $model.selectedCurrencyString)
+                                               selection: $model.selectedCurrencyString,
+                                               font: textFieldFont)
                         .padding()
                     NewUserValuesForm(questions: questions)
+                        .onTapGesture {
+                            UIApplication.endEditing()
+                        }
                     Button("Save") {
                         model.saveNewUser()
                     }
@@ -59,19 +61,19 @@ struct NewUserTextFieldWithPicker: View {
     var selections: [String]
     var placeholder: String
     var minimumCharacters: Int?
-    var maximumCharacters: Int?
     @Binding var textFieldText: String
     @Binding var selection: String
     @State private var textFieldValue: String = ""
+    var font: UIFont
+
     
     var body: some View {
         HStack {
             TextFieldWithLimitView(placeholder: placeholder,
                                    textFieldText: $textFieldText,
                                    minimumCharacters: minimumCharacters,
-                                   maximumCharacters: maximumCharacters)
-                .font(.system(size: 12))
-                .keyboardType(.numberPad)
+                                   font: font,
+                                   keyboardType: .numberPad)
             Picker("", selection: $selection) {
                 ForEach(0..<selections.count)  { index in
                     Text(self.selections[index]).tag(self.selections[index])
@@ -90,26 +92,20 @@ struct TextFieldWithLimitView: View {
     var placeholder: String
     @Binding var textFieldText: String
     var minimumCharacters: Int?
-    var maximumCharacters: Int?
-    
+    var font: UIFont?
+    var keyboardType: UIKeyboardType?
     var animated: Bool {
         textFieldText.count > 1
     }
     
     var body: some View {
         HStack {
-            TextField(placeholder, text: $textFieldText)
-                .onReceive(Just(textFieldText)) { text in
-                    if let characters = maximumCharacters, text.count > characters {
-                        textFieldText = String(text.prefix(characters))
-                    }
-                }
+            NoClipboardTextField(placeholder: placeholder, font: font, keyboardType: keyboardType, text: $textFieldText)
             Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
                 .animation(animated ? .easeIn : .none)
                 .fixedSize()
         }
     }
-    
 }
 
 struct NewUserValuesForm: View {

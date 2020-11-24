@@ -110,12 +110,18 @@ struct TextFieldWithLimitView: View {
 
 struct NewUserValuesForm: View {
     var questions: [Question]
+    
+    init(questions: [Question]) {
+        self.questions = questions
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
     var body: some View {
         Form {
             ForEach(questions) { question in
                 NewUserValueSelection(question: question)
             }
         }
+        
     }
 }
 
@@ -136,5 +142,13 @@ struct NewUserValueSelection: View {
                 model.purchaseAttributesToWeightsMap[id] = weight
             }
         })
+        .accentColor(colorForWeight(weight))
+    }
+    
+    private func colorForWeight(_ weight: Double) -> Color {
+        // FIXME
+        let color = Color(red: 0.5, green: weight-0, blue: 1-weight, opacity: 1)
+        print(color)
+        return color
     }
 }

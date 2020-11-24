@@ -24,6 +24,7 @@ struct PurchaseItemSelectionView: View {
 
         }
         else {
+            // FIXME
             Text("No items to show")
         }
 

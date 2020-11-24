@@ -27,6 +27,7 @@ class PurchaseHelper {
             return false
         }
         let fivePerCentOfTakeHomePay = takeHomePay * 0.05
+        print("Take home pay is \(takeHomePay) and \(amount) is \(amount/takeHomePay*100)% of \(takeHomePay)")
         return amount > fivePerCentOfTakeHomePay
     }
 }

@@ -10,11 +10,13 @@ import SystemKit
 class PurchaseEvaluationViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Private Stored
-    private var potentialPurchaseCost: Double = 0
     private var maximumDigitsForPurchaseCost = 10
     
     // MARK: - Exposed Stored
     var currentErrorMessage: String?
+    var potentialPurchaseCost: Double {
+        Double(potentialPurchaseCostDisplayInfo.dropFirst()) ?? 0
+    }
 
     // MARK: - Published
     @Published var potentialPurchaseBrand = ""

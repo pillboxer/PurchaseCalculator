@@ -14,7 +14,10 @@ struct PurchaseItemDetailsView: View {
     var item: PurchaseItem
     
     var body: some View {
-        if evaluationManager.evaluationResult != nil {
+        // FIXME
+        if let result = evaluationManager.evaluationResult {
+            Text(result.resultMessage)
+                .foregroundColor(result.textColor)
             Button("Reset") {
                 EvaluationManager.shared.evaluationResult = nil
             }
@@ -22,7 +25,7 @@ struct PurchaseItemDetailsView: View {
         else {
             PurchaseItemFormView()
             Button("Calculate") {
-                EvaluationManager.shared.evaluate(item, costing: 200)
+                EvaluationManager.shared.evaluate(item, costing: model.potentialPurchaseCost)
             }
             Spacer()
         }
@@ -32,7 +35,6 @@ struct PurchaseItemDetailsView: View {
 struct PurchaseItemFormView: View {
     
     @EnvironmentObject var model: PurchaseEvaluationViewModel
-
     var body: some View {
         VStack {
             HStack {

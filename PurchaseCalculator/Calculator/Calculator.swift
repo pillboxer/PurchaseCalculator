@@ -12,7 +12,7 @@ class Calculator: ObservableObject {
     
     let item: PurchaseItem
     let itemCost: Double
-    var score: Double
+    private var score: Double
     
     init(item: PurchaseItem, costing itemCost: Double, initialScore: Double = 1) {
         self.item = item

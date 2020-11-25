@@ -59,18 +59,31 @@ class EvaluationManager: ObservableObject {
         }
     }
         
-    func evaluate(_ item: PurchaseItem, costing: Double) {
-        let calculator = Calculator(item: item, costing: costing)
-        guard let score = calculator.calculate() else {
-            error = .couldNotEvaluate
+    func evaluate(_ item: PurchaseItem, costing itemCost: Double) {
+        guard let multiplierGroupForItem = multiplierGroupForItem(item) else {
             return
         }
+        
+        let calculator = Calculator()
+        for (id, multiplier) in multiplierGroupForItem.attributeMultipliers {
+            let weight = PurchaseHelper.usersPurchaseAttributeValueWeightForAttributeID(id)
+            calculator.calculate(multiplier: multiplier, weight: weight)
+        }
+        
+        let penalty = PurchaseHelper.isGreaterThan5PerCentOfTakeHomePay(itemCost) ? 0.6 : 1
+        calculator.applyPenalty(penalty)
         evaluationResult = .positive("Definitely!")
         for pair in thresholdEvaulationPairs {
-            if score < pair.threshold {
+            if calculator.score < pair.threshold {
                 evaluationResult = pair.result
             }
         }
+    }
+    
+    func multiplierGroupForItem(_ item: PurchaseItem) -> PurchaseAttributeMultiplierGroup? {
+        try? JSONDecoder.decodeLocalJSON(file: "PurchaseItemAttributeMultipliersGroups", type: [PurchaseAttributeMultiplierGroup].self)
+            .filter { $0.uuid == item.attributeMultiplierGroupID }
+            .first
     }
     
 }

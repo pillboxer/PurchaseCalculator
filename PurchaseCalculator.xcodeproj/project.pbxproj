@@ -62,6 +62,13 @@
 		86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseEvaluationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
+		86EADFEF256EEBBD008C625C /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
+		86EADFF3256EEBE1008C625C /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
+		86EADFF5256EEBE4008C625C /* PurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA344256AB187000022F7 /* PurchaseHelper.swift */; };
+		86EADFF7256EEBE9008C625C /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
+		86EADFF9256EEBF4008C625C /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
+		86EADFFB256EEC0B008C625C /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
+		86EADFFD256EEC44008C625C /* PurchaseEvaluationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -497,13 +504,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */,
+				86EADFF7256EEBE9008C625C /* PurchaseAttribute.swift in Sources */,
 				86685D08255F1CA900F139D7 /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
+				86EADFF5256EEBE4008C625C /* PurchaseHelper.swift in Sources */,
+				86EADFFD256EEC44008C625C /* PurchaseEvaluationViewModel.swift in Sources */,
 				86685D02255F1C9300F139D7 /* PurchaseAttributeValue+CoreDataClass.swift in Sources */,
+				86EADFF9256EEBF4008C625C /* PurchaseAttributeMultiplierGroup.swift in Sources */,
 				86789E3D254D7C3400A198C0 /* Question.swift in Sources */,
 				86685D04255F1C9600F139D7 /* User+CoreDataClass.swift in Sources */,
+				86EADFFB256EEC0B008C625C /* PurchaseCategory.swift in Sources */,
 				86685CFC255F1C6A00F139D7 /* NewUserViewModel.swift in Sources */,
 				86ABE227255F1B680013714B /* QuestionGroup.swift in Sources */,
 				86685D06255F1CA600F139D7 /* User+CoreDataProperties.swift in Sources */,
+				86EADFEF256EEBBD008C625C /* GlobalProtocols.swift in Sources */,
+				86EADFF3256EEBE1008C625C /* PurchaseItem.swift in Sources */,
 				86789E45254D7C3A00A198C0 /* QuestionOption.swift in Sources */,
 				86685D0E2561766800F139D7 /* GlobalEnums.swift in Sources */,
 				86685D00255F1C7C00F139D7 /* CoreDataManager.swift in Sources */,

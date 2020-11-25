@@ -27,11 +27,18 @@ class PurchaseCalculatorTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
-
-    func testViewModelValuesQuestionnaireReturns() {
+    // MARK: - New User
+    func testNewUserViewModelValuesQuestionnaireReturns() {
         let viewModel = NewUserViewModel()
         let questionnaire = viewModel.valuesQuestionnaire
         XCTAssertNotNil(questionnaire)
+    }
+    
+    // MARK: - Evaluation
+    func testEvaluationViewModelPurchaseCategoriesReturn() {
+        let viewModel = PurchaseEvaluationViewModel()
+        let attributes = viewModel.purchaseCategories
+        XCTAssertNotNil(attributes)
     }
     
 }

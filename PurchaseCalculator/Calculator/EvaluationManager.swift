@@ -12,7 +12,15 @@ class EvaluationManager: ObservableObject {
     
     @Published var error: EvaluationError?
     @Published var evaluationResult: EvaluationResult?
-    static let shared = EvaluationManager()
+    
+    private let user: User
+    
+    init?(user: User? = User.existingUser) {
+        guard let user = user else {
+            return nil
+        }
+        self.user = user
+    }
 
     enum EvaluationError: String {
         case couldNotEvaluate = "Could not evaluate, please try again"
@@ -27,7 +35,7 @@ class EvaluationManager: ObservableObject {
             (1, .positive("Looks Like A Good Buy")),
             (0.8, .neutral("Sleep On It")),
             (0.6, .neutral("Wait One Week")),
-            (0.5, EvaluationResult.negative("Definitely Not"))
+            (0.5, .negative("Definitely Not"))
         ]
     }
     
@@ -66,11 +74,12 @@ class EvaluationManager: ObservableObject {
         
         let calculator = Calculator()
         for (id, multiplier) in multiplierGroupForItem.attributeMultipliers {
-            let weight = PurchaseHelper.usersPurchaseAttributeValueWeightForAttributeID(id)
+            let weight = user.weightForAttributeID(id) ?? 0.5
             calculator.calculate(multiplier: multiplier, weight: weight)
         }
         
-        let penalty = PurchaseHelper.isGreaterThan5PerCentOfTakeHomePay(itemCost) ? 0.6 : 1
+        let percentageOfTakeHomePay = user.amountAsPerCentOfTakeHomePay(itemCost)
+        let penalty = percentageOfTakeHomePay > 5 ? 0.6 : 1
         calculator.applyPenalty(penalty)
         evaluationResult = .positive("Definitely!")
         for pair in thresholdEvaulationPairs {

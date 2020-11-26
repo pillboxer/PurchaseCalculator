@@ -34,5 +34,16 @@ public class User: NSManagedObject {
             selectedCurrencyString = newValue.rawValue
         }
     }
+    
+    func weightForAttributeID(_ id: String) -> Double? {
+        purchaseValuesArray?.filter { $0.attributeID == id }.first?.weight
+    }
+    
+    func amountAsPerCentOfTakeHomePay(_ amount: Double) -> Double {
+        guard let takeHomePay = takeHomePay?.doubleValue else {
+            return 0
+        }
+        return amount / takeHomePay * 100
+    }
 
 }

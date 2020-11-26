@@ -14,20 +14,20 @@ struct PurchaseItemSelectionView: View {
     var items: [PurchaseItem]?
     
     var body: some View {
-        if let items = items {
+        if let items = items,
+           let user = User.existingUser,
+           let evaluationManager = EvaluationManager(user: user){
             List(items) { item in
-                NavigationLink(destination: PurchaseItemDetailsView(item: item)
-                                .environmentObject(model)) {
+                NavigationLink(destination: PurchaseItemDetailsView(evaluationManager: evaluationManager, item: item).environmentObject(model)) {
                     Text(item.itemHandle)
                 }
             }
-
         }
         else {
             // FIXME
             Text("No items to show")
         }
-
+        
     }
     
 }

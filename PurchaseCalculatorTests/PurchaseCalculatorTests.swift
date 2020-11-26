@@ -41,4 +41,8 @@ class PurchaseCalculatorTests: XCTestCase {
         XCTAssertNotNil(attributes)
     }
     
+    func testEvaluationManagerReturnsEvaluationForPurchaseItem() {
+        // FIXME: - 
+    }
+    
 }

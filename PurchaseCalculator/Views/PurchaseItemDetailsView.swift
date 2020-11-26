@@ -10,7 +10,7 @@ import SwiftUI
 struct PurchaseItemDetailsView: View {
     
     @EnvironmentObject var model: PurchaseEvaluationViewModel
-    @ObservedObject var evaluationManager = EvaluationManager.shared
+    @ObservedObject var evaluationManager: EvaluationManager
     var item: PurchaseItem
     
     var body: some View {
@@ -19,13 +19,13 @@ struct PurchaseItemDetailsView: View {
             Text(result.resultMessage)
                 .foregroundColor(result.textColor)
             Button("Reset") {
-                EvaluationManager.shared.evaluationResult = nil
+                evaluationManager.evaluationResult = nil
             }
         }
         else {
             PurchaseItemFormView()
             Button("Calculate") {
-                EvaluationManager.shared.evaluate(item, costing: model.potentialPurchaseCost)
+                evaluationManager.evaluate(item, costing: model.potentialPurchaseCost)
             }
             Spacer()
         }

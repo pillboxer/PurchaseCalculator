@@ -104,7 +104,8 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
         guard formIsValid else {
             return
         }
-        let context = CoreDataManager.shared.moc
+        let manager = CoreDataManager.shared
+        let context = manager.moc
         let user = User(context: context)
         user.name = newUserName
         for attribute in purchaseAttributesToWeightsMap {
@@ -116,13 +117,12 @@ class NewUserViewModel: ObservableObject, ErrorPublisher {
             user.selectedCurrency = selectedCurrency
             user.addToPurchaseValues(newValue)
         }
-        if let error = context.saveWithTry() {
-            publishErrorMessage(error)
-            context.reset()
+        manager.save(context) { error in
+            if let error = error {
+                self.publishErrorMessage(error)
+            }
         }
-        else {
-            objectWillChange.send()
-        }
+        self.objectWillChange.send()
     }
     
     // MARK: - Validation

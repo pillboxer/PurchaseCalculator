@@ -11,8 +11,30 @@ import SystemKit
 
 class PurchaseCalculatorTests: XCTestCase {
     
+    let coreDataManager = CoreDataManager.shared
+    
+    var testUser: User?
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        createTestUser()
+    }
+    
+    private func createTestUser() {
+        let viewModel = NewUserViewModel()
+        let questions = viewModel.valuesQuestionnaire ?? []
+        let context = coreDataManager.moc
+        let user = User(context: context)
+        user.takeHomePay = NSNumber(floatLiteral: 50000)
+        user.name = "Test User"
+        for question in questions {
+            let id = question.attributeID
+            let value = PurchaseAttributeValue(context: context)
+            value.attributeID = id
+            value.weight = 0.5
+            user.addToPurchaseValues(value)
+        }
+        testUser = user
+        coreDataManager.save(context)
     }
 
     override func tearDownWithError() throws {
@@ -27,6 +49,8 @@ class PurchaseCalculatorTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+    
+    
     // MARK: - New User
     func testNewUserViewModelValuesQuestionnaireReturns() {
         let viewModel = NewUserViewModel()
@@ -42,7 +66,13 @@ class PurchaseCalculatorTests: XCTestCase {
     }
     
     func testEvaluationManagerReturnsEvaluationForPurchaseItem() {
-        // FIXME: - 
+        let smartphoneUUID = "97159302-c33b-4804-951b-6d439e9d3b9a"
+        let smartphoneHandle = "Smart Phone"
+        let smartphoneAttributeGroupID = "b2ae2961-5bb4-4185-9d8d-e2199986541c"
+        let item = PurchaseItem(uuid: smartphoneUUID, itemHandle: smartphoneHandle, attributeMultiplierGroupID: smartphoneAttributeGroupID)
+        let evaluationManager = EvaluationManager(user: testUser)
+        evaluationManager?.evaluate(item, costing: 1000)
+        XCTAssertNotNil(evaluationManager?.evaluationResult)
     }
     
 }

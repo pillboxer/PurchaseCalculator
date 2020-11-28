@@ -5,8 +5,6 @@
 //  Created by Henry Cooper on 31/10/2020.
 //
 
-import SystemKit
-
 struct PurchaseCategory: Decodable, Identifiable {
     
     let categoryHandle: String

@@ -15,18 +15,9 @@
 		860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262C2254D74260085ACD5 /* QuestionOption.swift */; };
 		86446FD525582A3700D0AC5E /* PurchaseAttributeValueQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86446FD425582A3700D0AC5E /* PurchaseAttributeValueQuestions.json */; };
 		86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */; };
-		86685CFC255F1C6A00F139D7 /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */; };
-		86685D00255F1C7C00F139D7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2725582EA700C96CFD /* CoreDataManager.swift */; };
-		86685D02255F1C9300F139D7 /* PurchaseAttributeValue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */; };
-		86685D04255F1C9600F139D7 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB432558446500C96CFD /* User+CoreDataClass.swift */; };
-		86685D06255F1CA600F139D7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB442558446500C96CFD /* User+CoreDataProperties.swift */; };
-		86685D08255F1CA900F139D7 /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
-		86685D0E2561766800F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		86789DF3254D759F00A198C0 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86789DF2254D759F00A198C0 /* Questions.json */; };
-		86789E3D254D7C3400A198C0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262BA254D739D0085ACD5 /* Question.swift */; };
 		86789E41254D7C3600A198C0 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 86789DF2254D759F00A198C0 /* Questions.json */; };
-		86789E45254D7C3A00A198C0 /* QuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262C2254D74260085ACD5 /* QuestionOption.swift */; };
 		86789F05254D9CE400A198C0 /* QuestionCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 86789F04254D9CE400A198C0 /* QuestionCategories.json */; };
 		86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
 		867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */; };
@@ -39,10 +30,7 @@
 		868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */; };
 		868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB432558446500C96CFD /* User+CoreDataClass.swift */; };
 		868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB442558446500C96CFD /* User+CoreDataProperties.swift */; };
-		8698705E254DA9490029B2DE /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; };
-		8698705F254DA9490029B2DE /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86987068254DAE8B0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
-		8698706A254DAE8C0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
 		869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
 		869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
 		869CA349256AB8D5000022F7 /* EvaluationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA348256AB8D5000022F7 /* EvaluationManager.swift */; };
@@ -51,10 +39,10 @@
 		86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C45255735040055C0B9 /* PurchaseItems.json */; };
 		86A53C4D255735760055C0B9 /* PurchaseAttributes.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C4C255735750055C0B9 /* PurchaseAttributes.json */; };
 		86A53C5025573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */; };
-		86A6C94825703EFC000FB417 /* PurchaseItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */; };
-		86A6C94C25703FCA000FB417 /* EvaluationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA348256AB8D5000022F7 /* EvaluationManager.swift */; };
 		86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */; };
-		86ABE227255F1B680013714B /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
+		86B1EEAF2572A10100526DE9 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; };
+		86B1EEB02572A10100526DE9 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */; };
 		86D384AA25569E7700051019 /* QuestionGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D384A925569E7700051019 /* QuestionGroups.json */; };
 		86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
 		86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */; };
@@ -63,12 +51,6 @@
 		86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseEvaluationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
-		86EADFEF256EEBBD008C625C /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
-		86EADFF3256EEBE1008C625C /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
-		86EADFF7256EEBE9008C625C /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
-		86EADFF9256EEBF4008C625C /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
-		86EADFFB256EEC0B008C625C /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
-		86EADFFD256EEC44008C625C /* PurchaseEvaluationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,13 +78,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		86789E99254D802800A198C0 /* Embed Frameworks */ = {
+		86B1EEB12572A10100526DE9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8698705F254DA9490029B2DE /* SystemKit.framework in Embed Frameworks */,
+				86B1EEB02572A10100526DE9 /* SystemKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +129,7 @@
 		86A53C4C255735750055C0B9 /* PurchaseAttributes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseAttributes.json; sourceTree = "<group>"; };
 		86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItemAttributeMultipliersGroups.json; sourceTree = "<group>"; };
 		86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionView.swift; sourceTree = "<group>"; };
+		86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		86D384A925569E7700051019 /* QuestionGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionGroups.json; sourceTree = "<group>"; };
 		86D384AC25569F6C00051019 /* QuestionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroup.swift; sourceTree = "<group>"; };
 		86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemSelectionView.swift; sourceTree = "<group>"; };
@@ -162,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8698705E254DA9490029B2DE /* SystemKit.framework in Frameworks */,
+				86B1EEAF2572A10100526DE9 /* SystemKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +294,7 @@
 				86026285254D72EA0085ACD5 /* PurchaseCalculatorApp.swift */,
 				86812DDF255589D100C1245E /* AppDelegate.swift */,
 				868CCB2725582EA700C96CFD /* CoreDataManager.swift */,
+				86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */,
 				868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */,
 				86E4B56E2568593200A52F51 /* PurchaseEvaluationViewModel.swift */,
 				86E4B5742569148200A52F51 /* GlobalProtocols.swift */,
@@ -342,7 +326,7 @@
 				8602627E254D72EA0085ACD5 /* Sources */,
 				8602627F254D72EA0085ACD5 /* Frameworks */,
 				86026280254D72EA0085ACD5 /* Resources */,
-				86789E99254D802800A198C0 /* Embed Frameworks */,
+				86B1EEB12572A10100526DE9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -482,6 +466,7 @@
 				868CCB3625583F6C00C96CFD /* NewUserViewModel.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,
+				86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */,
 				86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */,
 				860262BB254D739D0085ACD5 /* Question.swift in Sources */,
 				86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */,
@@ -501,25 +486,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */,
-				86EADFF7256EEBE9008C625C /* PurchaseAttribute.swift in Sources */,
-				86685D08255F1CA900F139D7 /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
-				86EADFFD256EEC44008C625C /* PurchaseEvaluationViewModel.swift in Sources */,
-				86685D02255F1C9300F139D7 /* PurchaseAttributeValue+CoreDataClass.swift in Sources */,
-				86EADFF9256EEBF4008C625C /* PurchaseAttributeMultiplierGroup.swift in Sources */,
-				86789E3D254D7C3400A198C0 /* Question.swift in Sources */,
-				86685D04255F1C9600F139D7 /* User+CoreDataClass.swift in Sources */,
-				86EADFFB256EEC0B008C625C /* PurchaseCategory.swift in Sources */,
-				86685CFC255F1C6A00F139D7 /* NewUserViewModel.swift in Sources */,
-				86ABE227255F1B680013714B /* QuestionGroup.swift in Sources */,
-				86685D06255F1CA600F139D7 /* User+CoreDataProperties.swift in Sources */,
-				86EADFEF256EEBBD008C625C /* GlobalProtocols.swift in Sources */,
-				86EADFF3256EEBE1008C625C /* PurchaseItem.swift in Sources */,
-				86789E45254D7C3A00A198C0 /* QuestionOption.swift in Sources */,
-				86685D0E2561766800F139D7 /* GlobalEnums.swift in Sources */,
-				86685D00255F1C7C00F139D7 /* CoreDataManager.swift in Sources */,
-				8698706A254DAE8C0029B2DE /* Calculator.swift in Sources */,
-				86A6C94825703EFC000FB417 /* PurchaseItemDetailsView.swift in Sources */,
-				86A6C94C25703FCA000FB417 /* EvaluationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +537,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -632,6 +599,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -700,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				INFOPLIST_FILE = PurchaseCalculatorTests/Info.plist;
@@ -721,6 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				INFOPLIST_FILE = PurchaseCalculatorTests/Info.plist;
@@ -738,6 +708,114 @@
 			};
 			name = Release;
 		};
+		86B1EEBC2572A1DB00526DE9 /* DebugEphemeral */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = DebugEphemeral;
+		};
+		86B1EEBD2572A1DB00526DE9 /* DebugEphemeral */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = ZUT4ATB28X;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = PurchaseCalculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-D EPHEMERAL";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SixEye.purchaseCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = DebugEphemeral;
+		};
+		86B1EEBE2572A1DB00526DE9 /* DebugEphemeral */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZUT4ATB28X;
+				INFOPLIST_FILE = PurchaseCalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.henry.PurchaseCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PurchaseCalculator.app/PurchaseCalculator";
+			};
+			name = DebugEphemeral;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -745,6 +823,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262A5254D72EC0085ACD5 /* Debug */,
+				86B1EEBC2572A1DB00526DE9 /* DebugEphemeral */,
 				860262A6254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -754,6 +833,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262A8254D72EC0085ACD5 /* Debug */,
+				86B1EEBD2572A1DB00526DE9 /* DebugEphemeral */,
 				860262A9254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -763,6 +843,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262AB254D72EC0085ACD5 /* Debug */,
+				86B1EEBE2572A1DB00526DE9 /* DebugEphemeral */,
 				860262AC254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

@@ -148,7 +148,6 @@ struct NewUserValueSelection: View {
     private func colorForWeight(_ weight: Double) -> Color {
         // FIXME
         let color = Color(red: 0.5, green: weight-0, blue: 1-weight, opacity: 1)
-        print(color)
         return color
     }
 }

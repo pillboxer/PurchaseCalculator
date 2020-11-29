@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct PurchaseItem: Decodable, Identifiable {
+struct PurchaseItem: Decodable, RowType {
     
     let uuid: String
-    let itemHandle: String
+    let title: String
     let attributeMultiplierGroupID: String
+    let imageName: String
     
     var id: String {
         uuid

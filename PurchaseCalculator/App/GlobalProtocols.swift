@@ -22,3 +22,8 @@ extension ErrorPublisher {
 
 }
 
+protocol RowType: Identifiable {
+    var id: String { get }
+    var title: String { get }
+    var imageName: String { get }
+}

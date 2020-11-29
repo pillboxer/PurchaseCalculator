@@ -11,15 +11,16 @@ struct PurchaseItemDetailsView: View {
     
     @EnvironmentObject var model: PurchaseEvaluationViewModel
     @ObservedObject var evaluationManager: EvaluationManager
+    @Environment(\.presentationMode) var presentationMode
     var item: PurchaseItem
     
     var body: some View {
-        // FIXME
         if let result = evaluationManager.evaluationResult {
             Text(result.resultMessage)
                 .foregroundColor(result.textColor)
             Button("Reset") {
-                evaluationManager.evaluationResult = nil
+//                model.navigationIsActive = false
+//                presentationMode.wrappedValue.dismiss()
             }
         }
         else {

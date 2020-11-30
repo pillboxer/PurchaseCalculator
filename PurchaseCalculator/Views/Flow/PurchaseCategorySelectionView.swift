@@ -35,13 +35,10 @@ struct PurchaseCategoriesListView: View {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(categories) { category in
                     let destination = PurchaseItemSelectionView(items: model.itemsForCategory(category))
-                        .environmentObject(model)
                     NavigationLinkedRowView(item: category,
                                             destinationController: destination,
-                                            animated: model.allowAnimation,
                                             selectedID: $selectedCategoryID) {
                         selectedCategoryID = category.id
-                        model.allowAnimation = true
                     }
                 }
             }

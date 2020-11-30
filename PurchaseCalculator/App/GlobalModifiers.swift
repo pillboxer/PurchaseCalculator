@@ -15,3 +15,28 @@ struct StandardFontModifier: ViewModifier {
             .font(standardFont)
     }
 }
+
+struct AnimationCompletionModifier<T: VectorArithmetic>: AnimatableModifier {
+    
+    // MARK: - Conformance
+    var animatableData: T {
+        didSet {
+            notifyOfFinishIfNecessary()
+        }
+    }
+    
+    // MARK: - Properties
+    private var completionHandler: () -> Void
+    
+    private func notifyOfFinishIfNecessary() {
+        if animatableData == targetValue {
+            DispatchQueue.main.async {
+                self.completionHandler()
+            }
+        }
+    }
+    
+    private var targetValue: T {
+        
+    }
+}

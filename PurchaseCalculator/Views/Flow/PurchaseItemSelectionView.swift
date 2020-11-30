@@ -9,9 +9,6 @@ import SwiftUI
 
 struct PurchaseItemSelectionView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
-
     @State var selectedItemID: String?
     var items: [PurchaseItem]?
     
@@ -36,7 +33,6 @@ struct PurchaseItemSelectionView: View {
 
 struct PurchaseItemsListView: View {
     
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
     var items: [PurchaseItem]
     var manager: EvaluationManager
     @Binding var selectedItemID: String?
@@ -45,15 +41,11 @@ struct PurchaseItemsListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(items) { item in
-                    let destination = PurchaseItemDetailsView(evaluationManager: manager,
-                                                              item: item)
-                        .environmentObject(model)
+                    let destination = PurchaseItemDetailsView(evaluationManager: manager,                                                              item: item)
                     NavigationLinkedRowView(item: item,
                                        destinationController: destination,
-                                       animated: false,
                                        selectedID: $selectedItemID) {
                         selectedItemID = item.id
-                        model.allowAnimation = true
                     }
                 }
             }

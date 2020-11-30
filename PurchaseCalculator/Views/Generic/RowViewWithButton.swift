@@ -13,10 +13,10 @@ struct RowViewWithButton: View {
     let imageName: String
     let id: String
     let selected: Bool
-    let animation: Bool
     var divider: Bool = true
     
     var rowHandler: (() -> Void)?
+    @State var opacity: Double = 1
     
     var body: some View {
         HStack {
@@ -29,6 +29,7 @@ struct RowViewWithButton: View {
                 .modifier(StandardFontModifier())
             Spacer()
             Button(action: {
+                reduceOpacity()
                 rowHandler?()
             }) {
                 Image(systemName: "arrow.right.circle")
@@ -38,14 +39,23 @@ struct RowViewWithButton: View {
         }
         .padding()
         .onTapGesture {
+            reduceOpacity()
             rowHandler?()
         }
-        .opacity(selected ? 0.5 : 1)
-        .animation(animation ? .easeOut : .none)
+        .onAppear { resetOpacity() }
+        .opacity(opacity)
         Rectangle()
             .fill(Color.primary)
             .frame(height: divider ? 1 : 0)
             .edgesIgnoringSafeArea(.horizontal)
+    }
+    
+    func reduceOpacity() {
+        withAnimation { opacity *= 0.5 }
+    }
+    
+    func resetOpacity() {
+        withAnimation(.easeIn(duration: 0.8)) { opacity = 1 }
     }
     
 }

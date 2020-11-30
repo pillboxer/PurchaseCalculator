@@ -19,7 +19,6 @@ class PurchaseEvaluationViewModel: ObservableObject, ErrorPublisher {
     }
 
     // MARK: - Published
-    @Published var allowAnimation = false
     @Published var potentialPurchaseBrand = ""
     @Published var potentialPurchaseModel = ""
     var potentialPurchaseCostDisplayInfo = "" {

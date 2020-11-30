@@ -11,7 +11,6 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
     
     let item: T
     let destinationController: Destination
-    var animated: Bool = false
     @Binding var selectedID: String?
     var divider: Bool = true
     var rowHandler: (() -> Void)?
@@ -23,7 +22,6 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
                           imageName: item.imageName,
                           id: item.id,
                           selected: isSelected,
-                          animation: animated,
                           divider: divider,
             rowHandler: rowHandler)
     }

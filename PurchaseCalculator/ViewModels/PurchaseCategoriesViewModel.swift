@@ -7,28 +7,10 @@
 
 import SystemKit
 
-class PurchaseEvaluationViewModel: ObservableObject, ErrorPublisher {
-    
-    // MARK: - Private Stored
-    private var maximumDigitsForPurchaseCost = 10
+class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Exposed Stored
     var currentErrorMessage: String?
-    var potentialPurchaseCost: Double {
-        Double(potentialPurchaseCostDisplayInfo.dropFirst()) ?? 0
-    }
-
-    // MARK: - Published
-    @Published var potentialPurchaseBrand = ""
-    @Published var potentialPurchaseModel = ""
-    var potentialPurchaseCostDisplayInfo = "" {
-        didSet {
-            let first = potentialPurchaseCostDisplayInfo.contains(symbol) ? "" : symbol
-            let beforeClip = potentialPurchaseCostDisplayInfo.isEmpty ? potentialPurchaseCostDisplayInfo : first + potentialPurchaseCostDisplayInfo
-            potentialPurchaseCostDisplayInfo = String(beforeClip.prefix(maximumDigitsForPurchaseCost))
-            objectWillChange.send()
-        }
-    }
     
     // MARK: - Lazy
     lazy var purchaseCategories: [PurchaseCategory]? = {
@@ -49,10 +31,6 @@ class PurchaseEvaluationViewModel: ObservableObject, ErrorPublisher {
             publishErrorMessage(error)
             return nil
         }
-    }()
-    
-    private lazy var symbol: String = {
-         User.existingUser?.selectedCurrency.symbol ?? "£"
     }()
     
     // MARK: - Exposed Functions

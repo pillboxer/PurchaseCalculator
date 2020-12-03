@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PurchaseCategorySelectionView: View {
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
+    @EnvironmentObject var model: PurchaseCategoriesViewModel
     
     var body: some View {
         if let error = model.currentErrorMessage {
@@ -25,7 +25,7 @@ struct PurchaseCategorySelectionView: View {
 
 struct PurchaseCategoriesListView: View {
     
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
+    @EnvironmentObject var model: PurchaseCategoriesViewModel
     
     let categories: [PurchaseCategory]
     @State var selectedCategoryID: String?

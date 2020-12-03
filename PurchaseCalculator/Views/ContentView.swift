@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var newUserViewModel = NewUserViewModel()
-    @ObservedObject var purchaseEvaluationViewModel = PurchaseEvaluationViewModel()
+    @ObservedObject var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
     var body: some View {
         NavigationView {
             if !User.doesExist {
@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             else {
                 PurchaseCategorySelectionView()
-                    .environmentObject(purchaseEvaluationViewModel)
+                    .environmentObject(purchaseCategoryViewModel)
             }
         }
     }

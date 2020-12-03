@@ -18,6 +18,10 @@ struct RowViewWithButton: View {
     var rowHandler: (() -> Void)?
     @State var opacity: Double = 1
     
+    var shouldExecuteRowHandler: Bool {
+        opacity != 1
+    }
+    
     var body: some View {
         HStack {
             Image(systemName: imageName)
@@ -30,7 +34,6 @@ struct RowViewWithButton: View {
             Spacer()
             Button(action: {
                 reduceOpacity()
-                rowHandler?()
             }) {
                 Image(systemName: "arrow.right.circle")
             }
@@ -40,10 +43,12 @@ struct RowViewWithButton: View {
         .padding()
         .onTapGesture {
             reduceOpacity()
-            rowHandler?()
         }
         .onAppear { resetOpacity() }
         .opacity(opacity)
+        .onAnimationCompleted(for: opacity) {
+            shouldExecuteRowHandler ? rowHandler?() : nil
+        }
         Rectangle()
             .fill(Color.primary)
             .frame(height: divider ? 1 : 0)

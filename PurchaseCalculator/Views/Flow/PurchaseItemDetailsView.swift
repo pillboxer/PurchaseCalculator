@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PurchaseItemDetailsView: View {
     
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
     @ObservedObject var evaluationManager: EvaluationManager
-    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var model = PurchaseItemViewModel()
+    
     var item: PurchaseItem
     
     var body: some View {
@@ -24,9 +24,9 @@ struct PurchaseItemDetailsView: View {
             }
         }
         else {
-            PurchaseItemFormView()
+            PurchaseItemFormView(model: model)
             Button("Calculate") {
-                evaluationManager.evaluate(item, costing: model.potentialPurchaseCost)
+                evaluationManager.evaluate(item, costing: model.cost)
             }
             Spacer()
         }
@@ -35,7 +35,8 @@ struct PurchaseItemDetailsView: View {
 
 struct PurchaseItemFormView: View {
     
-    @EnvironmentObject var model: PurchaseEvaluationViewModel
+    @ObservedObject var model: PurchaseItemViewModel
+    
     var body: some View {
         VStack {
             HStack {
@@ -45,17 +46,17 @@ struct PurchaseItemFormView: View {
                 Spacer()
             }
             TextFieldWithLimitView(placeholder: "Brand Name (eg Apple)",
-                                   textFieldText: $model.potentialPurchaseBrand,
+                                   textFieldText: $model.brandName,
                                    minimumCharacters: 3)
                 .padding()
             Divider()
             TextFieldWithLimitView(placeholder: "Model Name (eg iPhone)",
-                                   textFieldText: $model.potentialPurchaseModel,
+                                   textFieldText: $model.modelName,
                                    minimumCharacters: 3)
                 .padding()
             Divider()
             TextFieldWithLimitView(placeholder: "Cost",
-                                   textFieldText: $model.potentialPurchaseCostDisplayInfo,
+                                   textFieldText: $model.costString,
                                    minimumCharacters: 2,
                                    keyboardType: .numberPad)
                 .keyboardType(.decimalPad)

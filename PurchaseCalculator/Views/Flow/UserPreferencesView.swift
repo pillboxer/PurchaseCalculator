@@ -55,8 +55,7 @@ struct NewUserTextFieldWithPicker: View {
     @Binding var selection: String
     @State private var textFieldValue: String = ""
     var font: UIFont
-    
-    
+
     var body: some View {
         HStack {
             TextFieldWithLimitView(placeholder: placeholder,
@@ -91,9 +90,8 @@ struct TextFieldWithLimitView: View {
     var body: some View {
         HStack {
             NoClipboardTextField(placeholder: placeholder, font: font, keyboardType: keyboardType, text: $textFieldText)
-            Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
-                .animation(animated ? .easeIn : .none)
-                .fixedSize()
+                Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
+                    .fixedSize()
         }
     }
 }

@@ -39,6 +39,17 @@ public class User: NSManagedObject {
         purchaseValuesArray?.filter { $0.attributeID == id }.first?.weight
     }
     
+    func addWeightForAttributeID(_ id: String, weight: Double) {
+        let value = purchaseValuesArray?.filter { $0.attributeID == id }.first
+        if let value = value {
+            removeFromPurchaseValues(value)
+        }
+        let newValue = PurchaseAttributeValue(context: managedObjectContext ?? CoreDataManager.shared.moc)
+        newValue.attributeID = id
+        newValue.weight = weight
+        addToPurchaseValues(newValue)
+    }
+    
     func amountAsPerCentOfTakeHomePay(_ amount: Double) -> Double {
         guard let takeHomePay = takeHomePay?.doubleValue else {
             return 0

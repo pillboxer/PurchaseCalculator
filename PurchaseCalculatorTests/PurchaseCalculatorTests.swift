@@ -20,7 +20,7 @@ class PurchaseCalculatorTests: XCTestCase {
     }
     
     private func createTestUser() {
-        let viewModel = NewUserViewModel()
+        let viewModel = UserPreferencesViewModel()
         let questions = viewModel.valuesQuestionnaire ?? []
         let context = coreDataManager.moc
         let user = User(context: context)
@@ -53,7 +53,7 @@ class PurchaseCalculatorTests: XCTestCase {
     
     // MARK: - New User
     func testNewUserViewModelValuesQuestionnaireReturns() {
-        let viewModel = NewUserViewModel()
+        let viewModel = UserPreferencesViewModel()
         let questionnaire = viewModel.valuesQuestionnaire
         XCTAssertNotNil(questionnaire)
     }

@@ -8,18 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var newUserViewModel = NewUserViewModel()
+    @ObservedObject var userPreferencesViewModel = UserPreferencesViewModel()
     @ObservedObject var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
+    
+    init() {
+        self.showPreferences = !User.doesExist
+    }
+    
+    @State var showPreferences: Bool = false
+    @State var showCategories = false
+    
     var body: some View {
         NavigationView {
-            if !User.doesExist {
-                NewUserView()
-                    .environmentObject(newUserViewModel)
+            if showPreferences {
+                UserPreferencesView()
+                    .environmentObject(userPreferencesViewModel)
                     .navigationBarTitle("Your Purchase Calculator", displayMode: .inline)
             }
             else {
-                PurchaseCategorySelectionView()
-                    .environmentObject(purchaseCategoryViewModel)
+                if showCategories {
+                    PurchaseCategorySelectionView()
+                        .environmentObject(purchaseCategoryViewModel)
+                }
+                else {
+                    VStack {
+                        Button("Choose a category") {
+                            showCategories = true
+                        }
+                        .padding()
+                        Button("Preferences") {
+                            showPreferences = true
+                        }
+                        Spacer()
+                    }
+                    Spacer()
+                }
             }
         }
     }

@@ -29,8 +29,8 @@
 		86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */; };
 		86812DE0255589D100C1245E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86812DDF255589D100C1245E /* AppDelegate.swift */; };
 		868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2725582EA700C96CFD /* CoreDataManager.swift */; };
-		868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2C2558331700C96CFD /* NewUserView.swift */; };
-		868CCB3625583F6C00C96CFD /* NewUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */; };
+		868CCB2D2558331700C96CFD /* UserPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB2C2558331700C96CFD /* UserPreferencesView.swift */; };
+		868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB3525583F6C00C96CFD /* UserPreferencesViewModel.swift */; };
 		868CCB452558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */; };
 		868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */; };
 		868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB432558446500C96CFD /* User+CoreDataClass.swift */; };
@@ -124,8 +124,8 @@
 		86812DD9255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PurchaseCalculatorDataModel.xcdatamodel; sourceTree = "<group>"; };
 		86812DDF255589D100C1245E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868CCB2725582EA700C96CFD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		868CCB2C2558331700C96CFD /* NewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
-		868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewModel.swift; sourceTree = "<group>"; };
+		868CCB2C2558331700C96CFD /* UserPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
+		868CCB3525583F6C00C96CFD /* UserPreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesViewModel.swift; sourceTree = "<group>"; };
 		868CCB412558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataClass.swift"; sourceTree = "<group>"; };
 		868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		868CCB432558446500C96CFD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		862ED083257436C7005F4FCF /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				868CCB2C2558331700C96CFD /* NewUserView.swift */,
+				868CCB2C2558331700C96CFD /* UserPreferencesView.swift */,
 				86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */,
 				86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */,
 				86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */,
@@ -278,7 +278,7 @@
 		865AD2D3257975FE00FFE257 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				868CCB3525583F6C00C96CFD /* NewUserViewModel.swift */,
+				868CCB3525583F6C00C96CFD /* UserPreferencesViewModel.swift */,
 				86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */,
 				865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */,
 			);
@@ -511,7 +511,7 @@
 				86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */,
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
-				868CCB3625583F6C00C96CFD /* NewUserViewModel.swift in Sources */,
+				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,
 				86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */,
@@ -526,7 +526,7 @@
 				86026286254D72EA0085ACD5 /* PurchaseCalculatorApp.swift in Sources */,
 				86987068254DAE8B0029B2DE /* Calculator.swift in Sources */,
 				86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */,
-				868CCB2D2558331700C96CFD /* NewUserView.swift in Sources */,
+				868CCB2D2558331700C96CFD /* UserPreferencesView.swift in Sources */,
 				865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */,
 				862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */,
 				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,

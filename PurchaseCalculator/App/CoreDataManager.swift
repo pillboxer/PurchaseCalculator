@@ -52,7 +52,6 @@ class CoreDataManager {
     func save(_ context: NSManagedObjectContext, completion: ((Error?) -> Void)? = nil) {
         context.perform {
             do {
-                print(context.hasChanges)
                 try context.save()
                 completion?(nil)
             }

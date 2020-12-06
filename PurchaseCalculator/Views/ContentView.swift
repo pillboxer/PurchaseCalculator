@@ -8,48 +8,53 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var homeViewModel = HomeViewModel()
     @ObservedObject var userPreferencesViewModel = UserPreferencesViewModel()
     @ObservedObject var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
     
-    init() {
-        self.showPreferences = !User.doesExist
+    @State var selectedRow: String?
+        
+    var categoryView: some View {
+        PurchaseCategorySelectionView()
+            .environmentObject(purchaseCategoryViewModel)
+            .navigationBarHidden(true)
     }
     
-    @State var showPreferences: Bool = false
-    @State var showCategories = false
+    var preferencesView: some View {
+        UserPreferencesView(row: $selectedRow)
+            .environmentObject(userPreferencesViewModel)
+            .navigationBarHidden(true)
+    }
     
     var body: some View {
         NavigationView {
-            if showPreferences {
-                UserPreferencesView()
-                    .environmentObject(userPreferencesViewModel)
-                    .navigationBarTitle("Your Purchase Calculator", displayMode: .inline)
-            }
-            else {
-                if showCategories {
-                    PurchaseCategorySelectionView()
-                        .environmentObject(purchaseCategoryViewModel)
-                }
-                else {
-                    VStack {
-                        Button("Choose a category") {
-                            showCategories = true
-                        }
-                        .padding()
-                        Button("Preferences") {
-                            showPreferences = true
-                        }
-                        Spacer()
+            VStack(spacing: 0) {
+                Image(systemName: "e.square")
+                    .resizable()
+                    .padding()
+                    .frame(width: 100, height: 100, alignment: .center)
+                if User.doesExist {
+                    NavigationLinkedRowView(item: HomeRow(title: homeViewModel.categoriesTitle, imageName: homeViewModel.categoriesImageString), destinationController: categoryView, selectedID: $selectedRow) {
+                        selectedRow = homeViewModel.categoriesTitle
                     }
-                    Spacer()
                 }
+                NavigationLinkedRowView(item: HomeRow(title: homeViewModel.preferencesRowTitle, imageName: homeViewModel.preferencesImageString), destinationController: preferencesView, selectedID: $selectedRow) {
+                    selectedRow = homeViewModel.preferencesRowTitle
+                }
+                Spacer()
             }
+            .navigationBarHidden(true)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct HomeRow: RowType {
+    
+    var id: String {
+        title
     }
+    
+    var title: String
+    var imageName: String
 }

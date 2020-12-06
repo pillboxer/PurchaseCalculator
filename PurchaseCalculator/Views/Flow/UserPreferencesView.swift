@@ -9,108 +9,72 @@ import SwiftUI
 import Combine
 
 struct UserPreferencesView: View {
+    
     @EnvironmentObject var model: UserPreferencesViewModel
     let textFieldFont = UIFont.boldSystemFont(ofSize: 12)
-    @State var selected = 0
+    
+    @Binding var row: String?
+    
+    private var ctaIsDisabled: Bool {
+        model.userName.count < model.minimumCharactersInName || model.userTakeHomePay.count < model.minimumDigitsForTakeHomePay
+    }
+    
     var body: some View {
         if let error = model.currentErrorMessage {
             Text(error)
         }
         else if let questions = model.valuesQuestionnaire {
             let currencies = model.currencies.compactMap { $0.symbol }
-            VStack(alignment: .center) {
-                Text("Personalise your results")
-                    .modifier(StandardFontModifier())
-                    .padding()
-                TextFieldWithLimitView(placeholder: "What's Your Name",
-                                       textFieldText: $model.userName,
-                                       minimumCharacters: model.minimumCharactersInName,
-                                       font: textFieldFont)
-                    .padding()
-                NewUserTextFieldWithPicker(selections: currencies,
-                                           placeholder: "Enter Your Yearly Take Home Pay",
-                                           minimumCharacters: model.minimumDigitsForTakeHomePay,
-                                           textFieldText: $model.userTakeHomePay,
-                                           selection: $model.selectedCurrencyString,
+            VStack(alignment: .leading) {
+                HomeButtonView()
+                VStack {
+                    Text(model.titleString)
+                        .modifier(StandardFontModifier())
+                        .padding()
+                    TextFieldWithLimitView(placeholder: model.userNameTextFieldPlaceholder,
+                                           textFieldText: $model.userName,
+                                           minimumCharacters: model.minimumCharactersInName,
                                            font: textFieldFont)
+                        .padding()
+                    TextFieldWithSegmentedPickerView(selections: currencies,
+                                               placeholder: model.takeHomePayTextFieldPlaceholder,
+                                               minimumCharacters: model.minimumDigitsForTakeHomePay,
+                                               textFieldText: $model.userTakeHomePay,
+                                               selection: $model.selectedCurrencyString,
+                                               font: textFieldFont)
+                        .padding()
+                    UserPreferencesForm(questions: questions)
+                    BorderedButtonView(text: "Save") {
+                        model.save() {
+                            row = nil
+                        }
+                    }
+                    .frame(width: 40, height: 30)
+                    .disabled(ctaIsDisabled)
                     .padding()
-                NewUserValuesForm(questions: questions)
-                Button("Save") {
-                    model.save()
                 }
-                .disabled(model.userName.count < model.minimumCharactersInName || model.userTakeHomePay.count < model.minimumDigitsForTakeHomePay)
-                .padding()
+            }
+            .onAppear {
+                model.reset()
             }
         }
     }
 }
 
-
-struct NewUserTextFieldWithPicker: View {
+struct UserPreferencesForm: View {
     
-    var selections: [String]
-    var placeholder: String
-    var minimumCharacters: Int?
-    @Binding var textFieldText: String
-    @Binding var selection: String
-    @State private var textFieldValue: String = ""
-    var font: UIFont
-
-    var body: some View {
-        HStack {
-            TextFieldWithLimitView(placeholder: placeholder,
-                                   textFieldText: $textFieldText,
-                                   minimumCharacters: minimumCharacters,
-                                   font: font,
-                                   keyboardType: .numberPad)
-            Picker("", selection: $selection) {
-                ForEach(0..<selections.count)  { index in
-                    Text(self.selections[index]).tag(self.selections[index])
-                }
-            }
-            .frame(width: 80, height: 25)
-            .clipped()
-            .pickerStyle(SegmentedPickerStyle())
-            .cornerRadius(8)
-        }
-    }
-}
-
-struct TextFieldWithLimitView: View {
+    @EnvironmentObject var model: UserPreferencesViewModel
     
-    var placeholder: String
-    @Binding var textFieldText: String
-    var minimumCharacters: Int?
-    var font: UIFont?
-    var keyboardType: UIKeyboardType?
-    var animated: Bool {
-        textFieldText.count > 1
-    }
-    
-    var body: some View {
-        HStack {
-            NoClipboardTextField(placeholder: placeholder, font: font, keyboardType: keyboardType, text: $textFieldText)
-                Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
-                    .fixedSize()
-        }
-    }
-}
-
-struct NewUserValuesForm: View {
     var questions: [Question]
-    
-    init(questions: [Question]) {
-        self.questions = questions
-        UITableView.appearance().showsVerticalScrollIndicator = false
-    }
+
     var body: some View {
         VStack {
-            Text("What's important to you?")
+            Text(model.listHeaderString)
                 .modifier(StandardFontModifier())
                 .padding()
             ScrollView {
                 ForEach(questions) { question in
-                    NewUserValueSelection(question: question)
+                    PurchaseValueWeightingSelectionView(question: question)
                         .padding([.leading, .trailing])
                 }
             }
@@ -118,7 +82,7 @@ struct NewUserValuesForm: View {
     }
 }
 
-struct NewUserValueSelection: View {
+struct PurchaseValueWeightingSelectionView: View {
     @EnvironmentObject var model: UserPreferencesViewModel
     
     var question: Question
@@ -129,60 +93,11 @@ struct NewUserValueSelection: View {
             HStack {
                 StepperWithFillingRectangles(numberOfRectangles: 5, cornerRadiusForRectangles: 2, valueToChange: model.weightForValue(id: question.attributeID)) { newValue in
                     model.addAttributeValue(id: question.attributeID, weight: newValue)
-                    
                 }
                 
             }
         }
     }
-    
-
 }
 
-struct StepperWithFillingRectangles: View {
 
-    var numberOfRectangles: Int
-    var cornerRadiusForRectangles: CGFloat? = nil
-    @State var valueToChange: Double
-    var changeHandler: (Double) -> Void
-    var body: some View {
-        HStack {
-            ForEach(0..<numberOfRectangles) { index in
-                Rectangle()
-                    .fill(fillColor(index))
-                    .animation(.easeIn)
-                    .frame(width: 40, height: 10)
-                    .cornerRadius(cornerRadiusForRectangles ?? 0)
-                .overlay(RoundedRectangle(cornerRadius: cornerRadiusForRectangles ?? 0).stroke(Color.primary))
-                    .gesture(TapGesture().onEnded { UIApplication.endEditing() })
-
-            }
-            Spacer()
-            Stepper("",
-                    onIncrement: {
-                        self.valueToChange = min(1, self.valueToChange + 0.1)
-                        changeHandler(valueToChange)
-                    },
-                    onDecrement: {
-                        self.valueToChange = max(0, self.valueToChange - 0.1)
-                        changeHandler(valueToChange)
-                    }
-            )
-            .frame(height: 20)
-        }
-    }
-    
-    func fillColor(_ index: Int) -> Color {
-            let valueAsPercentage = valueToChange * 100
-            let indexAsPercentageOfAllRectangles = Double(index) / Double(numberOfRectangles) * 100
-            return valueAsPercentage >= indexAsPercentageOfAllRectangles ? colorForWeight(valueToChange) : Color(UIColor.systemBackground)
-    }
-    
-    private func colorForWeight(_ weight: Double) -> Color {
-        let red = min(0.5, weight)
-        let blue = max(0.5, 1-weight)
-        let green = max(0.5, weight)
-        let color = Color(red: red, green: green, blue: blue, opacity: 1)
-        return color
-    }
-}

@@ -19,8 +19,11 @@ struct PurchaseItemSelectionView: View {
             let list = PurchaseItemsListView(items: items,
                                              manager: evaluationManager,
                                              selectedItemID: $selectedItemID)
-            ListContainerView(headerText: "What item do you want to evaluate today?",
-                              list: list)
+            VStack(alignment: .leading) {
+                BackButtonView()
+                ListContainerView(headerText: "Now select the specific product you want to evaluate",
+                                  list: list)
+            }
         }
         else {
             // FIXME

@@ -17,11 +17,9 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
     
     var body: some View {
         NavigationLink(destination: destinationController, tag: item.id, selection: $selectedID) {}
-        let isSelected = selectedID == item.id
         RowViewWithButton(title: item.title,
                           imageName: item.imageName,
                           id: item.id,
-                          selected: isSelected,
                           divider: divider,
             rowHandler: rowHandler)
     }

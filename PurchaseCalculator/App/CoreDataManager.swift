@@ -53,6 +53,7 @@ class CoreDataManager {
         context.perform {
             do {
                 try context.save()
+                try context.parent?.save()
                 completion?(nil)
             }
             catch let error {

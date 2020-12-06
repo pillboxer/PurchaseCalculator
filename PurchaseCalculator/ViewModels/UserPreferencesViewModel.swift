@@ -8,13 +8,20 @@
 import Combine
 import SystemKit
 import UIKit
+import CoreData
 
 class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
 
     var currentErrorMessage: String?
     
+    lazy var context: NSManagedObjectContext = {
+        let newContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        newContext.parent = CoreDataManager.shared.moc
+        return newContext
+    }()
+    
     lazy var user: User = {
-         User.existingUser ?? User(context: CoreDataManager.shared.moc)
+         return User.existingUser ?? User(context: context)
     }()
     
     // MARK: - Published
@@ -73,10 +80,15 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }
 
     // MARK: - Curency
-    var selectedCurrency: Currency = .GBP {
-        didSet {
-            user.selectedCurrency = selectedCurrency
+    var selectedCurrency: Currency {
+        get {
+            return user.selectedCurrency
+        }
+        set {
+            user.selectedCurrency = newValue
+            UIApplication.endEditing()
             objectWillChange.send()
+
         }
     }
     
@@ -86,7 +98,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         }
         set {
             let currency = Currency.currencyForSymbol(newValue)
-            selectedCurrency = Currency.currencyForSymbol(newValue)
+            selectedCurrency = currency
             if !userTakeHomePay.isEmpty {
                 userTakeHomePay = "\(currency.symbol)\(Int(userTakeHomePayNumber))"
             }
@@ -104,17 +116,21 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Initialisation
     init() {
         _ = valuesQuestionnaire
-        initialiseTakeHomePay()
-        userName = user.name ?? ""
+        setupExistingUserIfNecessary()
     }
     
-    private func initialiseTakeHomePay() {
+    private func setupExistingUserIfNecessary() {
+        guard User.doesExist else {
+            return
+        }
         if let takeHomePay = user.takeHomePay?.intValue {
             userTakeHomePay = String(takeHomePay)
         }
         else {
             userTakeHomePay = ""
         }
+        selectedCurrencyString = user.selectedCurrency.symbol
+        userName = user.name ?? ""
     }
     
     // MARK: - Values
@@ -122,11 +138,12 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         guard let id = id else {
             return
         }
+        UIApplication.endEditing()
         user.addWeightForAttributeID(id, weight: weight)
     }
     
     func weightForValue(id: String?) -> Double {
-        guard let id = id else {
+        guard let id = id, User.doesExist else {
             return 0.5
         }
         return user.weightForAttributeID(id) ?? 0.5
@@ -144,15 +161,52 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }()
     
     // MARK: - Saving
-    func save() {
+    func save(_ completion: @escaping () -> Void) {
+        UIApplication.endEditing()
         let manager = CoreDataManager.shared
-        let context = manager.moc
         manager.save(context) { error in
             if let error = error {
                 self.publishErrorMessage(error)
             }
+            else {
+                completion()
+            }
+            self.objectWillChange.send()
         }
-        self.objectWillChange.send()
+    }
+
+    func reset() {
+        guard !User.doesExist else {
+            return
+        }
+        userName = ""
+        userTakeHomePay = ""
+        selectedCurrency = .GBP
+    }
+
+}
+
+// MARK: - Strings Provider
+extension UserPreferencesViewModel {
+    
+    var titleString: String {
+        "Personalise your results"
+    }
+    
+    var userNameTextFieldPlaceholder: String {
+        "Name"
+    }
+    
+    var takeHomePayTextFieldPlaceholder: String {
+        "Yearly take home pay"
+    }
+    
+    var listHeaderString: String {
+        "What's meaningful to you?"
+    }
+    
+    var saveButtonImageName: String {
+        "folder.circle"
     }
 
 }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct StandardFontModifier: ViewModifier {
-    let standardFont: Font = .system(size: 12, weight: .bold, design: .rounded)
+    
+    var size: CGFloat = 12
     
     func body(content: Content) -> some View {
-        content
+        let standardFont: Font = .system(size: size, weight: .bold, design: .rounded)
+        return content
             .font(standardFont)
     }
 }
@@ -61,5 +63,14 @@ extension View {
     /// - Returns: A modified `View` instance with the observer attached.
     func onAnimationCompleted<Value: VectorArithmetic>(for value: Value, completion: @escaping () -> Void) -> ModifiedContent<Self, AnimationCompletionModifier<Value>> {
         return modifier(AnimationCompletionModifier(observedValue: value, completion: completion))
+    }
+    
+    @ViewBuilder func hidden(_ shouldHide: Bool) -> some View {
+        switch shouldHide {
+            case true:
+                self.hidden()
+            case false:
+                self
+        }
     }
 }

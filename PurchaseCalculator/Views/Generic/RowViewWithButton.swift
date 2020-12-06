@@ -12,7 +12,6 @@ struct RowViewWithButton: View {
     let title: String
     let imageName: String
     let id: String
-    let selected: Bool
     var divider: Bool = true
     
     var rowHandler: (() -> Void)?

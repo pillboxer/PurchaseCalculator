@@ -21,8 +21,9 @@ struct NoClipboardTextField: UIViewRepresentable {
         textField.placeholder = placeholder
         textField.delegate = context.coordinator
         textField.font = font
-        textField.setContentHuggingPriority(.required, for: .vertical) //Don't stretch me
+        textField.setContentHuggingPriority(.required, for: .vertical) // Don't stretch me
         textField.keyboardType = keyboardType ?? .alphabet
+        textField.autocorrectionType = .no
         return textField
     }
     

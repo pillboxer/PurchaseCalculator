@@ -9,16 +9,18 @@ import SwiftUI
 
 struct PurchaseCategorySelectionView: View {
     @EnvironmentObject var model: PurchaseCategoriesViewModel
-    
     var body: some View {
         if let error = model.currentErrorMessage {
             Text(error)
         }
         else if let categories = model.purchaseCategories {
             let list = PurchaseCategoriesListView(categories: categories)
-            ListContainerView(headerText: "Choose the category of the product you want to evalulate",
-                              list: list)
-                .navigationBarTitle("Purchase Category", displayMode: .inline)
+            VStack(alignment: .leading) {
+                HomeButtonView()
+                ListContainerView(headerText: model.listHeaderTitle,
+                                  list: list)
+            }
+
         }
     }
 }
@@ -34,7 +36,7 @@ struct PurchaseCategoriesListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(categories) { category in
-                    let destination = PurchaseItemSelectionView(items: model.itemsForCategory(category))
+                    let destination = PurchaseItemSelectionView(items: model.itemsForCategory(category)).navigationBarHidden(true)
                     NavigationLinkedRowView(item: category,
                                             destinationController: destination,
                                             selectedID: $selectedCategoryID) {

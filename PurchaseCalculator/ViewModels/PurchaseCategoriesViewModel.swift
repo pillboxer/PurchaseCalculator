@@ -38,3 +38,12 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
         purchaseItems?.filter { category.purchaseItemIDs.contains($0.uuid) }
     }
 }
+
+// MARK: - String Provider
+extension PurchaseCategoriesViewModel {
+    
+    var listHeaderTitle: String {
+        "What type of purchase do you want to evaluate today?"
+    }
+
+}

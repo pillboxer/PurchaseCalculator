@@ -55,6 +55,10 @@ struct HomeRow: RowType {
         title
     }
     
+    var isSystemImage: Bool {
+        false
+    }
+    
     var title: String
     var imageName: String
 }

@@ -19,7 +19,7 @@ class HomeViewModel: ObservableObject {
     }
     
     var preferencesImageString: String {
-        user == nil ? "person" : "gear"
+        "profile" 
     }
     
     var categoriesTitle: String {
@@ -27,7 +27,7 @@ class HomeViewModel: ObservableObject {
     }
     
     var categoriesImageString: String {
-        "cursorarrow"
+        "calculate"
     }
     
     var hidesCategoriesRow: Bool {

@@ -16,4 +16,8 @@ struct PurchaseCategory: Decodable, RowType {
         uuid
     }
     
+    var isSystemImage: Bool {
+        false
+    }
+    
 }

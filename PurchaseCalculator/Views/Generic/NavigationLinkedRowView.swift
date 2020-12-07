@@ -21,7 +21,8 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
                           imageName: item.imageName,
                           id: item.id,
                           divider: divider,
-            rowHandler: rowHandler)
+                          usesSystemImage: item.isSystemImage,
+                          rowHandler: rowHandler)
     }
     
 }

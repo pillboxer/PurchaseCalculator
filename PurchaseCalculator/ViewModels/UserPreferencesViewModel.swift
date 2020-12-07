@@ -34,13 +34,8 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     var userName = "" {
         didSet {
             userName = String(userName.prefix(maximumCharactersInName))
-            updateUserName()
             objectWillChange.send()
         }
-    }
-    
-    private func updateUserName() {
-        user.name = userName
     }
     
     // MARK: - Pay
@@ -61,18 +56,16 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
             userTakeHomePay = String(clipped)
             // Re add the symbol
             userTakeHomePay.insert(symbolCharacter, at: userTakeHomePay.startIndex)
-            updateUserTakeHomePay()
+            ensureTakeHomePayIsNonZero()
             objectWillChange.send()
         }
     }
     
-    private func updateUserTakeHomePay() {
+    private func ensureTakeHomePayIsNonZero() {
         guard userTakeHomePayNumber != 0 else {
             userTakeHomePay = ""
-            user.takeHomePay = nil
             return
         }
-        user.takeHomePay = NSNumber(integerLiteral: userTakeHomePayNumber)
     }
     
     var userTakeHomePayNumber: Int {
@@ -116,10 +109,9 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Initialisation
     init() {
         _ = valuesQuestionnaire
-        setupExistingUserIfNecessary()
     }
     
-    private func setupExistingUserIfNecessary() {
+    func setupExistingUserIfNecessary() {
         guard User.doesExist else {
             return
         }
@@ -163,6 +155,8 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Saving
     func save(_ completion: @escaping () -> Void) {
         UIApplication.endEditing()
+        user.name = userName
+        user.takeHomePay = NSNumber(integerLiteral: userTakeHomePayNumber)
         let manager = CoreDataManager.shared
         manager.save(context) { error in
             if let error = error {
@@ -177,6 +171,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
 
     func reset() {
         guard !User.doesExist else {
+            setupExistingUserIfNecessary()
             return
         }
         userName = ""

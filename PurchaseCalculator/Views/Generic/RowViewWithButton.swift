@@ -13,6 +13,7 @@ struct RowViewWithButton: View {
     let imageName: String
     let id: String
     var divider: Bool = true
+    var usesSystemImage: Bool 
     
     var rowHandler: (() -> Void)?
     @State var opacity: Double = 1
@@ -21,9 +22,14 @@ struct RowViewWithButton: View {
         opacity != 1
     }
     
+    var image: Image {
+        usesSystemImage ? Image(systemName: imageName) : Image(imageName)
+    }
+    
     var body: some View {
         HStack {
-            Image(systemName: imageName)
+            image
+                .renderingMode(.template)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 20, maxHeight: 20)

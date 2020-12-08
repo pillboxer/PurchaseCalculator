@@ -12,6 +12,7 @@ struct PurchaseItem: Decodable, RowType {
     let uuid: String
     let title: String
     let attributeMultiplierGroupID: String
+    let purchaseUnitGroupID: String?
     let imageName: String
     
     var id: String {

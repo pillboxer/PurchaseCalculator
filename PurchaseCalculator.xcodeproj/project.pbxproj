@@ -45,6 +45,10 @@
 		868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */; };
 		868CCB472558446500C96CFD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB432558446500C96CFD /* User+CoreDataClass.swift */; };
 		868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868CCB442558446500C96CFD /* User+CoreDataProperties.swift */; };
+		868FC24A25800E24002B9C01 /* SpecificPurchaseUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */; };
+		868FC25325801028002B9C01 /* SpecificPurchaseUnits.json in Resources */ = {isa = PBXBuildFile; fileRef = 868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */; };
+		868FC256258010AE002B9C01 /* PurchaseBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 868FC255258010AE002B9C01 /* PurchaseBrands.json */; };
+		868FC25925801279002B9C01 /* SpecificPurchaseUnitGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */; };
 		86987068254DAE8B0029B2DE /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860262B4254D733E0085ACD5 /* Calculator.swift */; };
 		869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
 		869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
@@ -150,6 +154,10 @@
 		868CCB422558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseAttributeValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		868CCB432558446500C96CFD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		868CCB442558446500C96CFD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificPurchaseUnit.swift; sourceTree = "<group>"; };
+		868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpecificPurchaseUnits.json; sourceTree = "<group>"; };
+		868FC255258010AE002B9C01 /* PurchaseBrands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseBrands.json; sourceTree = "<group>"; };
+		868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpecificPurchaseUnitGroups.json; sourceTree = "<group>"; };
 		869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeMultiplierGroup.swift; sourceTree = "<group>"; };
 		869CA341256AB15F000022F7 /* PurchaseAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttribute.swift; sourceTree = "<group>"; };
 		869CA348256AB8D5000022F7 /* EvaluationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationManager.swift; sourceTree = "<group>"; };
@@ -375,6 +383,10 @@
 				86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */,
 				86A53C45255735040055C0B9 /* PurchaseItems.json */,
 				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
+				868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */,
+				868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */,
+				868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */,
+				868FC255258010AE002B9C01 /* PurchaseBrands.json */,
 				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */,
 				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
 				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
@@ -518,9 +530,12 @@
 				8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */,
 				86A53C4D255735760055C0B9 /* PurchaseAttributes.json in Resources */,
 				86789F05254D9CE400A198C0 /* QuestionCategories.json in Resources */,
+				868FC25325801028002B9C01 /* SpecificPurchaseUnits.json in Resources */,
 				86789DF3254D759F00A198C0 /* Questions.json in Resources */,
 				86D384AA25569E7700051019 /* QuestionGroups.json in Resources */,
+				868FC256258010AE002B9C01 /* PurchaseBrands.json in Resources */,
 				86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */,
+				868FC25925801279002B9C01 /* SpecificPurchaseUnitGroups.json in Resources */,
 				86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */,
 				86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */,
 			);
@@ -563,6 +578,7 @@
 				86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */,
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
+				868FC24A25800E24002B9C01 /* SpecificPurchaseUnit.swift in Sources */,
 				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,

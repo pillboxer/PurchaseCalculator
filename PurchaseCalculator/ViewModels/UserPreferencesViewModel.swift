@@ -46,6 +46,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         didSet {
             guard !userTakeHomePay.isEmpty else {
                 // We allow the symbol to be deleted so the placeholder text can be read
+                objectWillChange.send()
                 return
             }
             // Get the symbol index and remove the symbol

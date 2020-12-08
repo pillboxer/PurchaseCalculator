@@ -12,6 +12,7 @@ class EvaluationManager: ObservableObject {
     
     @Published var error: EvaluationError?
     @Published var evaluationResult: EvaluationResult?
+    @Published var regretLikelihoodPercentage: Int?
     
     private let user: User
     
@@ -87,6 +88,8 @@ class EvaluationManager: ObservableObject {
                 evaluationResult = pair.result
             }
         }
+        print(calculator.score)
+        regretLikelihoodPercentage = 100 - Int(calculator.score * 100)
     }
     
     func multiplierGroupForItem(_ item: PurchaseItem) -> PurchaseAttributeMultiplierGroup? {

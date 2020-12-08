@@ -15,9 +15,11 @@ struct PurchaseItemDetailsView: View {
     var item: PurchaseItem
     
     var body: some View {
-        if let result = evaluationManager.evaluationResult {
+        if let result = evaluationManager.evaluationResult,
+           let percentage = evaluationManager.regretLikelihoodPercentage {
             Text(result.resultMessage)
                 .foregroundColor(result.textColor)
+            Text("Your likelihood of regretting this purchase is \(percentage)")
             Button("Reset") {
 //                model.navigationIsActive = false
 //                presentationMode.wrappedValue.dismiss()

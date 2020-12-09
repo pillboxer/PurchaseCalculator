@@ -9,7 +9,7 @@ struct PurchaseCategory: Decodable, RowType {
     
     let title: String
     let uuid: String
-    let purchaseItemIDs: [String]
+    let purchaseItemGroupID: String
     let imageName: String
     
     var id: String {

@@ -62,6 +62,8 @@
 		86B1EEAF2572A10100526DE9 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; };
 		86B1EEB02572A10100526DE9 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86756BE0254DA6F200E31D5A /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */; };
+		86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */; };
+		86B4F7A8258163E500CBE827 /* PurchaseItemGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86B4F7A7258163E500CBE827 /* PurchaseItemGroups.json */; };
 		86D384AA25569E7700051019 /* QuestionGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86D384A925569E7700051019 /* QuestionGroups.json */; };
 		86D384AD25569F6C00051019 /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D384AC25569F6C00051019 /* QuestionGroup.swift */; };
 		86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */; };
@@ -168,6 +170,8 @@
 		86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItemAttributeMultipliersGroups.json; sourceTree = "<group>"; };
 		86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionView.swift; sourceTree = "<group>"; };
 		86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
+		86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemGroup.swift; sourceTree = "<group>"; };
+		86B4F7A7258163E500CBE827 /* PurchaseItemGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItemGroups.json; sourceTree = "<group>"; };
 		86D384A925569E7700051019 /* QuestionGroups.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionGroups.json; sourceTree = "<group>"; };
 		86D384AC25569F6C00051019 /* QuestionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroup.swift; sourceTree = "<group>"; };
 		86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemSelectionView.swift; sourceTree = "<group>"; };
@@ -379,8 +383,8 @@
 		86A53C382557345B0055C0B9 /* Purchases */ = {
 			isa = PBXGroup;
 			children = (
-				86A53C352557333E0055C0B9 /* PurchaseCategories.json */,
-				86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */,
+				86B4F79F2581638000CBE827 /* Categories */,
+				86B4F7A22581639900CBE827 /* Item Groups */,
 				86A53C45255735040055C0B9 /* PurchaseItems.json */,
 				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
 				868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */,
@@ -393,6 +397,24 @@
 				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
 			);
 			path = Purchases;
+			sourceTree = "<group>";
+		};
+		86B4F79F2581638000CBE827 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				86A53C352557333E0055C0B9 /* PurchaseCategories.json */,
+				86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		86B4F7A22581639900CBE827 /* Item Groups */ = {
+			isa = PBXGroup;
+			children = (
+				86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */,
+				86B4F7A7258163E500CBE827 /* PurchaseItemGroups.json */,
+			);
+			path = "Item Groups";
 			sourceTree = "<group>";
 		};
 		86D384A425569C2E00051019 /* App */ = {
@@ -532,6 +554,7 @@
 				86789F05254D9CE400A198C0 /* QuestionCategories.json in Resources */,
 				868FC25325801028002B9C01 /* SpecificPurchaseUnits.json in Resources */,
 				86789DF3254D759F00A198C0 /* Questions.json in Resources */,
+				86B4F7A8258163E500CBE827 /* PurchaseItemGroups.json in Resources */,
 				86D384AA25569E7700051019 /* QuestionGroups.json in Resources */,
 				868FC256258010AE002B9C01 /* PurchaseBrands.json in Resources */,
 				86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */,
@@ -561,6 +584,7 @@
 				86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */,
 				86026288254D72EA0085ACD5 /* ContentView.swift in Sources */,
 				8620FA71257CDFBA0005D8AF /* StackPopButtonWithImageView.swift in Sources */,
+				86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */,
 				868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */,
 				8620FA7E257CF5890005D8AF /* BorderedButtonView.swift in Sources */,
 				86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */,

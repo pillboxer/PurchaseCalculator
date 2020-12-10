@@ -54,11 +54,7 @@ struct HomeRow: RowType {
     var id: String {
         title
     }
-    
-    var isSystemImage: Bool {
-        false
-    }
-    
+
     var title: String
     var imageName: String
 }

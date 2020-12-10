@@ -23,19 +23,9 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
         }
     }()
     
-    lazy var purchaseItems: [PurchaseItem]? = {
-        do {
-            return try JSONDecoder.decodeLocalJSON(file: "PurchaseItems", type: [PurchaseItem].self)
-        }
-        catch let error {
-            publishErrorMessage(error)
-            return nil
-        }
-    }()
-    
     // MARK: - Exposed Functions
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
-        purchaseItems?.filter { category.purchaseItemIDs.contains($0.uuid) }
+        category.purchaseItemGroup?.items
     }
 }
 

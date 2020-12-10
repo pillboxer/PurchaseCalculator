@@ -28,3 +28,10 @@ protocol RowType: Identifiable {
     var imageName: String { get }
     var isSystemImage: Bool { get }
 }
+
+extension RowType {
+    
+    var isSystemImage: Bool {
+        false
+    }
+}

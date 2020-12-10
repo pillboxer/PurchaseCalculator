@@ -32,7 +32,7 @@
     {
         "uuid" : "650bf44b-9f5d-4e43-a78e-d536e2e0928f",
         "title" : "Housewares",
-        "purchaseItemGroupID" : ["cf44306c-112d-427e-93b0-cf419dfba1f3"],
+        "purchaseItemGroupID" : "cf44306c-112d-427e-93b0-cf419dfba1f3",
         "imageName" : "house"
     }
 ]

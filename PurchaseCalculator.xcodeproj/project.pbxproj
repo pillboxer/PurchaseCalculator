@@ -367,6 +367,30 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		8693FB9D2582B1E80023BFC1 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				86A53C45255735040055C0B9 /* PurchaseItems.json */,
+				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
+				868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */,
+				868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */,
+				868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */,
+				868FC255258010AE002B9C01 /* PurchaseBrands.json */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		8693FBA02582B2190023BFC1 /* Purchase Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
+				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
+				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */,
+				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
+			);
+			path = "Purchase Attributes";
+			sourceTree = "<group>";
+		};
 		86A2A4FF25558F8B00D64A54 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,16 +409,8 @@
 			children = (
 				86B4F79F2581638000CBE827 /* Categories */,
 				86B4F7A22581639900CBE827 /* Item Groups */,
-				86A53C45255735040055C0B9 /* PurchaseItems.json */,
-				86DB14D125692945003BABD5 /* PurchaseItem.swift */,
-				868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */,
-				868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */,
-				868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */,
-				868FC255258010AE002B9C01 /* PurchaseBrands.json */,
-				86A53C4F25573C180055C0B9 /* PurchaseItemAttributeMultipliersGroups.json */,
-				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
-				86A53C4C255735750055C0B9 /* PurchaseAttributes.json */,
-				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
+				8693FB9D2582B1E80023BFC1 /* Items */,
+				8693FBA02582B2190023BFC1 /* Purchase Attributes */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";

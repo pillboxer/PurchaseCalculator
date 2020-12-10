@@ -18,8 +18,5 @@ struct PurchaseItem: Decodable, RowType {
     var id: String {
         uuid
     }
-    
-    var isSystemImage: Bool {
-        false
-    }
+
 }

@@ -1,12 +1,14 @@
-{
-    "uuid" : "2dabdbb6-1d24-492d-8653-80906be7fc63",
-    "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
-    "name" : "iPhone 12",
-    "cost" : 799,
-},
-{
-    "uuid" : "b37421ec-3c1f-4579-80c6-5c7aeb51d6ce",
-    "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
-    "name" : "iPhone 12 Mini",
-    "cost" : 699
-}
+[
+    {
+        "uuid" : "2dabdbb6-1d24-492d-8653-80906be7fc63",
+        "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
+        "modelName" : "iPhone 12",
+        "cost" : 799
+    },
+    {
+        "uuid" : "b37421ec-3c1f-4579-80c6-5c7aeb51d6ce",
+        "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
+        "modelName" : "iPhone 12 Mini",
+        "cost" : 699
+    }
+]

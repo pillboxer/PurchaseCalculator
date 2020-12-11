@@ -53,6 +53,7 @@
 		869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */; };
 		869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA341256AB15F000022F7 /* PurchaseAttribute.swift */; };
 		869CA349256AB8D5000022F7 /* EvaluationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA348256AB8D5000022F7 /* EvaluationManager.swift */; };
+		869F91F82584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869F91F72584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift */; };
 		86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C232556AD6B0055C0B9 /* Assets.xcassets */; };
 		86A53C362557333E0055C0B9 /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C352557333E0055C0B9 /* PurchaseCategories.json */; };
 		86A53C46255735040055C0B9 /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A53C45255735040055C0B9 /* PurchaseItems.json */; };
@@ -163,6 +164,7 @@
 		869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeMultiplierGroup.swift; sourceTree = "<group>"; };
 		869CA341256AB15F000022F7 /* PurchaseAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttribute.swift; sourceTree = "<group>"; };
 		869CA348256AB8D5000022F7 /* EvaluationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationManager.swift; sourceTree = "<group>"; };
+		869F91F72584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificPurchaseUnitGroup.swift; sourceTree = "<group>"; };
 		86A53C232556AD6B0055C0B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A53C352557333E0055C0B9 /* PurchaseCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
 		86A53C45255735040055C0B9 /* PurchaseItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PurchaseItems.json; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				868FC24925800E24002B9C01 /* SpecificPurchaseUnit.swift */,
 				868FC25225801028002B9C01 /* SpecificPurchaseUnits.json */,
 				868FC25825801279002B9C01 /* SpecificPurchaseUnitGroups.json */,
+				869F91F72584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift */,
 				868FC255258010AE002B9C01 /* PurchaseBrands.json */,
 			);
 			path = Items;
@@ -619,6 +622,7 @@
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
 				868FC24A25800E24002B9C01 /* SpecificPurchaseUnit.swift in Sources */,
+				869F91F82584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift in Sources */,
 				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				860262C3254D74260085ACD5 /* QuestionOption.swift in Sources */,

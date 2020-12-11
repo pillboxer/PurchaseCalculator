@@ -26,7 +26,7 @@ struct PurchaseItemDetailsView: View {
             }
         }
         else {
-            PurchaseItemFormView(model: model)
+            PurchaseItemFormView(model: model, item: item)
             Button("Calculate") {
                 evaluationManager.evaluate(item, costing: model.cost)
             }
@@ -38,32 +38,46 @@ struct PurchaseItemDetailsView: View {
 struct PurchaseItemFormView: View {
     
     @ObservedObject var model: PurchaseItemViewModel
+    var item: PurchaseItem
+    
+    var specificItems: [SpecificPurchaseUnit] {
+        item.specificPurchaseUnits ?? []
+    }
+    @State var brandSelection = ""
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Enter in a few more details for your result")
-                    .font(.system(size: 12, weight: .bold))
-                .padding(.bottom)
-                Spacer()
+        Picker("", selection: $brandSelection) {
+            ForEach(0..<specificItems.count) { index in
+                Text(specificItems[index].modelName)
             }
-            TextFieldWithLimitView(placeholder: "Brand Name (eg Apple)",
-                                   textFieldText: $model.brandName,
-                                   minimumCharacters: 3)
-                .padding()
-            Divider()
-            TextFieldWithLimitView(placeholder: "Model Name (eg iPhone)",
-                                   textFieldText: $model.modelName,
-                                   minimumCharacters: 3)
-                .padding()
-            Divider()
-            TextFieldWithLimitView(placeholder: "Cost",
-                                   textFieldText: $model.costString,
-                                   minimumCharacters: 2,
-                                   keyboardType: .numberPad)
-                .keyboardType(.decimalPad)
-                .padding()
         }
-        .padding()
     }
+    
+//    var testVStack: Body {
+//        VStack {
+//            HStack {
+//                Text("Enter in a few more details for your result")
+//                    .font(.system(size: 12, weight: .bold))
+//                .padding(.bottom)
+//                Spacer()
+//            }
+//            TextFieldWithLimitView(placeholder: "Brand Name (eg Apple)",
+//                                   textFieldText: $model.brandName,
+//                                   minimumCharacters: 3)
+//                .padding()
+//            Divider()
+//            TextFieldWithLimitView(placeholder: "Model Name (eg iPhone)",
+//                                   textFieldText: $model.modelName,
+//                                   minimumCharacters: 3)
+//                .padding()
+//            Divider()
+//            TextFieldWithLimitView(placeholder: "Cost",
+//                                   textFieldText: $model.costString,
+//                                   minimumCharacters: 2,
+//                                   keyboardType: .numberPad)
+//                .keyboardType(.decimalPad)
+//                .padding()
+//        }
+//        .padding()
+//    }
 }

@@ -44,10 +44,11 @@ struct PurchaseItemsListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(items) { item in
-                    let destination = PurchaseItemDetailsView(evaluationManager: manager,                                                              item: item)
+                    let model = PurchaseItemViewModel(item: item)
+                    let destination = PurchaseItemDetailsView(evaluationManager: manager, model: model).navigationBarHidden(true)
                     NavigationLinkedRowView(item: item,
-                                       destinationController: destination,
-                                       selectedID: $selectedItemID) {
+                                            destinationController: destination,
+                                            selectedID: $selectedItemID) {
                         selectedItemID = item.id
                     }
                 }

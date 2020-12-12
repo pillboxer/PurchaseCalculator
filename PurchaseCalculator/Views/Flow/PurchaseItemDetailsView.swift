@@ -10,74 +10,43 @@ import SwiftUI
 struct PurchaseItemDetailsView: View {
     
     @ObservedObject var evaluationManager: EvaluationManager
-    @ObservedObject var model = PurchaseItemViewModel()
+    @ObservedObject var model: PurchaseItemViewModel
     
-    var item: PurchaseItem
+    var item: PurchaseItem {
+        model.item
+    }
     
     var body: some View {
-        if let result = evaluationManager.evaluationResult,
-           let percentage = evaluationManager.regretLikelihoodPercentage {
-            Text(result.resultMessage)
-                .foregroundColor(result.textColor)
-            Text("Your likelihood of regretting this purchase is \(percentage)")
-            Button("Reset") {
-//                model.navigationIsActive = false
-//                presentationMode.wrappedValue.dismiss()
-            }
-        }
-        else {
-            PurchaseItemFormView(model: model, item: item)
-            Button("Calculate") {
-                evaluationManager.evaluate(item, costing: model.cost)
-            }
-            Spacer()
+        VStack(alignment: .leading) {
+            BackButtonView()
+            let list = PurchaseItemBrandSelectionView(model: model)
+            ListContainerView(headerText: "\(item.title) brand", list: list)
         }
     }
 }
 
-struct PurchaseItemFormView: View {
+struct PurchaseItemBrandSelectionView: View {
     
     @ObservedObject var model: PurchaseItemViewModel
-    var item: PurchaseItem
     
-    var specificItems: [SpecificPurchaseUnit] {
-        item.specificPurchaseUnits ?? []
+    var brands: [PurchaseBrand] {
+        return model.brands
     }
-    @State var brandSelection = ""
+    
+    @State var brandSelection: String?
     
     var body: some View {
-        Picker("", selection: $brandSelection) {
-            ForEach(0..<specificItems.count) { index in
-                Text(specificItems[index].modelName)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(brands) { brand in
+                    let destination = SpecificPurchaseUnitSelectionView(units: model.unitsForBrand(brand))
+                    NavigationLinkedRowView(item: brand,
+                                            destinationController: destination,
+                                            selectedID: $brandSelection) {
+                        brandSelection = brand.id
+                    }
+                }
             }
         }
     }
-    
-//    var testVStack: Body {
-//        VStack {
-//            HStack {
-//                Text("Enter in a few more details for your result")
-//                    .font(.system(size: 12, weight: .bold))
-//                .padding(.bottom)
-//                Spacer()
-//            }
-//            TextFieldWithLimitView(placeholder: "Brand Name (eg Apple)",
-//                                   textFieldText: $model.brandName,
-//                                   minimumCharacters: 3)
-//                .padding()
-//            Divider()
-//            TextFieldWithLimitView(placeholder: "Model Name (eg iPhone)",
-//                                   textFieldText: $model.modelName,
-//                                   minimumCharacters: 3)
-//                .padding()
-//            Divider()
-//            TextFieldWithLimitView(placeholder: "Cost",
-//                                   textFieldText: $model.costString,
-//                                   minimumCharacters: 2,
-//                                   keyboardType: .numberPad)
-//                .keyboardType(.decimalPad)
-//                .padding()
-//        }
-//        .padding()
-//    }
 }

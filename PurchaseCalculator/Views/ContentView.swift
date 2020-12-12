@@ -51,10 +51,10 @@ struct ContentView: View {
 
 struct HomeRow: RowType {
     
-    var id: String {
-        title
-    }
-
     var title: String
     var imageName: String
+    
+    var uuid: String {
+        title
+    }
 }

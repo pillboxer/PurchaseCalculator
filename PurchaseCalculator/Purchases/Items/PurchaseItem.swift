@@ -14,10 +14,6 @@ struct PurchaseItem: Decodable, RowType {
     let attributeMultiplierGroupID: String
     let purchaseUnitGroupID: String?
     let imageName: String
-    
-    var id: String {
-        uuid
-    }
 
 }
 
@@ -30,6 +26,12 @@ extension PurchaseItem {
     
     var specificPurchaseUnits: [SpecificPurchaseUnit]? {
         unitGroup?.specificPurchaseUnits
+    }
+    
+    var brands: [PurchaseBrand] {
+        let brandsWithDuplicates = specificPurchaseUnits?.compactMap { $0.brand } ?? []
+        let withoutDuplicates = Set(brandsWithDuplicates)
+        return Array(withoutDuplicates)
     }
 
 }

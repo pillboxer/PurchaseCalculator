@@ -8,7 +8,7 @@
 import Foundation
 import SystemKit
 
-class PurchaseItemGroup: Decodable {
+struct PurchaseItemGroup: Decodable {
     
     let uuid: String
     let itemIDs: [String]

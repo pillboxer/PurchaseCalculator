@@ -23,13 +23,17 @@ extension ErrorPublisher {
 }
 
 protocol RowType: Identifiable {
-    var id: String { get }
+    var uuid: String { get }
     var title: String { get }
     var imageName: String { get }
     var isSystemImage: Bool { get }
 }
 
 extension RowType {
+    
+    var id: String {
+        uuid
+    }
     
     var isSystemImage: Bool {
         false

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SpecificPurchaseUnitGroup: Decodable {
+struct SpecificPurchaseUnitGroup: Decodable {
     
     var uuid: String
     var unitIDs: [String]
@@ -18,7 +18,8 @@ extension SpecificPurchaseUnitGroup {
     
     var specificPurchaseUnits: [SpecificPurchaseUnit]? {
         let items = try? JSONDecoder.decodeLocalJSON(file: "SpecificPurchaseUnits", type: [SpecificPurchaseUnit].self)
-        return items?.filter { unitIDs.contains($0.uuid) }
+        let filtered = items?.filter { unitIDs.contains($0.uuid) }
+        return filtered
     }
 
 }

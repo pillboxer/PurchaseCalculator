@@ -36,7 +36,7 @@ class LaunchHelper {
     
     private func updateJSONIfPossible() {
         if reachability.isConnected {
-            FirebaseManager.shared.updateJSON()
+            FirebaseCoordinator.shared.updateJSON()
         }
     }
 }

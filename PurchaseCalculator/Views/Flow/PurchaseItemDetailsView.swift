@@ -25,7 +25,7 @@ struct PurchaseItemDetailsView: View {
 
 struct PurchaseItemBrandSelectionView: FirebaseRefreshingView {
     
-    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
+    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: PurchaseItemViewModel
     
     var brands: [PurchaseBrand] {

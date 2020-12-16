@@ -8,7 +8,6 @@
 import CoreData
 import SwiftUI
 import UIKit
-import Firebase
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

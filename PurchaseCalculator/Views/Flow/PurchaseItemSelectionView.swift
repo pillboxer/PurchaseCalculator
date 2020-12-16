@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PurchaseItemSelectionView: FirebaseRefreshingView {
     
-    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
+    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @State var selectedItemID: String?
     var items: [PurchaseItem]?
     

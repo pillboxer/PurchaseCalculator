@@ -10,7 +10,7 @@ import SystemKit
 
 struct PurchaseCategorySelectionView: FirebaseRefreshingView {
 
-    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
+    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: PurchaseCategoriesViewModel
     
     var body: some View {

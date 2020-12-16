@@ -10,8 +10,7 @@ import Combine
 
 struct UserPreferencesView: FirebaseRefreshingView {
     
-    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
-    
+    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: UserPreferencesViewModel
     let textFieldFont = UIFont.boldSystemFont(ofSize: 12)
     

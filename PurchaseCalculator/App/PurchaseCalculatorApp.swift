@@ -10,15 +10,9 @@ import SwiftUI
 @main
 struct PurchaseCalculatorApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @ObservedObject var manager = FirebaseManager.shared
     var body: some Scene {
         WindowGroup {
-            if manager.isLoadingJSON {
-                Text("Loading")
-            }
-            else {
-                ContentView()
-            }
+            ContentView()
         }
     }
 }

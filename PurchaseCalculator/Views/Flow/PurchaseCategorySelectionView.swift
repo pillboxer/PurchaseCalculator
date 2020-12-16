@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SystemKit
 
-struct PurchaseCategorySelectionView: View {
+struct PurchaseCategorySelectionView: FirebaseRefreshingView {
+
+    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
     @EnvironmentObject var model: PurchaseCategoriesViewModel
+    
     var body: some View {
         if let error = model.currentErrorMessage {
             Text(error)
@@ -20,7 +24,6 @@ struct PurchaseCategorySelectionView: View {
                 ListContainerView(headerText: model.listHeaderTitle,
                                   list: list)
             }
-
         }
     }
 }
@@ -28,9 +31,9 @@ struct PurchaseCategorySelectionView: View {
 struct PurchaseCategoriesListView: View {
     
     @EnvironmentObject var model: PurchaseCategoriesViewModel
-    
+    @State private var selectedCategoryID: String?
+
     let categories: [PurchaseCategory]
-    @State var selectedCategoryID: String?
     
     var body: some View {
         ScrollView {
@@ -46,6 +49,5 @@ struct PurchaseCategoriesListView: View {
             }
         }
     }
-    
 }
 

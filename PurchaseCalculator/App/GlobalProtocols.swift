@@ -8,7 +8,9 @@
 import Combine
 import Foundation
 import SystemKit
+import SwiftUI
 
+// MARK: - Errors
 protocol ErrorPublisher: ObservableObject where Self.ObjectWillChangePublisher == ObservableObjectPublisher {
     var currentErrorMessage: String? { get set }
 }
@@ -22,6 +24,7 @@ extension ErrorPublisher {
 
 }
 
+// MARK: - UI
 protocol RowType: Identifiable {
     var uuid: String { get }
     var title: String { get }
@@ -38,4 +41,8 @@ extension RowType {
     var isSystemImage: Bool {
         false
     }
+}
+
+protocol FirebaseRefreshingView: View {
+    var firebaseObserved: FirebaseManager { get }
 }

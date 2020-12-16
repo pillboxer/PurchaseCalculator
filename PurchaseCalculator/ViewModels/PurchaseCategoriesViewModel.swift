@@ -12,8 +12,7 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
     // MARK: - Exposed Stored
     var currentErrorMessage: String?
     
-    // MARK: - Lazy
-    lazy var purchaseCategories: [PurchaseCategory]? = {
+    var purchaseCategories: [PurchaseCategory]? {
         do {
             return try JSONDecoder.decodeLocalJSON(file: "PurchaseCategories", type: [PurchaseCategory].self)
         }
@@ -21,7 +20,7 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
             publishErrorMessage(error)
             return nil
         }
-    }()
+    }
     
     // MARK: - Exposed Functions
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {

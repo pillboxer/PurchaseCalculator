@@ -81,12 +81,12 @@ class CoreDataManager {
 
 extension NSManagedObject {
     
-    @discardableResult static func deleteAll(_ context: NSManagedObjectContext) -> Error? {
+    @discardableResult static func deleteAll(_ context: NSManagedObjectContext? = CoreDataManager.shared.moc) -> Error? {
         if let entityName = NSStringFromClass(self).components(separatedBy: ".").last {
             let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
             do {
-                try context.execute(deleteRequest)
+                try context?.execute(deleteRequest)
             }
             catch let error {
                 return error

@@ -12,10 +12,6 @@ class Question: Decodable, Identifiable {
     let title: String
     let uuid: String
     let attributeID: String?
-    let subtitle: String?
-    let questionOptions: [QuestionOption]?
-    let requiresInput: Bool?
-    var selectedOption: QuestionOption?
     
     var id: String {
         uuid

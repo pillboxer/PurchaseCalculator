@@ -1,0 +1,22 @@
+[ {
+  "handle" : "Enivronmental Impact",
+  "uuid" : "72c2facd-e97f-42c4-99b3-a1d10cdd9095"
+}, {
+  "handle" : "Physical Size",
+  "uuid" : "3e09225c-a1a5-4653-9046-f8369bac58ae"
+}, {
+  "handle" : "Benefit To Others",
+  "uuid" : "7d5e0d13-f0de-4589-a26e-97204bdf2dc4"
+}, {
+  "handle" : "Investment Potential",
+  "uuid" : "f1fb1a01-b331-4d72-b5a1-dbd7fdab2ab0"
+}, {
+  "handle" : "Physical or emotional benefits",
+  "uuid" : "91238712-4741-4065-a62d-51a1f37f2267"
+}, {
+  "handle" : "Long term use",
+  "uuid" : "272d3467-f36d-488f-98a9-3eb9902aa8ed"
+}, {
+  "handle" : "User repairable",
+  "uuid" : "a4cb4c96-93bf-48fe-97c4-c8a33b6b8991"
+} ]

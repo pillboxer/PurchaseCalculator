@@ -7,17 +7,15 @@
 
 import SwiftUI
 
-struct PurchaseItemSelectionView: View {
+struct PurchaseItemSelectionView: FirebaseRefreshingView {
     
+    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
     @State var selectedItemID: String?
     var items: [PurchaseItem]?
     
     var body: some View {
-        if let items = items,
-           let user = User.existingUser,
-           let evaluationManager = EvaluationManager(user: user) {
+        if let items = items {
             let list = PurchaseItemsListView(items: items,
-                                             manager: evaluationManager,
                                              selectedItemID: $selectedItemID)
             VStack(alignment: .leading) {
                 BackButtonView()
@@ -37,7 +35,6 @@ struct PurchaseItemSelectionView: View {
 struct PurchaseItemsListView: View {
     
     var items: [PurchaseItem]
-    var manager: EvaluationManager
     @Binding var selectedItemID: String?
     
     var body: some View {
@@ -45,7 +42,9 @@ struct PurchaseItemsListView: View {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(items) { item in
                     let model = PurchaseItemViewModel(item: item)
-                    let destination = PurchaseItemDetailsView(evaluationManager: manager, model: model).navigationBarHidden(true)
+                    let destination = PurchaseItemDetailsView()
+                        .environmentObject(model)
+                        .navigationBarHidden(true)
                     NavigationLinkedRowView(item: item,
                                             destinationController: destination,
                                             selectedID: $selectedItemID) {
@@ -55,5 +54,4 @@ struct PurchaseItemsListView: View {
             }
         }
     }
-    
 }

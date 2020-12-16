@@ -6,8 +6,8 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseDatabase
-import SystemKit
 import Combine
 
 class FirebaseManager: ObservableObject {
@@ -18,22 +18,30 @@ class FirebaseManager: ObservableObject {
         Database.database(url: "https://purchasecalculator-default-rtdb.europe-west1.firebasedatabase.app").reference()
     }()
     
-    @Published var isLoadingJSON = false
+    init() {
+        FirebaseApp.configure()
+    }
     
-    func updateLocalJSON() {
-        isLoadingJSON = true
-        var count = 0
-        for json in PurchaseCalculatorJSONFileType.allCases {
-            databaseReference.child(json.rawValue).observeSingleEvent(of: .value) { (snapshot) in
-                if let value = snapshot.value,
-                   let jsonData = try? JSONSerialization.data(withJSONObject: value, options: []) {
-                    try? FileManager.default.writeDataToDocuments(data: jsonData, file: json.rawValue)
-                    count += 1
-                    if count == PurchaseCalculatorJSONFileType.allCases.count {
-                        self.isLoadingJSON = false
-                    }
+    var cancellables = Set<AnyCancellable>()
+        
+    func updateJSON() {
+        PurchaseCalculatorJSONFileType.allCases.forEach { self.updateJSON($0)}
+    }
+    
+    private func updateJSON(_ type: PurchaseCalculatorJSONFileType) {
+        databaseReference.child(type.rawValue).observe(.value) { (snapshot) in
+            if let value = snapshot.value,
+               let jsonData = try? JSONSerialization.data(withJSONObject: value, options: []) {
+                do {
+                    try FileManager.default.writeDataToDocuments(data: jsonData, file: type.rawValue)
+                }
+                catch let error {
+                    // If something goes wrong, save the bundled content
+                    BundledContentManager.shared.saveBundledContentToDisk()
+                    print(error)
                 }
             }
+            self.objectWillChange.send()
         }
     }
 }

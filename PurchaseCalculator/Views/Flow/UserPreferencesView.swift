@@ -8,7 +8,9 @@
 import SwiftUI
 import Combine
 
-struct UserPreferencesView: View {
+struct UserPreferencesView: FirebaseRefreshingView {
+    
+    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
     
     @EnvironmentObject var model: UserPreferencesViewModel
     let textFieldFont = UIFont.boldSystemFont(ofSize: 12)

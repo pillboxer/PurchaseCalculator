@@ -1,0 +1,41 @@
+[ {
+  "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
+  "cost" : 799,
+  "modelName" : "iPhone 12",
+  "uuid" : "2dabdbb6-1d24-492d-8653-80906be7fc63"
+}, {
+  "brandID" : "f021599b-b2b6-47fa-8f6a-cbc8872ebbcb",
+  "cost" : 699,
+  "modelName" : "iPhone 12 Mini",
+  "uuid" : "b37421ec-3c1f-4579-80c6-5c7aeb51d6ce"
+}, {
+  "brandID" : "044b9028-3efa-4e7b-9116-b13eb2d1cf13",
+  "cost" : 899,
+  "modelName" : "Galaxy S20",
+  "uuid" : "6c832326-6949-49ff-8e73-3f91b3ce29c8"
+}, {
+  "brandID" : "9190fd75-7181-4d5d-a1a1-efa7b083d20d",
+  "cost" : 229.95,
+  "modelName" : "QuietComfort 35 wireless headphones II",
+  "uuid" : "333da228-f99d-4645-ada2-869327f8f686"
+}, {
+  "brandID" : "bee51b85-2212-459b-a3b8-119a6d0d85da",
+  "cost" : 64.9,
+  "modelName" : "B640WBG-1BEF",
+  "uuid" : "3640fcf7-d87c-4353-b045-71d0eb946cc1"
+}, {
+  "brandID" : "59dff545-6347-4465-90ce-81d1dc8a8c16",
+  "cost" : 399,
+  "modelName" : "Hot + Cool Jet Focus fan heater",
+  "uuid" : "50083550-a47e-4156-a727-e9c080cf5c02"
+}, {
+  "brandID" : "22d34ed1-121f-4988-9d5b-9a20bb305a99",
+  "cost" : 199.99,
+  "modelName" : "Versa 3",
+  "uuid" : "08107f41-1c86-4620-934f-c38164f95e73"
+}, {
+  "brandID" : "48652f06-e025-4781-9e8b-76ca9675b0ad",
+  "cost" : 449.9,
+  "modelName" : "Forerunner 745",
+  "uuid" : "d2aca695-8434-4ce5-8928-d022d99b3ed5"
+} ]

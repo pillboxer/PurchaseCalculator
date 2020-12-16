@@ -9,25 +9,25 @@ import SwiftUI
 
 struct PurchaseItemDetailsView: View {
     
-    @ObservedObject var evaluationManager: EvaluationManager
-    @ObservedObject var model: PurchaseItemViewModel
+    @EnvironmentObject var model: PurchaseItemViewModel
     
     var item: PurchaseItem {
         model.item
     }
-    
+        
     var body: some View {
         VStack(alignment: .leading) {
             BackButtonView()
-            let list = PurchaseItemBrandSelectionView(model: model)
+            let list = PurchaseItemBrandSelectionView()
             ListContainerView(headerText: "\(item.title) brand", list: list)
         }
     }
 }
 
-struct PurchaseItemBrandSelectionView: View {
+struct PurchaseItemBrandSelectionView: FirebaseRefreshingView {
     
-    @ObservedObject var model: PurchaseItemViewModel
+    @ObservedObject var firebaseObserved: FirebaseManager = FirebaseManager.shared
+    @EnvironmentObject var model: PurchaseItemViewModel
     
     var brands: [PurchaseBrand] {
         return model.brands

@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
-
+    
     var currentErrorMessage: String?
     
     lazy var context: NSManagedObjectContext = {
@@ -142,7 +142,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         return user.weightForAttributeID(id) ?? 0.5
     }
     
-    lazy var valuesQuestionnaire: [Question]? = {
+    var valuesQuestionnaire: [Question]? {
         do {
             let questions = try JSONDecoder.decodeLocalJSON(file: "PurchaseAttributeValueQuestions", type: [Question].self)
             return questions
@@ -151,7 +151,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
             publishErrorMessage(error)
             return nil
         }
-    }()
+    }
     
     // MARK: - Saving
     func save(_ completion: @escaping () -> Void) {

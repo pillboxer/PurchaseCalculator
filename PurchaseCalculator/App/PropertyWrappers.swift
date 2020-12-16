@@ -22,6 +22,23 @@ struct EphemeralConsidered<Value> {
             #endif
         }
     }
+}
+
+@propertyWrapper
+struct UserDefaultBool {
     
+    var key: String
+    
+    var wrappedValue: Bool {
+        get {
+            if UserDefaults.standard.value(forKey: key) == nil {
+                return true
+            }
+            return UserDefaults.standard.bool(forKey: key)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: key)
+        }
+    }
     
 }

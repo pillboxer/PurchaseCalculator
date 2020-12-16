@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var homeViewModel = HomeViewModel()
+    // Observed so we refresh when a user is created
     @ObservedObject var userPreferencesViewModel = UserPreferencesViewModel()
-    @ObservedObject var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
     
     @State var selectedRow: String?
+    
+    var homeViewModel = HomeViewModel()
+    var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
         
     var categoryView: some View {
         PurchaseCategorySelectionView()

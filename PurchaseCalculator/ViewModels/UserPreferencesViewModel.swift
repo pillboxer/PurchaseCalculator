@@ -112,10 +112,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         _ = valuesQuestionnaire
     }
     
-    func setupExistingUserIfNecessary() {
-        guard User.doesExist else {
-            return
-        }
+    func setupExistingUser() {
         if let takeHomePay = user.takeHomePay?.intValue {
             userTakeHomePay = String(takeHomePay)
         }
@@ -124,6 +121,12 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         }
         selectedCurrencyString = user.selectedCurrency.symbol
         userName = user.name ?? ""
+    }
+    
+    func setupNewUser() {
+        userName = ""
+        userTakeHomePay = ""
+        selectedCurrency = .GBP
     }
     
     // MARK: - Values
@@ -171,13 +174,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }
 
     func reset() {
-        guard !User.doesExist else {
-            setupExistingUserIfNecessary()
-            return
-        }
-        userName = ""
-        userTakeHomePay = ""
-        selectedCurrency = .GBP
+        User.doesExist ? setupExistingUser() : setupNewUser()
     }
 
 }

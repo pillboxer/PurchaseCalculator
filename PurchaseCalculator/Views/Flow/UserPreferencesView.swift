@@ -27,8 +27,7 @@ struct UserPreferencesView: FirebaseRefreshingView {
         }
         else if let questions = model.valuesQuestionnaire {
             let currencies = model.currencies.compactMap { $0.symbol }
-            VStack(alignment: .leading) {
-                HomeButtonView()
+            BasicNavigationView(home: true) {
                 VStack {
                     Text(model.titleString)
                         .modifier(StandardFontModifier())

@@ -19,8 +19,7 @@ struct PurchaseCategorySelectionView: FirebaseRefreshingView {
         }
         else if let categories = model.purchaseCategories {
             let list = PurchaseCategoriesListView(categories: categories)
-            VStack(alignment: .leading) {
-                HomeButtonView()
+            BasicNavigationView(home: true) {
                 ListContainerView(headerText: model.listHeaderTitle,
                                   list: list)
             }

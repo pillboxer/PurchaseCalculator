@@ -17,15 +17,16 @@ struct PurchaseItemSelectionView: FirebaseRefreshingView {
         if let items = items {
             let list = PurchaseItemsListView(items: items,
                                              selectedItemID: $selectedItemID)
-            VStack(alignment: .leading) {
-                BackButtonView()
+            BasicNavigationView {
                 ListContainerView(headerText: "Now select the specific product you want to evaluate",
                                   list: list)
             }
+
         }
         else {
-            // FIXME
-            Text("No items to show")
+            BasicNavigationView {
+                Text("No items")
+            }
         }
         
     }

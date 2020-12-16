@@ -16,8 +16,7 @@ struct PurchaseItemDetailsView: View {
     }
         
     var body: some View {
-        VStack(alignment: .leading) {
-            BackButtonView()
+        BasicNavigationView {
             let list = PurchaseItemBrandSelectionView()
             ListContainerView(headerText: "\(item.title) brand", list: list)
         }

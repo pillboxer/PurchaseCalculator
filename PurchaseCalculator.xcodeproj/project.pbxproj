@@ -12,7 +12,7 @@
 		8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8602628C254D72EC0085ACD5 /* Preview Assets.xcassets */; };
 		86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026297254D72EC0085ACD5 /* PurchaseCalculatorTests.swift */; };
 		8620FA68257CDEB70005D8AF /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA67257CDEB70005D8AF /* HomeButtonView.swift */; };
-		8620FA6E257CDF880005D8AF /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA6D257CDF880005D8AF /* BackButtonView.swift */; };
+		8620FA6E257CDF880005D8AF /* BasicNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */; };
 		8620FA71257CDFBA0005D8AF /* StackPopButtonWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA70257CDFBA0005D8AF /* StackPopButtonWithImageView.swift */; };
 		8620FA75257CE4C10005D8AF /* ButtonWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA74257CE4C10005D8AF /* ButtonWithImageView.swift */; };
 		8620FA7A257CF1520005D8AF /* KeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA79257CF1520005D8AF /* KeyboardListener.swift */; };
@@ -127,7 +127,7 @@
 		86026299254D72EC0085ACD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860262B4254D733E0085ACD5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		8620FA67257CDEB70005D8AF /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
-		8620FA6D257CDF880005D8AF /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
+		8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationView.swift; sourceTree = "<group>"; };
 		8620FA70257CDFBA0005D8AF /* StackPopButtonWithImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPopButtonWithImageView.swift; sourceTree = "<group>"; };
 		8620FA74257CE4C10005D8AF /* ButtonWithImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImageView.swift; sourceTree = "<group>"; };
 		8620FA79257CF1520005D8AF /* KeyboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardListener.swift; sourceTree = "<group>"; };
@@ -298,7 +298,6 @@
 				8620FA70257CDFBA0005D8AF /* StackPopButtonWithImageView.swift */,
 				8620FA7D257CF5890005D8AF /* BorderedButtonView.swift */,
 				8620FA74257CE4C10005D8AF /* ButtonWithImageView.swift */,
-				8620FA6D257CDF880005D8AF /* BackButtonView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -306,6 +305,7 @@
 		862ED07A2574362D005F4FCF /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				8684E2E8258A637C002015EE /* Views */,
 				8620FA8B257D3E7F0005D8AF /* Buttons */,
 				8620FA8A257D3E720005D8AF /* TextFields */,
 				862ED07B2574364C005F4FCF /* ListContainerView.swift */,
@@ -370,6 +370,14 @@
 				86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8684E2E8258A637C002015EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8693FB9D2582B1E80023BFC1 /* Items */ = {
@@ -666,7 +674,7 @@
 				86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */,
 				868CCB2D2558331700C96CFD /* UserPreferencesView.swift in Sources */,
 				865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */,
-				8620FA6E257CDF880005D8AF /* BackButtonView.swift in Sources */,
+				8620FA6E257CDF880005D8AF /* BasicNavigationView.swift in Sources */,
 				862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */,
 				8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */,
 				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct PurchaseItemDetailsView: View {
     

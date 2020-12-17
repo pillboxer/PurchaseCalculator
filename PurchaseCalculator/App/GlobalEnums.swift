@@ -27,15 +27,3 @@ enum Currency: String, CaseIterable {
     }
     
 }
-
-enum PurchaseCalculatorJSONFileType: String, CaseIterable {
-    case categories = "PurchaseCategories"
-    case itemGroup = "PurchaseItemGroups"
-    case items = "PurchaseItems"
-    case specificUnits = "SpecificPurchaseUnits"
-    case specificUnitGroups = "SpecificPurchaseUnitGroups"
-    case brands = "PurchaseBrands"
-    case attributes = "PurchaseAttributes"
-    case attributeMultiplierGroups = "PurchaseItemAttributeMultipliersGroups"
-    case valuesQuestions = "PurchaseAttributeValueQuestions"
-}

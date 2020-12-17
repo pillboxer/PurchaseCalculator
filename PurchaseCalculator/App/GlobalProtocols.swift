@@ -6,8 +6,8 @@
 //
 
 import Combine
-import Foundation
 import SystemKit
+import PurchaseCalculatorDataKit
 import SwiftUI
 
 // MARK: - Errors

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SystemKit
+import PurchaseCalculatorDataKit
 import UIKit
 
 class LaunchHelper {
@@ -19,7 +20,6 @@ class LaunchHelper {
         
     func start() {
         if UserDefaults.isFirstLaunch {
-            BundledContentManager.shared.saveBundledContentToDisk()
             UserDefaults.isFirstLaunch = false
         }
         listenToConnectionStatus()

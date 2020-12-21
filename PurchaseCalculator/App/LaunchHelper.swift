@@ -20,6 +20,7 @@ class LaunchHelper {
         
     func start() {
         if UserDefaults.isFirstLaunch {
+            BundledContentManager.shared.saveBundledContentToDisk()
             UserDefaults.isFirstLaunch = false
         }
         listenToConnectionStatus()

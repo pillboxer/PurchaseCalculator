@@ -31,6 +31,10 @@
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
 		866F8FFF258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */; };
 		866F9000258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86775AFC258E7F4B004E3149 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
+		86775AFD258E7F4B004E3149 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86775B01258E7F59004E3149 /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; };
+		86775B02258E7F59004E3149 /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
 		867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */; };
 		86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */; };
@@ -60,6 +64,7 @@
 		86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
+		86EF532B258B6BF9004FB64F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86EF5328258B6BF9004FB64F /* GoogleService-Info.plist */; };
 		86FA05612587F73000005AF8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA055E2587F73000005AF8 /* Question.swift */; };
 		86FA05782587F7B000005AF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA05772587F7B000005AF8 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +100,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				86775B02258E7F59004E3149 /* FirebaseKit.framework in Embed Frameworks */,
+				86775AFD258E7F4B004E3149 /* SystemKit.framework in Embed Frameworks */,
 				866F9000258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -161,6 +168,7 @@
 		86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClipboardTextField.swift; sourceTree = "<group>"; };
 		86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategoriesViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
+		86EF5328258B6BF9004FB64F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86FA055E2587F73000005AF8 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		86FA05772587F7B000005AF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +178,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86775B01258E7F59004E3149 /* FirebaseKit.framework in Frameworks */,
+				86775AFC258E7F4B004E3149 /* SystemKit.framework in Frameworks */,
 				866F8FFF258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +217,7 @@
 		86026284254D72EA0085ACD5 /* PurchaseCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				86EF5328258B6BF9004FB64F /* GoogleService-Info.plist */,
 				86A53C382557345B0055C0B9 /* Purchases */,
 				86D384A425569C2E00051019 /* App */,
 				860262B3254D73260085ACD5 /* Calculator */,
@@ -553,6 +564,7 @@
 			files = (
 				8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */,
 				86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */,
+				86EF532B258B6BF9004FB64F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

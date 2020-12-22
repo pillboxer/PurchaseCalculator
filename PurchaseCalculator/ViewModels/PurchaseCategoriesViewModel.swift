@@ -24,7 +24,7 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Exposed Functions
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
-        category.purchaseItemGroup?.items
+        category.purchaseItemGroup?.items?.sorted { $0.handle < $1.handle }
     }
 }
 

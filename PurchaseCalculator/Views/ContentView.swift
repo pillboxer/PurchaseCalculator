@@ -20,13 +20,11 @@ struct ContentView: View {
     var categoryView: some View {
         PurchaseCategorySelectionView()
             .environmentObject(purchaseCategoryViewModel)
-            .navigationBarHidden(true)
     }
     
     var preferencesView: some View {
         UserPreferencesView(row: $selectedRow)
             .environmentObject(userPreferencesViewModel)
-            .navigationBarHidden(true)
     }
     
     var body: some View {
@@ -37,11 +35,11 @@ struct ContentView: View {
                     .padding()
                     .frame(width: 100, height: 100, alignment: .center)
                 if User.doesExist {
-                    NavigationLinkedRowView(item: HomeRow(title: homeViewModel.categoriesTitle, imageName: homeViewModel.categoriesImageString), destinationController: categoryView, selectedID: $selectedRow) {
+                    NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.categoriesTitle, imageName: homeViewModel.categoriesImageString), destinationController: categoryView, selectedID: $selectedRow) {
                         selectedRow = homeViewModel.categoriesTitle
                     }
                 }
-                NavigationLinkedRowView(item: HomeRow(title: homeViewModel.preferencesRowTitle, imageName: homeViewModel.preferencesImageString), destinationController: preferencesView, selectedID: $selectedRow) {
+                NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.preferencesRowTitle, imageName: homeViewModel.preferencesImageString), destinationController: preferencesView, selectedID: $selectedRow) {
                     selectedRow = homeViewModel.preferencesRowTitle
                 }
                 Spacer()
@@ -53,10 +51,10 @@ struct ContentView: View {
 
 struct HomeRow: RowType {
     
-    var title: String
+    var handle: String
     var imageName: String
     
     var uuid: String {
-        title
+        handle
     }
 }

@@ -17,9 +17,8 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
     
     var body: some View {
         NavigationLink(destination: destinationController, tag: item.id, selection: $selectedID) {}
-        RowViewWithButton(title: item.title,
+        OpacityReducingRowView(title: item.handle,
                           imageName: item.imageName,
-                          id: item.id,
                           divider: divider,
                           usesSystemImage: item.isSystemImage,
                           rowHandler: rowHandler)

@@ -20,6 +20,12 @@
 		8620FA81257D3DBF0005D8AF /* StepperWithFillingRectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA80257D3DBF0005D8AF /* StepperWithFillingRectangles.swift */; };
 		8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA83257D3E110005D8AF /* TextFieldWithLimitView.swift */; };
 		8620FA87257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */; };
+		8625C4B125925A09006B29BA /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
+		8625C4B225925A09006B29BA /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; };
+		8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8625C4BE25925AFE006B29BA /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
+		8625C4BF25925AFE006B29BA /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		862ED0742573BA5D005F4FCF /* GlobalModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */; };
 		862ED0772573F3AC005F4FCF /* RowViewWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */; };
 		862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED07B2574364C005F4FCF /* ListContainerView.swift */; };
@@ -29,12 +35,6 @@
 		865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
-		866F8FFF258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */; };
-		866F9000258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86775AFC258E7F4B004E3149 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
-		86775AFD258E7F4B004E3149 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86775B01258E7F59004E3149 /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; };
-		86775B02258E7F59004E3149 /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
 		867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */; };
 		86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */; };
@@ -77,32 +77,18 @@
 			remoteGlobalIDString = 86026281254D72EA0085ACD5;
 			remoteInfo = PurchaseCalculator;
 		};
-		866F8FF9258B58AF00202E0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 866F8FF2258B58AF00202E0C /* PurchaseCalculatorDataKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86D29B1D258B56C30074B8BE;
-			remoteInfo = PurchaseCalculatorDataKit;
-		};
-		866F8FFB258B58AF00202E0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 866F8FF2258B58AF00202E0C /* PurchaseCalculatorDataKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86D29B26258B56C30074B8BE;
-			remoteInfo = PurchaseCalculatorDataKitTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		86B1EEB12572A10100526DE9 /* Embed Frameworks */ = {
+		8625C4B325925A09006B29BA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				86775B02258E7F59004E3149 /* FirebaseKit.framework in Embed Frameworks */,
-				86775AFD258E7F4B004E3149 /* SystemKit.framework in Embed Frameworks */,
-				866F9000258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
+				8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */,
+				8625C4BF25925AFE006B29BA /* SystemKit.framework in Embed Frameworks */,
+				8625C4B225925A09006B29BA /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +114,7 @@
 		8620FA80257D3DBF0005D8AF /* StepperWithFillingRectangles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperWithFillingRectangles.swift; sourceTree = "<group>"; };
 		8620FA83257D3E110005D8AF /* TextFieldWithLimitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLimitView.swift; sourceTree = "<group>"; };
 		8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithSegmentedPickerView.swift; sourceTree = "<group>"; };
+		8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PurchaseCalculatorDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModifiers.swift; sourceTree = "<group>"; };
 		862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewWithButton.swift; sourceTree = "<group>"; };
 		862ED07B2574364C005F4FCF /* ListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerView.swift; sourceTree = "<group>"; };
@@ -137,7 +124,6 @@
 		865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemViewModel.swift; sourceTree = "<group>"; };
 		86685D0A2561603000F139D7 /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		866F8FF2258B58AF00202E0C /* PurchaseCalculatorDataKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PurchaseCalculatorDataKit.xcodeproj; path = ../PurchaseCalculatorDataKit/PurchaseCalculatorDataKit.xcodeproj; sourceTree = "<group>"; };
 		866F9002258B592900202E0C /* FirebaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		866F9003258B592900202E0C /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategory.swift; sourceTree = "<group>"; };
@@ -178,9 +164,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86775B01258E7F59004E3149 /* FirebaseKit.framework in Frameworks */,
-				86775AFC258E7F4B004E3149 /* SystemKit.framework in Frameworks */,
-				866F8FFF258B58C300202E0C /* PurchaseCalculatorDataKit.framework in Frameworks */,
+				8625C4B125925A09006B29BA /* PurchaseCalculatorDataKit.framework in Frameworks */,
+				8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */,
+				8625C4BE25925AFE006B29BA /* SystemKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +183,6 @@
 		86026279254D72EA0085ACD5 = {
 			isa = PBXGroup;
 			children = (
-				866F8FF2258B58AF00202E0C /* PurchaseCalculatorDataKit.xcodeproj */,
 				86026284254D72EA0085ACD5 /* PurchaseCalculator */,
 				86026296254D72EC0085ACD5 /* PurchaseCalculatorTests */,
 				86026283254D72EA0085ACD5 /* Products */,
@@ -331,18 +316,10 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		866F8FF3258B58AF00202E0C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */,
-				866F8FFC258B58AF00202E0C /* PurchaseCalculatorDataKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		86756BD1254DA65000E31D5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */,
 				866F9002258B592900202E0C /* FirebaseKit.framework */,
 				866F9003258B592900202E0C /* SystemKit.framework */,
 			);
@@ -464,7 +441,7 @@
 				8602627E254D72EA0085ACD5 /* Sources */,
 				8602627F254D72EA0085ACD5 /* Frameworks */,
 				86026280254D72EA0085ACD5 /* Resources */,
-				86B1EEB12572A10100526DE9 /* Embed Frameworks */,
+				8625C4B325925A09006B29BA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -526,12 +503,6 @@
 			);
 			productRefGroup = 86026283254D72EA0085ACD5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 866F8FF3258B58AF00202E0C /* Products */;
-					ProjectRef = 866F8FF2258B58AF00202E0C /* PurchaseCalculatorDataKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				86026281254D72EA0085ACD5 /* PurchaseCalculator */,
@@ -539,23 +510,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		866F8FFA258B58AF00202E0C /* PurchaseCalculatorDataKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PurchaseCalculatorDataKit.framework;
-			remoteRef = 866F8FF9258B58AF00202E0C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		866F8FFC258B58AF00202E0C /* PurchaseCalculatorDataKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PurchaseCalculatorDataKitTests.xctest;
-			remoteRef = 866F8FFB258B58AF00202E0C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		86026280254D72EA0085ACD5 /* Resources */ = {
@@ -780,7 +734,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;
@@ -803,7 +757,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;
@@ -933,7 +887,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;

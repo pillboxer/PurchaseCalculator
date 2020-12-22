@@ -19,7 +19,7 @@ struct PurchaseItemDetailsView: View {
     var body: some View {
         BasicNavigationView {
             let list = PurchaseItemBrandSelectionView()
-            ListContainerView(headerText: "\(item.title) brand", list: list)
+            ListContainerView(headerText: "\(item.handle) brand", list: list)
         }
     }
 }

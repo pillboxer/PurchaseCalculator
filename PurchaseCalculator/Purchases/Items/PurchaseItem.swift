@@ -10,9 +10,9 @@ import Foundation
 struct PurchaseItem: Decodable, RowType {
     
     let uuid: String
-    let title: String
+    let handle: String
     let attributeMultiplierGroupID: String
-    let purchaseUnitGroupID: String?
+    let specificPurchaseUnitGroupID: String
     let imageName: String
 
 }
@@ -20,8 +20,9 @@ struct PurchaseItem: Decodable, RowType {
 extension PurchaseItem {
     
     private var unitGroup: SpecificPurchaseUnitGroup? {
-        let groups = try? JSONDecoder.decodeLocalJSON(file: "SpecificPurchaseUnitGroups", type: [SpecificPurchaseUnitGroup].self)
-        return groups?.filter { $0.uuid == purchaseUnitGroupID }.first
+        let groups = try? JSONDecoder.decodeLocalJSON(file: "SpecificPurchaseUnitGroups", type: [String:SpecificPurchaseUnitGroup].self)
+        let values = groups.map { $0.values }
+        return values?.filter { $0.uuid == specificPurchaseUnitGroupID }.first
     }
     
     var specificPurchaseUnits: [SpecificPurchaseUnit]? {

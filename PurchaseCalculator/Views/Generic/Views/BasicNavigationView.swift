@@ -22,5 +22,6 @@ struct BasicNavigationView<Content: View>: View {
             content
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .navigationBarHidden(true)
     }
 }

@@ -16,7 +16,7 @@ class PurchaseItemViewModel: ObservableObject {
     }
     
     var brands: [PurchaseBrand] {
-        item.brands.sorted { $0.name < $1.name }
+        item.brands.sorted { $0.handle < $1.handle }
     }
     
     func unitsForBrand(_ brand: PurchaseBrand) -> [SpecificPurchaseUnit] {

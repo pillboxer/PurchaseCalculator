@@ -10,7 +10,7 @@ import Foundation
 struct PurchaseBrand: Decodable {
 
     let uuid: String
-    let name: String
+    let handle: String
     let imageName: String
     
 }
@@ -26,7 +26,7 @@ extension PurchaseBrand: Hashable {
 extension PurchaseBrand: Equatable {
 
     static func == (lhs: PurchaseBrand, rhs: PurchaseBrand) -> Bool {
-        lhs.uuid == rhs.uuid && lhs.name == rhs.name
+        lhs.uuid == rhs.uuid && lhs.handle == rhs.handle
     }
     
 }
@@ -34,7 +34,7 @@ extension PurchaseBrand: Equatable {
 extension PurchaseBrand: RowType {
 
     var title: String {
-        name
+        handle
     }
     
 }

@@ -18,8 +18,9 @@ struct PurchaseItemGroup: Decodable {
 extension PurchaseItemGroup {
     
     var items: [PurchaseItem]? {
-        let items = try? JSONDecoder.decodeLocalJSON(file: "PurchaseItems", type: [PurchaseItem].self)
-        return items?.filter { itemIDs.contains($0.uuid) }
+        let items = try? JSONDecoder.decodeLocalJSON(file: "PurchaseItems", type: [String:PurchaseItem].self)
+        let values = items.map { $0.values }
+        return values?.filter { itemIDs.contains($0.uuid) }
     }
 
 }

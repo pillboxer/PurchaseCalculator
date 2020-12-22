@@ -8,7 +8,7 @@ import SystemKit
 
 struct PurchaseCategory: Decodable, RowType {
     
-    let title: String
+    let handle: String
     let uuid: String
     let purchaseItemGroupID: String
     let imageName: String

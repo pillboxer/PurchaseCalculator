@@ -46,7 +46,6 @@ struct PurchaseItemsListView: View {
                     let model = PurchaseItemViewModel(item: item)
                     let destination = PurchaseItemDetailsView()
                         .environmentObject(model)
-                        .navigationBarHidden(true)
                     NavigationLinkedRowView(item: item,
                                             destinationController: destination,
                                             selectedID: $selectedItemID) {

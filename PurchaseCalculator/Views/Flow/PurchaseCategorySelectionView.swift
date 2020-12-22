@@ -38,7 +38,7 @@ struct PurchaseCategoriesListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(categories) { category in
-                    let destination = PurchaseItemSelectionView(items: model.itemsForCategory(category)).navigationBarHidden(true)
+                    let destination = PurchaseItemSelectionView(items: model.itemsForCategory(category))
                     NavigationLinkedRowView(item: category,
                                             destinationController: destination,
                                             selectedID: $selectedCategoryID) {

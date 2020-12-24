@@ -49,11 +49,12 @@ struct UserPreferencesView: FirebaseRefreshingView {
                             row = nil
                         }
                     }
-                    .frame(width: 40, height: 30)
+                    .frame(width: 100, height: 30)
                     .disabled(ctaIsDisabled)
                     .padding()
                 }
             }
+            .hidePopImage(true)
             .onAppear {
                 model.reset()
             }

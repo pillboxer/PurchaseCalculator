@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import PurchaseCalculatorDataKit
 
 struct PurchaseItemDetailsView: View {
     
     @EnvironmentObject var model: PurchaseItemViewModel
-    
+    var evaluationManager: EvaluationManager
     var item: PurchaseItem {
         model.item
     }
@@ -19,34 +18,8 @@ struct PurchaseItemDetailsView: View {
     var body: some View {
         BasicNavigationView {
             let list = PurchaseItemBrandSelectionView()
+                .environmentObject(evaluationManager)
             ListContainerView(headerText: "\(item.handle) brand", list: list)
-        }
-    }
-}
-
-struct PurchaseItemBrandSelectionView: FirebaseRefreshingView {
-    
-    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
-    @EnvironmentObject var model: PurchaseItemViewModel
-    
-    var brands: [PurchaseBrand] {
-        return model.brands
-    }
-    
-    @State var brandSelection: String?
-    
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                ForEach(brands) { brand in
-                    let destination = SpecificPurchaseUnitSelectionView(units: model.unitsForBrand(brand))
-                    NavigationLinkedRowView(item: brand,
-                                            destinationController: destination,
-                                            selectedID: $brandSelection) {
-                        brandSelection = brand.id
-                    }
-                }
-            }
         }
     }
 }

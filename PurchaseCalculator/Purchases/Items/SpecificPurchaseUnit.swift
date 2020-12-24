@@ -7,7 +7,7 @@
 
 import SystemKit
 
-struct SpecificPurchaseUnit: Decodable, CustomStringConvertible {
+struct SpecificPurchaseUnit: Decodable, CustomStringConvertible, Equatable {
     
     let uuid: String
     let brandID: String
@@ -17,7 +17,6 @@ struct SpecificPurchaseUnit: Decodable, CustomStringConvertible {
     var description: String {
         "\(modelName) | \(cost)"
     }
-    
     
 }
 

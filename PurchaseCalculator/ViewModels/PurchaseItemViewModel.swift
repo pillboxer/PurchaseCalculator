@@ -11,6 +11,10 @@ class PurchaseItemViewModel: ObservableObject {
     
     var item: PurchaseItem
     
+    var evaluationManager: EvaluationManager? {
+        EvaluationManager(item: item)
+    }
+    
     init(item: PurchaseItem) {
         self.item = item
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SystemKit
 
 struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
     
@@ -15,10 +16,14 @@ struct NavigationLinkedRowView<T: RowType, Destination: View>: View {
     var divider: Bool = true
     var rowHandler: (() -> Void)?
     
+    var imageName: String {
+        item.imageName.existsAsImage ? item.imageName : "calculate"
+    }
+    
     var body: some View {
         NavigationLink(destination: destinationController, tag: item.id, selection: $selectedID) {}
         OpacityReducingRowView(title: item.handle,
-                          imageName: item.imageName,
+                          imageName: imageName,
                           divider: divider,
                           usesSystemImage: item.isSystemImage,
                           rowHandler: rowHandler)

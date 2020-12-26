@@ -10,7 +10,6 @@ import SwiftUI
 struct PurchaseItemDetailsView: View {
     
     @EnvironmentObject var model: PurchaseItemViewModel
-    var evaluationManager: EvaluationManager
     var item: PurchaseItem {
         model.item
     }
@@ -18,7 +17,6 @@ struct PurchaseItemDetailsView: View {
     var body: some View {
         BasicNavigationView {
             let list = PurchaseItemBrandSelectionView()
-                .environmentObject(evaluationManager)
             ListContainerView(headerText: "\(item.handle) brand", list: list)
         }
     }

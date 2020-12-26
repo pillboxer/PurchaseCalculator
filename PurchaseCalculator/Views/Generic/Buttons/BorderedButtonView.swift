@@ -31,32 +31,32 @@ struct BorderedButtonView: View {
     
     var body: some View {
         Button(text, action: action)
-        .modifier(StandardFontModifier())
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .buttonStyle(PlainButtonStyle())
-        .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(currentColor, lineWidth: 1.5))
-        .foregroundColor(currentColor)
-        .opacity(opacity)
-        .onChange(of: isEnabled) { enabled in
-            changeOpacity(for: enabled)
-        }
-        .onAppear {
-            changeOpacity(for: isEnabled)
-        }
-        .gesture(DragGesture(minimumDistance: 0.0)
-                    .onChanged { _ in
-                        changeOpacity(for: false)
-                    }
-                    .onEnded { dragging in
-                        let movementInEitherAxis = max(abs(dragging.translation.width), abs(dragging.translation.height))
-                        let pressed = movementInEitherAxis < 40
-                        if pressed {
-                            action()
+            .modifier(StandardFontModifier())
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .buttonStyle(PlainButtonStyle())
+            .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(currentColor, lineWidth: 1.5))
+            .foregroundColor(currentColor)
+            .opacity(opacity)
+            .onChange(of: isEnabled) { enabled in
+                changeOpacity(for: enabled)
+            }
+            .onAppear {
+                changeOpacity(for: isEnabled)
+            }
+            .gesture(DragGesture(minimumDistance: 0.0)
+                        .onChanged { _ in
+                            changeOpacity(for: false)
                         }
-                        else {
-                            changeOpacity(for: pressed)
-                        }
-                    })
+                        .onEnded { dragging in
+                            let movementInEitherAxis = max(abs(dragging.translation.width), abs(dragging.translation.height))
+                            let pressed = movementInEitherAxis < 40
+                            if pressed {
+                                action()
+                            }
+                            else {
+                                changeOpacity(for: pressed)
+                            }
+                        })
     }
     
     func changeOpacity(for enabled: Bool) {

@@ -12,13 +12,13 @@ class SpecificPurchaseUnitSelectionViewModel: ObservableObject {
     @Published var units: [SpecificPurchaseUnit] = []
     @Published var selectedUnit: SpecificPurchaseUnit?
     
-    init(units: [SpecificPurchaseUnit]) {
+    var evaluationManager: EvaluationManager
+    
+    init(units: [SpecificPurchaseUnit], item: PurchaseItem) {
         self.units = units.sorted { $0.modelName < $1.modelName }
+        self.evaluationManager = EvaluationManager(item: item)
     }
 
-    func reset() {
-        selectedUnit = nil
-    }
 
     func isExpanded(_ unit: SpecificPurchaseUnit) -> Bool {
         selectedUnit == unit

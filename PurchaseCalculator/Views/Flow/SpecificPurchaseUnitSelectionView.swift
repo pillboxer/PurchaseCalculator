@@ -14,8 +14,8 @@ struct SpecificPurchaseUnitSelectionView: View {
         Color(.sRGB, red: 0, green: 0.7, blue: 0.5, opacity: 0.7)
     }
     
-    @EnvironmentObject var evaluationManager: EvaluationManager
-    @ObservedObject var viewModel: SpecificPurchaseUnitSelectionViewModel
+    
+    @StateObject var viewModel: SpecificPurchaseUnitSelectionViewModel
     
     var body: some View {
         BasicNavigationView {
@@ -25,8 +25,6 @@ struct SpecificPurchaseUnitSelectionView: View {
 }
 
 private struct SpecicPurchaseUnitListView: View {
-
-    @EnvironmentObject var evaluationManager: EvaluationManager
     
     @ObservedObject var viewModel: SpecificPurchaseUnitSelectionViewModel
     
@@ -36,11 +34,15 @@ private struct SpecicPurchaseUnitListView: View {
     
     func expandedContentFor(unit: SpecificPurchaseUnit) -> some View {
         VStack {
+            let evaluationManager = viewModel.evaluationManager
+            let evaluation = evaluationManager.evaluateItem(costing: unit.cost)
             ExpandedRow(leadingText: "Cost", trailingText: viewModel.formattedCost(unit.cost))
-            let destination = EvaluationCalculationView(evaluationManager: evaluationManager)
+            let destination = EvaluationCalculationView(evaluation: evaluation,
+                                                        unitName: unit.modelName,
+                                                        selectedAttributeEvaluation: evaluation.attributeEvaluations.first!)
+                            .navigationBarHidden(true)
             NavigationLink(destination: destination, tag: unit.id, selection: $selection) {
                 BorderedButtonView(text: "Evaluate") {
-                    evaluationManager.evaluateItem(costing: unit.cost)
                     selection = unit.id
                 }
                 .frame(width: 70, height: 30)
@@ -76,9 +78,9 @@ private struct ExpandedRow: View {
     
     var body: some View {
         HStack {
-            Text(leadingText)
+            PCTextView(leadingText)
             Spacer()
-            Text(trailingText)
+            PCTextView(trailingText)
         }
         .padding(.bottom)
     }

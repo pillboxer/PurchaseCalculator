@@ -22,8 +22,6 @@
 		8620FA81257D3DBF0005D8AF /* StepperWithFillingRectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA80257D3DBF0005D8AF /* StepperWithFillingRectangles.swift */; };
 		8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA83257D3E110005D8AF /* TextFieldWithLimitView.swift */; };
 		8620FA87257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */; };
-		8625C4B125925A09006B29BA /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
-		8625C4B225925A09006B29BA /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; };
 		8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8625C4BE25925AFE006B29BA /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
@@ -34,6 +32,8 @@
 		862ED08025743683005F4FCF /* NavigationLinkedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED07F25743683005F4FCF /* NavigationLinkedRowView.swift */; };
 		864016492589FCCA00B78BE9 /* LaunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864016482589FCCA00B78BE9 /* LaunchHelper.swift */; };
 		86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */; };
+		864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
+		864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
@@ -65,6 +65,11 @@
 		86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */; };
 		86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */; };
 		86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */; };
+		86C6F5B5259637F000A6D48F /* PCTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B4259637F000A6D48F /* PCTextView.swift */; };
+		86C6F5BA25973DB100A6D48F /* PurchaseAttributesDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */; };
+		86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */; };
+		86C6F5C125973EE500A6D48F /* SingleBarViewAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5C025973EE500A6D48F /* SingleBarViewAnimated.swift */; };
+		86C6F5C425973FCD00A6D48F /* PurchaseAttributeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5C325973FCD00A6D48F /* PurchaseAttributeSummaryView.swift */; };
 		86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */; };
 		86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
 		86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */; };
@@ -95,7 +100,7 @@
 			files = (
 				8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */,
 				8625C4BF25925AFE006B29BA /* SystemKit.framework in Embed Frameworks */,
-				8625C4B225925A09006B29BA /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
+				864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +167,11 @@
 		86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionView.swift; sourceTree = "<group>"; };
 		86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemGroup.swift; sourceTree = "<group>"; };
+		86C6F5B4259637F000A6D48F /* PCTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTextView.swift; sourceTree = "<group>"; };
+		86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributesDualGraphView.swift; sourceTree = "<group>"; };
+		86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeSingleDualGraphView.swift; sourceTree = "<group>"; };
+		86C6F5C025973EE500A6D48F /* SingleBarViewAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBarViewAnimated.swift; sourceTree = "<group>"; };
+		86C6F5C325973FCD00A6D48F /* PurchaseAttributeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeSummaryView.swift; sourceTree = "<group>"; };
 		86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemSelectionView.swift; sourceTree = "<group>"; };
 		86DB14D125692945003BABD5 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseItemDetailsView.swift; path = PurchaseCalculator/Views/Flow/PurchaseItemDetailsView.swift; sourceTree = SOURCE_ROOT; };
@@ -178,9 +188,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8625C4B125925A09006B29BA /* PurchaseCalculatorDataKit.framework in Frameworks */,
 				8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */,
 				8625C4BE25925AFE006B29BA /* SystemKit.framework in Frameworks */,
+				864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +344,7 @@
 		866E3DD125938D0800A35313 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				86C6F5B825973D9300A6D48F /* Evaluation */,
 				866E3DD225938D1A00A35313 /* Rows */,
 				8620FA80257D3DBF0005D8AF /* StepperWithFillingRectangles.swift */,
 				866E3DD425938D3900A35313 /* Divider.swift */,
@@ -384,6 +395,7 @@
 			children = (
 				862ED07B2574364C005F4FCF /* ListContainerView.swift */,
 				8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */,
+				86C6F5B4259637F000A6D48F /* PCTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +458,17 @@
 				86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */,
 			);
 			path = "Item Groups";
+			sourceTree = "<group>";
+		};
+		86C6F5B825973D9300A6D48F /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */,
+				86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */,
+				86C6F5C025973EE500A6D48F /* SingleBarViewAnimated.swift */,
+				86C6F5C325973FCD00A6D48F /* PurchaseAttributeSummaryView.swift */,
+			);
+			path = Evaluation;
 			sourceTree = "<group>";
 		};
 		86D384A425569C2E00051019 /* App */ = {
@@ -584,7 +607,9 @@
 				8620FA81257D3DBF0005D8AF /* StepperWithFillingRectangles.swift in Sources */,
 				868CCB452558446500C96CFD /* PurchaseAttributeValue+CoreDataClass.swift in Sources */,
 				86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */,
+				86C6F5C125973EE500A6D48F /* SingleBarViewAnimated.swift in Sources */,
 				866E3DD525938D3900A35313 /* Divider.swift in Sources */,
+				86C6F5BA25973DB100A6D48F /* PurchaseAttributesDualGraphView.swift in Sources */,
 				86026288254D72EA0085ACD5 /* ContentView.swift in Sources */,
 				8620FA71257CDFBA0005D8AF /* StackPopButtonWithImageView.swift in Sources */,
 				86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */,
@@ -603,6 +628,7 @@
 				86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */,
 				86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */,
 				8620FA68257CDEB70005D8AF /* HomeButtonView.swift in Sources */,
+				86C6F5B5259637F000A6D48F /* PCTextView.swift in Sources */,
 				866E3DDB25938EBB00A35313 /* PriceFormatter.swift in Sources */,
 				86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */,
 				86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */,
@@ -616,8 +642,10 @@
 				866E3DCF25938CC900A35313 /* OpacityReducingRowView.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				868A49A92584C63A00CDDE83 /* PurchaseBrand.swift in Sources */,
+				86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */,
 				8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */,
 				86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */,
+				86C6F5C425973FCD00A6D48F /* PurchaseAttributeSummaryView.swift in Sources */,
 				8620FA7A257CF1520005D8AF /* KeyboardListener.swift in Sources */,
 				862ED0772573F3AC005F4FCF /* RowViewWithButton.swift in Sources */,
 				86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */,

@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct StepperWithFillingRectangles: View {
+    
+    var screenWidth: CGFloat {
+        UIScreen.main.bounds.width
+    }
     
     var numberOfRectangles: Int
     var cornerRadiusForRectangles: CGFloat? = nil
@@ -19,7 +24,7 @@ struct StepperWithFillingRectangles: View {
                 Rectangle()
                     .fill(fillColor(index))
                     .animation(.easeIn)
-                    .frame(width: 40, height: 10)
+                    .frame(width: screenWidth / 10, height: 10)
                     .cornerRadius(cornerRadiusForRectangles ?? 0)
                     .overlay(RoundedRectangle(cornerRadius: cornerRadiusForRectangles ?? 0).stroke(Color.primary))
                     .onTapGesture {
@@ -29,11 +34,11 @@ struct StepperWithFillingRectangles: View {
             Spacer()
             Stepper("",
                     onIncrement: {
-                        self.valueToChange = min(1, self.valueToChange + 0.1)
+                        self.valueToChange = min(1, self.valueToChange + 0.05)
                         changeHandler(valueToChange)
                     },
                     onDecrement: {
-                        self.valueToChange = max(0, self.valueToChange - 0.1)
+                        self.valueToChange = max(0, self.valueToChange - 0.05)
                         changeHandler(valueToChange)
                     }
             )

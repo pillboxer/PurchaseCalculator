@@ -26,7 +26,7 @@ struct PurchaseItemSelectionView: FirebaseRefreshingView {
         }
         else {
             BasicNavigationView {
-                Text("No items")
+                PCTextView("No items")
             }
         }
         
@@ -43,9 +43,8 @@ struct PurchaseItemsListView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(items) { item in
-                    let evalationManager = EvaluationManager(item: item)
                     let model = PurchaseItemViewModel(item: item)
-                    let destination = PurchaseItemDetailsView(evaluationManager: evalationManager)
+                    let destination = PurchaseItemDetailsView()
                         .environmentObject(model)
                     NavigationLinkedRowView(item: item,
                                             destinationController: destination,

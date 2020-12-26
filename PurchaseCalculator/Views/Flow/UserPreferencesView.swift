@@ -22,14 +22,13 @@ struct UserPreferencesView: FirebaseRefreshingView {
     
     var body: some View {
         if let error = model.currentErrorMessage {
-            Text(error)
+            PCTextView(error)
         }
-        else if let questions = model.valuesQuestionnaire {
+        else if let attributes = model.attributes {
             let currencies = model.currencies.compactMap { $0.symbol }
             BasicNavigationView(home: true) {
                 VStack {
-                    Text(model.titleString)
-                        .modifier(StandardFontModifier())
+                    PCTextView(model.titleString)
                         .padding()
                     TextFieldWithLimitView(placeholder: model.userNameTextFieldPlaceholder,
                                            textFieldText: $model.userName,
@@ -43,7 +42,7 @@ struct UserPreferencesView: FirebaseRefreshingView {
                                                selection: $model.selectedCurrencyString,
                                                font: textFieldFont)
                         .padding()
-                    UserPreferencesForm(questions: questions)
+                    UserPreferencesForm(attributes: attributes)
                     BorderedButtonView(text: "Save") {
                         model.save() {
                             row = nil
@@ -54,7 +53,6 @@ struct UserPreferencesView: FirebaseRefreshingView {
                     .padding()
                 }
             }
-            .hidePopImage(true)
             .onAppear {
                 model.reset()
             }
@@ -66,16 +64,15 @@ struct UserPreferencesForm: View {
     
     @EnvironmentObject var model: UserPreferencesViewModel
     
-    var questions: [Question]
+    var attributes: [PurchaseAttribute]
 
     var body: some View {
         VStack {
-            Text(model.listHeaderString)
-                .modifier(StandardFontModifier())
-                .padding()
+            PCTextView(model.listHeaderString)
+                .padding(.bottom)
             ScrollView {
-                ForEach(questions) { question in
-                    PurchaseValueWeightingSelectionView(question: question)
+                ForEach(attributes, id: \.uuid) { attribute in
+                    PurchaseValueWeightingSelectionView(attribute: attribute)
                         .padding([.leading, .trailing])
                 }
             }
@@ -86,16 +83,24 @@ struct UserPreferencesForm: View {
 struct PurchaseValueWeightingSelectionView: View {
     @EnvironmentObject var model: UserPreferencesViewModel
     
-    var question: Question
+    var attribute: PurchaseAttribute
+    
+    var image: some View {
+        Image(attribute.symbol)
+            .resizable()
+            .frame(width: 20, height: 20)
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text(question.title)
-                .modifier(StandardFontModifier())
             HStack {
-                StepperWithFillingRectangles(numberOfRectangles: 5, cornerRadiusForRectangles: 2, valueToChange: model.weightForValue(id: question.attributeID)) { newValue in
-                    model.addAttributeValue(id: question.attributeID, weight: newValue)
+                image
+                PCTextView(attribute.handle)             
+            }
+            HStack {
+                StepperWithFillingRectangles(numberOfRectangles: 5, cornerRadiusForRectangles: 2, valueToChange: model.weightForValue(id: attribute.uuid)) { newValue in
+                    model.addAttributeValue(id: attribute.uuid, weight: newValue)
                 }
-                
             }
         }
     }

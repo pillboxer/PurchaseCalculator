@@ -11,5 +11,6 @@ struct PurchaseAttribute: Decodable {
     
     let uuid: String
     let handle: String
+    let symbol: String
     
 }

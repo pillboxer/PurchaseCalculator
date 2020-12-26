@@ -34,8 +34,7 @@ struct RowViewWithButton: View {
                     .frame(maxWidth: 20, maxHeight: 20)
                     .padding(.trailing)
             }
-            Text(title)
-                .modifier(StandardFontModifier())
+            PCTextView(title)
             Spacer()
             Button(action: {
                 buttonHandler()

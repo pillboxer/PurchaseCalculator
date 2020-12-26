@@ -107,11 +107,6 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         Currency.allCases
     }
     
-    // MARK: - Initialisation
-    init() {
-        _ = valuesQuestionnaire
-    }
-    
     func setupExistingUser() {
         if let takeHomePay = user.takeHomePay?.intValue {
             userTakeHomePay = String(takeHomePay)
@@ -145,10 +140,10 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         return user.weightForAttributeID(id) ?? 0.5
     }
     
-    var valuesQuestionnaire: [Question]? {
+    var attributes: [PurchaseAttribute]? {
         do {
-            let questions = try JSONDecoder.decodeLocalJSON(file: "PurchaseAttributeValueQuestions", type: [Question].self)
-            return questions
+            let attributes = try JSONDecoder.decodeLocalJSON(file: "PurchaseAttributes", type: [PurchaseAttribute].self)
+            return attributes.sorted { $0.handle < $1.handle }
         }
         catch let error {
             publishErrorMessage(error)

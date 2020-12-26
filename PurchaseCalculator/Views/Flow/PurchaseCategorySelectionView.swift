@@ -10,12 +10,12 @@ import PurchaseCalculatorDataKit
 
 struct PurchaseCategorySelectionView: FirebaseRefreshingView {
 
-    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
+    @StateObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: PurchaseCategoriesViewModel
     
     var body: some View {
         if let error = model.currentErrorMessage {
-            Text(error)
+            PCTextView(error)
         }
         else if let categories = model.purchaseCategories {
             let list = PurchaseCategoriesListView(categories: categories)

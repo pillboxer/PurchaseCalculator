@@ -10,14 +10,16 @@ import PurchaseCalculatorDataKit
 
 struct PurchaseItemBrandSelectionView: FirebaseRefreshingView {
     
+    // MARK: - Private
+    @State private var brandSelection: String?
+
+    // MARK: - Exposed
     @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: PurchaseItemViewModel
     
     var brands: [PurchaseBrand] {
         return model.brands
     }
-    
-    @State var brandSelection: String?
     
     var body: some View {
         ScrollView {

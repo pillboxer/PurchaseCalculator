@@ -22,7 +22,7 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
         }
     }
     
-    // MARK: - Exposed Functions
+    // MARK: - Exposed private functions
     func itemsForCategory(_ category: PurchaseCategory) -> [PurchaseItem]? {
         category.purchaseItemGroup?.items?.sorted { $0.handle < $1.handle }
     }

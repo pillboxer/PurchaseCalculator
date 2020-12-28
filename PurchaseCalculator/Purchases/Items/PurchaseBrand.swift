@@ -25,7 +25,7 @@ extension PurchaseBrand: Hashable {
 
 extension PurchaseBrand: Equatable {
 
-    static func == (lhs: PurchaseBrand, rhs: PurchaseBrand) -> Bool {
+    static private func == (lhs: PurchaseBrand, rhs: PurchaseBrand) -> Bool {
         lhs.uuid == rhs.uuid && lhs.handle == rhs.handle
     }
     

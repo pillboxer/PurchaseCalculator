@@ -16,8 +16,10 @@ struct EphemeralConsidered<Value> {
     var wrappedValue: Value {
         get {
             #if EPHEMERAL
+            print("EPEHEMERAL")
                 return ephemeral
             #else
+            print("NOT EPHEMERAL")
                 return notEphemeral
             #endif
         }

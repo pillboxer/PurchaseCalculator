@@ -15,11 +15,11 @@ class PurchaseCalculatorTests: XCTestCase {
     
     var testUser: User?
     
-    override func setUpWithError() throws {
+    override private func setUpWithError() throws {
         createTestUser()
     }
     
-    private func createTestUser() {
+    private private func createTestUser() {
         let viewModel = UserPreferencesViewModel()
         let questions = viewModel.valuesQuestionnaire ?? []
         let context = coreDataManager.moc
@@ -37,11 +37,11 @@ class PurchaseCalculatorTests: XCTestCase {
         coreDataManager.save(context)
     }
 
-    override func tearDownWithError() throws {
+    override private func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    private func failWithError(_ error: Error) {
+    private private func failWithError(_ error: Error) {
         if let error = error as? SystemKitError {
             XCTFail(error.errorDescription)
         }
@@ -52,20 +52,20 @@ class PurchaseCalculatorTests: XCTestCase {
     
     
     // MARK: - New User
-    func testNewUserViewModelValuesQuestionnaireReturns() {
+    private func testNewUserViewModelValuesQuestionnaireReturns() {
         let viewModel = UserPreferencesViewModel()
         let questionnaire = viewModel.valuesQuestionnaire
         XCTAssertNotNil(questionnaire)
     }
     
     // MARK: - Evaluation
-    func testEvaluationViewModelPurchaseCategoriesReturn() {
+    private func testEvaluationViewModelPurchaseCategoriesReturn() {
         let viewModel = PurchaseEvaluationViewModel()
         let attributes = viewModel.purchaseCategories
         XCTAssertNotNil(attributes)
     }
     
-    func testEvaluationManagerReturnsEvaluationForPurchaseItem() {
+    private func testEvaluationManagerReturnsEvaluationForPurchaseItem() {
         let smartphoneUUID = "97159302-c33b-4804-951b-6d439e9d3b9a"
         let smartphoneHandle = "Smart Phone"
         let smartphoneAttributeGroupID = "b2ae2961-5bb4-4185-9d8d-e2199986541c"

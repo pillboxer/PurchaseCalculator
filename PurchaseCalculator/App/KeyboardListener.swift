@@ -12,16 +12,16 @@ class KeyboardListener {
     
     static private(set) var keyboardIsShowing = false
     
-    static func start() {
+    static private func start() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
-    @objc static func keyboardWillAppear() {
+    @objc static private func keyboardWillAppear() {
         keyboardIsShowing = true
     }
     
-    @objc static func keyboardWillDisappear() {
+    @objc static private func keyboardWillDisappear() {
         keyboardIsShowing = false
     }
 }

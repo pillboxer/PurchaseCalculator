@@ -31,7 +31,7 @@ struct BasicNavigationView<Content: View>: View {
 
 extension BasicNavigationView {
     
-    func hidePopImage(_ bool: Bool) -> BasicNavigationView {
+    private func hidePopImage(_ bool: Bool) -> BasicNavigationView {
         return BasicNavigationView(imageHidden: bool, content: content)
     }
 

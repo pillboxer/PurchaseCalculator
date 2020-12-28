@@ -23,7 +23,6 @@ struct RowViewWithButton: View {
         return usesSystemImage ? Image(systemName: name) : Image(name)
     }
     
-    @ViewBuilder
     var body: some View {
         HStack {
             if imageName != nil {

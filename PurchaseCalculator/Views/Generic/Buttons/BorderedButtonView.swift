@@ -59,7 +59,7 @@ struct BorderedButtonView: View {
                         })
     }
     
-    func changeOpacity(for enabled: Bool) {
+    private func changeOpacity(for enabled: Bool) {
         withAnimation { opacity = enabled ? 1.0 : 0.5 }
     }
     

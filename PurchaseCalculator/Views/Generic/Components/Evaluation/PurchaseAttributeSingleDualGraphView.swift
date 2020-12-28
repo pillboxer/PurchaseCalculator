@@ -11,32 +11,33 @@ struct PurchaseAttributeSingleDualGraphView: View {
     
     @State private var scale: Double = 1
     @State private var imageTapped: Bool = false
-    @State private var barAnimationComplete: Bool = false
     
-    var evaluation: EvaluationManager.AttributeEvaluation
+    var evaluation: AttributeEvaluation
     var selected: Bool
-    var height: Double = 100
+    // FIXME: - Name Properly. Test all devices
+    var height: CGFloat
+    @Binding var barAnimationComplete: Bool
+
     var selectionHandler: () -> Void
     
-    func barHeight(for score: Double) -> Double {
-        (height / 2) * score
+    private func barHeight(for score: Double) -> Double {
+        Double(height) * score
     }
     
     var body: some View {
         VStack {
-            let result = evaluation.attributeResult
             HStack(alignment: .bottom) {
-                SingleBarViewAnimated(height: barHeight(for: evaluation.attributeScore),
+                SingleBarViewAnimated(height: barHeight(for: evaluation.attributeResult.colorScore),
                               width: 10,
-                              color: result.evaluationColor,
+                              color: ColorManager.evaulationResultColorFor(evaluation.attributeResult),
                               animationComplete: $barAnimationComplete)
-                SingleBarViewAnimated(height: barHeight(for: evaluation.userWeighting.score),
+                SingleBarViewAnimated(height: barHeight(for: evaluation.userWeighting.colorScore),
                               width: 10,
                               color: .gray,
                               animationComplete: $barAnimationComplete)
             }
             .padding(5)
-            .frame(height: CGFloat(height), alignment: .bottom)
+            .frame(height: height, alignment: .bottom)
             Image(evaluation.attributeImageName)
                 .resizable()
                 .frame(width: 25, height: 25)
@@ -48,7 +49,7 @@ struct PurchaseAttributeSingleDualGraphView: View {
                     }
                 }
             Rectangle()
-                .fill(result.evaluationColor)
+                .fill(Color.primary)
                 .frame(width: 25, height: 2)
                 .padding(2)
                 .hidden(!selected)

@@ -72,7 +72,7 @@ struct UserPreferencesForm: View {
                 .padding(.bottom)
             ScrollView {
                 ForEach(attributes, id: \.uuid) { attribute in
-                    PurchaseValueWeightingSelectionView(attribute: attribute)
+                    PurchaseValueWeightingSelectionView(initialValue: model.weightForValue(id: attribute.uuid).to(decimalPlaces: 2), attribute: attribute)
                         .padding([.leading, .trailing])
                 }
             }
@@ -82,7 +82,7 @@ struct UserPreferencesForm: View {
 
 struct PurchaseValueWeightingSelectionView: View {
     @EnvironmentObject var model: UserPreferencesViewModel
-    
+    @State var initialValue: Double
     var attribute: PurchaseAttribute
     
     var image: some View {
@@ -98,7 +98,9 @@ struct PurchaseValueWeightingSelectionView: View {
                 PCTextView(attribute.handle)             
             }
             HStack {
-                StepperWithFillingRectangles(numberOfRectangles: 5, cornerRadiusForRectangles: 2, valueToChange: model.weightForValue(id: attribute.uuid)) { newValue in
+                let weighting = AttributeUserWeighting(weight: initialValue)
+                StepperWithFillingRectangles(numberOfRectangles: 5, cornerRadiusForRectangles: 2, valueToChange: $initialValue, userWeighting: weighting) { newValue in
+                    initialValue = newValue.to(decimalPlaces: 2)
                     model.addAttributeValue(id: attribute.uuid, weight: newValue)
                 }
             }

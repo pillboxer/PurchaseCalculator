@@ -12,7 +12,7 @@ struct ContentView: View {
     // Observed so we refresh when a user is created
     @ObservedObject var userPreferencesViewModel = UserPreferencesViewModel()
     
-    @State var selectedRow: String?
+    @State private var selectedRow: String?
     
     var homeViewModel = HomeViewModel()
     var purchaseCategoryViewModel = PurchaseCategoriesViewModel()

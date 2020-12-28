@@ -107,7 +107,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         Currency.allCases
     }
     
-    func setupExistingUser() {
+    private func setupExistingUser() {
         if let takeHomePay = user.takeHomePay?.intValue {
             userTakeHomePay = String(takeHomePay)
         }
@@ -118,7 +118,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         userName = user.name ?? ""
     }
     
-    func setupNewUser() {
+    private func setupNewUser() {
         userName = ""
         userTakeHomePay = ""
         selectedCurrency = .GBP

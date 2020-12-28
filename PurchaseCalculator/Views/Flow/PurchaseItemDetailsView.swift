@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PurchaseItemDetailsView: View {
     
-    @EnvironmentObject var model: PurchaseItemViewModel
+    @EnvironmentObject private var model: PurchaseItemViewModel
+    
     var item: PurchaseItem {
         model.item
     }

@@ -34,6 +34,11 @@
 		86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */; };
 		864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
 		864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		864BDDCF2598A2F100CC6628 /* BasicSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDCE2598A2F100CC6628 /* BasicSummaryView.swift */; };
+		864BDDD22598A31000CC6628 /* DetailedSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD12598A31000CC6628 /* DetailedSummaryView.swift */; };
+		864BDDD52598A35800CC6628 /* BasicSummaryBulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD42598A35800CC6628 /* BasicSummaryBulletView.swift */; };
+		864BDDD82598A3C200CC6628 /* EvaluationReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */; };
+		864BDDE42599CC8200CC6628 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDE32599CC8200CC6628 /* ColorManager.swift */; };
 		865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
@@ -74,6 +79,10 @@
 		86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
 		86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */; };
 		86DB14DF256A6953003BABD5 /* NoClipboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */; };
+		86DB1E612599F80600ACAB4B /* AttributeUserRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */; };
+		86DB1E642599F96A00ACAB4B /* AttributeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E632599F96A00ACAB4B /* AttributeResult.swift */; };
+		86DB1E672599F99700ACAB4B /* AttributeEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */; };
+		86DB1E6A259A1BCB00ACAB4B /* SaveEvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
 		86EF532B258B6BF9004FB64F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86EF5328258B6BF9004FB64F /* GoogleService-Info.plist */; };
@@ -135,6 +144,11 @@
 		862ED07F25743683005F4FCF /* NavigationLinkedRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkedRowView.swift; sourceTree = "<group>"; };
 		864016482589FCCA00B78BE9 /* LaunchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHelper.swift; sourceTree = "<group>"; };
 		86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PotentialPurchase+CoreDataProperties.swift.swift"; sourceTree = "<group>"; };
+		864BDDCE2598A2F100CC6628 /* BasicSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSummaryView.swift; sourceTree = "<group>"; };
+		864BDDD12598A31000CC6628 /* DetailedSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedSummaryView.swift; sourceTree = "<group>"; };
+		864BDDD42598A35800CC6628 /* BasicSummaryBulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSummaryBulletView.swift; sourceTree = "<group>"; };
+		864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationReportView.swift; sourceTree = "<group>"; };
+		864BDDE32599CC8200CC6628 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemViewModel.swift; sourceTree = "<group>"; };
 		86685D0A2561603000F139D7 /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +190,10 @@
 		86DB14D125692945003BABD5 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseItemDetailsView.swift; path = PurchaseCalculator/Views/Flow/PurchaseItemDetailsView.swift; sourceTree = SOURCE_ROOT; };
 		86DB14DE256A6953003BABD5 /* NoClipboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClipboardTextField.swift; sourceTree = "<group>"; };
+		86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeUserRating.swift; sourceTree = "<group>"; };
+		86DB1E632599F96A00ACAB4B /* AttributeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeResult.swift; sourceTree = "<group>"; };
+		86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeEvaluation.swift; sourceTree = "<group>"; };
+		86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEvaluationView.swift; sourceTree = "<group>"; };
 		86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategoriesViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
 		86EF5328258B6BF9004FB64F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -416,6 +434,9 @@
 			children = (
 				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
 				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
+				86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */,
+				86DB1E632599F96A00ACAB4B /* AttributeResult.swift */,
+				86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */,
 			);
 			path = "Purchase Attributes";
 			sourceTree = "<group>";
@@ -467,6 +488,11 @@
 				86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */,
 				86C6F5C025973EE500A6D48F /* SingleBarViewAnimated.swift */,
 				86C6F5C325973FCD00A6D48F /* PurchaseAttributeSummaryView.swift */,
+				864BDDCE2598A2F100CC6628 /* BasicSummaryView.swift */,
+				864BDDD12598A31000CC6628 /* DetailedSummaryView.swift */,
+				864BDDD42598A35800CC6628 /* BasicSummaryBulletView.swift */,
+				864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */,
+				86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */,
 			);
 			path = Evaluation;
 			sourceTree = "<group>";
@@ -484,6 +510,7 @@
 				862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */,
 				86685D0A2561603000F139D7 /* GlobalEnums.swift */,
 				8620FA79257CF1520005D8AF /* KeyboardListener.swift */,
+				864BDDE32599CC8200CC6628 /* ColorManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -618,9 +645,12 @@
 				8620FA7E257CF5890005D8AF /* BorderedButtonView.swift in Sources */,
 				866E3DCB25938C9000A35313 /* ExpandableRowView.swift in Sources */,
 				86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */,
+				864BDDD82598A3C200CC6628 /* EvaluationReportView.swift in Sources */,
 				869CA349256AB8D5000022F7 /* EvaluationManager.swift in Sources */,
+				864BDDCF2598A2F100CC6628 /* BasicSummaryView.swift in Sources */,
 				866E3DC725933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift in Sources */,
 				869CA342256AB15F000022F7 /* PurchaseAttribute.swift in Sources */,
+				86DB1E642599F96A00ACAB4B /* AttributeResult.swift in Sources */,
 				862ED0742573BA5D005F4FCF /* GlobalModifiers.swift in Sources */,
 				8620FA75257CE4C10005D8AF /* ButtonWithImageView.swift in Sources */,
 				8620FA87257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift in Sources */,
@@ -628,6 +658,7 @@
 				86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */,
 				86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */,
 				8620FA68257CDEB70005D8AF /* HomeButtonView.swift in Sources */,
+				864BDDD22598A31000CC6628 /* DetailedSummaryView.swift in Sources */,
 				86C6F5B5259637F000A6D48F /* PCTextView.swift in Sources */,
 				866E3DDB25938EBB00A35313 /* PriceFormatter.swift in Sources */,
 				86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */,
@@ -635,14 +666,18 @@
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
 				868FC24A25800E24002B9C01 /* SpecificPurchaseUnit.swift in Sources */,
+				864BDDD52598A35800CC6628 /* BasicSummaryBulletView.swift in Sources */,
 				869F91F82584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift in Sources */,
 				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
 				86FA05612587F73000005AF8 /* Question.swift in Sources */,
 				864016492589FCCA00B78BE9 /* LaunchHelper.swift in Sources */,
+				864BDDE42599CC8200CC6628 /* ColorManager.swift in Sources */,
 				866E3DCF25938CC900A35313 /* OpacityReducingRowView.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,
 				868A49A92584C63A00CDDE83 /* PurchaseBrand.swift in Sources */,
+				86DB1E672599F99700ACAB4B /* AttributeEvaluation.swift in Sources */,
 				86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */,
+				86DB1E612599F80600ACAB4B /* AttributeUserRating.swift in Sources */,
 				8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */,
 				86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */,
 				86C6F5C425973FCD00A6D48F /* PurchaseAttributeSummaryView.swift in Sources */,
@@ -663,6 +698,7 @@
 				8620FA6E257CDF880005D8AF /* BasicNavigationView.swift in Sources */,
 				86026CB0259491310047296F /* EvaluationCalculationView.swift in Sources */,
 				862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */,
+				86DB1E6A259A1BCB00ACAB4B /* SaveEvaluationView.swift in Sources */,
 				8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */,
 				86026CB32594EBDE0047296F /* PurchaseItemBrandSelectionView.swift in Sources */,
 				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,
@@ -898,7 +934,7 @@
 			};
 			name = Release;
 		};
-		86B1EEBC2572A1DB00526DE9 /* DebugEphemeral */ = {
+		8668265C2599E69600303572 /* Ephemeral */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -954,14 +990,16 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D EPHEMERAL";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Stat";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = DebugEphemeral;
+			name = Ephemeral;
 		};
-		86B1EEBD2572A1DB00526DE9 /* DebugEphemeral */ = {
+		8668265D2599E69600303572 /* Ephemeral */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -977,15 +1015,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-D EPHEMERAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SixEye.purchaseCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = DebugEphemeral;
+			name = Ephemeral;
 		};
-		86B1EEBE2572A1DB00526DE9 /* DebugEphemeral */ = {
+		8668265E2599E69600303572 /* Ephemeral */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -1005,7 +1042,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PurchaseCalculator.app/PurchaseCalculator";
 			};
-			name = DebugEphemeral;
+			name = Ephemeral;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1014,7 +1051,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262A5254D72EC0085ACD5 /* Debug */,
-				86B1EEBC2572A1DB00526DE9 /* DebugEphemeral */,
+				8668265C2599E69600303572 /* Ephemeral */,
 				860262A6254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1024,7 +1061,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262A8254D72EC0085ACD5 /* Debug */,
-				86B1EEBD2572A1DB00526DE9 /* DebugEphemeral */,
+				8668265D2599E69600303572 /* Ephemeral */,
 				860262A9254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1034,7 +1071,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				860262AB254D72EC0085ACD5 /* Debug */,
-				86B1EEBE2572A1DB00526DE9 /* DebugEphemeral */,
+				8668265E2599E69600303572 /* Ephemeral */,
 				860262AC254D72EC0085ACD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

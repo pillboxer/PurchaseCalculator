@@ -35,11 +35,11 @@ struct OpacityReducingRowView: View {
                 .frame(height: divider ? 1 : 0)
     }
     
-    func reduceOpacity() {
+    private func reduceOpacity() {
         withAnimation { opacity *= 0.5 }
     }
     
-    func resetOpacity() {
+    private func resetOpacity() {
         withAnimation(.easeIn(duration: 0.8)) { opacity = 1 }
     }
     

@@ -64,7 +64,7 @@ class CoreDataManager {
         }
     }
     
-    func saveSynchronously(_ context: NSManagedObjectContext, completion: ((Error?) -> Void)? = nil) {
+    private func saveSynchronously(_ context: NSManagedObjectContext, completion: ((Error?) -> Void)? = nil) {
         context.performAndWait {
             do {
                 try context.save()
@@ -81,7 +81,7 @@ class CoreDataManager {
 
 extension NSManagedObject {
     
-    @discardableResult static func deleteAll(_ context: NSManagedObjectContext? = CoreDataManager.shared.moc) -> Error? {
+    @discardableResult static private func deleteAll(_ context: NSManagedObjectContext? = CoreDataManager.shared.moc) -> Error? {
         if let entityName = NSStringFromClass(self).components(separatedBy: ".").last {
             let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)

@@ -33,9 +33,4 @@ class SpecificPurchaseUnitSelectionViewModel: ObservableObject {
         }
     }
     
-    func formattedCost(_ cost: Double) -> String {
-        let currency = User.existingUser?.selectedCurrency ?? .GBP
-        return PriceFormatter.format(cost: cost, currency: currency)
-    }
-    
 }

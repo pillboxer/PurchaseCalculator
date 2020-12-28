@@ -17,7 +17,7 @@ struct ExpandableRowView<ExpandedContent: View>: View {
         return isExpanded ? 90 : 0
     }
     
-    @State var opacity: Double = 1
+    @State private var opacity: Double = 1
     
     var expansionHandler: ((Bool) -> Void)?
     
@@ -36,7 +36,7 @@ struct ExpandableRowView<ExpandedContent: View>: View {
         }
     }
     
-    func toggle() {
+    private func toggle() {
         expansionHandler?(!isExpanded)
     }
     

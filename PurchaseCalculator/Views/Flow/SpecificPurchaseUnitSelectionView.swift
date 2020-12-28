@@ -14,12 +14,12 @@ struct SpecificPurchaseUnitSelectionView: View {
         Color(.sRGB, red: 0, green: 0.7, blue: 0.5, opacity: 0.7)
     }
     
-    
     @StateObject var viewModel: SpecificPurchaseUnitSelectionViewModel
     
     var body: some View {
         BasicNavigationView {
-            ListContainerView(headerText: "Select your model", list: SpecicPurchaseUnitListView(viewModel: viewModel))
+            ListContainerView(headerText: "Select your model",
+                              list: SpecicPurchaseUnitListView(viewModel: viewModel))
         }
     }
 }
@@ -27,16 +27,14 @@ struct SpecificPurchaseUnitSelectionView: View {
 private struct SpecicPurchaseUnitListView: View {
     
     @ObservedObject var viewModel: SpecificPurchaseUnitSelectionViewModel
+    @State private var selection: String?
+    @State private var evaluation: EvaluationManager.Evaluation?
     
-    @State var selection: String?
-    @State var evaluation: EvaluationManager.Evaluation?
-    
-    
-    func expandedContentFor(unit: SpecificPurchaseUnit) -> some View {
+    private func expandedContentFor(unit: SpecificPurchaseUnit) -> some View {
         VStack {
             let evaluationManager = viewModel.evaluationManager
-            let evaluation = evaluationManager.evaluateItem(costing: unit.cost)
-            ExpandedRow(leadingText: "Cost", trailingText: viewModel.formattedCost(unit.cost))
+            let evaluation = evaluationManager.evaluateUnit(unit)
+            ExpandedRow(leadingText: "Cost", trailingText: PriceFormatter.format(cost: unit.cost))
             let destination = EvaluationCalculationView(evaluation: evaluation,
                                                         unitName: unit.modelName,
                                                         selectedAttributeEvaluation: evaluation.attributeEvaluations.first!)
@@ -46,7 +44,6 @@ private struct SpecicPurchaseUnitListView: View {
                     selection = unit.id
                 }
                 .frame(width: 70, height: 30)
-
             }
         }
     }

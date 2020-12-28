@@ -9,10 +9,10 @@ import SwiftUI
 
 struct StandardFontModifier: ViewModifier {
     
-    var size: CGFloat = 12
+    var size: CGFloat?
     
     func body(content: Content) -> some View {
-        let standardFont: Font = .system(size: size, weight: .bold, design: .rounded)
+        let standardFont: Font = .system(size: size ?? 12, weight: .bold, design: .rounded)
         return content
             .font(standardFont)
     }

@@ -11,7 +11,7 @@ import PurchaseCalculatorDataKit
 struct PurchaseItemSelectionView: FirebaseRefreshingView {
     
     @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
-    @State var selectedItemID: String?
+    @State private var selectedItemID: String?
     var items: [PurchaseItem]?
     
     var body: some View {

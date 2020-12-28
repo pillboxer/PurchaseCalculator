@@ -10,14 +10,16 @@ import SwiftUI
 struct PCTextView: View {
     
     var text: String
+    var size: CGFloat?
     
-    init(_ text: String) {
+    init(_ text: String, size: CGFloat? = nil) {
         self.text = text
+        self.size = size
     }
     
     var body: some View {
         Text(text)
-            .modifier(StandardFontModifier())
+            .modifier(StandardFontModifier(size: size))
     }
     
 }

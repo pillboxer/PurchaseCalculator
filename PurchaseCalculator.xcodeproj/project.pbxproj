@@ -70,6 +70,7 @@
 		86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */; };
 		86B1EED72572A48F00526DE9 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */; };
 		86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */; };
+		86B9607E259B365D00F1D5A6 /* Spartan-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86B9607D259B365D00F1D5A6 /* Spartan-VariableFont_wght.ttf */; };
 		86C6F5B5259637F000A6D48F /* PCTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B4259637F000A6D48F /* PCTextView.swift */; };
 		86C6F5BA25973DB100A6D48F /* PurchaseAttributesDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */; };
 		86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */; };
@@ -181,6 +182,7 @@
 		86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategorySelectionView.swift; sourceTree = "<group>"; };
 		86B1EED62572A48F00526DE9 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		86B4F7A3258163B300CBE827 /* PurchaseItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemGroup.swift; sourceTree = "<group>"; };
+		86B9607D259B365D00F1D5A6 /* Spartan-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		86C6F5B4259637F000A6D48F /* PCTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCTextView.swift; sourceTree = "<group>"; };
 		86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributesDualGraphView.swift; sourceTree = "<group>"; };
 		86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeSingleDualGraphView.swift; sourceTree = "<group>"; };
@@ -481,6 +483,14 @@
 			path = "Item Groups";
 			sourceTree = "<group>";
 		};
+		86B96074259B323A00F1D5A6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86B9607D259B365D00F1D5A6 /* Spartan-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		86C6F5B825973D9300A6D48F /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +510,7 @@
 		86D384A425569C2E00051019 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				86B96074259B323A00F1D5A6 /* Fonts */,
 				86026285254D72EA0085ACD5 /* PurchaseCalculatorApp.swift */,
 				86812DDF255589D100C1245E /* AppDelegate.swift */,
 				864016482589FCCA00B78BE9 /* LaunchHelper.swift */,
@@ -612,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */,
+				86B9607E259B365D00F1D5A6 /* Spartan-VariableFont_wght.ttf in Resources */,
 				86A53C242556AD6B0055C0B9 /* Assets.xcassets in Resources */,
 				86EF532B258B6BF9004FB64F /* GoogleService-Info.plist in Resources */,
 			);

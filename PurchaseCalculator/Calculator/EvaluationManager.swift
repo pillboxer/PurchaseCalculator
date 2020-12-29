@@ -110,12 +110,12 @@ extension EvaluationManager {
         }
         
         var reasonToBuy: AttributeEvaluation? {
-            // FIXME: - Change to be more personalised
-            attributeEvaluations.sorted { ($0.attributeResult.colorScore > $1.attributeResult.colorScore) }.first
+            attributeEvaluations.sorted { $0.attributeScore * $0.userWeighting.score > $1.attributeScore * $1.userWeighting.score }.first
         }
         
         var reasonToAvoid: AttributeEvaluation? {
-            attributeEvaluations.sorted { ($0.attributeResult.colorScore < $1.attributeResult.colorScore) }.first
+            let mostCaredAbout = attributeEvaluations.filter { $0.userWeighting.isHighUserWeighting }
+            return mostCaredAbout.sorted { $0.attributeScore < $1.attributeScore }.first ?? attributeEvaluations.sorted { $0.attributeScore < $1.attributeScore }.first
         }
         
     }

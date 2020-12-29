@@ -24,7 +24,6 @@ class PurchaseItemViewModel: ObservableObject {
     }
     
     func unitsForBrand(_ brand: PurchaseBrand) -> [SpecificPurchaseUnit] {
-        // FIXME: - Optional
         item.specificPurchaseUnits?.filter { $0.brand == brand } ?? []
     }
     

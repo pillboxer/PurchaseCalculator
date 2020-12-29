@@ -57,7 +57,7 @@ struct PurchaseAttributeSummaryView: View {
                 .degrees(degrees),
                 axis: (x: 0.0, y: 1.0, z: 0))
             .opacity(opacity)
-            .frame(height: 100)
+            .frame( maxHeight: 100)
             .onAnimationCompleted(for: opacity) {
                 degrees = 0
                 withAnimation(.easeIn(duration: 0.2)) { opacity = 1 }
@@ -66,7 +66,7 @@ struct PurchaseAttributeSummaryView: View {
     
     private func changeContext(_ topSelected: Bool?) {
         withAnimation(.easeIn(duration: 0.2)) {
-            degrees = 180
+            degrees = topSelected == nil ? -180 : 180
             opacity = 0
             context = context.toggled(topSelected)
             HapticManager.performFeedbackHaptic(.success)

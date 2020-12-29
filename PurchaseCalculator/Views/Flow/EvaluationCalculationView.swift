@@ -19,7 +19,6 @@ struct EvaluationCalculationView: View {
     
     var body: some View {
         VStack {
-            // FIXME: -
             PCTextView(unitName)
                 .padding(.top, 16)
             PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluations,

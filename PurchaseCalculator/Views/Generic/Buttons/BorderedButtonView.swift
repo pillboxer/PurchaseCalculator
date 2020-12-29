@@ -31,7 +31,7 @@ struct BorderedButtonView: View {
     
     var body: some View {
         Button(text, action: action)
-            .modifier(StandardFontModifier())
+            .modifier(StandardFontModifier(size: 12))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .buttonStyle(PlainButtonStyle())
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(currentColor, lineWidth: 1.5))

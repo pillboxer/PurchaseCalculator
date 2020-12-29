@@ -15,6 +15,15 @@ enum AttributeUserWeighting: Equatable, ColorProvider {
     case high(Double)
     case veryHigh(Double)
     
+    var isHighUserWeighting: Bool {
+        switch self {
+        case .high, .veryHigh:
+            return true
+        default:
+            return false
+        }
+    }
+    
     static private func weightingFor(_ weight: Double) -> AttributeUserWeighting {
         if weight < 0.2 {
             return .veryLow(weight)
@@ -33,7 +42,7 @@ enum AttributeUserWeighting: Equatable, ColorProvider {
         }
     }
     
-    var colorScore: Double {
+    var score: Double {
         switch self {
         case .veryLow(let score):
             return score
@@ -46,6 +55,10 @@ enum AttributeUserWeighting: Equatable, ColorProvider {
         case .veryHigh(let score):
             return score
         }
+    }
+    
+    var colorScore: Double {
+        score
     }
     
     var description: String {

@@ -14,21 +14,30 @@ struct PurchaseAttributesDualGraphView: View {
     @Binding var selectedEvaluation: AttributeEvaluation
     @Binding var animationComplete: Bool
     
-    // FIXME: - 
-    var height: CGFloat {
-        CGFloat(attributeEvaluations.sorted {$0.attributeScore > $1.attributeScore}.first!.attributeScore * Double(UIScreen.main.bounds.height) * 0.08)
+    var graphHeight: CGFloat {
+        guard let topAttribute = attributeEvaluations.sorted(by: {$0.attributeScore > $1.attributeScore}).first?.attributeScore,
+              let topWeighting = attributeEvaluations.sorted(by: {$0.userWeighting.score > $1.userWeighting.score}).first?.userWeighting.score else {
+            return 150
+        }
+        let highestGraph = CGFloat(max(topAttribute, topWeighting))
+        let height = min(highestGraph * UIScreen.main.bounds.height * 0.075, 150)
+        return height
     }
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             HStack(alignment: .bottom) {
+                Spacer()
                 ForEach(attributeEvaluations, id: \.attributeName) { evaluation in
-                    PurchaseAttributeSingleDualGraphView(evaluation: evaluation, selected: evaluation == selectedEvaluation, height: height, barAnimationComplete: $animationComplete) {
+                    PurchaseAttributeSingleDualGraphView(evaluation: evaluation, selected: evaluation == selectedEvaluation, height: graphHeight, barAnimationComplete: $animationComplete) {
                         selectedEvaluation = evaluation
                         HapticManager.performBasicHaptic(type: .rigid)
                     }
+                    Spacer()
                 }
             }
+            .padding()
         }
+        
     }
 }

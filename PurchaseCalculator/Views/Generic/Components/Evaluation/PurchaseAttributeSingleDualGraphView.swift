@@ -14,14 +14,13 @@ struct PurchaseAttributeSingleDualGraphView: View {
     
     var evaluation: AttributeEvaluation
     var selected: Bool
-    // FIXME: - Name Properly. Test all devices
     var height: CGFloat
     @Binding var barAnimationComplete: Bool
 
     var selectionHandler: () -> Void
     
     private func barHeight(for score: Double) -> Double {
-        Double(height) * score
+        max(2, Double(height) * score)
     }
     
     var body: some View {
@@ -36,7 +35,6 @@ struct PurchaseAttributeSingleDualGraphView: View {
                               color: .gray,
                               animationComplete: $barAnimationComplete)
             }
-            .padding(5)
             .frame(height: height, alignment: .bottom)
             Image(evaluation.attributeImageName)
                 .resizable()

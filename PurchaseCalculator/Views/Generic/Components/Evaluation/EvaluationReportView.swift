@@ -31,8 +31,9 @@ struct EvaluationReportView: View {
     
     
     var body: some View {
-        VStack {
+        ScrollView(showsIndicators: false) {
             EvaluationReportTitleView()
+                .padding(.top)
             ReportRowView(title: "Cost", value: PriceFormatter.format(cost: evaluation.unitCost), imageName: "money")
             ReportRowView(title: "High THP penalty", value: penaltyText, valueColor: penaltyColor, imageName: "gavel", inspectionHandler: toggleInspectionRowShowing)
             if inspectionRowShowing {
@@ -43,7 +44,6 @@ struct EvaluationReportView: View {
             ReportRowView(title: "Reason to avoid", value: evaluation.reasonToAvoid?.attributeName ?? "", imageName: evaluation.reasonToAvoid?.attributeImageName ?? "")
             ReportRowView(title: "Result", value: evaluation.result.description, imageName: "decision")
         }
-        .frame(maxHeight: .infinity)
     }
     
 }
@@ -52,9 +52,10 @@ struct EvaluationReportTitleView: View {
     
     var body: some View {
         HStack {
-            Divider().padding(.horizontal)
-            PCTextView("Your result")
-            Divider().padding(.horizontal)
+            Divider().padding(.leading)
+            PCTextView("Your result").padding(.horizontal)
+                .layoutPriority(.greatestFiniteMagnitude)
+            Divider().padding(.trailing)
         }
     }
 }

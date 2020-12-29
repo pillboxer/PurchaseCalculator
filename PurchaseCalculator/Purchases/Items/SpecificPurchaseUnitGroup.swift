@@ -36,9 +36,8 @@ extension SpecificPurchaseUnitGroup {
         guard let unitIDs = unitIDs else {
             return nil
         }
-        let items = try? JSONDecoder.decodeLocalJSON(file: "SpecificPurchaseUnits", type: [String:SpecificPurchaseUnit].self)
-        let values = items.map { $0.values }
-        let filtered = values?.filter { unitIDs.contains($0.uuid) }
+        let units = DecodedObjectProvider.specificPurchaseUnits
+        let filtered = units?.filter { unitIDs.contains($0.uuid) }
         return filtered
     }
 

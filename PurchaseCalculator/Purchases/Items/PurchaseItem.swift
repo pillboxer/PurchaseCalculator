@@ -20,9 +20,8 @@ struct PurchaseItem: Decodable, RowType {
 extension PurchaseItem {
     
     private var unitGroup: SpecificPurchaseUnitGroup? {
-        let groups = try? JSONDecoder.decodeLocalJSON(file: "SpecificPurchaseUnitGroups", type: [String:SpecificPurchaseUnitGroup].self)
-        let values = groups.map { $0.values }
-        return values?.filter { $0.uuid == specificPurchaseUnitGroupID }.first
+        let groups = DecodedObjectProvider.specificPurchaseUnitGroups
+        return groups?.filter { $0.uuid == specificPurchaseUnitGroupID }.first
     }
     
     var specificPurchaseUnits: [SpecificPurchaseUnit]? {

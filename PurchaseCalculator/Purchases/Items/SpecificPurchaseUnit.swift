@@ -23,8 +23,7 @@ struct SpecificPurchaseUnit: Decodable, CustomStringConvertible, Equatable {
 extension SpecificPurchaseUnit {
     
     var brand: PurchaseBrand? {
-        let dict = try? JSONDecoder.decodeLocalJSON(file: "PurchaseBrands", type: [String:PurchaseBrand].self)
-        let brands = dict.map { $0.values }
+        let brands = DecodedObjectProvider.purchaseBrands
         return brands?.filter { $0.uuid == brandID }.first
     }
 

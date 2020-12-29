@@ -141,14 +141,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }
     
     var attributes: [PurchaseAttribute]? {
-        do {
-            let attributes = try JSONDecoder.decodeLocalJSON(file: "PurchaseAttributes", type: [PurchaseAttribute].self)
-            return attributes.sorted { $0.handle < $1.handle }
-        }
-        catch let error {
-            publishErrorMessage(error)
-            return nil
-        }
+        DecodedObjectProvider.attributes
     }
     
     // MARK: - Saving

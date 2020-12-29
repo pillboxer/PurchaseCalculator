@@ -18,7 +18,7 @@ struct PurchaseCategory: Decodable, RowType {
 extension PurchaseCategory {
 
     var purchaseItemGroup: PurchaseItemGroup? {
-        let itemGroups = try? JSONDecoder.decodeLocalJSON(file: "PurchaseItemGroups", type: [PurchaseItemGroup].self)
+        let itemGroups = DecodedObjectProvider.purchaseItemGroups
         return itemGroups?.filter { $0.uuid == purchaseItemGroupID }.first
     }
     

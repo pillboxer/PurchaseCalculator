@@ -66,13 +66,11 @@ class EvaluationManager {
     
     // MARK: - Helper Methods
     private func multiplierGroupForItem(_ item: PurchaseItem) -> PurchaseAttributeMultiplierGroup? {
-        try? JSONDecoder.decodeLocalJSON(file: "PurchaseItemAttributeMultipliersGroups", type: [PurchaseAttributeMultiplierGroup].self)
-            .filter { $0.uuid == item.attributeMultiplierGroupID }
-            .first
+        DecodedObjectProvider.multiplierGroups?.filter { $0.uuid == item.attributeMultiplierGroupID }.first
     }
     
     private var purchaseAttributes: [PurchaseAttribute] {
-        (try? JSONDecoder.decodeLocalJSON(file: "PurchaseAttributes", type: [PurchaseAttribute].self)) ?? []
+        DecodedObjectProvider.attributes ?? []
     }
     
     private func symbolNameForAttributeID(_ id: String) -> String {

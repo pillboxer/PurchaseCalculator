@@ -13,13 +13,7 @@ class PurchaseCategoriesViewModel: ObservableObject, ErrorPublisher {
     var currentErrorMessage: String?
     
     var purchaseCategories: [PurchaseCategory]? {
-        do {
-            return try JSONDecoder.decodeLocalJSON(file: "PurchaseCategories", type: [PurchaseCategory].self)
-        }
-        catch let error {
-            publishErrorMessage(error)
-            return nil
-        }
+        DecodedObjectProvider.purchaseCategories
     }
     
     // MARK: - Exposed private functions

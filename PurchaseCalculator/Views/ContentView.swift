@@ -27,7 +27,19 @@ struct ContentView: View {
             .environmentObject(userPreferencesViewModel)
     }
     
-    var body: some View {
+    @ViewBuilder
+    var viewToShow: some View {
+        if User.doesExist {
+            homescreen
+        }
+        else {
+            WelcomeView()
+                .statusBar(hidden: true)
+        }
+    }
+    
+    // FIXME: -
+    var homescreen: some View {
         NavigationView {
             VStack(spacing: 0) {
                 Image(systemName: "e.square")
@@ -47,6 +59,10 @@ struct ContentView: View {
             .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var body: some View {
+        viewToShow
     }
 }
 

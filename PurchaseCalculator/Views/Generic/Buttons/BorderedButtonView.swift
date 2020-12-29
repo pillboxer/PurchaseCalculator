@@ -43,20 +43,6 @@ struct BorderedButtonView: View {
             .onAppear {
                 changeOpacity(for: isEnabled)
             }
-            .gesture(DragGesture(minimumDistance: 0.0)
-                        .onChanged { _ in
-                            changeOpacity(for: false)
-                        }
-                        .onEnded { dragging in
-                            let movementInEitherAxis = max(abs(dragging.translation.width), abs(dragging.translation.height))
-                            let pressed = movementInEitherAxis < 40
-                            if pressed {
-                                action()
-                            }
-                            else {
-                                changeOpacity(for: pressed)
-                            }
-                        })
     }
     
     private func changeOpacity(for enabled: Bool) {

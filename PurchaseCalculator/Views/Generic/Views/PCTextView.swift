@@ -1,25 +1,45 @@
 //
-//  PCTextView.swift
+//  Label.swift
 //  PurchaseCalculator
 //
 //  Created by Henry Cooper on 25/12/2020.
 //
 
 import SwiftUI
+import SystemKit
 
-struct PCTextView: View {
+struct Label: View {
     
     var text: String
     var size: CGFloat?
+    var underlined: Bool
     
-    init(_ text: String, size: CGFloat? = nil) {
-        self.text = text
+    init(_ text: String, size: CGFloat? = nil, underlined: Bool = false) {
+        self.text = String.forKey(text)
         self.size = size
+        self.underlined = underlined
     }
     
+    @ViewBuilder
     var body: some View {
-        Text(text)
-            .modifier(StandardFontModifier(size: size))
+        if underlined {
+            Text(text)
+                .underline()
+                .modifier(StandardFontModifier(size: size))
+        }
+        else {
+            Text(text)
+                .modifier(StandardFontModifier(size: size))
+        }
+
     }
     
+}
+
+extension Label {
+    
+    func underline() -> Label {
+        return Label(text, size: size, underlined: true)
+    }
+
 }

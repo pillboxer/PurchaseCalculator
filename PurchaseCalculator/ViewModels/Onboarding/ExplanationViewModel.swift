@@ -8,22 +8,90 @@ import Foundation
 // FIXME: - Rename
 class ExplanationViewModel: ObservableObject {
     
-    private var currentContext: ExplanationContext = .elevatorPitch
-    
-    var labelText: String {
-        switch currentContext {
-        case .elevatorPitch:
-            return "Oliver helps minimise buyer's remorse"
-        case .howItWorks:
-            return "It measures a product based on seven key attributes"
-        case .attribute:
-            return selectedAttribute.handle
-        case .complete:
-            return "Complete"
+    enum ExplanationContext: Int {
+        
+        case elevatorPitch
+        case attribute
+        case complete
+        
+        var next: ExplanationContext {
+            switch self {
+            case .elevatorPitch:
+                return .attribute
+            default:
+                return .complete
+            }
         }
     }
     
-    var imageName: String? {
+    @Published var currentContext: ExplanationContext = .elevatorPitch
+    
+    // MARK: - Private
+    private var allAttributes = DecodedObjectProvider.attributes ?? []
+    @Published private var selectedAttributeIndex = 0
+    private var selectedExplanationIndex = 0
+    private var selectedAttribute: PurchaseAttribute {
+        allAttributes[selectedAttributeIndex]
+    }
+    
+    // FIXME: - Strings
+    private var explanationStrings: [String] {
+        ["Emptor helps minimise buyer's remorse",
+         "It measures a product based on \(allAttributes.count) key attributes",
+         "And provides purchasing advice based on what's meaningful to you",
+         "Those attributes are:"]
+    }
+    
+    // MARK: - Top Row Of Icons
+    var showsIconGroupDisplay: Bool {
+        currentContext != .elevatorPitch
+    }
+    
+    var topIndexDisplayed: Int {
+        showsDetailedDescriptions ? allAttributes.count - 1 : selectedAttributeIndex
+    }
+    
+    var iconNames: [String] {
+        allAttributes.compactMap { $0.symbol }
+    }
+    
+    var iconsSubheaderText: String {
+        "Select an icon to learn more"
+    }
+    
+    // MARK: - Detailed Descriptions
+    var showsDetailedDescriptions: Bool {
+        currentContext == .complete
+    }
+    
+    func updateSelectedAttributeIndex(_ index: Int) {
+        selectedAttributeIndex = index
+    }
+    
+    var detailedDescriptionTitle: String {
+        selectedAttribute.handle
+    }
+    
+    var detailedDescriptionImageName: String {
+        iconNames[selectedAttributeIndex]
+    }
+    
+    var detailedDescription: String {
+        let desc = allAttributes[selectedAttributeIndex].description
+        return desc
+    }
+    
+    // MARK: - Pulsing View
+    var labelText: String {
+        switch currentContext {
+        case .elevatorPitch:
+            return explanationStrings[selectedExplanationIndex]
+        default:
+            return selectedAttribute.handle
+        }
+    }
+    
+    var pulsingImageName: String? {
         switch currentContext {
         case .attribute:
             return selectedAttribute.symbol
@@ -32,45 +100,53 @@ class ExplanationViewModel: ObservableObject {
         }
     }
     
-    private var allAttributes = DecodedObjectProvider.attributes ?? []
-    private var selectedAttributeIndex = 0
-    
-    var selectedAttribute: PurchaseAttribute {
-        allAttributes[selectedAttributeIndex]
+    var pulsingDuration: Double {
+        if currentContext == .elevatorPitch {
+            return 4
+        }
+        if currentContext == .attribute {
+            return 1
+        }
+        return 0
     }
     
-    private enum ExplanationContext: Int {
-        
-        case elevatorPitch
-        case howItWorks
-        case attribute
-        case complete
-        
-        var next: ExplanationContext {
-            switch self {
-            case .elevatorPitch:
-                return .howItWorks
-            case .howItWorks:
-                return .attribute
-            default:
-                return .complete
-            }
-        }
+    var showsPulsingView: Bool {
+        currentContext != .complete
+    }
+    
+    // MARK: - CTA
+    var showsCTA: Bool {
+        currentContext == .complete
+    }
+    
+    // MARK: - Exposed
+    func reset() {
+        currentContext = .elevatorPitch
+        selectedAttributeIndex = 0
+        selectedExplanationIndex = 0
+        objectWillChange.send()
     }
     
     func changeContext() {
-        if currentContext == .attribute {
+        
+        if currentContext == .elevatorPitch {
+            if selectedExplanationIndex == explanationStrings.count - 1{
+                currentContext = currentContext.next
+            }
+            else {
+                selectedExplanationIndex += 1
+            }
+        }
+        
+        else if currentContext == .attribute {
             if selectedAttributeIndex == allAttributes.count - 1 {
                 currentContext = currentContext.next
+                selectedAttributeIndex = 0
             }
             else {
                 selectedAttributeIndex += 1
             }
         }
-        else {
-            currentContext = currentContext.next
-        }
-        objectWillChange.send()
     }
     
 }

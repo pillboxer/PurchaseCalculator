@@ -10,7 +10,7 @@ import PurchaseCalculatorDataKit
 class DecodedObjectProvider {
     
     static var attributes: [PurchaseAttribute]? {
-        provide(.attributes, type: [PurchaseAttribute].self)
+        provide(.attributes, type: [String:PurchaseAttribute].self)?.map { $0.value }
     }
     
     static var multiplierGroups: [PurchaseAttributeMultiplierGroup]? {
@@ -42,6 +42,7 @@ class DecodedObjectProvider {
     }
     
     private static func provide<D: Decodable>(_ object: PurchaseCalculatorDatabaseChildType, type: D.Type) -> D? {
+        // FIXME: - Keeping for debugging but remove bang
         try! JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)
     }
     

@@ -53,7 +53,7 @@ struct EvaluationReportTitleView: View {
     var body: some View {
         HStack {
             Divider().padding(.leading)
-            PCTextView("Your result").padding(.horizontal)
+            Label("Your result").padding(.horizontal)
                 .layoutPriority(.greatestFiniteMagnitude)
             Divider().padding(.trailing)
         }
@@ -69,7 +69,7 @@ struct InspectionRowView: View {
             Rectangle()
                 .fill(Color.systemBackground)
                 .frame(width: 25, height: 25)
-            PCTextView(text, size: 10)
+            Label(text, size: 10)
                 .padding(.horizontal)
                 .frame(height: 40)
             Spacer()
@@ -96,7 +96,7 @@ struct ReportRowView: View {
             Image(imageName)
                 .resizable()
                 .frame(width: 25, height: 25)
-            PCTextView(title)
+            Label(title)
                 .padding(.leading)
             if let inspectionHandler = inspectionHandler {
                 Image("question")
@@ -107,7 +107,7 @@ struct ReportRowView: View {
                     }
             }
             Spacer()
-            PCTextView(value)
+            Label(value)
                 .foregroundColor(valueColor)
         }
         .padding(.horizontal)

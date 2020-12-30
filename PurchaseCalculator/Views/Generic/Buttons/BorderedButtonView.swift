@@ -30,7 +30,7 @@ struct BorderedButtonView: View {
     var action: () -> Void
     
     var body: some View {
-        Button(text, action: action)
+        Button(String.forKey(text), action: action)
             .modifier(StandardFontModifier(size: 12))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .buttonStyle(PlainButtonStyle())

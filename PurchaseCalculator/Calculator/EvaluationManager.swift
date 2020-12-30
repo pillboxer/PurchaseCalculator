@@ -27,10 +27,9 @@ class EvaluationManager {
     }
     
     // MARK: - Evaluation
-    func evaluateUnit(_ unit: SpecificPurchaseUnit) -> Evaluation {
+    func evaluateUnit(_ unit: SpecificPurchaseUnit) -> Evaluation? {
         guard let multiplierGroupForItem = multiplierGroupForItem(item) else {
-            // FIXME: - This should return an error
-            return Evaluation(itemName: "Name not available", unitCost: 0, score: 0, result: .negative, attributeEvaluations: [], penaltyApplied: false)
+            return nil
         }
         var attributeEvaluations = [AttributeEvaluation]()
         let calculator = Calculator()

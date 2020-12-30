@@ -9,15 +9,17 @@ import SwiftUI
 
 struct AttributeIconsGroupView: View {
     
-    var viewModel = AttributeIconsGroupViewModel()
+    @StateObject var viewModel = AttributeIconsGroupViewModel()
     @State var offset: Double = 0
     @State private var indexToAnimate = 0
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         HStack(spacing: 16) {
             ForEach(viewModel.iconNames, id: \.self) { icon in
-                AnimatingIconView(iconName: icon, shouldAnimate: icon == viewModel.iconNames[indexToAnimate % viewModel.iconNames.count]) {
-                    indexToAnimate += 1
+                AnimatingIconView(iconName: icon, shouldAnimate: icon == viewModel.iconNames[indexToAnimate]) {
+                    let new = Int.random(in: 0..<viewModel.iconNames.count)
+                    // FIXME: - This can still break
+                    indexToAnimate = new == indexToAnimate ? 0 : new
                 }
             }
         }
@@ -40,32 +42,34 @@ struct AnimatingIconView: View {
             .offset(CGSize(width: 0, height: offset))
             .onChange(of: shouldAnimate) { newValue in
                 if newValue == true {
-                    animateOffset()
+                    animateOffset(up: true)
                 }
             }
             .onAppear {
                 if shouldAnimate {
-                    animateOffset()
+                    animateOffset(up: true)
                 }
             }
             .onAnimationCompleted(for: offset) {
-                if offset != 0 { withAnimation(.linear(duration: 0.3)) { offset = 0 } }
+                if offset != 0 { animateOffset(up: false) }
                 else {
-                    handler()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.1...3.0), execute: handler)
                 }
             }
     }
     
-    func animateOffset() {
-        withAnimation(.linear(duration: 0.3)) { offset -= 3 }
+    private func animateOffset(up: Bool) {
+        withAnimation(.linear(duration: 0.2)) { offset = up ? -2 : 0 }
     }
     
 }
 
-struct AttributeIconsGroupViewModel {
+class AttributeIconsGroupViewModel: ObservableObject {
     
-    var iconNames: [String] {
-        DecodedObjectProvider.attributes?.compactMap { $0.symbol } ?? []
+    @Published var iconNames: [String] = []
+    
+    init() {
+        iconNames = DecodedObjectProvider.attributes?.compactMap { $0.symbol } ?? []
     }
     
 }

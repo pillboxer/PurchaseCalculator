@@ -15,7 +15,7 @@ struct PurchaseCategorySelectionView: FirebaseRefreshingView {
     
     var body: some View {
         if let error = model.currentErrorMessage {
-            PCTextView(error)
+            Label(error)
         }
         else if let categories = model.purchaseCategories {
             let list = PurchaseCategoriesListView(categories: categories)

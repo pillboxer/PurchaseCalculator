@@ -19,7 +19,7 @@ struct EvaluationCalculationView: View {
     
     var body: some View {
         VStack {
-            PCTextView(unitName)
+            Label(unitName)
                 .padding(.top, 16)
             PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluations,
                                             selectedEvaluation: $selectedAttributeEvaluation,

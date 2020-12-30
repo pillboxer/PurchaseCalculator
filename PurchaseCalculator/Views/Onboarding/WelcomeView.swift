@@ -12,19 +12,25 @@ struct WelcomeView: View {
     private enum Context {
         case getStarted
         case explanation
+        case preferences
     }
     
     @State private var context: Context = .getStarted
     
-    @State private var opacity: Double = 0
     var body: some View {
         if context == .getStarted {
             GetStartedView() {
                 context = .explanation
             }
         }
+        else if context == .explanation {
+            AttributesDetailsView() {
+                withAnimation { context = .preferences }
+            }
+        }
         else {
-            ExplanationView().transition(AnyTransition.opacity.animation(.linear(duration: 5)))
+            HomescreenView()
+                .transition(AnyTransition.opacity.animation(.linear(duration: 2)))
         }
     }
 }

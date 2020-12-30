@@ -61,20 +61,12 @@ struct StepperWithFillingRectangles: View {
             indexToScale = 0
         }
         withAnimation { scale = 1.3 }
-        HapticManager.performFeedbackHaptic(.error)
+        HapticManager.performComplexHaptic()
     }
     
     func fillColor(_ index: Int) -> Color {
         let valueAsPercentage = valueToChange * 100
         let indexAsPercentageOfAllRectangles = Double(index) / Double(numberOfRectangles) * 100
         return valueAsPercentage >= indexAsPercentageOfAllRectangles ? userWeighting.color : Color.systemBackground
-    }
-    
-    private func colorForWeight(_ weight: Double) -> Color {
-        let red = min(0.5, weight)
-        let blue = max(0.5, 1-weight)
-        let green = max(0.5, weight)
-        let color = Color(red: red, green: green, blue: blue, opacity: 1)
-        return color
     }
 }

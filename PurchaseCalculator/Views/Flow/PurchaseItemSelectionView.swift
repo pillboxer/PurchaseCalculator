@@ -26,7 +26,7 @@ struct PurchaseItemSelectionView: FirebaseRefreshingView {
         }
         else {
             BasicNavigationView {
-                PCTextView("No items")
+                Label("No items")
             }
         }
         

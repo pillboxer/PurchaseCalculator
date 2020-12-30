@@ -19,6 +19,10 @@ class LaunchHelper {
     var cancellables = Set<AnyCancellable>()
         
     func start() {
+        #if EPHEMERAL
+        UserDefaults.isFirstLaunch = true
+        #endif
+
         if UserDefaults.isFirstLaunch {
             BundledContentManager.shared.saveBundledContentToDisk()
             UserDefaults.isFirstLaunch = false
@@ -27,17 +31,11 @@ class LaunchHelper {
     }
     
     private func listenToConnectionStatus() {
-        // Debounce stops spamming
         SystemReachability.shared.$connectionStatus
-            .debounce(for: 3, scheduler: RunLoop.main)
             .sink { (connectionStatus) in
-                self.updateJSONIfPossible()
+                if connectionStatus != .disconnected {
+                    FirebaseCoordinator.shared.updateJSON()
+                }
             }.store(in: &cancellables)
-    }
-    
-    private func updateJSONIfPossible() {
-        if reachability.isConnected {
-            FirebaseCoordinator.shared.updateJSON()
-        }
     }
 }

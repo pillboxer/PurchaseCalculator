@@ -85,7 +85,7 @@ struct ImageAndTextView: View {
                 .resizable()
                 .frame(width: 50, height: 50)
                 .padding(.bottom, 4)
-            PCTextView(text)
+            Label(text)
         }
     }
     
@@ -102,7 +102,7 @@ struct CircleAndTextView: View {
             Circle()
                 .fill(color)
                 .frame(width: 10, height: 10)
-            PCTextView(text)
+            Label(text)
             if let inspectionHandler = inspectionHandler {
                 Image("question")
                     .resizable()

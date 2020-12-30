@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomescreenView: View {
     
     // Observed so we refresh when a user is created
     @ObservedObject var userPreferencesViewModel = UserPreferencesViewModel()
@@ -27,19 +27,7 @@ struct ContentView: View {
             .environmentObject(userPreferencesViewModel)
     }
     
-    @ViewBuilder
-    var viewToShow: some View {
-        if User.doesExist {
-            homescreen
-        }
-        else {
-            WelcomeView()
-                .statusBar(hidden: true)
-        }
-    }
-    
-    // FIXME: -
-    var homescreen: some View {
+    var body: some View {
         NavigationView {
             VStack(spacing: 0) {
                 Image(systemName: "e.square")
@@ -59,10 +47,6 @@ struct ContentView: View {
             .navigationBarHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    var body: some View {
-        viewToShow
     }
 }
 

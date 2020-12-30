@@ -33,17 +33,18 @@ private struct SpecicPurchaseUnitListView: View {
     private func expandedContentFor(unit: SpecificPurchaseUnit) -> some View {
         VStack {
             let evaluationManager = viewModel.evaluationManager
-            let evaluation = evaluationManager.evaluateUnit(unit)
-            ExpandedRow(leadingText: "Cost", trailingText: PriceFormatter.format(cost: unit.cost))
-            let destination = EvaluationCalculationView(evaluation: evaluation,
-                                                        unitName: unit.modelName,
-                                                        selectedAttributeEvaluation: evaluation.attributeEvaluations.first!)
-                            .navigationBarHidden(true)
-            NavigationLink(destination: destination, tag: unit.id, selection: $selection) {
-                BorderedButtonView(text: "Evaluate") {
-                    selection = unit.id
+            if let evaluation = evaluationManager.evaluateUnit(unit) {
+                ExpandedRow(leadingText: "Cost", trailingText: PriceFormatter.format(cost: unit.cost))
+                let destination = EvaluationCalculationView(evaluation: evaluation,
+                                                            unitName: unit.modelName,
+                                                            selectedAttributeEvaluation: evaluation.attributeEvaluations.first!)
+                    .navigationBarHidden(true)
+                NavigationLink(destination: destination, tag: unit.id, selection: $selection) {
+                    BorderedButtonView(text: "Evaluate") {
+                        selection = unit.id
+                    }
+                    .frame(width: 70, height: 30)
                 }
-                .frame(width: 70, height: 30)
             }
         }
     }
@@ -75,9 +76,9 @@ private struct ExpandedRow: View {
     
     var body: some View {
         HStack {
-            PCTextView(leadingText)
+            Label(leadingText)
             Spacer()
-            PCTextView(trailingText)
+            Label(trailingText)
         }
         .padding(.bottom)
     }

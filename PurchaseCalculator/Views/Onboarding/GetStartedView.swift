@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SystemKit
+import PurchaseCalculatorDataKit
 
-struct GetStartedView: View {
+struct GetStartedView: View, FirebaseRefreshingView {
     
+    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @State var opacity: Double = 1
-    
+    @State var buttonPressed = false
     var animationCompleteHandler: () -> Void
     
     var body: some View {
@@ -18,9 +21,12 @@ struct GetStartedView: View {
             Spacer()
             AttributeIconsGroupView()
                 .padding()
-            PCTextView("Welcome to Oliver")
+                .disabled(buttonPressed)
+            Label("app_name")
             Spacer()
-            BorderedButtonView(text: "Get started") {
+            BorderedButtonView(text: "get_started_cta") {
+                buttonPressed = true
+                HapticManager.performFeedbackHaptic(.success)
                 withAnimation(.linear(duration: 1)) { opacity = 0 }
             }
             .frame(width: 100, height: 50)

@@ -74,6 +74,7 @@ extension FileManager {
     
     public func writeDataToDocuments(data: Data, file: String) throws  {
         do {
+            print("Writing: \(file)")
             try data.write(to: documentsURL.appendingPathComponent(file))
         }
         catch let error {

@@ -22,13 +22,13 @@ struct UserPreferencesView: FirebaseRefreshingView {
     
     var body: some View {
         if let error = model.currentErrorMessage {
-            PCTextView(error)
+            Label(error)
         }
         else if let attributes = model.attributes {
             let currencies = model.currencies.compactMap { $0.symbol }
             BasicNavigationView(home: true) {
                 VStack {
-                    PCTextView(model.titleString)
+                    Label(model.titleString)
                         .padding()
                     TextFieldWithLimitView(placeholder: model.userNameTextFieldPlaceholder,
                                            textFieldText: $model.userName,
@@ -68,7 +68,7 @@ struct UserPreferencesForm: View {
 
     var body: some View {
         VStack {
-            PCTextView(model.listHeaderString)
+            Label(model.listHeaderString)
                 .padding(.bottom)
             ScrollView {
                 ForEach(attributes, id: \.uuid) { attribute in
@@ -95,7 +95,7 @@ struct PurchaseValueWeightingSelectionView: View {
         VStack(alignment: .leading) {
             HStack {
                 image
-                PCTextView(attribute.handle)             
+                Label(attribute.handle)             
             }
             HStack {
                 let weighting = AttributeUserWeighting(weight: initialValue)

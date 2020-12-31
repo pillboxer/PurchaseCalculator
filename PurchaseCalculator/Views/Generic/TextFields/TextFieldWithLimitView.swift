@@ -22,7 +22,7 @@ struct TextFieldWithLimitView: View {
         HStack {
             NoClipboardTextField(placeholder: placeholder, font: font, keyboardType: keyboardType, text: $textFieldText)
             Circle().fill(textFieldText.count >= minimumCharacters ?? 0 ? Color.green : Color.gray)
-                .fixedSize()
+                .frame(width: 10, height: 10)
         }
     }
 }

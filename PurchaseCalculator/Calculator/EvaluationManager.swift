@@ -69,7 +69,7 @@ class EvaluationManager {
     }
     
     private var purchaseAttributes: [PurchaseAttribute] {
-        DecodedObjectProvider.attributes ?? []
+        DecodedObjectProvider.attributes() ?? []
     }
     
     private func symbolNameForAttributeID(_ id: String) -> String {

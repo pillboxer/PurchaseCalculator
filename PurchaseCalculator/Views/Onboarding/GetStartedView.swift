@@ -29,7 +29,6 @@ struct GetStartedView: View, FirebaseRefreshingView {
                 HapticManager.performFeedbackHaptic(.success)
                 withAnimation(.linear(duration: 1)) { opacity = 0 }
             }
-            .frame(width: 100, height: 50)
             .padding()
         }
         .onAnimationCompleted(for: opacity) {

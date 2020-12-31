@@ -14,11 +14,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     
     var currentErrorMessage: String?
     
-    lazy var context: NSManagedObjectContext = {
-        let newContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        newContext.parent = CoreDataManager.shared.moc
-        return newContext
-    }()
+    private var context: NSManagedObjectContext = CoreDataManager.shared.moc
     
     lazy var user: User = {
          return User.existingUser ?? User(context: context)
@@ -36,6 +32,15 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
             userName = String(userName.prefix(maximumCharactersInName))
             objectWillChange.send()
         }
+    }
+    
+    init() {
+        setupExistingUser()
+    }
+    
+    deinit {
+        print("DEINIT")
+        context.reset()
     }
     
     // MARK: - Pay
@@ -141,7 +146,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }
     
     var attributes: [PurchaseAttribute]? {
-        DecodedObjectProvider.attributes
+        DecodedObjectProvider.attributes(sorted: true)
     }
     
     // MARK: - Saving
@@ -150,6 +155,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         user.name = userName
         user.takeHomePay = NSNumber(integerLiteral: userTakeHomePayNumber)
         let manager = CoreDataManager.shared
+        
         manager.save(context) { error in
             if let error = error {
                 self.publishErrorMessage(error)
@@ -157,12 +163,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
             else {
                 completion()
             }
-            self.objectWillChange.send()
         }
-    }
-
-    func reset() {
-        User.doesExist ? setupExistingUser() : setupNewUser()
     }
 
 }

@@ -27,7 +27,7 @@ class ExplanationViewModel: ObservableObject {
     @Published var currentContext: ExplanationContext = .elevatorPitch
     
     // MARK: - Private
-    private var allAttributes = DecodedObjectProvider.attributes ?? []
+    private var allAttributes = DecodedObjectProvider.attributes() ?? []
     @Published private var selectedAttributeIndex = 0
     private var selectedExplanationIndex = 0
     private var selectedAttribute: PurchaseAttribute {

@@ -7,7 +7,7 @@
 
 import CoreData
 
-class CoreDataManager {
+class CoreDataManager: ObservableObject {
         
     // MARK: - Enums
     enum CoreDataError: LocalizedError {
@@ -54,6 +54,7 @@ class CoreDataManager {
             do {
                 try context.save()
                 try context.parent?.save()
+                self.objectWillChange.send()
                 completion?(nil)
             }
             catch let error {
@@ -68,6 +69,7 @@ class CoreDataManager {
         context.performAndWait {
             do {
                 try context.save()
+                self.objectWillChange.send()
                 completion?(nil)
             }
             catch let error {

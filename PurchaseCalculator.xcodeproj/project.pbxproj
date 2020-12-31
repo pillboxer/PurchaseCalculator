@@ -38,6 +38,11 @@
 		864BDDD82598A3C200CC6628 /* EvaluationReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */; };
 		864BDDE42599CC8200CC6628 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDE32599CC8200CC6628 /* ColorManager.swift */; };
 		865AD2D72579763100FFE257 /* PurchaseItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */; };
+		865C35F7259DE15800E0F7B5 /* NewUserHomescreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */; };
+		865C3603259DE37900E0F7B5 /* UserPreferencesForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C3602259DE37900E0F7B5 /* UserPreferencesForm.swift */; };
+		865C3607259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C3606259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift */; };
+		865C360A259DE48B00E0F7B5 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
+		865C360B259DE48B00E0F7B5 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
 		866E3DC725933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DC625933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift */; };
@@ -80,8 +85,6 @@
 		86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */; };
 		86C6F5C125973EE500A6D48F /* SingleBarViewAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5C025973EE500A6D48F /* SingleBarViewAnimated.swift */; };
 		86C6F5C425973FCD00A6D48F /* PurchaseAttributeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5C325973FCD00A6D48F /* PurchaseAttributeSummaryView.swift */; };
-		86D57682259CBC0F000A781A /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
-		86D57683259CBC0F000A781A /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86D57686259CC03A000A781A /* DetailedExplanationDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D57685259CC03A000A781A /* DetailedExplanationDisplayView.swift */; };
 		86D5768A259CC074000A781A /* PulsingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D57689259CC074000A781A /* PulsingIntroView.swift */; };
 		86D5768D259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5768C259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift */; };
@@ -118,7 +121,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */,
-				86D57683259CBC0F000A781A /* SystemKit.framework in Embed Frameworks */,
+				865C360B259DE48B00E0F7B5 /* SystemKit.framework in Embed Frameworks */,
 				864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -160,6 +163,9 @@
 		864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationReportView.swift; sourceTree = "<group>"; };
 		864BDDE32599CC8200CC6628 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		865AD2D62579763100FFE257 /* PurchaseItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemViewModel.swift; sourceTree = "<group>"; };
+		865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserHomescreen.swift; sourceTree = "<group>"; };
+		865C3602259DE37900E0F7B5 /* UserPreferencesForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesForm.swift; sourceTree = "<group>"; };
+		865C3606259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeWeightingSelectionView.swift; sourceTree = "<group>"; };
 		86685D0A2561603000F139D7 /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		866E3DC625933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificPurchaseUnitSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -227,7 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */,
-				86D57682259CBC0F000A781A /* SystemKit.framework in Frameworks */,
+				865C360A259DE48B00E0F7B5 /* SystemKit.framework in Frameworks */,
 				864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +343,6 @@
 		862ED07A2574362D005F4FCF /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				866E3DD125938D0800A35313 /* Components */,
 				8684E2E8258A637C002015EE /* Views */,
 				8620FA8B257D3E7F0005D8AF /* Buttons */,
 				8620FA8A257D3E720005D8AF /* TextFields */,
@@ -348,7 +353,6 @@
 		862ED083257436C7005F4FCF /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				868CCB2C2558331700C96CFD /* UserPreferencesView.swift */,
 				86AA48A5256703C6007A7D75 /* PurchaseCategorySelectionView.swift */,
 				86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */,
 				86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */,
@@ -380,9 +384,34 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		865C35F5259DE12800E0F7B5 /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Evaluation;
+			sourceTree = "<group>";
+		};
+		865C35FE259DE34900E0F7B5 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				868CCB2C2558331700C96CFD /* UserPreferencesView.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		865C3601259DE36D00E0F7B5 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				865C3602259DE37900E0F7B5 /* UserPreferencesForm.swift */,
+				865C3606259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		866E3DD125938D0800A35313 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				865C3601259DE36D00E0F7B5 /* Preferences */,
 				86B9609A259B7C0200F1D5A6 /* Onboarding */,
 				86C6F5B825973D9300A6D48F /* Evaluation */,
 				866E3DD225938D1A00A35313 /* Rows */,
@@ -587,8 +616,11 @@
 		86D384A725569C5F00051019 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				86D5767F259CBAF4000A781A /* Homescreen */,
+				866E3DD125938D0800A35313 /* Components */,
+				865C35FE259DE34900E0F7B5 /* Preferences */,
 				86B96090259B406E00F1D5A6 /* Onboarding */,
+				86D5767F259CBAF4000A781A /* Homescreen */,
+				865C35F5259DE12800E0F7B5 /* Evaluation */,
 				862ED083257436C7005F4FCF /* Flow */,
 				862ED07A2574362D005F4FCF /* Generic */,
 				862ED084257436D6005F4FCF /* UIViewRepresentables */,
@@ -600,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				86026287254D72EA0085ACD5 /* HomescreenView.swift */,
+				865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -721,6 +754,7 @@
 				86B960A4259BA5EB00F1D5A6 /* ExplanationViewModel.swift in Sources */,
 				86B4F7A4258163B300CBE827 /* PurchaseItemGroup.swift in Sources */,
 				86FA05782587F7B000005AF8 /* UserDefaults.swift in Sources */,
+				865C3603259DE37900E0F7B5 /* UserPreferencesForm.swift in Sources */,
 				868CCB2825582EA700C96CFD /* CoreDataManager.swift in Sources */,
 				8620FA7E257CF5890005D8AF /* BorderedButtonView.swift in Sources */,
 				866E3DCB25938C9000A35313 /* ExpandableRowView.swift in Sources */,
@@ -735,6 +769,7 @@
 				862ED0742573BA5D005F4FCF /* GlobalModifiers.swift in Sources */,
 				8620FA75257CE4C10005D8AF /* ButtonWithImageView.swift in Sources */,
 				8620FA87257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift in Sources */,
+				865C35F7259DE15800E0F7B5 /* NewUserHomescreen.swift in Sources */,
 				86D5768D259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift in Sources */,
 				869CA33E256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift in Sources */,
 				86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */,
@@ -755,6 +790,7 @@
 				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
 				86FA05612587F73000005AF8 /* Question.swift in Sources */,
 				864016492589FCCA00B78BE9 /* LaunchHelper.swift in Sources */,
+				865C3607259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift in Sources */,
 				864BDDE42599CC8200CC6628 /* ColorManager.swift in Sources */,
 				866E3DCF25938CC900A35313 /* OpacityReducingRowView.swift in Sources */,
 				868CCB462558446500C96CFD /* PurchaseAttributeValue+CoreDataProperties.swift in Sources */,

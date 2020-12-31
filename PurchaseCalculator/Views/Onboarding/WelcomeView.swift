@@ -30,7 +30,7 @@ struct WelcomeView: View {
         }
         else {
             HomescreenView()
-                .transition(AnyTransition.opacity.animation(.linear(duration: 2)))
+//                .transition(AnyTransition.opacity.animation(.linear(duration: 2)))
         }
     }
 }

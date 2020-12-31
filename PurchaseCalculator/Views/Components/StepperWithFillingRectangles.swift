@@ -11,10 +11,6 @@ import SystemKit
 
 struct StepperWithFillingRectangles: View {
     
-    var screenWidth: CGFloat {
-        UIScreen.main.bounds.width
-    }
-    
     var numberOfRectangles: Int
     var cornerRadiusForRectangles: CGFloat? = nil
     @Binding var valueToChange: Double
@@ -28,7 +24,7 @@ struct StepperWithFillingRectangles: View {
                 Rectangle()
                     .fill(fillColor(index))
                     .animation(.easeIn)
-                    .frame(width: screenWidth / 10, height: 10)
+                    .frame(height: 10)
                     .cornerRadius(cornerRadiusForRectangles ?? 0)
                     .overlay(RoundedRectangle(cornerRadius: cornerRadiusForRectangles ?? 0).stroke(Color.primary))
                     .onTapGesture {

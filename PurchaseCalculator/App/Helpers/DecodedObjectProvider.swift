@@ -9,8 +9,12 @@ import PurchaseCalculatorDataKit
 
 class DecodedObjectProvider {
     
-    static var attributes: [PurchaseAttribute]? {
-        provide(.attributes, type: [String:PurchaseAttribute].self)?.map { $0.value }
+    static func attributes(sorted: Bool = false) -> [PurchaseAttribute]? {
+        let attributes = provide(.attributes, type: [String:PurchaseAttribute].self)?.map { $0.value }
+        if sorted {
+            return attributes?.sorted { $0.handle < $1.handle }
+        }
+        return attributes
     }
     
     static var multiplierGroups: [PurchaseAttributeMultiplierGroup]? {

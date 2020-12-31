@@ -27,8 +27,7 @@ struct DetailedSummaryView: View {
             CircleAndTextView(text: text, color: color)
                 .frame(maxWidth: 300)
             Spacer()
-            BorderedButtonView(text: "OK", action: tapHandler)
-                .frame(width: 50, height: 30)
+            BorderedButtonView(text: "OK", width: 50, height: 30, action: tapHandler)
             Spacer()
         }
         .padding(.horizontal)

@@ -10,7 +10,7 @@ import PurchaseCalculatorDataKit
 class DecodedObjectProvider {
     
     static func attributes(sorted: Bool = false) -> [PurchaseAttribute]? {
-        let attributes = provide(.attributes, type: [String:PurchaseAttribute].self)?.map { $0.value }
+        let attributes = provide(.attributes, type: [PurchaseAttribute].self)
         if sorted {
             return attributes?.sorted { $0.handle < $1.handle }
         }

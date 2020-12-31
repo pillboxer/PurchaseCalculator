@@ -88,6 +88,7 @@
 		86D57686259CC03A000A781A /* DetailedExplanationDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D57685259CC03A000A781A /* DetailedExplanationDisplayView.swift */; };
 		86D5768A259CC074000A781A /* PulsingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D57689259CC074000A781A /* PulsingIntroView.swift */; };
 		86D5768D259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D5768C259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift */; };
+		86D59BF0259E0DDC00694959 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D59BEF259E0DDC00694959 /* CloudKit.framework */; };
 		86DB14CD256926C8003BABD5 /* PurchaseItemSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */; };
 		86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D125692945003BABD5 /* PurchaseItem.swift */; };
 		86DB14D925695A6C003BABD5 /* PurchaseItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */; };
@@ -212,6 +213,8 @@
 		86D57685259CC03A000A781A /* DetailedExplanationDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedExplanationDisplayView.swift; sourceTree = "<group>"; };
 		86D57689259CC074000A781A /* PulsingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsingIntroView.swift; sourceTree = "<group>"; };
 		86D5768C259CC0A0000A781A /* AttributeIconsSelectableDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeIconsSelectableDisplayView.swift; sourceTree = "<group>"; };
+		86D59BED259E0DD600694959 /* PurchaseCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PurchaseCalculator.entitlements; sourceTree = "<group>"; };
+		86D59BEF259E0DDC00694959 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		86DB14CC256926C8003BABD5 /* PurchaseItemSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemSelectionView.swift; sourceTree = "<group>"; };
 		86DB14D125692945003BABD5 /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		86DB14D825695A6C003BABD5 /* PurchaseItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PurchaseItemDetailsView.swift; path = PurchaseCalculator/Views/Flow/PurchaseItemDetailsView.swift; sourceTree = SOURCE_ROOT; };
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */,
+				86D59BF0259E0DDC00694959 /* CloudKit.framework in Frameworks */,
 				865C360A259DE48B00E0F7B5 /* SystemKit.framework in Frameworks */,
 				864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
@@ -273,6 +277,7 @@
 		86026284254D72EA0085ACD5 /* PurchaseCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				86D59BED259E0DD600694959 /* PurchaseCalculator.entitlements */,
 				86D384A425569C2E00051019 /* App */,
 				860262B3254D73260085ACD5 /* Calculator */,
 				86812DDE255588F700C1245E /* CoreData */,
@@ -443,6 +448,7 @@
 		86756BD1254DA65000E31D5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86D59BEF259E0DDC00694959 /* CloudKit.framework */,
 				8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */,
 				866F9002258B592900202E0C /* FirebaseKit.framework */,
 				866F9003258B592900202E0C /* SystemKit.framework */,
@@ -973,6 +979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
@@ -996,6 +1003,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
@@ -1128,6 +1136,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";

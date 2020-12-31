@@ -9,9 +9,8 @@ import SwiftUI
 import SystemKit
 import PurchaseCalculatorDataKit
 
-struct GetStartedView: View, FirebaseRefreshingView {
+struct GetStartedView: View {
     
-    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @State var opacity: Double = 1
     @State var buttonPressed = false
     var animationCompleteHandler: () -> Void

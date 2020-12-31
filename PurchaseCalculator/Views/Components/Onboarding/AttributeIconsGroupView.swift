@@ -70,8 +70,9 @@ class AttributeIconsGroupViewModel: ObservableObject {
     
     @Published var iconNames: [String] = []
     
+    
     init() {
-        iconNames = DecodedObjectProvider.attributes()?.compactMap { $0.symbol } ?? []
+        self.iconNames = DecodedObjectProvider.attributes()?.compactMap { $0.symbol } ?? []
     }
     
 }

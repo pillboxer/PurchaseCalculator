@@ -1,0 +1,14 @@
+[
+    {"handle":"Longevity","symbol":"turtle","uuid":"23D39A6F-5ADB-45A3-9E1F-260EECC68FF7","description":"longevity_description_key"},
+    
+    {"handle":"Investability","uuid":"FBF3E0CB-C8F5-414D-85C4-B12C8312A199","description":"test","symbol":"invest"},
+    
+    {"description":"repairability_description_key","handle":"Repairability","symbol":"tools","uuid":"55BD2DC0-8773-47C8-8899-9CB5A8B2525F"},
+    
+    {"handle":"Health","uuid":"541CABD0-A5DE-4920-BF0F-DE0EE4338A77","symbol":"health","description":"health_description_key"},
+    
+    {"handle":"Size","description":"size_description_key","symbol":"measure","uuid":"2AF618AC-9F64-42DA-84BE-D04859E51C1F"},
+    
+    {"uuid":"5DC297CA-47A3-4E2D-874C-3C91E82A488D","description":"environment_description_key","symbol":"globe","handle":"Environment", "something_else" : "test"}
+
+]

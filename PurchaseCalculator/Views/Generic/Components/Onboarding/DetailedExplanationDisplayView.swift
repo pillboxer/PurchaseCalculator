@@ -26,7 +26,6 @@ struct DetailedExplanationDisplayView: View {
             Spacer()
         }
         .opacity(explanationOpacity)
-
         .padding()
         .onAppear {
             // FIXME: - 

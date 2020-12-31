@@ -17,19 +17,21 @@ struct AttributesDetailsView: View {
     
     var body: some View {
         VStack {
-            Button("SKIP") { viewModel.currentContext = .complete }
-            if viewModel.showsIconGroupDisplay {
-                AttributeIconsDisplayView(iconNames: viewModel.iconNames,
-                                          topIndexDisplayed: viewModel.topIndexDisplayed,
-                                          selectedIndex: $selectedExplanationIndex)
-                    .opacity(viewModel.showsIconGroupDisplay ? 1 : 0)
-                    .animation(selectedExplanationIndex == nil ? .easeIn : .none)
-                    .disabled(explanationOpacity != 1)
-                Label(viewModel.iconsSubheaderText)
-                    .hidden(!viewModel.showsDetailedDescriptions)
-                    .animation(.easeIn)
-            }
-            Spacer()
+            
+            // Top Icons
+            AttributeIconsDisplayView(iconNames: viewModel.iconNames,
+                                      topIndexDisplayed: viewModel.topIndexDisplayed,
+                                      selectedIndex: $selectedExplanationIndex)
+                .opacity(viewModel.showsIconGroupDisplay ? 1 : 0)
+                .animation(selectedExplanationIndex == nil ? .easeIn : .none)
+                .disabled(explanationOpacity != 1)
+                .padding(.top)
+                .hidden(!viewModel.showsIconGroupDisplay)
+            Label(viewModel.iconsSubheaderText)
+                .hidden(!viewModel.showsDetailedDescriptions)
+                .animation(.easeIn)
+            
+            // Middle of screen info
             if viewModel.showsDetailedDescriptions {
                 DetailedExplanationDisplayView(title: viewModel.detailedDescriptionTitle,
                                                imageName: viewModel.detailedDescriptionImageName,
@@ -38,14 +40,14 @@ struct AttributesDetailsView: View {
             }
             if viewModel.showsPulsingView {
                 PulsingIntroView(viewModel: viewModel)
-                    .padding()
             }
-            Spacer()
-            if viewModel.showsCTA {
-                AttributesDetailsCTAView {
-                    withAnimation(.linear(duration: 2) ) { viewOpacity = 0 }
-                }
+            
+            // CTA
+            AttributesDetailsCTAView {
+                withAnimation(.linear(duration: 2) ) { viewOpacity = 0 }
             }
+            .hidden(!viewModel.showsCTA)
+            .animation(.easeIn)
         }
         .opacity(viewOpacity)
         .onChange(of: viewModel.currentContext) { context in

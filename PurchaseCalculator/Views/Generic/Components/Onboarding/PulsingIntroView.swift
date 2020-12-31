@@ -14,14 +14,11 @@ struct PulsingIntroView: View {
     
     var body: some View {
         VStack {
-            if let imageName = viewModel.pulsingImageName {
-                Image(imageName)
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .padding()
-            }
+            Spacer()
             Label(viewModel.labelText)
                 .animation(.none)
+                .frame(maxWidth: 300)
+            Spacer()
         }
         .opacity(opacity)
         .onAppear {

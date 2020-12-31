@@ -13,13 +13,16 @@ struct AttributeIconsGroupView: View {
     @State var offset: Double = 0
     @State private var indexToAnimate = 0
     
+    private func getNewIndex() -> Int {
+        let new = Int.random(in: 0..<viewModel.iconNames.count)
+        return new == indexToAnimate ? getNewIndex() : new
+    }
+    
     var body: some View {
         HStack(spacing: 16) {
             ForEach(viewModel.iconNames, id: \.self) { icon in
                 AnimatingIconView(iconName: icon, shouldAnimate: icon == viewModel.iconNames[indexToAnimate]) {
-                    let new = Int.random(in: 0..<viewModel.iconNames.count)
-                    // FIXME: - This can still break
-                    indexToAnimate = new == indexToAnimate ? 0 : new
+                    indexToAnimate = getNewIndex()
                 }
             }
         }

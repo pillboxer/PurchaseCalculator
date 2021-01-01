@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct WelcomeView: View {
+
+    @ObservedObject var cloudKitCoordinator: CloudKitCoordinator = CloudKitCoordinator.shared
     
     private enum Context {
         case getStarted

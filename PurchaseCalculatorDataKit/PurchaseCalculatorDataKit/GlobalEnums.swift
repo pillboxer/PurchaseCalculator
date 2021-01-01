@@ -9,7 +9,7 @@ import Foundation
 
 public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifiable {
     case categories = "PurchaseCategories"
-    case itemGroup = "PurchaseItemGroups"
+    case purchaseItemGroups = "PurchaseItemGroups"
     case purchaseItems = "PurchaseItems"
     
     case specificPurchaseUnits = "SpecificPurchaseUnits"
@@ -18,12 +18,16 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     case purchaseBrands = "PurchaseBrands"
     
     case attributes = "PurchaseAttributes"
-    case attributeMultiplierGroups = "PurchaseItemAttributeMultipliersGroups"
+    case attributeMultiplierGroups = "PurchaseAttributeMultiplierGroups"
     
     case strings = "Strings"
     
-    var singular: String {
-        String(rawValue.dropLast())
+    var cloudKitType: String {
+        switch self {
+        case .attributeMultiplierGroups:
+            return "PurchaseAttributeMultipliers"
+        default: return rawValue
+        }
     }
     
     public var id: String {

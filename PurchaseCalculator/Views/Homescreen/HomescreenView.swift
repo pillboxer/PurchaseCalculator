@@ -16,14 +16,47 @@ protocol Presenter: View {
 struct HomescreenView: View {
     
     @ObservedObject var coreDataManager = CoreDataManager.shared
+    @State private var selectedRow: String?
+
+    var homeViewModel = HomeViewModel()
+
+    var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
+        
+    var categoryView: some View {
+        PurchaseCategorySelectionView()
+            .environmentObject(purchaseCategoryViewModel)
+    }
     
     var body: some View {
         if !User.doesExist {
             NoUserHomescreen()
         }
         else {
-            Text("User Exists")
+            homescreen
+
         }
+    }
+    
+    var homescreen: some View {
+        NavigationView {
+            VStack(spacing: 0) {
+                Image(systemName: "e.square")
+                    .resizable()
+                    .padding()
+                    .frame(width: 100, height: 100, alignment: .center)
+                if User.doesExist {
+                    NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.categoriesTitle, imageName: homeViewModel.categoriesImageString), destinationController: categoryView, selectedID: $selectedRow) {
+                        selectedRow = homeViewModel.categoriesTitle
+                    }
+                }
+                NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.preferencesRowTitle, imageName: homeViewModel.preferencesImageString), destinationController: Text("hello"), selectedID: $selectedRow) {
+                    selectedRow = homeViewModel.preferencesRowTitle
+                }
+                Spacer()
+            }
+            .navigationBarHidden(true)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -11,7 +11,7 @@ import SystemKit
 struct PurchaseItemGroup: Decodable {
     
     let uuid: String
-    let itemIDs: [String]
+    let purchaseItemIDs: [String]
     
 }
 
@@ -19,7 +19,7 @@ extension PurchaseItemGroup {
     
     var items: [PurchaseItem]? {
         let items = DecodedObjectProvider.purchaseItems
-        return items?.filter { itemIDs.contains($0.uuid) }
+        return items?.filter { purchaseItemIDs.contains($0.uuid) }
     }
 
 }

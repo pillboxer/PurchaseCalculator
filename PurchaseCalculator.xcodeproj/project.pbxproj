@@ -24,6 +24,8 @@
 		8620FA87257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */; };
 		8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; };
 		8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		862C4ECF259F5D920048103C /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C4ECE259F5D920048103C /* SystemKit.framework */; };
+		862C4ED0259F5D920048103C /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 862C4ECE259F5D920048103C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		862ED0742573BA5D005F4FCF /* GlobalModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */; };
 		862ED0772573F3AC005F4FCF /* RowViewWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */; };
 		862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED07B2574364C005F4FCF /* ListContainerView.swift */; };
@@ -41,8 +43,6 @@
 		865C35F7259DE15800E0F7B5 /* NewUserHomescreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */; };
 		865C3603259DE37900E0F7B5 /* UserPreferencesForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C3602259DE37900E0F7B5 /* UserPreferencesForm.swift */; };
 		865C3607259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C3606259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift */; };
-		865C360A259DE48B00E0F7B5 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; };
-		865C360B259DE48B00E0F7B5 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9003258B592900202E0C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
 		866E3DC725933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DC625933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift */; };
@@ -122,7 +122,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */,
-				865C360B259DE48B00E0F7B5 /* SystemKit.framework in Embed Frameworks */,
+				862C4ED0259F5D920048103C /* SystemKit.framework in Embed Frameworks */,
 				864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -152,6 +152,7 @@
 		8620FA83257D3E110005D8AF /* TextFieldWithLimitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithLimitView.swift; sourceTree = "<group>"; };
 		8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithSegmentedPickerView.swift; sourceTree = "<group>"; };
 		8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PurchaseCalculatorDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		862C4ECE259F5D920048103C /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModifiers.swift; sourceTree = "<group>"; };
 		862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewWithButton.swift; sourceTree = "<group>"; };
 		862ED07B2574364C005F4FCF /* ListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerView.swift; sourceTree = "<group>"; };
@@ -235,9 +236,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862C4ECF259F5D920048103C /* SystemKit.framework in Frameworks */,
 				8625C4BC25925AFE006B29BA /* FirebaseKit.framework in Frameworks */,
 				86D59BF0259E0DDC00694959 /* CloudKit.framework in Frameworks */,
-				865C360A259DE48B00E0F7B5 /* SystemKit.framework in Frameworks */,
 				864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +449,7 @@
 		86756BD1254DA65000E31D5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				862C4ECE259F5D920048103C /* SystemKit.framework */,
 				86D59BEF259E0DDC00694959 /* CloudKit.framework */,
 				8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */,
 				866F9002258B592900202E0C /* FirebaseKit.framework */,

@@ -22,23 +22,23 @@ class DecodedObjectProvider {
     }
     
     static var purchaseItemGroups: [PurchaseItemGroup]? {
-        provide(.itemGroup, type: [PurchaseItemGroup].self)
+        provide(.purchaseItemGroups, type: [PurchaseItemGroup].self)
     }
     
     static var purchaseItems: [PurchaseItem]? {
-        provide(.purchaseItems, type: [String:PurchaseItem].self)?.map { $0.value }
+        provide(.purchaseItems, type: [PurchaseItem].self)
     }
     
     static var specificPurchaseUnitGroups: [SpecificPurchaseUnitGroup]? {
-        provide(.specificPurchaseUnitGroups, type: [String: SpecificPurchaseUnitGroup].self)?.map { $0.value }
+        provide(.specificPurchaseUnitGroups, type: [SpecificPurchaseUnitGroup].self)
     }
     
     static var specificPurchaseUnits: [SpecificPurchaseUnit]? {
-        provide(.specificPurchaseUnits, type: [String: SpecificPurchaseUnit].self)?.map { $0.value }
+        provide(.specificPurchaseUnits, type: [SpecificPurchaseUnit].self)
     }
     
     static var purchaseBrands: [PurchaseBrand]? {
-        provide(.purchaseBrands, type: [String: PurchaseBrand].self)?.map { $0.value }
+        provide(.purchaseBrands, type: [PurchaseBrand].self)
     }
     
     static var purchaseCategories: [PurchaseCategory]? {
@@ -49,6 +49,4 @@ class DecodedObjectProvider {
         // FIXME: - Keeping for debugging but remove bang
         try! JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)
     }
-    
-    
 }

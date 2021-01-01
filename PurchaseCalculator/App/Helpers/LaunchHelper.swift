@@ -34,7 +34,7 @@ class LaunchHelper {
         SystemReachability.shared.$connectionStatus
             .sink { (connectionStatus) in
                 if connectionStatus != .disconnected {
-//                    CloudKitCoordinator.shared.updateJSON()
+                    CloudKitCoordinator.shared.updateJSON()
                 }
             }.store(in: &cancellables)
     }

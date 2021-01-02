@@ -8,9 +8,8 @@
 import SwiftUI
 import PurchaseCalculatorDataKit
 
-struct UserPreferencesView: FirebaseRefreshingView {
+struct UserPreferencesView: View {
     
-    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @ObservedObject var model =  UserPreferencesViewModel()
     let textFieldFont = UIFont.boldSystemFont(ofSize: 12)
         

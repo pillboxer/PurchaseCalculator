@@ -4,7 +4,7 @@
 //
 //  Created by Henry Cooper on 26/12/2020.
 //
-
+#if os(iOS)
 import UIKit
 import CoreHaptics
 
@@ -48,3 +48,4 @@ public class HapticManager {
         
     }
 }
+#endif

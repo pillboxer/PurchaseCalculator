@@ -43,6 +43,3 @@ extension RowType {
     }
 }
 
-protocol FirebaseRefreshingView: View {
-    var firebaseObserved: FirebaseCoordinator { get }
-}

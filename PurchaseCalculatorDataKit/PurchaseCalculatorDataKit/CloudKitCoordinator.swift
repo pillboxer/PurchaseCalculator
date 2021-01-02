@@ -10,29 +10,97 @@ import CloudKit
 
 public class CloudKitCoordinator: NSObject, ObservableObject {
     
-    public typealias DictArray = [[String : Any]]
-    
     public static let shared = CloudKitCoordinator()
+    private let retriever = CloudKitRetriever()
+    
+    @Published public var latestChildAdded: PurchaseCalculatorDatabaseChildType?
+    @Published public var latestChildLinkedTo: PurchaseCalculatorDatabaseChildType?
+    @Published public var databaseAddingError = false
     
     public func updateJSON() {
         PurchaseCalculatorDatabaseChildType.allCases.forEach { updateJSON($0) }
     }
     
-    private let db = CKContainer.default().publicCloudDatabase
+    private let db = CKContainer(identifier: "iCloud.com.SixEye.purchaseCalculator").publicCloudDatabase
+    
+    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, completion: @escaping ([CKRecord]?, Error?) -> Void) {
+        let query = CKQuery(recordType: type.cloudKitType, predicate: NSPredicate(value: true))
+        db.perform(query, inZoneWith: nil, completionHandler: completion)
+    }
+    
+    public func link(_ id: String, to value: PurchaseCalculatorDatabaseValueType, belongingTo child: PurchaseCalculatorDatabaseChildType, withRecordID recordIDString: String) {
+        
+        let recordID = CKRecord.ID.init(recordName: recordIDString)
+        
+        db.fetch(withRecordID: recordID) { (record, error) in
+            if let record = record {
+                let referenceID = CKRecord.ID.init(recordName: id)
+                let referenceRecord = CKRecord(recordType: value.rawValue, recordID: referenceID)
+                let reference = CKRecord.Reference(record: referenceRecord, action: .none)
+                
+                let referenceToAdd: Any
+                
+                if var currentReferences = record[value.rawValue] as? [CKRecord.Reference] {
+                    currentReferences.append(reference)
+                    referenceToAdd = currentReferences
+                }
+                else {
+                    referenceToAdd = value.isList ? [reference] : reference
+                }
 
+                record.setValue(referenceToAdd, forKey: value.rawValue)
+                
+                self.db.save(record) { (record, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        self.databaseAddingError = true
+                    }
+                    else {
+                        self.latestChildLinkedTo = child
+                    }
+                }
+            }
+        }
+    }
+    
+    public func addValues(_ parameters: [PurchaseCalculatorDatabaseValueType: Any], to child: PurchaseCalculatorDatabaseChildType) {
+        
+        let stringParams = parameters.map { (key: $0.key.rawValue, value: $0.value, reference: $0.key.childReference) }
+        let record = CKRecord(recordType: child.cloudKitType)
+        
+        stringParams.forEach { param in
+            if let referenceType = param.reference {
+                let id = CKRecord.ID.init(recordName: param.value as? String ?? "")
+                let referencedRecord = CKRecord(recordType: referenceType.cloudKitType, recordID: id)
+                let reference = CKRecord.Reference(record: referencedRecord, action: .none)
+                print(reference)
+                record.setValue(reference, forKey: param.key)
+            }
+            else {
+                record.setValue(param.value, forKey: param.key)
+            }
+        }
+        
+        db.save(record) { [self] (_, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                self.databaseAddingError = true
+            }
+            else {
+                latestChildAdded = child
+            }
+        }
+    }
     
     public func updateJSON(_ type: PurchaseCalculatorDatabaseChildType) {
-        let query = CKQuery(recordType: type.cloudKitType, predicate: NSPredicate(value: true))
-        db.perform(query, inZoneWith: nil) { (records, error) in
+        fetch(type) { records, error in
             if let records = records,
                !records.isEmpty {
- 
-                let arrayOfDictionaries = self.retrieveJSONFromRecords(records, for: type)
+                let arrayOfDictionaries = self.retriever.retrieveJSONFromRecords(records, for: type)
                 
                 if let data = try? JSONSerialization.data(withJSONObject: arrayOfDictionaries, options: []) {
                     do {
                         try FileManager.default.writeDataToDocuments(data: data, file: type.rawValue)
-                        print("Succeeded \(type.rawValue)")
                     }
                     catch {
                         print("Could not save new data to documents.")
@@ -44,193 +112,37 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
             }
         }
     }
-    
-    public func retrieveJSONFromRecords(_ records: [CKRecord], for type: PurchaseCalculatorDatabaseChildType) -> DictArray {
-        switch type {
-        case .attributes:
-            return attributesJSONFromRecords(records)
-        case .attributeMultiplierGroups:
-            return attributeMultipliersGroupsFromRecords(records)
-        case .strings:
-            return stringsFromRecords(records)
-        case .purchaseBrands:
-            return brandsFromRecords(records)
-        case .specificPurchaseUnits:
-            return specificPurchaseUnitsFromRecords(records)
-        case .specificPurchaseUnitGroups:
-            return specificPurchaseUnitGroupsFromRecords(records)
-        case .purchaseItems:
-            return purchaseItemsFromRecords(records)
-        case .purchaseItemGroups:
-            return purchaseItemGroupsFromRecords(records)
-        case .categories:
-            return categoriesFromRecords(records)
-        case .homescreenBlocks:
-            return homescreenBlocksFromRecords(records)
-        }
-    }
-    
-    private func getBasicKeysAndValuesFrom(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            let keys = record.allKeys()
-            let pairs = keys.compactMap { ($0, record[$0] ?? "" )}
-            var dict = Dictionary(uniqueKeysWithValues: pairs)
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
-    }
-    
-    
-    private func attributesJSONFromRecords(_ records: [CKRecord]) -> DictArray {
-        getBasicKeysAndValuesFrom(records)
-    }
-    
-    private func brandsFromRecords(_ records: [CKRecord]) -> DictArray {
-        getBasicKeysAndValuesFrom(records)
-    }
-    
-    private func homescreenBlocksFromRecords(_ records: [CKRecord]) -> DictArray {
-       getBasicKeysAndValuesFrom(records)
-    }
-    
-    private func attributeMultipliersGroupsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
+}
 
-        var groups: Set<String> = []
-        
-        groups = Set(records.compactMap { ($0["group"] as? CKRecord.Reference)?.recordID.recordName })
-        
-        for group in groups {
-            var dict = [String : Any]()
-            let filteredRecords = records.filter { record in
-                let groupReference = record["group"] as? CKRecord.Reference
-                return groupReference?.recordID.recordName == group
-            }
-            let attributeAndMultipliers = filteredRecords.compactMap { record -> (String, Double)? in
-                guard let attributeID = (record["attribute"] as? CKRecord.Reference)?.recordID.recordName,
-                      let multiplier = record["multiplier"] as? Double else {
-                    return nil
-                }
-                return (attributeID, multiplier)
-            }
-            
-            let attributesAndMultipliersDictionary = Dictionary(uniqueKeysWithValues: attributeAndMultipliers)
-                
-            dict["attributeMultipliers"] = attributesAndMultipliersDictionary
-            dict["uuid"] = group
-            array.append(dict)
-        }
-        return array
-    }
-    
-    private func specificPurchaseUnitsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            var dict: [String : Any] = [:]
-            guard let brandReference = record["brand"] as? CKRecord.Reference else {
-                continue
-            }
-            let brandID = brandReference.recordID.recordName
-            dict["brandID"] = brandID
-            dict["uuid"] = record.recordID.recordName
-            dict["modelName"] = record["modelName"]
-            dict["cost"] = record["cost"]
-            array.append(dict)
-        }
-        return array
-    }
-    
-    func specificPurchaseUnitGroupsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            var dict: [String : Any] = [:]
-            let reference = record["units"] as? [CKRecord.Reference]
-            let ids = reference?.compactMap { $0.recordID.recordName }
-            dict["unitIDs"] = ids
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
-    }
-    
-    private func stringsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        var dict: [String:Any] = [:]
 
-        for record in records {
-            guard let key = record["key"] as? String,
-                  let value = record["value"] as? String else {
-                continue
-            }
-            dict[key] = value
-        }
-        array.append(dict)
-        return array
-        
+public extension CKRecord {
+    
+    var uuid: String {
+        recordID.recordName
     }
     
-    private func purchaseItemsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            var dict: [String:Any] = [:]
-            guard let attributeMultiplierGroupReference = record["attributeMultiplierGroup"] as? CKRecord.Reference,
-                  let specificPurchaseUnitGroupReference = record["specificPurchaseUnitGroup"] as? CKRecord.Reference else {
-                continue
-            }
-            dict["attributeMultiplierGroupID"] = attributeMultiplierGroupReference.recordID.recordName
-            dict["specificPurchaseUnitGroupID"] = specificPurchaseUnitGroupReference.recordID.recordName
-            dict["handle"] = record["handle"]
-            dict["imageName"] = record["imageName"]
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
+    func referenceName(for parameter: String) -> String? {
+        (self[parameter] as? CKRecord.Reference)?.recordID.recordName
     }
     
-    private func purchaseItemGroupsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            var dict: [String : Any] = [:]
-            guard let purchaseItemsReferences = record["purchaseItems"] as? [CKRecord.Reference] else {
-                continue
-            }
-            let ids = purchaseItemsReferences.compactMap { $0.recordID.recordName }
-            dict["purchaseItemIDs"] = ids
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
+    func doubleFor(_ value: PurchaseCalculatorDatabaseValueType) -> Double {
+        retrieve(type: Double.self, fromPath: value.rawValue, defaultType: .zero)
     }
     
-    private func categoriesFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            var dict: [String : Any] = [:]
-            guard let purchaseItemGroupReference = record["purchaseItemGroup"] as? CKRecord.Reference else {
-                continue
-            }
-            dict["purchaseItemGroupID"] = purchaseItemGroupReference.recordID.recordName
-            dict["handle"] = record["handle"]
-            dict["imageName"] = record["imageName"]
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
+    func stringFor(_ value: PurchaseCalculatorDatabaseValueType) -> String {
+        retrieve(type: String.self, fromPath: value.rawValue, defaultType: "")
     }
+    
+    func stringsFor(_ value: PurchaseCalculatorDatabaseValueType) -> [String] {
+        retrieve(type: [String].self, fromPath: value.rawValue, defaultType: [])
+    }
+    
+    func referencesFor(_ value: PurchaseCalculatorDatabaseValueType) -> [CKRecord.Reference] {
+        retrieve(type: [CKRecord.Reference].self, fromPath: value.rawValue, defaultType: [])
+    }
+    
+    private func retrieve<T>(type: T.Type, fromPath path: String, defaultType: T) -> T {
+        self[path] as? T ?? defaultType
+    }
+    
 }

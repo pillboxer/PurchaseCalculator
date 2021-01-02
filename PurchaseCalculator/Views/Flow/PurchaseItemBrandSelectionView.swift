@@ -8,13 +8,12 @@
 import SwiftUI
 import PurchaseCalculatorDataKit
 
-struct PurchaseItemBrandSelectionView: FirebaseRefreshingView {
+struct PurchaseItemBrandSelectionView: View {
     
     // MARK: - Private
     @State private var brandSelection: String?
 
     // MARK: - Exposed
-    @ObservedObject var firebaseObserved: FirebaseCoordinator = FirebaseCoordinator.shared
     @EnvironmentObject var model: PurchaseItemViewModel
     
     var brands: [PurchaseBrand] {

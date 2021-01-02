@@ -5,6 +5,7 @@
 //  Created by Henry Cooper on 23/12/2020.
 //
 
+#if os(iOS)
 import UIKit
 
 public extension String {
@@ -14,3 +15,4 @@ public extension String {
     }
     
 }
+#endif

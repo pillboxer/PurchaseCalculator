@@ -42,10 +42,31 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case handle
     case uuid
     case modelName
-    case brandID
+    case brand
     case imageName
-    case unitIDs
-    case specificPurchaseUnitGroupID
+    case units
+    case specificPurchaseUnitGroup
+    case key
+    case value
+    
+   public var childReference: PurchaseCalculatorDatabaseChildType? {
+        switch self {
+        case .brand:
+        return .purchaseBrands
+        default:
+            return nil
+        }
+    }
+    
+    public var isList: Bool {
+        switch self {
+        case .units:
+            return true
+        default:
+            return false
+        }
+    }
+    
 }
 
 

@@ -1,0 +1,32 @@
+[
+    {
+        "handle": "Casio",
+        "imageName": "casio",
+        "uuid": "0AC168FF-5B95-4D80-8EED-DDBED1C119A5"
+    },
+    {
+        "handle": "Dyson",
+        "imageName": "hoover",
+        "uuid": "187299B7-A439-4A3F-978A-052BA9E72410"
+    }, {
+        "uuid": "29D89E75-419A-4F2A-AD85-9F30E756FEEC",
+        "name": "Samsung",
+        "imageName": "sasung"
+    }, {
+        "uuid": "47668142-1551-4F74-8BEE-DDA575F82D2C",
+        "name": "Apple",
+        "imageName": "apple"
+    }, {
+        "imageName": "sportWatch",
+        "name": "Fitbit",
+        "uuid": "4AEBDEA2-0EE5-4DAF-B256-CEDAA40EB08B"
+    }, {
+        "name": "Garmin",
+        "imageName": "sportWatch",
+        "uuid": "BFEDC54D-E0C5-430F-8405-9B15A2A632B1"
+    }, {
+        "uuid": "ECEB75DA-07D6-4E61-96CF-4CDF1DAFAAF5",
+        "name": "Bose",
+        "imageName": "headphones"
+    }
+]

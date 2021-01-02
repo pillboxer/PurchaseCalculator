@@ -18,6 +18,7 @@
 		862C4EFD259F6E040048103C /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF4259F6E040048103C /* PurchaseCategories.json */; };
 		862C4EFE259F6E040048103C /* SpecificPurchaseUnits.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */; };
 		862C4EFF259F6E040048103C /* SpecificPurchaseUnitGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */; };
+		862C4F08259F76020048103C /* HomescreenBlocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4F07259F76020048103C /* HomescreenBlocks.json */; };
 		865C35FB259DE20B00E0F7B5 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; };
 		865C35FC259DE20B00E0F7B5 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86D29B27258B56C30074B8BE /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D29B1D258B56C30074B8BE /* PurchaseCalculatorDataKit.framework */; };
@@ -67,6 +68,7 @@
 		862C4EF4259F6E040048103C /* PurchaseCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
 		862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnits.json; sourceTree = "<group>"; };
 		862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnitGroups.json; sourceTree = "<group>"; };
+		862C4F07259F76020048103C /* HomescreenBlocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomescreenBlocks.json; sourceTree = "<group>"; };
 		86D29B1D258B56C30074B8BE /* PurchaseCalculatorDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseCalculatorDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D29B20258B56C30074B8BE /* PurchaseCalculatorDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseCalculatorDataKit.h; sourceTree = "<group>"; };
 		86D29B21258B56C30074B8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				862C4EF0259F6E040048103C /* PurchaseItems.json */,
 				862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */,
 				862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */,
+				862C4F07259F76020048103C /* HomescreenBlocks.json */,
 				862C4EEE259F6E040048103C /* Strings.json */,
 			);
 			name = "Bundled Content";
@@ -267,6 +270,7 @@
 				862C4EF8259F6E040048103C /* PurchaseAttributeMultiplierGroups.json in Resources */,
 				862C4EFF259F6E040048103C /* SpecificPurchaseUnitGroups.json in Resources */,
 				862C4EFD259F6E040048103C /* PurchaseCategories.json in Resources */,
+				862C4F08259F76020048103C /* HomescreenBlocks.json in Resources */,
 				862C4EFB259F6E040048103C /* PurchaseItemGroups.json in Resources */,
 				862C4EF9259F6E040048103C /* PurchaseItems.json in Resources */,
 				862C4EF7259F6E040048103C /* Strings.json in Resources */,

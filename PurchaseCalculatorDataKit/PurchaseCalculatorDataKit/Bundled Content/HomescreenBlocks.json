@@ -1,0 +1,16 @@
+[
+    {
+        "handle": "popular_block",
+        "uuid": "4A5C08B3-91D1-510A-8646-7CA33DCD3BE0",
+        "imageName": "popular_block_image_name",
+        "destination": "popular",
+        "isWide": 1
+    },
+    {
+        "handle": "edit_profile",
+        "imageName": "profile",
+        "isWide": 0,
+        "uuid": "BC0B879B-2E73-1EB1-E777-B0E447650FA1",
+        "destination": "preferences"
+    }
+]

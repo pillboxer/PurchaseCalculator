@@ -16,10 +16,9 @@ protocol Presenter: View {
 struct HomescreenView: View {
     
     @ObservedObject var coreDataManager = CoreDataManager.shared
-    @State private var selectedRow: String?
-
+    private var blockHelper = HomescreenBlockHelper()
     var homeViewModel = HomeViewModel()
-
+    @State private var isSelected = false
     var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
         
     var categoryView: some View {
@@ -32,34 +31,23 @@ struct HomescreenView: View {
             NoUserHomescreen()
         }
         else {
-            homescreen
-
-        }
-    }
-    
-    var homescreen: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                Image(systemName: "e.square")
-                    .resizable()
-                    .padding()
-                    .frame(width: 100, height: 100, alignment: .center)
-                if User.doesExist {
-                    NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.categoriesTitle, imageName: homeViewModel.categoriesImageString), destinationController: categoryView, selectedID: $selectedRow) {
-                        selectedRow = homeViewModel.categoriesTitle
+            VStack {
+                ForEach(DecodedObjectProvider.homescreenBlocks ?? [], id: \.uuid) { block in
+                    blockHelper.blockView(for: block) {
+                        blockHelper.selectedBlock = block
+                        isSelected = true
                     }
-                }
-                NavigationLinkedRowView(item: HomeRow(handle: homeViewModel.preferencesRowTitle, imageName: homeViewModel.preferencesImageString), destinationController: Text("hello"), selectedID: $selectedRow) {
-                    selectedRow = homeViewModel.preferencesRowTitle
+                    .fullScreenCover(isPresented: $isSelected, content: {
+                        blockHelper.view()
+                    })
                 }
                 Spacer()
             }
-            .navigationBarHidden(true)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-    }
-}
 
+        }
+    }
+
+}
 struct HomeRow: RowType {
     
     var handle: String

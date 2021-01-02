@@ -26,6 +26,8 @@
 		8625C4BD25925AFE006B29BA /* FirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 866F9002258B592900202E0C /* FirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		862C4ECF259F5D920048103C /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C4ECE259F5D920048103C /* SystemKit.framework */; };
 		862C4ED0259F5D920048103C /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 862C4ECE259F5D920048103C /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		862C4F0B259F77430048103C /* HomescreenBlockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C4F0A259F77430048103C /* HomescreenBlockHelper.swift */; };
+		862C4F0E259F786B0048103C /* HomescreenBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C4F0D259F786B0048103C /* HomescreenBlock.swift */; };
 		862ED0742573BA5D005F4FCF /* GlobalModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */; };
 		862ED0772573F3AC005F4FCF /* RowViewWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */; };
 		862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862ED07B2574364C005F4FCF /* ListContainerView.swift */; };
@@ -153,6 +155,8 @@
 		8620FA86257D3E3C0005D8AF /* TextFieldWithSegmentedPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithSegmentedPickerView.swift; sourceTree = "<group>"; };
 		8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PurchaseCalculatorDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862C4ECE259F5D920048103C /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		862C4F0A259F77430048103C /* HomescreenBlockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBlockHelper.swift; sourceTree = "<group>"; };
+		862C4F0D259F786B0048103C /* HomescreenBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBlock.swift; sourceTree = "<group>"; };
 		862ED0732573BA5D005F4FCF /* GlobalModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalModifiers.swift; sourceTree = "<group>"; };
 		862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewWithButton.swift; sourceTree = "<group>"; };
 		862ED07B2574364C005F4FCF /* ListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerView.swift; sourceTree = "<group>"; };
@@ -565,6 +569,7 @@
 				8620FA79257CF1520005D8AF /* KeyboardListener.swift */,
 				864BDDE32599CC8200CC6628 /* ColorManager.swift */,
 				86B96095259B414F00F1D5A6 /* DecodedObjectProvider.swift */,
+				862C4F0A259F77430048103C /* HomescreenBlockHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -641,6 +646,7 @@
 			children = (
 				86026287254D72EA0085ACD5 /* HomescreenView.swift */,
 				865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */,
+				862C4F0D259F786B0048103C /* HomescreenBlock.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -791,6 +797,7 @@
 				86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */,
 				86B960A0259BA5C500F1D5A6 /* GetStartedView.swift in Sources */,
 				86812DE0255589D100C1245E /* AppDelegate.swift in Sources */,
+				862C4F0B259F77430048103C /* HomescreenBlockHelper.swift in Sources */,
 				86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */,
 				868FC24A25800E24002B9C01 /* SpecificPurchaseUnit.swift in Sources */,
 				864BDDD52598A35800CC6628 /* BasicSummaryBulletView.swift in Sources */,
@@ -812,6 +819,7 @@
 				86C6F5C425973FCD00A6D48F /* PurchaseAttributeSummaryView.swift in Sources */,
 				86D5768A259CC074000A781A /* PulsingIntroView.swift in Sources */,
 				8620FA7A257CF1520005D8AF /* KeyboardListener.swift in Sources */,
+				862C4F0E259F786B0048103C /* HomescreenBlock.swift in Sources */,
 				862ED0772573F3AC005F4FCF /* RowViewWithButton.swift in Sources */,
 				86AA48A6256703C6007A7D75 /* PurchaseCategorySelectionView.swift in Sources */,
 				868A49AE2584DBEC00CDDE83 /* SpecificPurchaseUnitSelectionView.swift in Sources */,

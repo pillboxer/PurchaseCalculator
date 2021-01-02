@@ -22,6 +22,8 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     
     case strings = "Strings"
     
+    case homescreenBlocks = "HomescreenBlocks"
+    
     var cloudKitType: String {
         switch self {
         case .attributeMultiplierGroups:
@@ -44,4 +46,10 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case imageName
     case unitIDs
     case specificPurchaseUnitGroupID
+}
+
+
+public enum BlockDestination: String {
+    case preferences
+    case popular
 }

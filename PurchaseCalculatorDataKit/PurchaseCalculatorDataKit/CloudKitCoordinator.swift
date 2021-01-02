@@ -65,21 +65,36 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
             return purchaseItemGroupsFromRecords(records)
         case .categories:
             return categoriesFromRecords(records)
+        case .homescreenBlocks:
+            return homescreenBlocksFromRecords(records)
         }
-        
     }
     
-    private func attributesJSONFromRecords(_ records: [CKRecord]) -> DictArray {
+    private func getBasicKeysAndValuesFrom(_ records: [CKRecord]) -> DictArray {
+        
         var array: DictArray = []
-
+        
         for record in records {
             let keys = record.allKeys()
-            let ckRecordDictMap = keys.compactMap { ($0, record[$0] ?? "" )}
-            var ckRecordDict = Dictionary(uniqueKeysWithValues: ckRecordDictMap)
-            ckRecordDict["uuid"] = record.recordID.recordName
-            array.append(ckRecordDict)
+            let pairs = keys.compactMap { ($0, record[$0] ?? "" )}
+            var dict = Dictionary(uniqueKeysWithValues: pairs)
+            dict["uuid"] = record.recordID.recordName
+            array.append(dict)
         }
         return array
+    }
+    
+    
+    private func attributesJSONFromRecords(_ records: [CKRecord]) -> DictArray {
+        getBasicKeysAndValuesFrom(records)
+    }
+    
+    private func brandsFromRecords(_ records: [CKRecord]) -> DictArray {
+        getBasicKeysAndValuesFrom(records)
+    }
+    
+    private func homescreenBlocksFromRecords(_ records: [CKRecord]) -> DictArray {
+       getBasicKeysAndValuesFrom(records)
     }
     
     private func attributeMultipliersGroupsFromRecords(_ records: [CKRecord]) -> DictArray {
@@ -111,21 +126,6 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
             array.append(dict)
         }
         return array
-    }
-    
-    private func brandsFromRecords(_ records: [CKRecord]) -> DictArray {
-        
-        var array: DictArray = []
-        
-        for record in records {
-            let keys = record.allKeys()
-            let pairs = keys.compactMap { ($0, record[$0] ?? "" )}
-            var dict = Dictionary(uniqueKeysWithValues: pairs)
-            dict["uuid"] = record.recordID.recordName
-            array.append(dict)
-        }
-        return array
-        
     }
     
     private func specificPurchaseUnitsFromRecords(_ records: [CKRecord]) -> DictArray {
@@ -233,5 +233,4 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
         }
         return array
     }
-    
 }

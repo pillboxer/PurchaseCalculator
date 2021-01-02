@@ -45,6 +45,11 @@ class DecodedObjectProvider {
         provide(.categories, type: [PurchaseCategory].self)
     }
     
+    static var homescreenBlocks: [HomescreenBlock]? {
+        print("sending blocks")
+        return provide(.homescreenBlocks, type: [HomescreenBlock].self)
+    }
+    
     private static func provide<D: Decodable>(_ object: PurchaseCalculatorDatabaseChildType, type: D.Type) -> D? {
         // FIXME: - Keeping for debugging but remove bang
         try! JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)

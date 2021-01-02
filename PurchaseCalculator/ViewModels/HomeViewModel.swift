@@ -34,4 +34,8 @@ class HomeViewModel: ObservableObject {
         user == nil
     }
     
+    deinit {
+        print("Home view model gone")
+    }
+    
 }

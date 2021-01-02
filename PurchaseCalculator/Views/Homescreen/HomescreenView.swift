@@ -32,16 +32,16 @@ struct HomescreenView: View {
         }
         else {
             VStack {
-                ForEach(DecodedObjectProvider.homescreenBlocks ?? [], id: \.uuid) { block in
-                    blockHelper.blockView(for: block) {
-                        blockHelper.selectedBlock = block
-                        isSelected = true
+                ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
+                    blockHelper.blockView(for: container) {
+//                        blockHelper.selectedBlock = block
+//                        isSelected = true
                     }
                     .fullScreenCover(isPresented: $isSelected, content: {
-                        blockHelper.view()
+//                        blockHelper.view()
                     })
+                    .padding()
                 }
-                Spacer()
             }
 
         }

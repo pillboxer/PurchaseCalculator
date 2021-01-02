@@ -1,16 +1,1 @@
-[
-    {
-        "handle": "popular_block",
-        "uuid": "4A5C08B3-91D1-510A-8646-7CA33DCD3BE0",
-        "imageName": "popular_block_image_name",
-        "destination": "popular",
-        "isWide": 1
-    },
-    {
-        "handle": "edit_profile",
-        "imageName": "profile",
-        "isWide": 0,
-        "uuid": "BC0B879B-2E73-1EB1-E777-B0E447650FA1",
-        "destination": "preferences"
-    }
-]
+[{"uuid":"4A5C08B3-91D1-510A-8646-7CA33DCD3BE0","imageName":"popular_block_image_name","handle":"popular_block","isWide":1,"destination":"popular"},{"isWide":0,"handle":"edit_profile","destination":"preferences","imageName":"profile","uuid":"BC0B879B-2E73-1EB1-E777-B0E447650FA1","position":10},{"handle":"homescreen_settings_cta","imageName":"tools","uuid":"C634BC76-5E1E-F87B-DDD1-5A539B35C6FA","destination":"settings","isWide":0,"position":0}]

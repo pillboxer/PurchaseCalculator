@@ -1,15 +1,1 @@
-[
-    {
-        "specificPurchaseUnitGroupID": "80324B31-80E4-EFEE-8829-574E822304D4",
-        "handle": "Smart Phone",
-        "imageName": "smartphone",
-        "attributeMultiplierGroupID": "2E638BA5-123A-B4AC-4AAA-0FF533DBB5A1",
-        "uuid": "85995CA9-C1DE-12C3-9BB0-271C22577676"
-    }, {
-        "imageName": "streaming",
-        "specificPurchaseUnitGroupID": "80324B31-80E4-EFEE-8829-574E822304D4",
-        "uuid": "E82048E4-E04E-C747-687C-19B2B9EC459A",
-        "attributeMultiplierGroupID": "2E638BA5-123A-B4AC-4AAA-0FF533DBB5A1",
-        "handle": "Streaming service"
-    }
-]
+[{"imageName":"bike","uuid":"50B73220-6605-4E16-AC49-5FB5E47F46E3","handle":"Gym Equipment"},{"specificPurchaseUnitGroupID":"80324B31-80E4-EFEE-8829-574E822304D4","imageName":"smartphone","uuid":"85995CA9-C1DE-12C3-9BB0-271C22577676","handle":"Smart Phone","attributeMultiplierGroupID":"2E638BA5-123A-B4AC-4AAA-0FF533DBB5A1"},{"uuid":"90DDFF0B-795D-48D1-8D49-BD3FF9576861","handle":"Televisions","imageName":"television"},{"specificPurchaseUnitGroupID":"80324B31-80E4-EFEE-8829-574E822304D4","imageName":"streaming","attributeMultiplierGroupID":"2E638BA5-123A-B4AC-4AAA-0FF533DBB5A1","uuid":"E82048E4-E04E-C747-687C-19B2B9EC459A","handle":"Streaming service"},{"specificPurchaseUnitGroupID":"80324B31-80E4-EFEE-8829-574E822304D4","handle":"Computer","uuid":"F1C2ACE4-DC8C-44C0-8A4F-6D58C6AFD80C","imageName":"computer"}]

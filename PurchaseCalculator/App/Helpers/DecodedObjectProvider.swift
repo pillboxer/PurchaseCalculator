@@ -45,8 +45,11 @@ class DecodedObjectProvider {
         provide(.categories, type: [PurchaseCategory].self)
     }
     
+    static var homescreenBlockContainers: [HomescreenBlockContainer]? {
+        provide(.homescreenBlockContainers, type: [HomescreenBlockContainer].self)?.filter { $0.isHidden == false }
+    }
+    
     static var homescreenBlocks: [HomescreenBlock]? {
-        print("sending blocks")
         return provide(.homescreenBlocks, type: [HomescreenBlock].self)
     }
     

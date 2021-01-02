@@ -22,6 +22,7 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     
     case strings = "Strings"
     
+    case homescreenBlockContainers = "HomescreenBlockContainers"
     case homescreenBlocks = "HomescreenBlocks"
     
     var cloudKitType: String {

@@ -13,6 +13,7 @@
 		86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026297254D72EC0085ACD5 /* PurchaseCalculatorTests.swift */; };
 		86026CB0259491310047296F /* EvaluationCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026CAF259491310047296F /* EvaluationCalculationView.swift */; };
 		86026CB32594EBDE0047296F /* PurchaseItemBrandSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026CB22594EBDE0047296F /* PurchaseItemBrandSelectionView.swift */; };
+		8609E63F25A0C1C400FE0604 /* HomescreenBlockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609E63E25A0C1C400FE0604 /* HomescreenBlockContainer.swift */; };
 		8620FA68257CDEB70005D8AF /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA67257CDEB70005D8AF /* HomeButtonView.swift */; };
 		8620FA6E257CDF880005D8AF /* BasicNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */; };
 		8620FA71257CDFBA0005D8AF /* StackPopButtonWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA70257CDFBA0005D8AF /* StackPopButtonWithImageView.swift */; };
@@ -140,6 +141,7 @@
 		860262B4254D733E0085ACD5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		86026CAF259491310047296F /* EvaluationCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationCalculationView.swift; sourceTree = "<group>"; };
 		86026CB22594EBDE0047296F /* PurchaseItemBrandSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItemBrandSelectionView.swift; sourceTree = "<group>"; };
+		8609E63E25A0C1C400FE0604 /* HomescreenBlockContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBlockContainer.swift; sourceTree = "<group>"; };
 		8620FA67257CDEB70005D8AF /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationView.swift; sourceTree = "<group>"; };
 		8620FA70257CDFBA0005D8AF /* StackPopButtonWithImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPopButtonWithImageView.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				86026287254D72EA0085ACD5 /* HomescreenView.swift */,
 				865C35F6259DE15800E0F7B5 /* NewUserHomescreen.swift */,
 				862C4F0D259F786B0048103C /* HomescreenBlock.swift */,
+				8609E63E25A0C1C400FE0604 /* HomescreenBlockContainer.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */,
 				86026CB32594EBDE0047296F /* PurchaseItemBrandSelectionView.swift in Sources */,
 				86B960A7259BA64800F1D5A6 /* AttributesDetailsView.swift in Sources */,
+				8609E63F25A0C1C400FE0604 /* HomescreenBlockContainer.swift in Sources */,
 				86DB14D225692945003BABD5 /* PurchaseItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

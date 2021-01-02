@@ -27,10 +27,16 @@ class HomescreenBlockHelper {
         print("Block init")
     }
     
-    func blockView(for block: HomescreenBlock, handler: @escaping () -> Void) -> some View {
-        BorderedButtonView(text: block.handle, imageName: block.imageName, width: block.isWide ? .infinity : 100, height: 100) {
-            handler()
+    func blockView(for container: HomescreenBlockContainer, handler: @escaping () -> Void) -> some View {
+            HStack {
+                ForEach(container.blocks ?? [], id: \.uuid) { block in
+                    BorderedButtonView(text: block.handle, imageName: block.imageName, width: block.isWide ? .infinity : 100, height: 100) {
+                        handler()
+                        
+                    }
+                    .padding()
+                }
+            }
         }
-    }
     
 }

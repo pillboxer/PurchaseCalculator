@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8609E63C25A0C05600FE0604 /* HomescreenBlockContainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */; };
 		862C4EF7259F6E040048103C /* Strings.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EEE259F6E040048103C /* Strings.json */; };
 		862C4EF8259F6E040048103C /* PurchaseAttributeMultiplierGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EEF259F6E040048103C /* PurchaseAttributeMultiplierGroups.json */; };
 		862C4EF9259F6E040048103C /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF0259F6E040048103C /* PurchaseItems.json */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomescreenBlockContainers.json; sourceTree = "<group>"; };
 		8625C4AB259259DF006B29BA /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862C4EEE259F6E040048103C /* Strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Strings.json; sourceTree = "<group>"; };
 		862C4EEF259F6E040048103C /* PurchaseAttributeMultiplierGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseAttributeMultiplierGroups.json; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */,
 				862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */,
 				862C4F07259F76020048103C /* HomescreenBlocks.json */,
+				8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */,
 				862C4EEE259F6E040048103C /* Strings.json */,
 			);
 			name = "Bundled Content";
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8609E63C25A0C05600FE0604 /* HomescreenBlockContainers.json in Resources */,
 				862C4EFA259F6E040048103C /* PurchaseBrands.json in Resources */,
 				862C4EF8259F6E040048103C /* PurchaseAttributeMultiplierGroups.json in Resources */,
 				862C4EFF259F6E040048103C /* SpecificPurchaseUnitGroups.json in Resources */,

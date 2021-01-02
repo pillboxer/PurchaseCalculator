@@ -31,6 +31,8 @@ class CloudKitRetriever {
             return purchaseItemGroupsFromRecords(records)
         case .categories:
             return categoriesFromRecords(records)
+        case .homescreenBlockContainers:
+            return homescreenBlockContainersFromRecords(records)
         case .homescreenBlocks:
             return homescreenBlocksFromRecords(records)
         }
@@ -186,6 +188,25 @@ class CloudKitRetriever {
             array.append(dict)
         }
         return array
+    }
+    
+    private func homescreenBlockContainersFromRecords(_ records: [CKRecord]) -> DictArray {
+        var array: DictArray = []
+        
+        for record in records {
+            var dict: [String : Any] = [:]
+            guard let blocksReferences = record["blocks"] as? [CKRecord.Reference] else {
+                continue
+            }
+            let ids = blocksReferences.compactMap { $0.recordID.recordName }
+            dict["blockIDs"] = ids
+            dict["uuid"] = record.uuid
+            dict["isHidden"] = record["isHidden"]
+            array.append(dict)
+        }
+        
+        return array
+        
     }
     
 }

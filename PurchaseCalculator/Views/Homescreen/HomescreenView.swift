@@ -16,44 +16,43 @@ protocol Presenter: View {
 struct HomescreenView: View {
     
     @ObservedObject var coreDataManager = CoreDataManager.shared
-    private var blockHelper = HomescreenBlockHelper()
-    var homeViewModel = HomeViewModel()
-    @State private var isSelected = false
-    var purchaseCategoryViewModel = PurchaseCategoriesViewModel()
-        
-    var categoryView: some View {
-        PurchaseCategorySelectionView()
-            .environmentObject(purchaseCategoryViewModel)
-    }
+    @StateObject private var blockHelper = ScreenBlockHelper()
+    @State private var isPresenting = false
+    @State private var isPushing = false
+    @State private var opacity: Double = 0
     
     var body: some View {
         if !User.doesExist {
             NoUserHomescreen()
         }
         else {
-            VStack {
-                ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
-                    blockHelper.blockView(for: container) {
-//                        blockHelper.selectedBlock = block
-//                        isSelected = true
-                    }
-                    .fullScreenCover(isPresented: $isSelected, content: {
-//                        blockHelper.view()
-                    })
-                    .padding()
-                }
-            }
-
+            homescreenBlocksView
         }
     }
-
-}
-struct HomeRow: RowType {
     
-    var handle: String
-    var imageName: String
-    
-    var uuid: String {
-        handle
+    var homescreenBlocksView: some View {
+        NavigationView {
+            VStack {
+                AttributeIconsGroupView()
+                NavigationLink("", destination: blockHelper.view, isActive: $isPushing)
+                ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
+                    blockHelper.blockView(for: container) { isModal in
+                        isPresenting = isModal
+                        isPushing = !isModal
+                    }
+                    .fullScreenCover(isPresented: $isPresenting) {
+                        blockHelper.view
+                    }
+                }
+                Spacer()
+            }
+            .padding()
+            .opacity(opacity)
+            .onAppear {
+                withAnimation { opacity = 1 }
+            }
+            .navigationBarHidden(true)
+        }
     }
 }
+

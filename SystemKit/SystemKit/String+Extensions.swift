@@ -1,13 +1,12 @@
 //
 //  String+Extensions.swift
-//  SystemKit
+//  PurchaseCalculator
 //
-//  Created by Henry Cooper on 23/12/2020.
+//  Created by Henry Cooper on 03/01/2021.
 //
 
-#if os(iOS)
 import UIKit
-
+#if os(iOS)
 public extension String {
     
     var existsAsImage: Bool {

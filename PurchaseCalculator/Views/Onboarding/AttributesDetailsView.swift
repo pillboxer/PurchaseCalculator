@@ -17,7 +17,9 @@ struct AttributesDetailsView: View {
     
     var body: some View {
         VStack {
+            #if DEBUG
             Button("SKIP") { viewModel.currentContext = .complete }
+            #endif
             // Top Icons
             AttributeIconsDisplayView(iconNames: viewModel.iconNames,
                                       topIndexDisplayed: viewModel.topIndexDisplayed,
@@ -95,7 +97,7 @@ struct AttributesDetailsCTAView: View {
     var handler: () -> Void
     
     var body: some View {
-        BorderedButtonView(text: "Close", action: handler)
+        BorderedButtonView(text: "close_cta", action: handler)
         .padding()
     }
     

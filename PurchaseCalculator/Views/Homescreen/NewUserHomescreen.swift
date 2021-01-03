@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct NoUserHomescreen: Presenter {
-    
+        
     @State var presenting: Bool = false
-    
+        
     var presentee: some View {
         UserPreferencesView()
     }

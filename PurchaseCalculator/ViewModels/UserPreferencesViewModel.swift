@@ -39,13 +39,16 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     }
     
     deinit {
-        print("DEINIT")
         context.reset()
     }
     
     // MARK: - Pay
     var maximumDigitsForTakeHomePay = 8
     var minimumDigitsForTakeHomePay = 3
+    
+    var hasChanges: Bool {
+        context.hasChanges
+    }
     
     var userTakeHomePay = "" {
         didSet {
@@ -119,7 +122,10 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         else {
             userTakeHomePay = ""
         }
-        selectedCurrencyString = user.selectedCurrency.symbol
+        if user.selectedCurrency.symbol != selectedCurrencyString {
+            selectedCurrencyString = user.selectedCurrency.symbol
+
+        }
         userName = user.name ?? ""
     }
     
@@ -136,6 +142,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         }
         UIApplication.endEditing()
         user.addWeightForAttributeID(id, weight: weight)
+        objectWillChange.send()
     }
     
     func weightForValue(id: String?) -> Double {

@@ -18,7 +18,7 @@
 		86987050254DA8F90029B2DE /* SystemKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698704D254DA8F90029B2DE /* SystemKitError.swift */; };
 		86987051254DA8F90029B2DE /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698704E254DA8F90029B2DE /* FileManager+Extensions.swift */; };
 		869CA337256A7E75000022F7 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CA336256A7E75000022F7 /* UIApplication+Extensions.swift */; };
-		86BACDBF2593A62800FB5B54 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BACDBE2593A62800FB5B54 /* String+Extensions.swift */; };
+		86B9C99725A22B810079C355 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9C99625A22B810079C355 /* String+Extensions.swift */; };
 		86DB1E6D259A56E000ACAB4B /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E6C259A56E000ACAB4B /* Color+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		8698704D254DA8F90029B2DE /* SystemKitError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemKitError.swift; sourceTree = "<group>"; };
 		8698704E254DA8F90029B2DE /* FileManager+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
 		869CA336256A7E75000022F7 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
-		86BACDBE2593A62800FB5B54 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		86B9C99625A22B810079C355 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		86DB1E6C259A56E000ACAB4B /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,9 +100,9 @@
 				86987034254DA8EC0029B2DE /* Info.plist */,
 				8684E2DA258A4CD3002015EE /* View+Extensions.swift */,
 				864BDDDA2598D21E00CC6628 /* Double+Extensions.swift */,
-				86BACDBE2593A62800FB5B54 /* String+Extensions.swift */,
 				861E5BF32597752A00A4ECC5 /* HapticManager.swift */,
 				86DB1E6C259A56E000ACAB4B /* Color+Extensions.swift */,
+				86B9C99625A22B810079C355 /* String+Extensions.swift */,
 			);
 			path = SystemKit;
 			sourceTree = "<group>";
@@ -225,13 +225,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B9C99725A22B810079C355 /* String+Extensions.swift in Sources */,
 				8640164C2589FECE00B78BE9 /* SystemReachability.swift in Sources */,
 				86987050254DA8F90029B2DE /* SystemKitError.swift in Sources */,
 				861E5BF42597752A00A4ECC5 /* HapticManager.swift in Sources */,
 				864BDDDB2598D21E00CC6628 /* Double+Extensions.swift in Sources */,
 				8698704F254DA8F90029B2DE /* JSONDecoder+Extensions.swift in Sources */,
 				86DB1E6D259A56E000ACAB4B /* Color+Extensions.swift in Sources */,
-				86BACDBF2593A62800FB5B54 /* String+Extensions.swift in Sources */,
 				869CA337256A7E75000022F7 /* UIApplication+Extensions.swift in Sources */,
 				8684E2DB258A4CD3002015EE /* View+Extensions.swift in Sources */,
 				86987051254DA8F90029B2DE /* FileManager+Extensions.swift in Sources */,

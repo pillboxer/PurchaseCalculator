@@ -9,14 +9,17 @@ import Foundation
 
 struct SpecificPurchaseUnitGroup: Decodable {
     
-    var uuid: String
-    let unitIDs: [String]
+    let uuid: String
+    let unitIDs: [String]?
     
 }
 
 extension SpecificPurchaseUnitGroup {
     
     var specificPurchaseUnits: [SpecificPurchaseUnit]? {
+        guard let unitIDs = unitIDs else {
+            return nil
+        }
         let units = DecodedObjectProvider.specificPurchaseUnits
         let filtered = units?.filter { unitIDs.contains($0.uuid) }
         return filtered

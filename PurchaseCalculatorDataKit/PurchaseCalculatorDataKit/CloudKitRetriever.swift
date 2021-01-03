@@ -31,10 +31,10 @@ class CloudKitRetriever {
             return purchaseItemGroupsFromRecords(records)
         case .categories:
             return categoriesFromRecords(records)
-        case .homescreenBlockContainers:
-            return homescreenBlockContainersFromRecords(records)
-        case .homescreenBlocks:
-            return homescreenBlocksFromRecords(records)
+        case .homescreenBlockContainers, .evaluationScreenBlockContainers:
+            return blockContainersFromRecords(records)
+        case .homescreenBlocks, .evaluationScreenBlocks:
+            return blocksFromRecords(records)
         }
     }
     
@@ -61,7 +61,7 @@ class CloudKitRetriever {
         getBasicKeysAndValuesFrom(records)
     }
     
-    private func homescreenBlocksFromRecords(_ records: [CKRecord]) -> DictArray {
+    private func blocksFromRecords(_ records: [CKRecord]) -> DictArray {
         getBasicKeysAndValuesFrom(records)
     }
     
@@ -105,8 +105,9 @@ class CloudKitRetriever {
             let brandID = record.referenceName(for: "brand")
             dict["brandID"] = brandID
             dict["uuid"] = record.recordID.recordName
-            dict["modelName"] = record["modelName"]
-            dict["cost"] = record["cost"]
+            dict["modelName"] = record.stringFor(.modelName)
+            dict["cost"] = record.doubleFor(.cost)
+            dict["evaluationCount"] = record.intFor(.evaluationCount)
             array.append(dict)
         }
         return array
@@ -190,7 +191,7 @@ class CloudKitRetriever {
         return array
     }
     
-    private func homescreenBlockContainersFromRecords(_ records: [CKRecord]) -> DictArray {
+    private func blockContainersFromRecords(_ records: [CKRecord]) -> DictArray {
         var array: DictArray = []
         
         for record in records {

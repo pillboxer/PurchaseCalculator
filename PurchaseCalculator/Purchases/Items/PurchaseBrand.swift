@@ -33,7 +33,7 @@ extension PurchaseBrand: Equatable {
 
 extension PurchaseBrand: RowType {
 
-    var title: String {
+    var rowTitle: String {
         handle
     }
     

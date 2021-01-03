@@ -36,10 +36,12 @@ class ExplanationViewModel: ObservableObject {
     
     // FIXME: - Strings
     private var explanationStrings: [String] {
-        ["Emptor helps minimise buyer's remorse",
-         "It measures a product based on \(allAttributes.count) key attributes",
-         "And provides purchasing advice based on what's meaningful to you",
-         "Those attributes are:"]
+        let messageCount = 4
+        var array = [String]()
+        for i in 0..<messageCount {
+            array.append("onboarding_explanation_message_\(i)")
+        }
+        return array
     }
     
     // MARK: - Top Row Of Icons
@@ -56,7 +58,7 @@ class ExplanationViewModel: ObservableObject {
     }
     
     var iconsSubheaderText: String {
-        "Select an icon to learn more"
+        "attributes_selectable_group_icon_subheader"
     }
     
     // MARK: - Detailed Descriptions

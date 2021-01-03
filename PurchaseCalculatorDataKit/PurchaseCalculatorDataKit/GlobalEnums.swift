@@ -25,6 +25,9 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     case homescreenBlockContainers = "HomescreenBlockContainers"
     case homescreenBlocks = "HomescreenBlocks"
     
+    case evaluationScreenBlockContainers = "EvaluationScreenBlockContainers"
+    case evaluationScreenBlocks = "EvaluationScreenBlocks"
+    
     var cloudKitType: String {
         switch self {
         case .attributeMultiplierGroups:
@@ -49,6 +52,7 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case specificPurchaseUnitGroup
     case key
     case value
+    case evaluationCount
     
    public var childReference: PurchaseCalculatorDatabaseChildType? {
         switch self {
@@ -72,6 +76,17 @@ public enum PurchaseCalculatorDatabaseValueType: String {
 
 
 public enum BlockDestination: String {
-    case preferences
+    case userPreferences
     case popular
+    case displayPreferences
+    case evaluation
+    
+    public var isModal: Bool {
+        switch self {
+        case .evaluation, .popular:
+            return false
+        default:
+            return true
+        }
+    }
 }

@@ -37,6 +37,10 @@ class DecodedObjectProvider {
         provide(.specificPurchaseUnits, type: [SpecificPurchaseUnit].self)
     }
     
+    static func popularSpecificPurchaseUnits(limit: Int) -> [SpecificPurchaseUnit]? {
+        Array(specificPurchaseUnits?.sorted { $0.evaluationCount ?? 0 > $1.evaluationCount ?? 0 }.prefix(limit) ?? [])
+    }
+    
     static var purchaseBrands: [PurchaseBrand]? {
         provide(.purchaseBrands, type: [PurchaseBrand].self)
     }
@@ -45,13 +49,22 @@ class DecodedObjectProvider {
         provide(.categories, type: [PurchaseCategory].self)
     }
     
-    static var homescreenBlockContainers: [HomescreenBlockContainer]? {
-        provide(.homescreenBlockContainers, type: [HomescreenBlockContainer].self)?.filter { $0.isHidden == false }
+    static var homescreenBlockContainers: [BlockContainer]? {
+        provide(.homescreenBlockContainers, type: [BlockContainer].self)?.filter { $0.isHidden == false }
     }
     
-    static var homescreenBlocks: [HomescreenBlock]? {
-        return provide(.homescreenBlocks, type: [HomescreenBlock].self)
+    static var evaluationScreenBlockContainers: [BlockContainer]? {
+        provide(.evaluationScreenBlockContainers, type: [BlockContainer].self)?.filter { $0.isHidden == false }
     }
+    
+    static var homescreenBlocks: [ScreenBlock]? {
+        provide(.homescreenBlocks, type: [ScreenBlock].self)
+    }
+    
+    static var evaluationScreenBlocks: [ScreenBlock]? {
+        provide(.evaluationScreenBlocks, type: [ScreenBlock].self)
+    }
+    
     
     private static func provide<D: Decodable>(_ object: PurchaseCalculatorDatabaseChildType, type: D.Type) -> D? {
         // FIXME: - Keeping for debugging but remove bang

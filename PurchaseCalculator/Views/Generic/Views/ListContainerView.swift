@@ -7,18 +7,23 @@
 
 import SwiftUI
 
-struct ListContainerView<T: View>: View {
+struct ListContainerView<Content: View>: View {
     
     let headerText: String
-    let list: T
+    let content: () -> Content
+    
+    init(headerText: String, @ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+        self.headerText = headerText
+    }
     
     var body: some View {
-        VStack {
-            Spacer()
-            Text(headerText)
-                .modifier(StandardFontModifier())
-                .padding()
-            list
+        Text(headerText)
+            .modifier(StandardFontModifier())
+            .padding()
+        ScrollView {
+            content()
         }
+        
     }
 }

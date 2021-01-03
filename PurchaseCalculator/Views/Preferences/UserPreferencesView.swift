@@ -14,7 +14,7 @@ struct UserPreferencesView: View {
     let textFieldFont = UIFont.boldSystemFont(ofSize: 12)
         
     private var ctaIsDisabled: Bool {
-        model.userName.count < model.minimumCharactersInName || model.userTakeHomePay.count < model.minimumDigitsForTakeHomePay
+        model.userName.count < model.minimumCharactersInName || model.userTakeHomePay.count < model.minimumDigitsForTakeHomePay || !model.hasChanges
     }
     
     var body: some View {
@@ -56,6 +56,7 @@ struct UserPreferencesView: View {
 
 struct DismissalButton: View {
     
+    // FIXME: - Move me somewhere
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {

@@ -47,7 +47,6 @@ struct BorderedButtonView: View {
                     Spacer()
                     Image(imageName)
                         .resizable()
-                        .renderingMode(.template)
                         .frame(width: 25, height: 25)
                         Spacer()
                 }
@@ -69,7 +68,7 @@ struct BorderedButtonView: View {
                 changeOpacity(for: enabled)
             }
             .onAppear {
-                changeOpacity(for: isEnabled)
+                opacity = 1
             }
     }
     

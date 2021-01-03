@@ -22,6 +22,7 @@ struct AttributeIconsGroupView: View {
         HStack(spacing: 16) {
             ForEach(viewModel.iconNames, id: \.self) { icon in
                 AnimatingIconView(iconName: icon, shouldAnimate: icon == viewModel.iconNames[indexToAnimate]) {
+                    // FIXME: - This is still slightly broken
                     indexToAnimate = getNewIndex()
                 }
             }

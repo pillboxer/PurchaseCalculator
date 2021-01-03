@@ -14,6 +14,10 @@ struct PurchaseItem: Decodable, RowType {
     let attributeMultiplierGroupID: String
     let specificPurchaseUnitGroupID: String
     let imageName: String
+    
+    var rowTitle: String {
+        handle
+    }
 
 }
 

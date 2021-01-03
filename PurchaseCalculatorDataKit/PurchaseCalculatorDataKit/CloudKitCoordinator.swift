@@ -129,6 +129,10 @@ public extension CKRecord {
         retrieve(type: Double.self, fromPath: value.rawValue, defaultType: .zero)
     }
     
+    func intFor(_ value: PurchaseCalculatorDatabaseValueType) -> Int {
+        retrieve(type: Int.self, fromPath: value.rawValue, defaultType: .zero)
+    }
+    
     func stringFor(_ value: PurchaseCalculatorDatabaseValueType) -> String {
         retrieve(type: String.self, fromPath: value.rawValue, defaultType: "")
     }

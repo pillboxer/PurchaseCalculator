@@ -11,12 +11,10 @@ struct SaveEvaluationView: View {
     
     var body: some View {
         HStack {
-            BorderedButtonView(text: "Save Result") {
+            BorderedButtonView(text: "save_cta") {
                 print("Save")
             }
-            BorderedButtonView(text: "Discard Result") {
-                print("Discard")
-            }
+            DismissalButton()
         }
         .frame(maxHeight: 40)
         .padding()

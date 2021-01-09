@@ -18,8 +18,7 @@ struct ListContainerView<Content: View>: View {
     }
     
     var body: some View {
-        Text(headerText)
-            .modifier(StandardFontModifier())
+        Label(headerText)
             .padding()
         ScrollView {
             content()

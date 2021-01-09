@@ -15,7 +15,11 @@ struct DetailedSummaryView: View {
     var tapHandler: () -> Void
     
     var text: String {
-        topSelected ? "The left bar of the graph. The \(itemName.lowercased()) category has \(selectedEvaluation.attributeResult.descriptionWithArticle) \(selectedEvaluation.attributeName) score" : "The right bar of the graph. Looks at your preferences and determines the effect of the \(selectedEvaluation.attributeResult.description) score on your result below"
+        let topSelectedKey = "detailed_summary_description_left_bar"
+        let bottomSelectedKey = "detailed_summary_description_right_bar"
+        let key = topSelected ? topSelectedKey : bottomSelectedKey
+        let formatter = AttributeEvaluationStringFormatter(evaluation: selectedEvaluation, itemName: itemName, unformattedString: key)
+        return formatter.formattedString
     }
     
     var color: Color {
@@ -27,7 +31,7 @@ struct DetailedSummaryView: View {
             CircleAndTextView(text: text, color: color)
                 .frame(maxWidth: 300)
             Spacer()
-            BorderedButtonView(text: "OK", width: 50, height: 30, action: tapHandler)
+            BorderedButtonView(text: "ok_cta", width: 50, height: 30, action: tapHandler)
             Spacer()
         }
         .padding(.horizontal)

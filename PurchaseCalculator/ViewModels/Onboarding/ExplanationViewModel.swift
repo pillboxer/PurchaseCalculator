@@ -34,12 +34,13 @@ class ExplanationViewModel: ObservableObject {
         allAttributes[selectedAttributeIndex]
     }
     
-    // FIXME: - Strings
     private var explanationStrings: [String] {
         let messageCount = 4
         var array = [String]()
         for i in 0..<messageCount {
-            array.append("onboarding_explanation_message_\(i)")
+            let string = "onboarding_explanation_message_\(i)"
+            let formatter = PurchaseAttributeStringFormatter(unformattedString: string)
+            array.append(formatter.formattedString)
         }
         return array
     }

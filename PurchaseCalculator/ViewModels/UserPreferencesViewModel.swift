@@ -179,23 +179,19 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
 extension UserPreferencesViewModel {
     
     var titleString: String {
-        "Personalise your results"
+        "user_preferences_title"
     }
     
     var userNameTextFieldPlaceholder: String {
-        "Name"
+        "user_preferences_text_field_placeholder_0"
     }
     
     var takeHomePayTextFieldPlaceholder: String {
-        "Yearly take home pay"
+        "user_preferences_text_field_placeholder_1"
     }
     
     var listHeaderString: String {
-        "What's meaningful to you?"
-    }
-    
-    var saveButtonImageName: String {
-        "folder.circle"
+        "user_preferences_attributes_select_title"
     }
 
 }

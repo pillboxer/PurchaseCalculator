@@ -23,7 +23,7 @@ struct GetStartedView: View {
                 .disabled(buttonPressed)
             Label("app_name")
             Spacer()
-            BorderedButtonView(text: "get_started_cta") {
+            CTAButton(text: "get_started_cta",  periodicAnimation: true, width: 100, height: 100) {
                 buttonPressed = true
                 HapticManager.performFeedbackHaptic(.success)
                 withAnimation(.linear(duration: 1)) { opacity = 0 }

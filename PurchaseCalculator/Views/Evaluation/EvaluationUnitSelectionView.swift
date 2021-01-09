@@ -26,7 +26,7 @@ struct EvaluationUnitSelectionView: View {
     
     var body: some View {
         BasicNavigationView {
-            ListContainerView(headerText: "Choose your item") {
+            ListContainerView(headerText: "unit_selection_header") {
                 ForEach(units ?? []) { unit in
                     NavigationLinkedRowView(item: unit, destinationController: destination, selectedID: $selectedRow) {
                         selectedRow = unit.uuid

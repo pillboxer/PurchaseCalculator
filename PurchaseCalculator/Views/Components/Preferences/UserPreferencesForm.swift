@@ -17,6 +17,7 @@ struct UserPreferencesForm: View {
         VStack {
             Label(model.listHeaderString)
                 .padding(.bottom)
+                .multilineTextAlignment(.center)
             ScrollView {
                 ForEach(attributes, id: \.uuid) { attribute in
                     PurchaseAttributeWeightingSelectionView(initialValue: model.weightForValue(id: attribute.uuid).to(decimalPlaces: 2), attribute: attribute)

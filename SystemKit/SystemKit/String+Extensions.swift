@@ -5,8 +5,9 @@
 //  Created by Henry Cooper on 03/01/2021.
 //
 
-import UIKit
 #if os(iOS)
+import UIKit
+
 public extension String {
     
     var existsAsImage: Bool {

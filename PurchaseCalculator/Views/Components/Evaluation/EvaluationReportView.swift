@@ -34,15 +34,15 @@ struct EvaluationReportView: View {
         ScrollView(showsIndicators: false) {
             EvaluationReportTitleView()
                 .padding(.top)
-            ReportRowView(title: "Cost", value: PriceFormatter.format(cost: evaluation.unitCost), imageName: "money")
-            ReportRowView(title: "High THP penalty", value: penaltyText, valueColor: penaltyColor, imageName: "gavel", inspectionHandler: toggleInspectionRowShowing)
+            ReportRowView(title: "report_row_title_0", value: PriceFormatter.format(cost: evaluation.unitCost), imageName: "money")
+            ReportRowView(title: "report_row_title_1", value: penaltyText, valueColor: penaltyColor, imageName: "gavel", inspectionHandler: toggleInspectionRowShowing)
             if inspectionRowShowing {
-                InspectionRowView(closeHandler: hideInspectionRow, text: "Applied if the cost is high relative to take home pay")
+                InspectionRowView(closeHandler: hideInspectionRow, text: "report_row_1_inspection_text")
             }
-            ReportRowView(title: "Alignment with values", value: evaluation.alignmentPercentageString, imageName: "regret")
-            ReportRowView(title: "Reason to buy", value: evaluation.reasonToBuy?.attributeName ?? "", imageName: evaluation.reasonToBuy?.attributeImageName ?? "")
-            ReportRowView(title: "Reason to avoid", value: evaluation.reasonToAvoid?.attributeName ?? "", imageName: evaluation.reasonToAvoid?.attributeImageName ?? "")
-            ReportRowView(title: "Result", value: evaluation.result.description, imageName: "decision")
+            ReportRowView(title: "report_row_title_2", value: evaluation.alignmentPercentageString, imageName: "regret")
+            ReportRowView(title: "report_row_title_3", value: evaluation.reasonToBuy?.attributeName ?? "", imageName: evaluation.reasonToBuy?.attributeImageName ?? "")
+            ReportRowView(title: "report_row_title_4", value: evaluation.reasonToAvoid?.attributeName ?? "", imageName: evaluation.reasonToAvoid?.attributeImageName ?? "")
+            ReportRowView(title: "report_row_title_5", value: evaluation.result.description, imageName: "decision")
         }
     }
     
@@ -53,7 +53,7 @@ struct EvaluationReportTitleView: View {
     var body: some View {
         HStack {
             Divider().padding(.leading)
-            Label("Your result").padding(.horizontal)
+            Label("evaluation_report_title").padding(.horizontal)
                 .layoutPriority(.greatestFiniteMagnitude)
             Divider().padding(.trailing)
         }

@@ -77,7 +77,7 @@ struct UserPreferencesViewCTAsView: View {
     var body: some View {
         HStack {
             DismissalButton()
-            BorderedButtonView(text: "Save") {
+            BorderedButtonView(text: "save_cta") {
                 model.save() {
                     presentationMode.wrappedValue.dismiss()
                 }

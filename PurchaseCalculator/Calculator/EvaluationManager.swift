@@ -122,7 +122,7 @@ extension EvaluationManager {
 // MARK: - EvaluationResult
 extension EvaluationManager {
     
-    enum EvaluationResult: CaseIterable {
+    enum EvaluationResult: String, CaseIterable {
                 
         case negative
         case neutralLow
@@ -143,16 +143,7 @@ extension EvaluationManager {
         }
         
         var description: String {
-            switch self {
-            case .negative:
-                return "Don't bother"
-            case .neutralLow:
-                return "Wait ten days"
-            case .neutralHigh:
-                return "Sleep on it"
-            case .positive:
-                return "Go for it"
-            }
+            rawValue + "_evaluation_result"
         }
         
         init(score: Double) {

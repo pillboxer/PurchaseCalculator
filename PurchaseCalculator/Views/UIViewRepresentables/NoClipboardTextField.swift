@@ -18,7 +18,7 @@ struct NoClipboardTextField: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UITextField {
         let textField = NoPasteTextFieldObject()
-        textField.placeholder = placeholder
+        textField.placeholder = String.forKey(placeholder)
         textField.delegate = context.coordinator
         textField.font = font
         textField.setContentHuggingPriority(.required, for: .vertical) // Don't stretch me

@@ -23,12 +23,12 @@ struct Label: View {
     @ViewBuilder
     var body: some View {
         if underlined {
-            Text(text)
+            Text(String.forKey(text))
                 .underline()
                 .modifier(StandardFontModifier(size: size))
         }
         else {
-            Text(text)
+            Text(String.forKey(text))
                 .modifier(StandardFontModifier(size: size))
         }
 

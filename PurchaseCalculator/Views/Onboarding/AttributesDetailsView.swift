@@ -97,7 +97,7 @@ struct AttributesDetailsCTAView: View {
     var handler: () -> Void
     
     var body: some View {
-        BorderedButtonView(text: "close_cta", action: handler)
+        CTAButton(text: "close_cta", periodicAnimation: true, buttonAction: handler)
         .padding()
     }
     

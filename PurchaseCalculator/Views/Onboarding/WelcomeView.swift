@@ -9,7 +9,7 @@ import SwiftUI
 import PurchaseCalculatorDataKit
 
 struct WelcomeView: View {
-
+    
     @ObservedObject var cloudKitCoordinator: CloudKitCoordinator = CloudKitCoordinator.shared
     
     private enum Context {
@@ -19,20 +19,21 @@ struct WelcomeView: View {
     }
     
     @State private var context: Context = .getStarted
-    
     var body: some View {
-        if context == .getStarted {
-            GetStartedView() {
-                context = .explanation
+        EmptorColorSchemeAdaptingView {
+            if context == .getStarted {
+                GetStartedView() {
+                    context = .explanation
+                }
             }
-        }
-        else if context == .explanation {
-            AttributesDetailsView() {
-                withAnimation { context = .preferences }
+            else if context == .explanation {
+                AttributesDetailsView() {
+                    withAnimation { context = .preferences }
+                }
             }
-        }
-        else {
-            HomescreenView()
+            else {
+                HomescreenView()
+            }
         }
     }
 }

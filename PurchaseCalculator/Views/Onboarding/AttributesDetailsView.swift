@@ -49,7 +49,6 @@ struct AttributesDetailsView: View {
                 withAnimation(.linear(duration: 2) ) { viewOpacity = 0 }
             }
             .hidden(!viewModel.showsCTA)
-            .animation(.easeIn)
         }
         .opacity(viewOpacity)
         .onChange(of: viewModel.currentContext) { context in

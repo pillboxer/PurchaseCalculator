@@ -51,7 +51,7 @@ class ScreenBlockHelper: ObservableObject {
     func blockView(for container: BlockContainer, handler: @escaping (_ isModal: Bool) -> Void) -> some View {
         HStack {
                 ForEach(blocks(for: container), id: \.uuid) { block in
-                    CTAButton(text: block.handle, imageName: block.imageName, width: block.isWide ? .infinity : 100, height: 100) {
+                    CTAButton(text: block.handle, imageName: block.imageName, width: block.isWide ? .infinity : 120, height: 120) {
                         handler(block.destination.isModal)
                         self.selectedBlock = block
                         self.objectWillChange.send()

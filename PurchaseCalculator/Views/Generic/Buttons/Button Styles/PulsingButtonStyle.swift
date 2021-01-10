@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SystemKit
 
 protocol AnimatingButtonStyle: ButtonStyle {
     init(animation: Double, width: CGFloat?, height: CGFloat?)
@@ -25,12 +26,17 @@ struct PulsingButtonStyle: AnimatingButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .fixedSize()
             .padding()
             .frame(maxWidth: width, maxHeight: height)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.primary, lineWidth: 3))
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.colorSchemeConsidered)
+                    .shadow(color: Color.ctaTrailingShadow, radius: 10, x: 10, y: 10)
+    
+            )
+            .shadow(color: Color.ctaLeadingShadow, radius: 30, x: 0, y: 0)
             .scaleEffect(CGFloat(animation))
-
     }
+    
 }

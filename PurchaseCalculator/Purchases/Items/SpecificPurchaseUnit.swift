@@ -7,7 +7,7 @@
 
 import SystemKit
 
-struct SpecificPurchaseUnit: Decodable, CustomStringConvertible, Equatable, RowType {
+struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
     
     let uuid: String
     let brandID: String
@@ -15,20 +15,21 @@ struct SpecificPurchaseUnit: Decodable, CustomStringConvertible, Equatable, RowT
     let cost: Double
     let evaluationCount: Int?
     
-    var description: String {
-        "\(modelName) | \(cost)"
-    }
-    
+    // FIXME: - Use a formatter
     var rowTitle: String {
         "\(modelName) (\(brandName))"
     }
     
     var imageName: String {
-        item?.imageName ?? ""
+        if let brandImage = brand?.imageName,
+           brandImage.existsAsImage {
+            return brandImage
+        }
+        return item?.imageName ?? "warning"
     }
     
     var brandName: String {
-        brand?.handle ?? "No Brand"
+        brand?.handle ?? item?.handle ?? "Data Missing"
     }
     
 }

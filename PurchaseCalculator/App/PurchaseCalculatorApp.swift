@@ -12,12 +12,14 @@ struct PurchaseCalculatorApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            if User.doesExist {
-                HomescreenView()
-            }
-            else {
-                WelcomeView()
-                    .statusBar(hidden: true)
+            NavigationView {
+                if User.doesExist {
+                    HomescreenView()
+                }
+                else {
+                    WelcomeView()
+                        .statusBar(hidden: true)
+                }
             }
         }
     }

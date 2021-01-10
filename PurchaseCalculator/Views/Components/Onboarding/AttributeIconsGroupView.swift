@@ -27,7 +27,7 @@ struct AnimatingIconView: View {
     var iconName: String
     @State private var shouldAnimate: Bool = false
     @State private var offset: Double = 0
-    private let timer = Timer.publish(every: Double.random(in: 0.3...1.9), on: RunLoop.current, in: .common).autoconnect()
+    private let timer = Timer.publish(every: Double.random(in: 3...5), on: RunLoop.current, in: .common).autoconnect()
     
     var body: some View {
         Image(iconName)

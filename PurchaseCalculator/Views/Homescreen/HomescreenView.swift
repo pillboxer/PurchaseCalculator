@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SystemKit
 
 protocol Presenter: View {
     associatedtype Presented: View
@@ -22,6 +23,13 @@ struct HomescreenView: View {
     @State private var opacity: Double = 0
     
     var body: some View {
+        EmptorColorSchemeAdaptingView {
+            bodyToShow
+        }
+    }
+    
+    @ViewBuilder
+    private var bodyToShow: some View {
         if !User.doesExist {
             NoUserHomescreen()
         }
@@ -30,29 +38,26 @@ struct HomescreenView: View {
         }
     }
     
-    var homescreenBlocksView: some View {
-        NavigationView {
-            VStack {
-                AttributeIconsGroupView()
-                NavigationLink("", destination: blockHelper.view, isActive: $isPushing)
-                ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
-                    blockHelper.blockView(for: container) { isModal in
-                        isPresenting = isModal
-                        isPushing = !isModal
-                    }
-                    .fullScreenCover(isPresented: $isPresenting) {
-                        blockHelper.view
-                    }
+    private var homescreenBlocksView: some View {
+        VStack {
+            AttributeIconsGroupView()
+            NavigationLink("", destination: blockHelper.view, isActive: $isPushing)
+            ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
+                blockHelper.blockView(for: container) { isModal in
+                    isPresenting = isModal
+                    isPushing = !isModal
                 }
-                Spacer()
+                .fullScreenCover(isPresented: $isPresenting) {
+                    blockHelper.view
+                }
             }
-            .padding()
-            .opacity(opacity)
-            .onAppear {
-                withAnimation { opacity = 1 }
-            }
-            .navigationBarHidden(true)
+            Spacer()
         }
+        .padding()
+        .opacity(opacity)
+        .onAppear {
+            withAnimation { opacity = 1 }
+        }        
     }
 }
 

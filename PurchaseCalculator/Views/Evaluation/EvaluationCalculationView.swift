@@ -18,27 +18,29 @@ struct EvaluationCalculationView: View {
     @State var selectedAttributeEvaluation: AttributeEvaluation
     
     var body: some View {
+        EmptorColorSchemeAdaptingView {
         VStack {
-            Label(unitName)
-                .padding(.top, 16)
-            PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluations,
-                                            selectedEvaluation: $selectedAttributeEvaluation,
-                                            animationComplete: $barAnimationComplete)
-            Divider()
-        }
-        VStack {
-            PurchaseAttributeSummaryView(selectedEvaluation: selectedAttributeEvaluation,
-                                         itemName: evaluation.itemName)
-            Divider()
-            EvaluationReportView(evaluation: evaluation)
-                .padding(.horizontal)
-            SaveEvaluationView()
-        }
-        .navigationBarHidden(true)
-        .opacity(opacity)
-        .onChange(of: barAnimationComplete) { _ in
-            withAnimation(.easeIn(duration: 1)) { opacity = 1}
+            VStack {
+                Label(unitName)
+                    .padding(.top, 16)
+                PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluations,
+                                                selectedEvaluation: $selectedAttributeEvaluation,
+                                                animationComplete: $barAnimationComplete)
+                Divider()
+            }
+            VStack {
+                PurchaseAttributeSummaryView(selectedEvaluation: selectedAttributeEvaluation,
+                                             itemName: evaluation.itemName)
+                Divider()
+                EvaluationReportView(evaluation: evaluation)
+                    .padding(.horizontal)
+                SaveEvaluationView()
+            }
+            .opacity(opacity)
+            .onChange(of: barAnimationComplete) { _ in
+                withAnimation(.easeIn(duration: 1)) { opacity = 1}
+            }
         }
     }
-    
+    }
 }

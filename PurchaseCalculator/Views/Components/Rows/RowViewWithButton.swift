@@ -27,7 +27,6 @@ struct RowViewWithButton: View {
         HStack {
             if imageName != nil {
                 image
-                    .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 20, maxHeight: 20)

@@ -40,6 +40,7 @@ struct CTAButton: View {
                 if let imageName = imageName {
                     Image(imageName)
                         .resizable()
+                        .renderingMode(.template)
                         .frame(width: 25, height: 25)
                 }
                 if let text = text {
@@ -54,6 +55,7 @@ struct CTAButton: View {
         .buttonStyle(buttonStyle.init(animation: animation, width: width, height: height))
         .onAnimationCompleted(for: animation) {
             if isPressing {
+                isPressing = false
                 buttonAction()
             }
             animateTo(1)

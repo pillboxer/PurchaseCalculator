@@ -7,17 +7,14 @@
 
 import Foundation
 
-struct PurchaseItem: Decodable, RowType {
+struct PurchaseItem: Decodable {
     
     let uuid: String
     let handle: String
     let attributeMultiplierGroupID: String
     let specificPurchaseUnitGroupID: String
     let imageName: String
-    
-    var rowTitle: String {
-        handle
-    }
+
 
 }
 

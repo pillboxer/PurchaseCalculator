@@ -20,13 +20,13 @@ struct AttributeEvaluationStringFormatter: StringFormatter {
     func replace(_ string: String, for key: StringFormatterKey) -> String {
         switch key {
         case .purchaseItemName:
-            return string.formattedReplacingOccurences(of: key.rawValue, with: String.forKey(itemName))
+            return string.replacingOccurrences(of: key, with: itemName)
         case .attributeDescription:
-            return string.formattedReplacingOccurences(of: key.rawValue, with: evaluation.attributeResult.description)
+            return string.replacingOccurrences(of: key, with: evaluation.attributeResult.description)
         case .attributeDescriptionWithArticle:
-            return string.formattedReplacingOccurences(of: key.rawValue, with: evaluation.attributeResult.descriptionWithArticle)
+            return string.replacingOccurrences(of: key, with: evaluation.attributeResult.descriptionWithArticle)
         case .attributeName:
-            return string.formattedReplacingOccurences(of: key.rawValue, with: evaluation.attributeName)
+            return string.replacingOccurrences(of: key, with: evaluation.attributeName)
         default:
             return string
         }

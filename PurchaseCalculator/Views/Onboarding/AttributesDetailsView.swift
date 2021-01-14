@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AttributesDetailsView: View {
     
-    @StateObject private var viewModel = ExplanationViewModel()
+    @StateObject private var viewModel = AttributesDetailsViewModel()
     @State private var selectedExplanationIndex: Int? = nil
     @State private var explanationOpacity: Double = 0
     @State private var viewOpacity: Double = 1
@@ -96,7 +96,7 @@ struct AttributesDetailsCTAView: View {
     var handler: () -> Void
     
     var body: some View {
-        CTAButton(text: "close_cta", periodicAnimation: true, buttonAction: handler)
+        CTAButton(text: "close_cta", animationPeriod: 2, buttonAction: handler)
         .padding()
     }
     

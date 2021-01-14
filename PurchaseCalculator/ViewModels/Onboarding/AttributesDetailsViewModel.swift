@@ -5,8 +5,8 @@
 //  Created by Henry Cooper on 29/12/2020.
 //
 import Foundation
-// FIXME: - Rename
-class ExplanationViewModel: ObservableObject {
+
+class AttributesDetailsViewModel: ObservableObject {
     
     enum ExplanationContext: Int {
         

@@ -15,9 +15,9 @@ struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
     let cost: Double
     let evaluationCount: Int?
     
-    // FIXME: - Use a formatter
     var rowTitle: String {
-        "\(modelName) (\(brandName))"
+        let formatter = SpecificPurchaseUnitFormatter(unit: self, unformattedString: "specific_purchase_unit_row")
+        return formatter.formattedString
     }
     
     var imageName: String {
@@ -28,7 +28,7 @@ struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
         return item?.imageName ?? "warning"
     }
     
-    var brandName: String {
+    var brandHandle: String {
         brand?.handle ?? item?.handle ?? "Data Missing"
     }
     

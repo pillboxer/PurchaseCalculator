@@ -55,19 +55,6 @@ struct UserPreferencesView: View {
     }
 }
 
-struct DismissalButton: View {
-    
-    // FIXME: - Move me somewhere
-    @Environment(\.presentationMode) var presentationMode
-    
-    var body: some View {
-        CTAButton(text: "dismiss_cta") {
-            presentationMode.wrappedValue.dismiss()
-        }
-    }
-    
-}
-
 struct UserPreferencesViewCTAsView: View {
     
     @Environment(\.presentationMode) var presentationMode

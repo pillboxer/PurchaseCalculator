@@ -19,6 +19,9 @@ extension StringFormatter {
         var string = String.forKey(unformattedString)
         
         for key in requiredKeys {
+            guard string.contains("{") && string.contains("}") else {
+                break
+            }
             string = replace(string, for: key)
         }
         
@@ -29,12 +32,12 @@ extension StringFormatter {
 
 extension String {
     
-    func formattedReplacingOccurences(of target: String, with replacement: Any?) -> String {
+    func replacingOccurrences(of target: StringFormatterKey, with replacement: Any?) -> String {
         guard let replacement = replacement else {
-            return target
+            return self
         }
         let stringReplacement = String(describing: replacement)
-        return replacingOccurrences(of: String.forKey(target), with: String.forKey(stringReplacement))
+        return replacingOccurrences(of: String.forKey(target.rawValue), with: String.forKey(stringReplacement))
     }
     
 }

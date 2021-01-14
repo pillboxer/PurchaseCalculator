@@ -57,7 +57,7 @@ struct HomescreenView: View {
         .opacity(opacity)
         .onAppear {
             withAnimation { opacity = 1 }
-        }        
+        }
     }
 }
 

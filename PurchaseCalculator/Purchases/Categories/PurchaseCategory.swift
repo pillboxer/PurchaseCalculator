@@ -6,16 +6,12 @@
 //
 import SystemKit
 
-struct PurchaseCategory: Decodable, RowType {
+struct PurchaseCategory: Decodable {
     
     let handle: String
     let uuid: String
     let purchaseItemGroupID: String
     let imageName: String
-    
-    var rowTitle: String {
-        handle
-    }
 
 }
 

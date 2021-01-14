@@ -18,7 +18,7 @@ struct PurchaseAttributeStringFormatter: StringFormatter {
     func replace(_ string: String, for key: StringFormatterKey) -> String {
         switch key {
         case .purchaseAttributesCount:
-            return string.formattedReplacingOccurences(of: key.rawValue, with: DecodedObjectProvider.attributes()?.count)
+            return string.replacingOccurrences(of: key, with: DecodedObjectProvider.attributes()?.count)
         default:
             return string
         }

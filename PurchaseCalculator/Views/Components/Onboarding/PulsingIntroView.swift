@@ -10,7 +10,7 @@ import SwiftUI
 struct PulsingIntroView: View {
     
     @State private var opacity: Double = 0
-    var viewModel: ExplanationViewModel
+    var viewModel: AttributesDetailsViewModel
     
     var body: some View {
         VStack {

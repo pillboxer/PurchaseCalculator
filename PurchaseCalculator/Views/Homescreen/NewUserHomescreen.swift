@@ -18,7 +18,7 @@ struct NoUserHomescreen: Presenter {
     var body: some View {
             VStack {
                 Spacer()
-                CTAButton(text: "add_profile_cta", imageName: "profile", periodicAnimation: true, width: 100, height: 100) {
+                CTAButton(text: "add_profile_cta", imageName: "profile", animationPeriod: 1, width: 100, height: 100) {
                     presenting = true
                 }.fullScreenCover(isPresented: $presenting, content: {
                     presentee

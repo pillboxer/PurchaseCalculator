@@ -20,22 +20,5 @@ extension PurchaseBrand: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
     }
-
-}
-
-extension PurchaseBrand: Equatable {
-
-    static private func == (lhs: PurchaseBrand, rhs: PurchaseBrand) -> Bool {
-        lhs.uuid == rhs.uuid && lhs.handle == rhs.handle
-    }
-    
-}
-
-extension PurchaseBrand: RowType {
-
-    var rowTitle: String {
-        handle
-    }
-    
 }
 

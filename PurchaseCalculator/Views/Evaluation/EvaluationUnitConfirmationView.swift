@@ -13,17 +13,21 @@ struct EvaluationUnitConfirmationView: View {
     let item: PurchaseItem
     let evaluationManager: EvaluationManager
     @State private var buttonPressed = false
-    init(unit: SpecificPurchaseUnit, item: PurchaseItem) {
+    @Binding var isActive: Bool
+    
+    init(unit: SpecificPurchaseUnit, item: PurchaseItem, isActive: Binding<Bool>) {
         self.unit = unit
         self.item = item
         self.evaluationManager = EvaluationManager(item: item)
+        // FIXME: - What actually is this? Find out
+        self._isActive = isActive
     }
     
     @ViewBuilder
     var destination: some View {
         if let evaluation = evaluationManager.evaluateUnit(unit),
-           let selectedEvaluation = evaluation.attributeEvaluations.first {
-            EvaluationCalculationView(evaluation: evaluation, unitName: unit.modelName, selectedAttributeEvaluation: selectedEvaluation)
+           let selectedEvaluation = evaluation.attributeEvaluationArray.first {
+            EvaluationCalculationView(evaluation: evaluation, unitName: unit.modelName, selectedAttributeEvaluation: selectedEvaluation, isActive: $isActive)
         }
         
     }
@@ -41,6 +45,13 @@ struct EvaluationUnitConfirmationView: View {
                    evaluationCount > 0 {
                     ReportRowView(title: "confirmation_report_row_3", value: String(evaluationCount), imageName: "confirmation_report_row_3_image")
                 }
+                Divider()
+                    .padding()
+                Spacer()
+                // FIXME: - Format
+                Label("The \(unit.modelName) will be evaluated considering your values. You'll receive a report and purchase advice.")
+                    .padding()
+
                 Spacer()
                 HStack(spacing: 32) {
                     DismissalButton()

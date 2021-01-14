@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EvaluationReportView: View {
     
-    var evaluation: EvaluationManager.Evaluation
+    var evaluation: Evaluation
     
     var penaltyText: String {
         evaluation.penaltyApplied ? "YES" : "NO"

@@ -21,6 +21,11 @@ class ScreenBlockHelper: ObservableObject {
     
     init(context: Context = .home) {
         self.currentContext = context
+        print("INIT -> \(unsafeBitCast(self, to: Int.self))")
+    }
+    
+    deinit {
+        print("DEINIT -> \(unsafeBitCast(self, to: Int.self))")
     }
     
     func blocks(for container: BlockContainer) -> [ScreenBlock] {
@@ -33,16 +38,16 @@ class ScreenBlockHelper: ObservableObject {
     }
     
     @ViewBuilder
-    var view: some View {
+    func view(isActive: Binding<Bool>) -> some View {
         switch selectedBlock?.destination {
         case .popular:
-            EvaluationUnitSelectionView(units: DecodedObjectProvider.popularSpecificPurchaseUnits(limit: 10))
+            EvaluationUnitSelectionView(units: DecodedObjectProvider.popularSpecificPurchaseUnits(limit: 10), isActive: isActive)
         case .userPreferences:
             UserPreferencesView()
         case .displayPreferences:
             DismissalButton()
         case .evaluation:
-            EvaluationSelectionView(blockHelper: ScreenBlockHelper(context: .evaluation))
+            EvaluationSelectionView(blockHelper: ScreenBlockHelper(context: .evaluation), isActive: isActive)
         default:
             HomescreenView()
         }

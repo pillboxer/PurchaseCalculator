@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttributeEvaluation" representedClassName="AttributeEvaluation" syncable="YES">
+        <attribute name="attributeImageName" attributeType="String"/>
+        <attribute name="attributeName" optional="YES" attributeType="String"/>
+        <attribute name="attributeScore" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="userWeightingScore" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="evaluation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="attributeEvaluations" inverseEntity="Evaluation"/>
+    </entity>
+    <entity name="Evaluation" representedClassName="Evaluation" syncable="YES">
+        <attribute name="itemName" attributeType="String"/>
+        <attribute name="penaltyApplied" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="score" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unitCost" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="attributeEvaluations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AttributeEvaluation" inverseName="evaluation" inverseEntity="AttributeEvaluation"/>
+    </entity>
     <entity name="PotentialPurchase" representedClassName="PotentialPurchase" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="resultAdvice" optional="YES" attributeType="String"/>
@@ -17,6 +31,8 @@
         <relationship name="purchaseValues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PurchaseAttributeValue" inverseName="user" inverseEntity="PurchaseAttributeValue"/>
     </entity>
     <elements>
+        <element name="AttributeEvaluation" positionX="-54" positionY="45" width="128" height="104"/>
+        <element name="Evaluation" positionX="-63" positionY="36" width="128" height="104"/>
         <element name="PotentialPurchase" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="PurchaseAttributeValue" positionX="-63" positionY="9" width="128" height="88"/>
         <element name="User" positionX="-54" positionY="18" width="128" height="103"/>

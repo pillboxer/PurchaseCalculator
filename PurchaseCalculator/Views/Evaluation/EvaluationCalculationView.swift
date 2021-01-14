@@ -13,9 +13,10 @@ struct EvaluationCalculationView: View {
     @State private var barAnimationComplete = false
     @State private var opacity: Double = 0
     
-    var evaluation: EvaluationManager.Evaluation
+    var evaluation: Evaluation
     var unitName: String
     @State var selectedAttributeEvaluation: AttributeEvaluation
+    @Binding var isActive: Bool
     
     var body: some View {
         EmptorColorSchemeAdaptingView {
@@ -23,7 +24,7 @@ struct EvaluationCalculationView: View {
             VStack {
                 Label(unitName)
                     .padding(.top, 16)
-                PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluations,
+                PurchaseAttributesDualGraphView(attributeEvaluations: evaluation.attributeEvaluationArray,
                                                 selectedEvaluation: $selectedAttributeEvaluation,
                                                 animationComplete: $barAnimationComplete)
                 Divider()
@@ -34,7 +35,11 @@ struct EvaluationCalculationView: View {
                 Divider()
                 EvaluationReportView(evaluation: evaluation)
                     .padding(.horizontal)
-                SaveEvaluationView()
+                SaveEvaluationView() {
+                    // FIXME: - 
+                    try! CoreDataManager.shared.moc.save()
+                    isActive = false
+                }
             }
             .opacity(opacity)
             .onChange(of: barAnimationComplete) { _ in

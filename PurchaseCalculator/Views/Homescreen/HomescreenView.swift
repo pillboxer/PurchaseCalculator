@@ -15,7 +15,7 @@ struct HomescreenView: View {
     @State private var isPushing = false
     @State private var opacity: Double = 0
     @ObservedObject var noUserViewModel = NoUserHomescreenViewModel()
-
+    
     var body: some View {
         EmptorColorSchemeAdaptingView {
             bodyToShow
@@ -35,14 +35,14 @@ struct HomescreenView: View {
     private var homescreenBlocksView: some View {
         VStack {
             AttributeIconsGroupView()
-            NavigationLink("", destination: blockHelper.view, isActive: $isPushing)
+            NavigationLink("", destination: blockHelper.view(isActive: $isPushing), isActive: $isPushing)
             ForEach(DecodedObjectProvider.homescreenBlockContainers ?? [], id: \.uuid) { container in
                 blockHelper.blockView(for: container) { isModal in
                     isPresenting = isModal
                     isPushing = !isModal
                 }
                 .fullScreenCover(isPresented: $isPresenting) {
-                    blockHelper.view
+                    blockHelper.view(isActive: $isPushing)
                 }
             }
             Spacer()

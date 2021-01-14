@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct AttributeEvaluation: Equatable {
-    let attributeName: String
-    let attributeScore: Double
-    let attributeImageName: String
-    let userWeighting: AttributeUserWeighting
-    let attributeResult: AttributeResult
+extension AttributeEvaluation {
+    
+    var userWeighting: AttributeUserWeighting {
+        AttributeUserWeighting(weight: userWeightingScore)
+    }
+    
+    var attributeResult: AttributeResult {
+        AttributeResult(score: attributeScore)
+    }
+
 }

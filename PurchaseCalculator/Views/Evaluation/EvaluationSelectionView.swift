@@ -10,13 +10,15 @@ import SwiftUI
 struct EvaluationSelectionView: View {
     
     @State var selectedBlock: ScreenBlock?
-    @StateObject var blockHelper: ScreenBlockHelper
+    // FIXME: - Can this just a var? Does it still deinit if StateObject?
+    @ObservedObject var blockHelper: ScreenBlockHelper
     @State var isPushing: Bool = false
+    @Binding var isActive: Bool
     
     var body: some View {
         BasicNavigationView {
             AttributeIconsGroupView()
-            NavigationLink("", destination: blockHelper.view, isActive: $isPushing)
+            NavigationLink("", destination: blockHelper.view(isActive: $isActive), isActive: $isPushing)
             ForEach(DecodedObjectProvider.evaluationScreenBlockContainers ?? [], id: \.uuid) { container in
                 blockHelper.blockView(for: container) { isModal in
                     isPushing = !isModal
@@ -24,19 +26,4 @@ struct EvaluationSelectionView: View {
             }
         }
     }
-    
-    
-    func blockView(for container: BlockContainer, handler: @escaping () -> Void) -> some View {
-        HStack {
-            ForEach(container.evaluationBlocks ?? [], id: \.uuid) { block in
-                BorderedButtonView(text: block.handle, imageName: block.imageName, width: block.isWide ? .infinity : 100, height: 100) {
-                    handler()
-                    self.selectedBlock = block
-                }
-            }
-            Spacer()
-        }
-        .padding(.top)
-    }
-    
 }

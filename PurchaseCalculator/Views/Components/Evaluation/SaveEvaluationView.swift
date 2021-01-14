@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SaveEvaluationView: View {
     
+    var saveHandler: () -> Void
+    
     var body: some View {
         HStack {
             BorderedButtonView(text: "save_cta") {
-                print("Save")
+                saveHandler()
             }
             DismissalButton()
         }

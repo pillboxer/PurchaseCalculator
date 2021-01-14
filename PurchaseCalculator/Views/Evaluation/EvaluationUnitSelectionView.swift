@@ -12,12 +12,13 @@ struct EvaluationUnitSelectionView: View {
     var units: [SpecificPurchaseUnit]?
     @State var selectedRow: String?
     @State var selectedUnit: SpecificPurchaseUnit?
+    @Binding var isActive: Bool
     
     @ViewBuilder
     var destination: some View {
         if let selectedUnit = selectedUnit,
         let item = selectedUnit.item {
-            EvaluationUnitConfirmationView(unit: selectedUnit, item: item)
+            EvaluationUnitConfirmationView(unit: selectedUnit, item: item, isActive: $isActive)
         }
         else {
             Text("Something went wrong")
@@ -34,7 +35,6 @@ struct EvaluationUnitSelectionView: View {
                     }
                 }
             }
-
         }
     }
     

@@ -8,20 +8,14 @@
 import SwiftUI
 import SystemKit
 
-protocol Presenter: View {
-    associatedtype Presented: View
-    var presentee: Presented { get }
-    var presenting: Bool { get set }
-}
-
 struct HomescreenView: View {
     
-    @ObservedObject var coreDataManager = CoreDataManager.shared
     @StateObject private var blockHelper = ScreenBlockHelper()
     @State private var isPresenting = false
     @State private var isPushing = false
     @State private var opacity: Double = 0
-    
+    @ObservedObject var noUserViewModel = NoUserHomescreenViewModel()
+
     var body: some View {
         EmptorColorSchemeAdaptingView {
             bodyToShow
@@ -31,7 +25,7 @@ struct HomescreenView: View {
     @ViewBuilder
     private var bodyToShow: some View {
         if !User.doesExist {
-            NoUserHomescreen()
+            NoUserHomescreen(viewModel: noUserViewModel)
         }
         else {
             homescreenBlocksView
@@ -54,10 +48,6 @@ struct HomescreenView: View {
             Spacer()
         }
         .padding()
-        .opacity(opacity)
-        .onAppear {
-            withAnimation { opacity = 1 }
-        }
     }
 }
 

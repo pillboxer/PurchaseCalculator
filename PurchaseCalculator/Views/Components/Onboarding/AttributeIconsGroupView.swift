@@ -34,13 +34,10 @@ struct AnimatingIconView: View {
             .resizable()
             .frame(width: 25, height: 25)
             .offset(CGSize(width: 0, height: offset))
-            .onChange(of: shouldAnimate) { newValue in
-                if newValue == true {
-                    animateOffset(up: true)
-                }
-            }
             .onAppear {
-                shouldAnimate = Bool.random()
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 1...3)) {
+                    shouldAnimate = Bool.random()
+                }
             }
             .onChange(of: shouldAnimate, perform: { value in
                 if value {
@@ -51,7 +48,7 @@ struct AnimatingIconView: View {
                 if offset != 0 { animateOffset(up: false) }
             }
             .onReceive(timer, perform: { _ in
-                    shouldAnimate = Bool.random()
+                shouldAnimate = Bool.random()
             })
     }
     

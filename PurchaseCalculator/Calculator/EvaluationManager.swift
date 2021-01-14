@@ -111,8 +111,7 @@ extension EvaluationManager {
         }
         
         var reasonToAvoid: AttributeEvaluation? {
-            let mostCaredAbout = attributeEvaluations.filter { $0.userWeighting.isHighUserWeighting }
-            return mostCaredAbout.sorted { $0.attributeScore < $1.attributeScore }.first ?? attributeEvaluations.sorted { $0.attributeScore < $1.attributeScore }.first
+            attributeEvaluations.sorted { (1-$0.attributeScore) * $0.userWeighting.score > (1-$1.attributeScore) * $1.userWeighting.score }.first
         }
         
     }

@@ -32,19 +32,19 @@ struct EvaluationUnitConfirmationView: View {
         EmptorColorSchemeAdaptingView {
             NavigationLink("", destination: destination, isActive: $buttonPressed)
             VStack(spacing: 8) {
-                ReportTitleView(text: "confirmation_report_row_0")
+                ReportTitleView(text: "confirmation_report_title")
                     .padding()
-                ReportRowView(title: "confirmation_report_row_1", value: item.handle, imageName: item.imageName)
-                ReportRowView(title: "confirmation_report_row_2", value: unit.modelName, imageName: unit.imageName)
-                ReportRowView(title: "confirmation_report_row_3", value: PriceFormatter.format(cost: unit.cost), imageName: "confirmation_report_row_3_image")
+                ReportRowView(title: "confirmation_report_row_0", value: item.handle, imageName: item.imageName)
+                ReportRowView(title: "confirmation_report_row_1", value: unit.modelName, imageName: unit.imageName)
+                ReportRowView(title: "confirmation_report_row_2", value: PriceFormatter.format(cost: unit.cost), imageName: "confirmation_report_row_2_image")
                 if let evaluationCount = unit.evaluationCount,
                    evaluationCount > 0 {
-                    ReportRowView(title: "confirmation_report_row_4", value: String(evaluationCount), imageName: "confirmation_report_row_image")
+                    ReportRowView(title: "confirmation_report_row_3", value: String(evaluationCount), imageName: "confirmation_report_row_3_image")
                 }
                 Spacer()
                 HStack(spacing: 32) {
                     DismissalButton()
-                    CTAButton(text: "Evaluate") {
+                    CTAButton(text: "evaluate_cta") {
                         buttonPressed = true
                     }
                 }

@@ -14,7 +14,7 @@ struct InspectionRowView: View {
     var body: some View {
         HStack {
             Rectangle()
-                .fill(Color.systemBackground)
+                .fill(Color.clear)
                 .frame(width: 25, height: 25)
             Label(text, size: 10)
                 .padding(.horizontal)

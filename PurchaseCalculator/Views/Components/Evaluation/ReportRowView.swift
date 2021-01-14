@@ -17,7 +17,7 @@ struct ReportRowView: View {
     
     var body: some View {
         HStack {
-            Image(imageName)
+            Image(String.forKey(imageName))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25, height: 25)

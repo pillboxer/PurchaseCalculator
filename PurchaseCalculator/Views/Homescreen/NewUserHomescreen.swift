@@ -7,10 +7,19 @@
 
 import SwiftUI
 
-struct NoUserHomescreen: Presenter {
+class NoUserHomescreenViewModel: ObservableObject {
+    
+    func markUserExists() {
+        objectWillChange.send()
+    }
+    
+}
+
+struct NoUserHomescreen: View {
         
+    var viewModel: NoUserHomescreenViewModel
     @State var presenting: Bool = false
-        
+    
     var presentee: some View {
         UserPreferencesView()
     }
@@ -20,7 +29,11 @@ struct NoUserHomescreen: Presenter {
                 Spacer()
                 CTAButton(text: "add_profile_cta", imageName: "profile", animationPeriod: 1, width: 100, height: 100) {
                     presenting = true
-                }.fullScreenCover(isPresented: $presenting, content: {
+                }.fullScreenCover(isPresented: $presenting, onDismiss: {
+                    if User.doesExist {
+                        viewModel.markUserExists()
+                    }
+                }, content: {
                     presentee
                 })
                 Spacer()

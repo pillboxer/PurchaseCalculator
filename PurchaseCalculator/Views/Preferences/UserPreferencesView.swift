@@ -64,7 +64,9 @@ struct UserPreferencesViewCTAsView: View {
     
     var body: some View {
         HStack(spacing: 32) {
-            DismissalButton()
+            DismissalButton() {
+                model.resetContext()
+            }
             CTAButton(text: "save_cta") {
                 model.save() {
                     presentationMode.wrappedValue.dismiss()

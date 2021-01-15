@@ -53,6 +53,10 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case key
     case value
     case evaluationCount
+    case destination
+    case isWide
+    case position
+    case isHidden
     
    public var childReference: PurchaseCalculatorDatabaseChildType? {
         switch self {
@@ -80,10 +84,12 @@ public enum BlockDestination: String {
     case popular
     case displayPreferences
     case evaluation
+    case history
+    case error
     
     public var isModal: Bool {
         switch self {
-        case .evaluation, .popular:
+        case .evaluation, .popular, .history:
             return false
         default:
             return true

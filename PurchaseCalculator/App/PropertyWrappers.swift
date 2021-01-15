@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+class WrappedDebugging {
+    @EphemeralConsidered(ephemeral: false, notEphemeral: true) static var isLive
+}
 
 @propertyWrapper
 struct EphemeralConsidered<Value> {
@@ -26,20 +31,23 @@ struct EphemeralConsidered<Value> {
     }
 }
 
+
+
 @propertyWrapper
-struct UserDefaultBool {
+struct UserDefault<Value> {
     
-    var key: String
+    var key: UserDefaults.UserDefaultsKey
+    var defaultValue: Value
     
-    var wrappedValue: Bool {
+    var wrappedValue: Value {
         get {
-            if UserDefaults.standard.value(forKey: key) == nil {
-                return true
+            if UserDefaults.standard.value(forKey: key.rawValue) == nil || !WrappedDebugging.isLive {
+                return defaultValue
             }
-            return UserDefaults.standard.bool(forKey: key)
+            return UserDefaults.standard.value(forKey: key.rawValue) as? Value ?? defaultValue
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: key)
+            UserDefaults.standard.setValue(newValue, forKey: key.rawValue)
         }
     }
     

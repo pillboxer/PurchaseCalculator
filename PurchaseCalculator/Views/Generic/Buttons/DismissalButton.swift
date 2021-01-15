@@ -10,11 +10,12 @@ import SwiftUI
 struct DismissalButton: View {
     
     @Environment(\.presentationMode) var presentationMode
+    var handler: (() -> Void)?
     
     var body: some View {
-        EmptyView()
-        CTAButton(text: "dismiss_cta", animationPeriod: nil) {
+        CTAButton(text: "dismiss_cta", animationPeriod: nil, width: 100) {
             presentationMode.wrappedValue.dismiss()
+            handler?()
         }
     }
     

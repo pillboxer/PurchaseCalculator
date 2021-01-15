@@ -12,11 +12,13 @@ struct BlockContainer: Decodable {
     let blockIDs: [String]
     let uuid: String
     let isHidden: Bool?
+    let position: Int
     
     enum CodingKeys: CodingKey {
         case blockIDs
         case uuid
         case isHidden
+        case position
     }
     
     init(from decoder: Decoder) throws {
@@ -25,9 +27,11 @@ struct BlockContainer: Decodable {
         let isHiddenBool = isHidden?.boolValue ?? false
         let blockIDs = try container.decode([String].self, forKey: .blockIDs)
         let uuid = try container.decode(String.self, forKey: .uuid)
+        let position = try container.decode(Int.self, forKey: .position)
         self.isHidden = isHiddenBool
         self.uuid = uuid
         self.blockIDs = blockIDs
+        self.position = position
         
     }
     

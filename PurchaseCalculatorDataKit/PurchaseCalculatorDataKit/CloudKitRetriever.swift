@@ -202,7 +202,8 @@ class CloudKitRetriever {
             let ids = blocksReferences.compactMap { $0.recordID.recordName }
             dict["blockIDs"] = ids
             dict["uuid"] = record.uuid
-            dict["isHidden"] = record["isHidden"]
+            dict["isHidden"] = record.stringFor(.isHidden)
+            dict["position"] = record.intFor(.position)
             array.append(dict)
         }
         

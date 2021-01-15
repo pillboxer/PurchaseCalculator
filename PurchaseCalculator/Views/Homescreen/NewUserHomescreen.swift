@@ -27,7 +27,7 @@ struct NoUserHomescreen: View {
     var body: some View {
             VStack {
                 Spacer()
-                CTAButton(text: "add_profile_cta", imageName: "profile", animationPeriod: 1, width: 100, height: 100) {
+                CTAButton(text: "add_profile_cta", imageWrapper: ImageWrapper(name: "profile", renderingMode: .template), animationPeriod: 1, width: 110, height: 110) {
                     presenting = true
                 }.fullScreenCover(isPresented: $presenting, onDismiss: {
                     if User.doesExist {

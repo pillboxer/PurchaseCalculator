@@ -7,11 +7,11 @@
 
 import PurchaseCalculatorDataKit
 
-struct ScreenBlock: Decodable, Equatable {
-    
+struct ScreenBlock: Decodable {
+        
     let handle: String
     let isWide: Bool
-    let imageName: String
+    let image: ImageWrapper
     let uuid: String
     let destination: BlockDestination
     let position: Int
@@ -29,7 +29,7 @@ struct ScreenBlock: Decodable, Equatable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let destinationString = try container.decode(String.self, forKey: .destination)
-        let destination = BlockDestination(rawValue: destinationString) ?? .userPreferences
+        let destination = BlockDestination(rawValue: destinationString) ?? .error
         let isWide = try container.decode(Int.self, forKey: .isWide) as NSNumber
         let isWideBool = isWide.boolValue
         let imageName = try container.decode(String.self, forKey: .imageName)
@@ -39,7 +39,7 @@ struct ScreenBlock: Decodable, Equatable {
         
         self.destination = destination
         self.isWide = isWideBool
-        self.imageName = imageName
+        self.image = ImageWrapper(name: imageName, renderingMode: .original)
         self.handle = handle
         self.uuid = uuid
         self.position = position ?? 0

@@ -17,6 +17,7 @@ extension Evaluation {
     }
 
     @NSManaged public var itemName: String
+    @NSManaged public var unitName: String
     @NSManaged public var unitCost: Double
     @NSManaged public var score: Double
     @NSManaged public var penaltyApplied: Bool

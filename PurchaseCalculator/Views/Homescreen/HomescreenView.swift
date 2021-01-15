@@ -13,7 +13,6 @@ struct HomescreenView: View {
     @StateObject private var blockHelper = ScreenBlockHelper()
     @State private var isPresenting = false
     @State private var isPushing = false
-    @State private var opacity: Double = 0
     @ObservedObject var noUserViewModel = NoUserHomescreenViewModel()
     
     var body: some View {

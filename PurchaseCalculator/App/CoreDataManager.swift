@@ -8,6 +8,8 @@
 import CoreData
 
 class CoreDataManager: ObservableObject {
+    
+    let manualPubliser = ObjectWillChangePublisher()
         
     // MARK: - Enums
     enum CoreDataError: LocalizedError {
@@ -49,16 +51,16 @@ class CoreDataManager: ObservableObject {
     }()
     
     // MARK: - Saving
-    func save(_ context: NSManagedObjectContext, completion: ((Error?) -> Void)? = nil) {
-        context.perform {
+    func save(_ context: NSManagedObjectContext?, completion: ((Error?) -> Void)? = nil) {
+        context?.perform {
             do {
-                try context.save()
-                try context.parent?.save()
+                try context?.save()
+                try context?.parent?.save()
                 self.objectWillChange.send()
                 completion?(nil)
             }
             catch let error {
-                context.reset()
+                context?.reset()
                 completion?(error)
                 print(error.localizedDescription)
             }
@@ -96,4 +98,14 @@ extension NSManagedObject {
         }
         return CoreDataManager.CoreDataError.entityDoesNotExist
     }
+}
+
+extension NSManagedObjectContext {
+    
+    func newChild(_ concurrency: NSManagedObjectContextConcurrencyType = .mainQueueConcurrencyType) -> NSManagedObjectContext {
+        let context = NSManagedObjectContext(concurrencyType: concurrency)
+        context.parent = self
+        return context
+    }
+
 }

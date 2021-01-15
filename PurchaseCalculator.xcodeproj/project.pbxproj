@@ -117,7 +117,6 @@
 		86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
 		86F9DDC425ACE07900B69880 /* DismissalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F9DDC325ACE07900B69880 /* DismissalButton.swift */; };
-		86FA05612587F73000005AF8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA055E2587F73000005AF8 /* Question.swift */; };
 		86FA05782587F7B000005AF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FA05772587F7B000005AF8 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
@@ -262,7 +261,6 @@
 		86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategoriesViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
 		86F9DDC325ACE07900B69880 /* DismissalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissalButton.swift; sourceTree = "<group>"; };
-		86FA055E2587F73000005AF8 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		86FA05772587F7B000005AF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,7 +317,6 @@
 				866E3DD925938EAA00A35313 /* Formatters */,
 				8602628B254D72EC0085ACD5 /* Preview Content */,
 				86A53C382557345B0055C0B9 /* Purchases */,
-				860262B9254D738B0085ACD5 /* Question */,
 				865AD2D3257975FE00FFE257 /* ViewModels */,
 				86D384A725569C5F00051019 /* Views */,
 			);
@@ -350,16 +347,11 @@
 				869CA348256AB8D5000022F7 /* EvaluationManager.swift */,
 				8675644125B0A8BA000C0B79 /* EvaluationResult.swift */,
 				8675644525B0A930000C0B79 /* Evaluation+Extensions.swift */,
+				86DB1E632599F96A00ACAB4B /* AttributeResult.swift */,
+				86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */,
+				86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */,
 			);
 			path = Evaluation;
-			sourceTree = "<group>";
-		};
-		860262B9254D738B0085ACD5 /* Question */ = {
-			isa = PBXGroup;
-			children = (
-				86FA055E2587F73000005AF8 /* Question.swift */,
-			);
-			path = Question;
 			sourceTree = "<group>";
 		};
 		8620FA8A257D3E720005D8AF /* TextFields */ = {
@@ -537,9 +529,6 @@
 			children = (
 				869CA341256AB15F000022F7 /* PurchaseAttribute.swift */,
 				869CA33D256AA1F8000022F7 /* PurchaseAttributeMultiplierGroup.swift */,
-				86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */,
-				86DB1E632599F96A00ACAB4B /* AttributeResult.swift */,
-				86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */,
 			);
 			path = "Purchase Attributes";
 			sourceTree = "<group>";
@@ -871,7 +860,6 @@
 				864BDDD52598A35800CC6628 /* BasicSummaryBulletView.swift in Sources */,
 				869F91F82584040B00DEB7F5 /* SpecificPurchaseUnitGroup.swift in Sources */,
 				868CCB3625583F6C00C96CFD /* UserPreferencesViewModel.swift in Sources */,
-				86FA05612587F73000005AF8 /* Question.swift in Sources */,
 				864016492589FCCA00B78BE9 /* LaunchHelper.swift in Sources */,
 				8655AFBA25A9EA5D00A282B9 /* CTAButton.swift in Sources */,
 				865C3607259DE3A200E0F7B5 /* PurchaseAttributeWeightingSelectionView.swift in Sources */,

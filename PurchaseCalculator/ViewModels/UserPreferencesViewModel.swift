@@ -38,10 +38,6 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
         setupExistingUser()
     }
     
-    deinit {
-        context.reset()
-    }
-    
     // MARK: - Pay
     var maximumDigitsForTakeHomePay = 8
     var minimumDigitsForTakeHomePay = 3
@@ -127,6 +123,10 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
 
         }
         userName = user.name ?? ""
+    }
+    
+    func resetContext() {
+        context.reset()
     }
     
     private func setupNewUser() {

@@ -17,6 +17,8 @@ class EvaluationManager: ObservableObject {
         0.8
     }
     
+    private let context = CoreDataManager.shared.moc.newChild()
+
     private var user: User? {
         User.existingUser
     }
@@ -39,7 +41,7 @@ class EvaluationManager: ObservableObject {
             let symbol = symbolNameForAttributeID(id)
             let weight = user?.weightForAttributeID(id) ?? 0.5
             
-            let attributeEvaluation = AttributeEvaluation.createWith(attributeName: name, attributeScore: multiplier, attributeImageName: symbol, userWeightingScore: weight)
+            let attributeEvaluation = AttributeEvaluation.createWith(attributeName: name, attributeScore: multiplier, attributeImageName: symbol, userWeightingScore: weight, context: context)
             attributeEvaluations.append(attributeEvaluation)
             calculator.calculate(multiplier: multiplier, weight: weight)
         }
@@ -50,7 +52,7 @@ class EvaluationManager: ObservableObject {
             calculator.applyPenalty(EvaluationManager.penalty)
         }
         let sortedEvaluations = attributeEvaluations.sorted { $0.attributeName < $1.attributeName }
-        return Evaluation.createWith(itemName: item.handle, unitCost: unit.cost, score: calculator.score, attributeEvaluations: sortedEvaluations, penaltyApplied: shouldApplyPenalty)
+        return Evaluation.createWith(itemName: item.handle, unitName: unit.modelName, unitCost: unit.cost, score: calculator.score, attributeEvaluations: sortedEvaluations, penaltyApplied: shouldApplyPenalty, in: context)
     }
     
     private func debugCalculations(name: String, multiplier: Double, weighting: Double, currentScore: Double) {

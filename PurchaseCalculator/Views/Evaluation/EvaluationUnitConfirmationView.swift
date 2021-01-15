@@ -49,7 +49,8 @@ struct EvaluationUnitConfirmationView: View {
                     .padding()
                 Spacer()
                 // FIXME: - Format
-                Label("The \(unit.modelName) will be evaluated considering your values. You'll receive a report and purchase advice.")
+                let formatter = SpecificPurchaseUnitFormatter(unit: unit, unformattedString: "evaluation_unit_confirmation_message")
+                Label(formatter.formattedString)
                     .padding()
 
                 Spacer()

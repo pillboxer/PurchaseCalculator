@@ -11,9 +11,13 @@ extension UserDefaults {
     
     enum UserDefaultsKey: String {
         case isFirstLaunch
+        case hasEvaluationHistory
     }
     
-    @UserDefaultBool(key: UserDefaultsKey.isFirstLaunch.rawValue)
+    @UserDefault(key: .isFirstLaunch, defaultValue: true)
     static var isFirstLaunch
+    
+    @UserDefault(key: .hasEvaluationHistory, defaultValue: false)
+    static var hasEvaluationHistory
 
 }

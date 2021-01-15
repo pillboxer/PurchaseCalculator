@@ -50,7 +50,8 @@ class DecodedObjectProvider {
     }
     
     static var homescreenBlockContainers: [BlockContainer]? {
-        provide(.homescreenBlockContainers, type: [BlockContainer].self)?.filter { $0.isHidden == false }
+        let unhidden = provide(.homescreenBlockContainers, type: [BlockContainer].self)?.filter { $0.isHidden == false }
+        return unhidden?.sorted { $0.position < $1.position }
     }
     
     static var evaluationScreenBlockContainers: [BlockContainer]? {

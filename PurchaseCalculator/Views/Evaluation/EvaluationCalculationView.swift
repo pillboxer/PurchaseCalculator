@@ -36,8 +36,7 @@ struct EvaluationCalculationView: View {
                 EvaluationReportView(evaluation: evaluation)
                     .padding(.horizontal)
                 SaveEvaluationView() {
-                    // FIXME: - 
-                    try! CoreDataManager.shared.moc.save()
+                    CoreDataManager.shared.save(evaluation.managedObjectContext)
                     isActive = false
                 }
             }

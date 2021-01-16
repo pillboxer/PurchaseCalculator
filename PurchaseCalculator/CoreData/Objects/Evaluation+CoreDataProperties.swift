@@ -22,6 +22,7 @@ extension Evaluation {
     @NSManaged public var score: Double
     @NSManaged public var penaltyApplied: Bool
     @NSManaged public var attributeEvaluations: NSSet
+    @NSManaged public var dateCreated: Double
 
 }
 

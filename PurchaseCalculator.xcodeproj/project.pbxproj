@@ -99,6 +99,9 @@
 		86B9C97025A1BC6F0079C355 /* EvaluationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9C96F25A1BC6F0079C355 /* EvaluationSelectionView.swift */; };
 		86B9C97525A211C60079C355 /* EvaluationUnitSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9C97425A211C60079C355 /* EvaluationUnitSelectionView.swift */; };
 		86B9C97825A21B4A0079C355 /* EvaluationUnitConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9C97725A21B4A0079C355 /* EvaluationUnitConfirmationView.swift */; };
+		86C62FBB25B2F94C00C37AB1 /* EvaluationHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C62FBA25B2F94C00C37AB1 /* EvaluationHistoryView.swift */; };
+		86C62FC825B3284500C37AB1 /* HiddenNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C62FC725B3284500C37AB1 /* HiddenNavigationLink.swift */; };
+		86C62FCD25B3404A00C37AB1 /* BrandSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C62FCC25B3404A00C37AB1 /* BrandSelectionView.swift */; };
 		86C6F5B5259637F000A6D48F /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B4259637F000A6D48F /* Label.swift */; };
 		86C6F5BA25973DB100A6D48F /* PurchaseAttributesDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */; };
 		86C6F5BE25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */; };
@@ -113,7 +116,6 @@
 		86DB1E612599F80600ACAB4B /* AttributeUserRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */; };
 		86DB1E642599F96A00ACAB4B /* AttributeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E632599F96A00ACAB4B /* AttributeResult.swift */; };
 		86DB1E672599F99700ACAB4B /* AttributeEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */; };
-		86DB1E6A259A1BCB00ACAB4B /* SaveEvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */; };
 		86E4B56F2568593200A52F51 /* PurchaseCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */; };
 		86E4B5752569148200A52F51 /* GlobalProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4B5742569148200A52F51 /* GlobalProtocols.swift */; };
 		86F9DDC425ACE07900B69880 /* DismissalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F9DDC325ACE07900B69880 /* DismissalButton.swift */; };
@@ -242,6 +244,9 @@
 		86B9C96F25A1BC6F0079C355 /* EvaluationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationSelectionView.swift; sourceTree = "<group>"; };
 		86B9C97425A211C60079C355 /* EvaluationUnitSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationUnitSelectionView.swift; sourceTree = "<group>"; };
 		86B9C97725A21B4A0079C355 /* EvaluationUnitConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationUnitConfirmationView.swift; sourceTree = "<group>"; };
+		86C62FBA25B2F94C00C37AB1 /* EvaluationHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationHistoryView.swift; sourceTree = "<group>"; };
+		86C62FC725B3284500C37AB1 /* HiddenNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationLink.swift; sourceTree = "<group>"; };
+		86C62FCC25B3404A00C37AB1 /* BrandSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectionView.swift; sourceTree = "<group>"; };
 		86C6F5B4259637F000A6D48F /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		86C6F5B925973DB100A6D48F /* PurchaseAttributesDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributesDualGraphView.swift; sourceTree = "<group>"; };
 		86C6F5BD25973E0100A6D48F /* PurchaseAttributeSingleDualGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAttributeSingleDualGraphView.swift; sourceTree = "<group>"; };
@@ -257,7 +262,6 @@
 		86DB1E602599F80600ACAB4B /* AttributeUserRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeUserRating.swift; sourceTree = "<group>"; };
 		86DB1E632599F96A00ACAB4B /* AttributeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeResult.swift; sourceTree = "<group>"; };
 		86DB1E662599F99700ACAB4B /* AttributeEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeEvaluation.swift; sourceTree = "<group>"; };
-		86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEvaluationView.swift; sourceTree = "<group>"; };
 		86E4B56E2568593200A52F51 /* PurchaseCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCategoriesViewModel.swift; sourceTree = "<group>"; };
 		86E4B5742569148200A52F51 /* GlobalProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalProtocols.swift; sourceTree = "<group>"; };
 		86F9DDC325ACE07900B69880 /* DismissalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissalButton.swift; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 		862ED07A2574362D005F4FCF /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				86C62FC625B3281700C37AB1 /* Navigation */,
 				8684E2E8258A637C002015EE /* Views */,
 				8620FA8B257D3E7F0005D8AF /* Buttons */,
 				8620FA8A257D3E720005D8AF /* TextFields */,
@@ -419,6 +424,7 @@
 		865C35F5259DE12800E0F7B5 /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				86C62FCB25B3404000C37AB1 /* Brands */,
 				86026CAF259491310047296F /* EvaluationCalculationView.swift */,
 				86B9C96F25A1BC6F0079C355 /* EvaluationSelectionView.swift */,
 				86B9C97425A211C60079C355 /* EvaluationUnitSelectionView.swift */,
@@ -634,6 +640,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		86C62FB925B2F93B00C37AB1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				86C62FBA25B2F94C00C37AB1 /* EvaluationHistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		86C62FC625B3281700C37AB1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				86C62FC725B3284500C37AB1 /* HiddenNavigationLink.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		86C62FCB25B3404000C37AB1 /* Brands */ = {
+			isa = PBXGroup;
+			children = (
+				86C62FCC25B3404A00C37AB1 /* BrandSelectionView.swift */,
+			);
+			path = Brands;
+			sourceTree = "<group>";
+		};
 		86C6F5B825973D9300A6D48F /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,7 +675,6 @@
 				864BDDD12598A31000CC6628 /* DetailedSummaryView.swift */,
 				864BDDD42598A35800CC6628 /* BasicSummaryBulletView.swift */,
 				864BDDD72598A3C200CC6628 /* EvaluationReportView.swift */,
-				86DB1E69259A1BCB00ACAB4B /* SaveEvaluationView.swift */,
 				8655AFEF25AB5A4700A282B9 /* ReportTitleView.swift */,
 				8655AFF225AB5A9600A282B9 /* InspectionRowView.swift */,
 				8655AFF525AB5AAB00A282B9 /* ReportRowView.swift */,
@@ -673,6 +702,7 @@
 		86D384A725569C5F00051019 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86C62FB925B2F93B00C37AB1 /* History */,
 				866E3DD125938D0800A35313 /* Components */,
 				865C35FE259DE34900E0F7B5 /* Preferences */,
 				86B96090259B406E00F1D5A6 /* Onboarding */,
@@ -821,6 +851,7 @@
 				8655AFF025AB5A4700A282B9 /* ReportTitleView.swift in Sources */,
 				8620FA7E257CF5890005D8AF /* BorderedButtonView.swift in Sources */,
 				866E3DCB25938C9000A35313 /* ExpandableRowView.swift in Sources */,
+				86C62FBB25B2F94C00C37AB1 /* EvaluationHistoryView.swift in Sources */,
 				8655AFB625A9D13400A282B9 /* PurchaseAttributeEvaluationFormatter.swift in Sources */,
 				86B9609C259B7C2200F1D5A6 /* AttributeIconsGroupView.swift in Sources */,
 				86F9DDC425ACE07900B69880 /* DismissalButton.swift in Sources */,
@@ -845,6 +876,7 @@
 				8620FA68257CDEB70005D8AF /* HomeButtonView.swift in Sources */,
 				86B96096259B414F00F1D5A6 /* DecodedObjectProvider.swift in Sources */,
 				8675643D25B0A74A000C0B79 /* AttributeEvaluation+CoreDataProperties.swift in Sources */,
+				86C62FCD25B3404A00C37AB1 /* BrandSelectionView.swift in Sources */,
 				864BDDD22598A31000CC6628 /* DetailedSummaryView.swift in Sources */,
 				86C6F5B5259637F000A6D48F /* Label.swift in Sources */,
 				866E3DDB25938EBB00A35313 /* PriceFormatter.swift in Sources */,
@@ -886,6 +918,7 @@
 				8675643C25B0A74A000C0B79 /* Evaluation+CoreDataClass.swift in Sources */,
 				867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */,
 				868CCB482558446500C96CFD /* User+CoreDataProperties.swift in Sources */,
+				86C62FC825B3284500C37AB1 /* HiddenNavigationLink.swift in Sources */,
 				862A150A25A3A62D00DD4919 /* StringFormatter.swift in Sources */,
 				86026286254D72EA0085ACD5 /* PurchaseCalculatorApp.swift in Sources */,
 				86987068254DAE8B0029B2DE /* Calculator.swift in Sources */,
@@ -897,7 +930,6 @@
 				86026CB0259491310047296F /* EvaluationCalculationView.swift in Sources */,
 				862ED07C2574364C005F4FCF /* ListContainerView.swift in Sources */,
 				86B96092259B408300F1D5A6 /* WelcomeView.swift in Sources */,
-				86DB1E6A259A1BCB00ACAB4B /* SaveEvaluationView.swift in Sources */,
 				8620FA84257D3E110005D8AF /* TextFieldWithLimitView.swift in Sources */,
 				86B960A7259BA64800F1D5A6 /* AttributesDetailsView.swift in Sources */,
 				8609E63F25A0C1C400FE0604 /* BlockContainer.swift in Sources */,

@@ -15,19 +15,17 @@ enum AttributeResult: ColorProvider, Equatable {
     case good(Double)
     case veryGood(Double)
     
+    private var rawValue: String {
+        let beforeParen = String(describing: self).components(separatedBy: "(").first ?? ""
+        return beforeParen.snakeCased()
+    }
+    
+    private var rawDescription: String {
+        rawValue + "_attribute_result_description"
+    }
+    
     var description: String {
-        switch self {
-        case .veryPoor:
-            return "very poor"
-        case .poor:
-            return "poor"
-            case .average:
-            return "average"
-        case .good:
-            return "good"
-        case .veryGood:
-            return "very good"
-        }
+        String.forKey(rawDescription)
     }
     
     var colorScore: Double {
@@ -38,12 +36,8 @@ enum AttributeResult: ColorProvider, Equatable {
     }
     
     var descriptionWithArticle: String {
-        switch self {
-        case .average:
-            return "an \(description)"
-        default:
-            return "a \(description)"
-        }
+        let article = String.forKey("\(rawDescription)_article")
+        return "\(article) \(description)"
     }
     
     static func resultFor(_ score: Double) -> AttributeResult {

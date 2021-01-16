@@ -15,6 +15,7 @@ struct ScreenBlock: Decodable {
     let uuid: String
     let destination: BlockDestination
     let position: Int
+    let isHidden: Bool
     
     enum CodingKeys: CodingKey {
         case handle
@@ -23,6 +24,7 @@ struct ScreenBlock: Decodable {
         case destination
         case uuid
         case position
+        case isHidden
     }
     
     init(from decoder: Decoder) throws {
@@ -30,6 +32,8 @@ struct ScreenBlock: Decodable {
         
         let destinationString = try container.decode(String.self, forKey: .destination)
         let destination = BlockDestination(rawValue: destinationString) ?? .error
+        let isHidden = try? container.decode(Int.self, forKey: .isHidden) as NSNumber
+        let isHiddenBool = isHidden?.boolValue ?? false
         let isWide = try container.decode(Int.self, forKey: .isWide) as NSNumber
         let isWideBool = isWide.boolValue
         let imageName = try container.decode(String.self, forKey: .imageName)
@@ -43,6 +47,7 @@ struct ScreenBlock: Decodable {
         self.handle = handle
         self.uuid = uuid
         self.position = position ?? 0
+        self.isHidden = isHiddenBool
     }
     
 }

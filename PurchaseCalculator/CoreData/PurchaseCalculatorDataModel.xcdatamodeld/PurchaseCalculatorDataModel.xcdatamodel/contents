@@ -8,6 +8,7 @@
         <relationship name="evaluation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Evaluation" inverseName="attributeEvaluations" inverseEntity="Evaluation"/>
     </entity>
     <entity name="Evaluation" representedClassName="Evaluation" syncable="YES">
+        <attribute name="dateCreated" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="itemName" attributeType="String"/>
         <attribute name="penaltyApplied" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="score" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -33,7 +34,7 @@
     </entity>
     <elements>
         <element name="AttributeEvaluation" positionX="-54" positionY="45" width="128" height="104"/>
-        <element name="Evaluation" positionX="-63" positionY="36" width="128" height="119"/>
+        <element name="Evaluation" positionX="-63" positionY="36" width="128" height="134"/>
         <element name="PotentialPurchase" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="PurchaseAttributeValue" positionX="-63" positionY="9" width="128" height="88"/>
         <element name="User" positionX="-54" positionY="18" width="128" height="103"/>

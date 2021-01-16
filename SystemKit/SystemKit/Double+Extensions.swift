@@ -17,5 +17,11 @@ public extension Double {
         let formatted = numberFormatter.string(from: number) ?? ""
         return Double(formatted) ?? 0
     }
+    
+    func dateString(_ style: DateFormatter.Style) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = style
+        return formatter.string(from: Date(timeIntervalSince1970: self))
+    }
 
 }

@@ -59,7 +59,7 @@ struct BorderedButtonView: View {
             }
 
         }
-            .frame(maxWidth: width ?? 100, maxHeight: height ?? 50)
+            .frame(width: width ?? 100, height: height ?? 50)
             .buttonStyle(PlainButtonStyle())
             .overlay(RoundedRectangle(cornerRadius: cornerRadius).stroke(currentColor, lineWidth: 1.5))
             .foregroundColor(currentColor)

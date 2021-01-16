@@ -34,15 +34,15 @@ struct EvaluationReportView: View {
         ScrollView(showsIndicators: false) {
             ReportTitleView(text: "evaluation_report_title")
                 .padding(.top)
-            ReportRowView(title: "report_row_title_0", value: PriceFormatter.format(cost: evaluation.unitCost), imageName: "money")
-            ReportRowView(title: "report_row_title_1", value: penaltyText, valueColor: penaltyColor, imageName: "gavel", inspectionHandler: toggleInspectionRowShowing)
+            ReportRowView(title: "report_row_title_0", value: PriceFormatter.format(cost: evaluation.unitCost), imageWrapper: ImageWrapper(name: "money"))
+            ReportRowView(title: "report_row_title_1", value: penaltyText, valueColor: penaltyColor, imageWrapper: ImageWrapper(name: "gavel"), inspectionHandler: toggleInspectionRowShowing)
             if inspectionRowShowing {
                 InspectionRowView(closeHandler: hideInspectionRow, text: "report_row_1_inspection_text")
             }
-            ReportRowView(title: "report_row_title_2", value: evaluation.alignmentPercentageString, imageName: "regret")
-            ReportRowView(title: "report_row_title_3", value: evaluation.reasonToBuy?.attributeName ?? "", imageName: evaluation.reasonToBuy?.attributeImageName ?? "")
-            ReportRowView(title: "report_row_title_4", value: evaluation.reasonToAvoid?.attributeName ?? "", imageName: evaluation.reasonToAvoid?.attributeImageName ?? "")
-            ReportRowView(title: "report_row_title_5", value: evaluation.result.description, imageName: "decision")
+            ReportRowView(title: "report_row_title_2", value: evaluation.alignmentPercentageString, imageWrapper: ImageWrapper(name: "regret"))
+            ReportRowView(title: "report_row_title_3", value: evaluation.reasonToBuy?.attributeName ?? "", imageWrapper: ImageWrapper(name: evaluation.reasonToBuy?.attributeImageName ?? ""))
+            ReportRowView(title: "report_row_title_4", value: evaluation.reasonToAvoid?.attributeName ?? "", imageWrapper: ImageWrapper(name: evaluation.reasonToAvoid?.attributeImageName ?? ""))
+            ReportRowView(title: "report_row_title_5", value: evaluation.result.description, imageWrapper: ImageWrapper(name: "decision"))
         }
     }
     

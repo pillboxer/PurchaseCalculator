@@ -10,8 +10,8 @@ import Foundation
 enum EvaluationResult: String, CaseIterable {
             
     case negative
-    case neutralLow
-    case neutralHigh
+    case neutralLow = "neutral_low"
+    case neutralHigh = "neutral_high"
     case positive
     
     var threshold: Double {

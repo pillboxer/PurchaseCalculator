@@ -103,7 +103,7 @@ struct CircleAndTextView: View {
                 .fill(color)
                 .frame(width: 10, height: 10)
             Label(text)
-            if let inspectionHandler = inspectionHandler {
+                if let inspectionHandler = inspectionHandler {
                 Image("question")
                     .resizable()
                     .frame(width: 10, height: 10)

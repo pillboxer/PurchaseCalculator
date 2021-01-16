@@ -58,14 +58,12 @@ class ScreenBlockHelper: ObservableObject {
         case .evaluation:
             EvaluationSelectionView(blockHelper: ScreenBlockHelper(context: .evaluation), isActive: isActive)
         case .error:
+            // FIXME: - 
             Text("Oops! Something's gone wrong")
         case .history:
-            let names = Evaluation.allInstances.map { $0.unitName }
-            VStack {
-                ForEach(names, id: \.self) { name in
-                    Text(name)
-                }
-            }
+            EvaluationHistoryView()
+        case .brands:
+            BrandSelectionView(isActive: isActive)
         default:
             HomescreenView()
         }

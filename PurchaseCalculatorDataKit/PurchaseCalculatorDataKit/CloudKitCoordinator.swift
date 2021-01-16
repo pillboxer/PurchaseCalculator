@@ -130,8 +130,11 @@ extension CloudKitCoordinator {
                 return
             }
             else {
-                self?.updateJSON()
-                self?.latestChildAdded = child
+                DispatchQueue.main.async {
+                    self?.updateJSON()
+                    self?.latestChildAdded = child
+                }
+
             }
         }
     }

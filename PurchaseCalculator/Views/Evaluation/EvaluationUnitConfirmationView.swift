@@ -14,6 +14,7 @@ struct EvaluationUnitConfirmationView: View {
     let item: PurchaseItem
     let evaluationManager: EvaluationManager
     @State private var buttonPressed = false
+    @State private var barAnimationComplete = false
     @Binding var isActive: Bool
     
     init(unit: SpecificPurchaseUnit, item: PurchaseItem, isActive: Binding<Bool>) {
@@ -28,23 +29,23 @@ struct EvaluationUnitConfirmationView: View {
     var destination: some View {
         if let evaluation = evaluationManager.evaluateUnit(unit),
            let selectedEvaluation = evaluation.attributeEvaluationArray.first {
-            EvaluationCalculationView(evaluation: evaluation, unitName: unit.modelName, selectedAttributeEvaluation: selectedEvaluation, isActive: $isActive)
+            EvaluationCalculationView(barAnimationComplete:$barAnimationComplete, evaluation: evaluation, selectedAttributeEvaluation: selectedEvaluation, isActive: $isActive)
         }
         
     }
     
     var body: some View {
         EmptorColorSchemeAdaptingView {
-            NavigationLink("", destination: destination, isActive: $buttonPressed)
+            HiddenNavigationLink(destination: destination, isActive: $buttonPressed)
             VStack(spacing: 8) {
                 ReportTitleView(text: "confirmation_report_title")
                     .padding()
-                ReportRowView(title: "confirmation_report_row_0", value: item.handle, imageName: item.imageName)
-                ReportRowView(title: "confirmation_report_row_1", value: unit.modelName, imageName: unit.imageName)
-                ReportRowView(title: "confirmation_report_row_2", value: PriceFormatter.format(cost: unit.cost), imageName: "confirmation_report_row_2_image")
+                ReportRowView(title: "confirmation_report_row_0", value: item.handle, imageWrapper: ImageWrapper(name: item.imageName))
+                ReportRowView(title: "confirmation_report_row_1", value: unit.modelName, imageWrapper: ImageWrapper(name: unit.imageName, renderingMode: .template))
+                ReportRowView(title: "confirmation_report_row_2", value: PriceFormatter.format(cost: unit.cost), imageWrapper: ImageWrapper(name: "confirmation_report_row_2_image"))
                 if let evaluationCount = unit.evaluationCount,
                    evaluationCount > 0 {
-                    ReportRowView(title: "confirmation_report_row_3", value: String(evaluationCount), imageName: "confirmation_report_row_3_image")
+                    ReportRowView(title: "confirmation_report_row_3", value: String(evaluationCount),imageWrapper: ImageWrapper(name: "confirmation_report_row_3_image"))
                 }
                 Divider()
                     .padding()

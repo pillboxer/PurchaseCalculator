@@ -37,7 +37,7 @@ struct PulsingButtonStyle: AnimatingButtonStyle {
                     .fill(Color.colorSchemeConsidered)
                     .shadow(color: Color.ctaTrailingShadow, radius: 10, x: 10, y: 10)
             )
-            .shadow(color: Color.ctaLeadingShadow, radius: 30, x: 0, y: 0)
+            .shadow(color: Color.ctaLeadingShadow, radius: 10, x: 0, y: 0)
             .scaleEffect(CGFloat(animation))
     }
     

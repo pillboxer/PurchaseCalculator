@@ -12,12 +12,13 @@ struct ReportRowView: View {
     var title: String
     var value: String
     var valueColor: Color?
-    var imageName: String
+    var imageWrapper: ImageWrapper
     var inspectionHandler: (() -> Void)?
     
     var body: some View {
         HStack {
-            Image(String.forKey(imageName))
+            Image(String.forKey(imageWrapper.name))
+                .renderingMode(imageWrapper.renderingMode)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25, height: 25)

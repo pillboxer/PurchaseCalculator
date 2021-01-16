@@ -28,7 +28,7 @@ struct UserPreferencesView: View {
                 let currencies = model.currencies.compactMap { $0.symbol }
                 
                 VStack {
-                    Label(model.titleString)
+                    ReportTitleView(text: model.titleString)
                         .padding()
                     TextFieldWithLimitView(placeholder: model.userNameTextFieldPlaceholder,
                                            textFieldText: $model.userName,

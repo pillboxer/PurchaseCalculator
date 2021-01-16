@@ -13,7 +13,7 @@ public extension String {
         guard let json = try? JSONDecoder.decodeLocalJSON(file: "Strings", type: [[String:String]].self) else {
             return key
         }
-        return json.first?[key] ?? key
+        return json.first?[key.lowercased()] ?? key
     }
 
 }

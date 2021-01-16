@@ -51,8 +51,9 @@ class EvaluationManager: ObservableObject {
         if shouldApplyPenalty {
             calculator.applyPenalty(EvaluationManager.penalty)
         }
+        let timestamp = Date().timeIntervalSince1970
         let sortedEvaluations = attributeEvaluations.sorted { $0.attributeName < $1.attributeName }
-        return Evaluation.createWith(itemName: item.handle, unitName: unit.modelName, unitCost: unit.cost, score: calculator.score, attributeEvaluations: sortedEvaluations, penaltyApplied: shouldApplyPenalty, in: context)
+        return Evaluation.createWith(itemName: item.handle, unitName: unit.modelName, unitCost: unit.cost, score: calculator.score, dateCreated: timestamp, attributeEvaluations: sortedEvaluations, penaltyApplied: shouldApplyPenalty, in: context)
     }
     
     private func debugCalculations(name: String, multiplier: Double, weighting: Double, currentScore: Double) {

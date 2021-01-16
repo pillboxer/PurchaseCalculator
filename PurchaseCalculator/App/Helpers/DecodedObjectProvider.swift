@@ -59,7 +59,7 @@ class DecodedObjectProvider {
     }
     
     static var homescreenBlocks: [ScreenBlock]? {
-        provide(.homescreenBlocks, type: [ScreenBlock].self)
+        provide(.homescreenBlocks, type: [ScreenBlock].self)?.filter { $0.isHidden == false }
     }
     
     static var evaluationScreenBlocks: [ScreenBlock]? {

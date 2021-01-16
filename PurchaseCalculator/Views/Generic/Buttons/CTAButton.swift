@@ -115,11 +115,12 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
                 Image(wrapper.name)
                     .resizable()
                     .renderingMode(wrapper.renderingMode)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 25, height: 25)
                     .padding(8)
             }
             if let text = text {
-                Label(String.forKey(text))
+                Label(text)
             }
         }
     }

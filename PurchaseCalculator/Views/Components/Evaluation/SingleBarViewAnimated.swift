@@ -26,6 +26,10 @@ struct SingleBarViewAnimated: View {
             .foregroundColor(color)
             .frame(width: width, height: _height)
             .onAppear {
+                guard !animationComplete else {
+                    _height = endingHeight
+                    return
+                }
                 withAnimation(.easeIn(duration: 1)) { _height = endingHeight }
             }
             .onAnimationCompleted(for: _height) {

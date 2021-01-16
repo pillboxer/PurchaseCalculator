@@ -86,10 +86,11 @@ public enum BlockDestination: String {
     case evaluation
     case history
     case error
+    case brands
     
     public var isModal: Bool {
         switch self {
-        case .evaluation, .popular, .history:
+        case .evaluation, .popular, .history, .brands:
             return false
         default:
             return true

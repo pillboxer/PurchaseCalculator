@@ -18,8 +18,7 @@ struct ListContainerView<Content: View>: View {
     }
     
     var body: some View {
-        Label(headerText)
-            .padding()
+        ReportTitleView(text: headerText)
         ScrollView {
             content()
         }

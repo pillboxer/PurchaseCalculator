@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "display_block_cta_image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "evaluate.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

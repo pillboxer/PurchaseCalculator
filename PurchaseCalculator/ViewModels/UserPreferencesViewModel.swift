@@ -43,7 +43,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     var minimumDigitsForTakeHomePay = 3
     
     var hasChanges: Bool {
-        context.hasChanges
+        context.hasChanges || user.name != userName || (user.takeHomePay?.intValue ?? 0) != userTakeHomePayNumber
     }
     
     var userTakeHomePay = "" {

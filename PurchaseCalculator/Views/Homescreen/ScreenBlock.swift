@@ -39,7 +39,7 @@ struct ScreenBlock: Decodable {
         
         self.destination = destination
         self.isWide = isWideBool
-        self.image = ImageWrapper(name: imageName, renderingMode: .original)
+        self.image = ImageWrapper(name: imageName, renderingMode: .template)
         self.handle = handle
         self.uuid = uuid
         self.position = position ?? 0

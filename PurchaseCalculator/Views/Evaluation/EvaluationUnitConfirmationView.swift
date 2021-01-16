@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct EvaluationUnitConfirmationView: View {
     
@@ -48,15 +49,14 @@ struct EvaluationUnitConfirmationView: View {
                 Divider()
                     .padding()
                 Spacer()
-                // FIXME: - Format
                 let formatter = SpecificPurchaseUnitFormatter(unit: unit, unformattedString: "evaluation_unit_confirmation_message")
                 Label(formatter.formattedString)
                     .padding()
-
                 Spacer()
                 HStack(spacing: 32) {
                     DismissalButton()
                     CTAButton(text: "evaluate_cta") {
+                        CloudKitCoordinator.shared.updateEvaluationCountFor(uuid: unit.uuid)
                         buttonPressed = true
                     }
                 }

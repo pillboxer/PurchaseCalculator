@@ -49,12 +49,3 @@ extension SpecificPurchaseUnit {
     }
 
 }
-
-
-extension SpecificPurchaseUnit: Identifiable {
-    
-    var id: String {
-        uuid
-    }
-
-}

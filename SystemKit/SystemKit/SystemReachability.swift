@@ -44,8 +44,8 @@ public class SystemReachability: ObservableObject {
     }
     
     private func startMonitoring() {
-        nwMonitor.pathUpdateHandler = { path in
-            self.connectionStatus = path.status == .unsatisfied ? .disconnected : .mobile
+        nwMonitor.pathUpdateHandler = { [weak self] path in
+            self?.connectionStatus = path.status == .unsatisfied ? .disconnected : .mobile
         }
         nwMonitor.start(queue: .main)
     }

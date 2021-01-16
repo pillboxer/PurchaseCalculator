@@ -23,16 +23,10 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
     
     private let db = CKContainer(identifier: "iCloud.com.SixEye.purchaseCalculator").publicCloudDatabase
     
-    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, completion: @escaping ([CKRecord]?, Error?) -> Void) {
-        let query = CKQuery(recordType: type.cloudKitType, predicate: NSPredicate(value: true))
-        db.perform(query, inZoneWith: nil, completionHandler: completion)
-    }
-    
     public func link(_ id: String, to value: PurchaseCalculatorDatabaseValueType, belongingTo child: PurchaseCalculatorDatabaseChildType, withRecordID recordIDString: String) {
-        
-        let recordID = CKRecord.ID.init(recordName: recordIDString)
-        
-        db.fetch(withRecordID: recordID) { (record, error) in
+                
+        fetchRecord(recordIDString) { [weak self] record in
+            
             if let record = record {
                 let referenceID = CKRecord.ID.init(recordName: id)
                 let referenceRecord = CKRecord(recordType: value.rawValue, recordID: referenceID)
@@ -50,18 +44,48 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
 
                 record.setValue(referenceToAdd, forKey: value.rawValue)
                 
-                self.db.save(record) { (record, error) in
+                self?.db.save(record) { (record, error) in
                     if let error = error {
                         print(error.localizedDescription)
-                        self.databaseAddingError = true
+                        self?.databaseAddingError = true
                     }
                     else {
-                        self.latestChildLinkedTo = child
+                        self?.latestChildLinkedTo = child
                     }
                 }
             }
         }
     }
+}
+
+// MARK: - Fetching
+extension CloudKitCoordinator {
+    
+    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, completion: @escaping ([CKRecord]?, Error?) -> Void) {
+        let query = CKQuery(recordType: type.cloudKitType, predicate: NSPredicate(value: true))
+        db.perform(query, inZoneWith: nil, completionHandler: completion)
+    }
+    
+    private func fetchRecord(_ uuid: String, completion: @escaping (CKRecord?) -> Void) {
+        let recordID = CKRecord.ID(recordName: uuid)
+        
+        db.fetch(withRecordID: recordID) { [weak self] (record, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                self?.databaseAddingError = true
+                return completion(nil)
+            }
+            
+            if let record = record {
+                return completion(record)
+            }
+        }
+    }
+}
+
+// MARK: - Adding
+extension CloudKitCoordinator {
     
     public func addValues(_ parameters: [PurchaseCalculatorDatabaseValueType: Any], to child: PurchaseCalculatorDatabaseChildType) {
         
@@ -81,22 +105,86 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
             }
         }
         
-        db.save(record) { [self] (_, error) in
+        db.save(record) { [weak self] (_, error) in
             if let error = error {
                 print(error.localizedDescription)
-                self.databaseAddingError = true
+                self?.databaseAddingError = true
             }
             else {
-                latestChildAdded = child
+                self?.latestChildAdded = child
+            }
+        }
+    }
+
+}
+
+// MARK: - Updating
+extension CloudKitCoordinator {
+        
+    private func saveAndUpdateJSON(with record: CKRecord, for child: PurchaseCalculatorDatabaseChildType) {
+        
+        db.save(record) { [weak self] (_, error) in
+            if let error = error {
+                print(error)
+                self?.databaseAddingError = true
+                return
+            }
+            else {
+                self?.updateJSON()
+                self?.latestChildAdded = child
+            }
+        }
+    }
+    
+    public func updateEvaluationCountFor(uuid: String) {
+        fetchRecord(uuid) { (record) in
+            if let record = record {
+                let evaluationCount = record.intFor(.evaluationCount)
+                record.setValue(evaluationCount+1, forKey: PurchaseCalculatorDatabaseValueType.evaluationCount.rawValue)
+                self.saveAndUpdateJSON(with: record, for: .specificPurchaseUnits)
+            }
+        }
+    }
+    
+    public func updateValues(_ values: [PurchaseCalculatorDatabaseValueType:Any], withPredicate predicate: NSPredicate, for child: PurchaseCalculatorDatabaseChildType) {
+        let query = CKQuery(recordType: child.cloudKitType, predicate: predicate)
+      
+        db.perform(query, inZoneWith: nil) { [weak self] (records, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            let recordsCount = records?.count ?? 0
+            
+            if recordsCount == 0 {
+                self?.databaseAddingError = true
+                return
+            }
+            
+            if let record = records?.first {
+                values.forEach { record.setValue($0.value, forKey: $0.key.rawValue) }
+                self?.saveAndUpdateJSON(with: record, for: child)
+            }
+        }
+    }
+
+    
+    public func updateValues(_ values: [PurchaseCalculatorDatabaseValueType:Any], for child: PurchaseCalculatorDatabaseChildType, belongingTo uuid: String) {
+        fetchRecord(uuid) { [weak self] (record) in
+            if let record = record {
+                values.forEach { record.setValue($0.value, forKey: $0.key.rawValue) }
+                self?.saveAndUpdateJSON(with: record, for: child)
             }
         }
     }
     
     public func updateJSON(_ type: PurchaseCalculatorDatabaseChildType) {
-        fetch(type) { records, error in
+        fetch(type) { [weak self] records, error in
             if let records = records,
                !records.isEmpty {
-                let arrayOfDictionaries = self.retriever.retrieveJSONFromRecords(records, for: type)
+                let arrayOfDictionaries = self?.retriever.retrieveJSONFromRecords(records, for: type) ?? []
                 
                 if let data = try? JSONSerialization.data(withJSONObject: arrayOfDictionaries, options: []) {
                     do {
@@ -108,12 +196,11 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
                 }
             }
             DispatchQueue.main.async {
-                self.objectWillChange.send() 
+                self?.objectWillChange.send()
             }
         }
     }
 }
-
 
 public extension CKRecord {
     

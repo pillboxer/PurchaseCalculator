@@ -27,7 +27,7 @@ extension Evaluation {
     }
     
     var attributeEvaluationArray: [AttributeEvaluation] {
-        attributeEvaluations.allObjects as? [AttributeEvaluation] ?? []
+        (attributeEvaluations.allObjects as? [AttributeEvaluation] ?? []).sorted { $0.attributeName < $1.attributeName }
     }
     
     var reasonToBuy: AttributeEvaluation? {

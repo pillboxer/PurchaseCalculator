@@ -35,6 +35,7 @@ struct ReportRowView: View {
             Spacer()
             Label(value)
                 .foregroundColor(valueColor)
+                .lineLimit(1)
         }
         .padding(.horizontal)
     }

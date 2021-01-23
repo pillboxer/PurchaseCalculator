@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8609E63C25A0C05600FE0604 /* HomescreenBlockContainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */; };
-		862C4EF7259F6E040048103C /* Strings.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EEE259F6E040048103C /* Strings.json */; };
-		862C4EF8259F6E040048103C /* PurchaseAttributeMultiplierGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EEF259F6E040048103C /* PurchaseAttributeMultiplierGroups.json */; };
-		862C4EF9259F6E040048103C /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF0259F6E040048103C /* PurchaseItems.json */; };
-		862C4EFA259F6E040048103C /* PurchaseBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF1259F6E040048103C /* PurchaseBrands.json */; };
-		862C4EFB259F6E040048103C /* PurchaseItemGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF2259F6E040048103C /* PurchaseItemGroups.json */; };
-		862C4EFC259F6E040048103C /* PurchaseAttributes.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF3259F6E040048103C /* PurchaseAttributes.json */; };
-		862C4EFD259F6E040048103C /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF4259F6E040048103C /* PurchaseCategories.json */; };
-		862C4EFE259F6E040048103C /* SpecificPurchaseUnits.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */; };
-		862C4EFF259F6E040048103C /* SpecificPurchaseUnitGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */; };
-		862C4F08259F76020048103C /* HomescreenBlocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 862C4F07259F76020048103C /* HomescreenBlocks.json */; };
 		865C35FB259DE20B00E0F7B5 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; };
 		865C35FC259DE20B00E0F7B5 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86868E0525BC791B00092970 /* EvaluationScreenBlockContainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868DF825BC791B00092970 /* EvaluationScreenBlockContainers.json */; };
+		86868E1425BC794F00092970 /* PurchaseAttributeMultiplierGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0825BC794F00092970 /* PurchaseAttributeMultiplierGroups.json */; };
+		86868E1525BC794F00092970 /* PurchaseBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0925BC794F00092970 /* PurchaseBrands.json */; };
+		86868E1625BC794F00092970 /* HomescreenBlocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0A25BC794F00092970 /* HomescreenBlocks.json */; };
+		86868E1725BC794F00092970 /* HomescreenBlockContainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0B25BC794F00092970 /* HomescreenBlockContainers.json */; };
+		86868E1825BC794F00092970 /* EvaluationScreenBlocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0C25BC794F00092970 /* EvaluationScreenBlocks.json */; };
+		86868E1925BC794F00092970 /* PurchaseAttributes.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0D25BC794F00092970 /* PurchaseAttributes.json */; };
+		86868E1A25BC794F00092970 /* PurchaseItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0E25BC794F00092970 /* PurchaseItems.json */; };
+		86868E1B25BC794F00092970 /* Strings.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0F25BC794F00092970 /* Strings.json */; };
+		86868E1C25BC794F00092970 /* SpecificPurchaseUnits.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E1025BC794F00092970 /* SpecificPurchaseUnits.json */; };
+		86868E1D25BC794F00092970 /* SpecificPurchaseUnitGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E1125BC794F00092970 /* SpecificPurchaseUnitGroups.json */; };
+		86868E1E25BC794F00092970 /* PurchaseCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E1225BC794F00092970 /* PurchaseCategories.json */; };
+		86868E1F25BC794F00092970 /* PurchaseItemGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E1325BC794F00092970 /* PurchaseItemGroups.json */; };
 		8691943425A0AF02002C4BF6 /* CloudKitRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8691943325A0AF02002C4BF6 /* CloudKitRetriever.swift */; };
 		86D29B27258B56C30074B8BE /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D29B1D258B56C30074B8BE /* PurchaseCalculatorDataKit.framework */; };
 		86D29B2C258B56C30074B8BE /* PurchaseCalculatorDataKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D29B2B258B56C30074B8BE /* PurchaseCalculatorDataKitTests.swift */; };
@@ -55,18 +57,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomescreenBlockContainers.json; sourceTree = "<group>"; };
 		8625C4AB259259DF006B29BA /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		862C4EEE259F6E040048103C /* Strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Strings.json; sourceTree = "<group>"; };
-		862C4EEF259F6E040048103C /* PurchaseAttributeMultiplierGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseAttributeMultiplierGroups.json; sourceTree = "<group>"; };
-		862C4EF0259F6E040048103C /* PurchaseItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseItems.json; sourceTree = "<group>"; };
-		862C4EF1259F6E040048103C /* PurchaseBrands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseBrands.json; sourceTree = "<group>"; };
-		862C4EF2259F6E040048103C /* PurchaseItemGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseItemGroups.json; sourceTree = "<group>"; };
-		862C4EF3259F6E040048103C /* PurchaseAttributes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseAttributes.json; sourceTree = "<group>"; };
-		862C4EF4259F6E040048103C /* PurchaseCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
-		862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnits.json; sourceTree = "<group>"; };
-		862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnitGroups.json; sourceTree = "<group>"; };
-		862C4F07259F76020048103C /* HomescreenBlocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomescreenBlocks.json; sourceTree = "<group>"; };
+		86868DF825BC791B00092970 /* EvaluationScreenBlockContainers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EvaluationScreenBlockContainers.json; sourceTree = "<group>"; };
+		86868E0825BC794F00092970 /* PurchaseAttributeMultiplierGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseAttributeMultiplierGroups.json; sourceTree = "<group>"; };
+		86868E0925BC794F00092970 /* PurchaseBrands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseBrands.json; sourceTree = "<group>"; };
+		86868E0A25BC794F00092970 /* HomescreenBlocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomescreenBlocks.json; sourceTree = "<group>"; };
+		86868E0B25BC794F00092970 /* HomescreenBlockContainers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomescreenBlockContainers.json; sourceTree = "<group>"; };
+		86868E0C25BC794F00092970 /* EvaluationScreenBlocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EvaluationScreenBlocks.json; sourceTree = "<group>"; };
+		86868E0D25BC794F00092970 /* PurchaseAttributes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseAttributes.json; sourceTree = "<group>"; };
+		86868E0E25BC794F00092970 /* PurchaseItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseItems.json; sourceTree = "<group>"; };
+		86868E0F25BC794F00092970 /* Strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Strings.json; sourceTree = "<group>"; };
+		86868E1025BC794F00092970 /* SpecificPurchaseUnits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnits.json; sourceTree = "<group>"; };
+		86868E1125BC794F00092970 /* SpecificPurchaseUnitGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpecificPurchaseUnitGroups.json; sourceTree = "<group>"; };
+		86868E1225BC794F00092970 /* PurchaseCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseCategories.json; sourceTree = "<group>"; };
+		86868E1325BC794F00092970 /* PurchaseItemGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PurchaseItemGroups.json; sourceTree = "<group>"; };
 		8691943325A0AF02002C4BF6 /* CloudKitRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRetriever.swift; sourceTree = "<group>"; };
 		86D29B1D258B56C30074B8BE /* PurchaseCalculatorDataKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseCalculatorDataKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D29B20258B56C30074B8BE /* PurchaseCalculatorDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseCalculatorDataKit.h; sourceTree = "<group>"; };
@@ -103,17 +107,19 @@
 		863FC831258B5B2E0034220B /* Bundled Content */ = {
 			isa = PBXGroup;
 			children = (
-				862C4EEF259F6E040048103C /* PurchaseAttributeMultiplierGroups.json */,
-				862C4EF3259F6E040048103C /* PurchaseAttributes.json */,
-				862C4EF1259F6E040048103C /* PurchaseBrands.json */,
-				862C4EF4259F6E040048103C /* PurchaseCategories.json */,
-				862C4EF2259F6E040048103C /* PurchaseItemGroups.json */,
-				862C4EF0259F6E040048103C /* PurchaseItems.json */,
-				862C4EF6259F6E040048103C /* SpecificPurchaseUnitGroups.json */,
-				862C4EF5259F6E040048103C /* SpecificPurchaseUnits.json */,
-				862C4F07259F76020048103C /* HomescreenBlocks.json */,
-				8609E63B25A0C05600FE0604 /* HomescreenBlockContainers.json */,
-				862C4EEE259F6E040048103C /* Strings.json */,
+				86868E0C25BC794F00092970 /* EvaluationScreenBlocks.json */,
+				86868E0B25BC794F00092970 /* HomescreenBlockContainers.json */,
+				86868E0A25BC794F00092970 /* HomescreenBlocks.json */,
+				86868E0825BC794F00092970 /* PurchaseAttributeMultiplierGroups.json */,
+				86868E0D25BC794F00092970 /* PurchaseAttributes.json */,
+				86868E0925BC794F00092970 /* PurchaseBrands.json */,
+				86868E1225BC794F00092970 /* PurchaseCategories.json */,
+				86868E1325BC794F00092970 /* PurchaseItemGroups.json */,
+				86868E0E25BC794F00092970 /* PurchaseItems.json */,
+				86868E1125BC794F00092970 /* SpecificPurchaseUnitGroups.json */,
+				86868E1025BC794F00092970 /* SpecificPurchaseUnits.json */,
+				86868E0F25BC794F00092970 /* Strings.json */,
+				86868DF825BC791B00092970 /* EvaluationScreenBlockContainers.json */,
 			);
 			name = "Bundled Content";
 			path = "PurchaseCalculatorDataKit/Bundled Content";
@@ -263,17 +269,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8609E63C25A0C05600FE0604 /* HomescreenBlockContainers.json in Resources */,
-				862C4EFA259F6E040048103C /* PurchaseBrands.json in Resources */,
-				862C4EF8259F6E040048103C /* PurchaseAttributeMultiplierGroups.json in Resources */,
-				862C4EFF259F6E040048103C /* SpecificPurchaseUnitGroups.json in Resources */,
-				862C4EFD259F6E040048103C /* PurchaseCategories.json in Resources */,
-				862C4F08259F76020048103C /* HomescreenBlocks.json in Resources */,
-				862C4EFB259F6E040048103C /* PurchaseItemGroups.json in Resources */,
-				862C4EF9259F6E040048103C /* PurchaseItems.json in Resources */,
-				862C4EF7259F6E040048103C /* Strings.json in Resources */,
-				862C4EFE259F6E040048103C /* SpecificPurchaseUnits.json in Resources */,
-				862C4EFC259F6E040048103C /* PurchaseAttributes.json in Resources */,
+				86868E1C25BC794F00092970 /* SpecificPurchaseUnits.json in Resources */,
+				86868E1625BC794F00092970 /* HomescreenBlocks.json in Resources */,
+				86868E1725BC794F00092970 /* HomescreenBlockContainers.json in Resources */,
+				86868E1F25BC794F00092970 /* PurchaseItemGroups.json in Resources */,
+				86868E1425BC794F00092970 /* PurchaseAttributeMultiplierGroups.json in Resources */,
+				86868E1E25BC794F00092970 /* PurchaseCategories.json in Resources */,
+				86868E1D25BC794F00092970 /* SpecificPurchaseUnitGroups.json in Resources */,
+				86868E1825BC794F00092970 /* EvaluationScreenBlocks.json in Resources */,
+				86868E1B25BC794F00092970 /* Strings.json in Resources */,
+				86868E0525BC791B00092970 /* EvaluationScreenBlockContainers.json in Resources */,
+				86868E1925BC794F00092970 /* PurchaseAttributes.json in Resources */,
+				86868E1525BC794F00092970 /* PurchaseBrands.json in Resources */,
+				86868E1A25BC794F00092970 /* PurchaseItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

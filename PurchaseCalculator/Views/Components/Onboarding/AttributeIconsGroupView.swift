@@ -67,7 +67,7 @@ class AttributeIconsGroupViewModel: ObservableObject {
     
     
     init() {
-        self.iconNames = DecodedObjectProvider.attributes()?.compactMap { $0.symbol } ?? []
+        self.iconNames = DecodedObjectProvider.attributes(sorted: true)?.compactMap { $0.symbol } ?? []
     }
     
 }

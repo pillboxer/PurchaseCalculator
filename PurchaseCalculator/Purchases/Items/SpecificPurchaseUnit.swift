@@ -37,6 +37,9 @@ struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
 extension SpecificPurchaseUnit {
     
     var brand: PurchaseBrand? {
+        guard item != nil else {
+             return nil
+        }
         let brands = DecodedObjectProvider.purchaseBrands
         return brands?.filter { $0.uuid == brandID }.first
     }

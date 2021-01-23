@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SystemKit
 
 class NoUserHomescreenViewModel: ObservableObject {
     
@@ -19,7 +20,7 @@ struct NoUserHomescreen: View {
         
     var viewModel: NoUserHomescreenViewModel
     @State var presenting: Bool = false
-    
+    @State private var animationHandler: (() -> Void)?
     var presentee: some View {
         UserPreferencesView()
     }
@@ -27,9 +28,12 @@ struct NoUserHomescreen: View {
     var body: some View {
             VStack {
                 Spacer()
-                CTAButton(text: "add_profile_cta", imageWrapper: ImageWrapper(name: "profile", renderingMode: .template), animationPeriod: 1, width: 110, height: 110) {
+                CTAButton(text: "add_profile_cta", imageWrapper: ImageWrapper(name: "profile_block_cta_image", renderingMode: .template), animationPeriod: 1, animationOccurenceHandler: animationHandler, width: 110, height: 110) {
+                    HapticManager.performFeedbackHaptic(.success)
+                    animationHandler = nil
                     presenting = true
                 }.fullScreenCover(isPresented: $presenting, onDismiss: {
+                    setAnimationHandler()
                     if User.doesExist {
                         viewModel.markUserExists()
                     }
@@ -38,6 +42,15 @@ struct NoUserHomescreen: View {
                 })
                 Spacer()
             }
+            .onAppear {
+                setAnimationHandler()
+            }
+    }
+    
+    func setAnimationHandler() {
+        animationHandler = {
+            HapticManager.performBasicHaptic(type: .light)
+        }
     }
     
 }

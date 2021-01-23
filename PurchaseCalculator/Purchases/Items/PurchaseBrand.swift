@@ -22,7 +22,7 @@ struct PurchaseBrand: Decodable, Identifiable {
 extension PurchaseBrand {
     
     var units: [SpecificPurchaseUnit]? {
-        DecodedObjectProvider.specificPurchaseUnits?.filter { $0.brand == self }
+        DecodedObjectProvider.allSpecificPurchaseUnits?.filter { $0.brand == self && $0.item != nil }
     }
 
 }

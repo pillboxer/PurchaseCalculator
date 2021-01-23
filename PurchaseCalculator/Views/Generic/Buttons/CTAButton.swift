@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import SystemKit
 
 extension CTAButton where ButtonStyle == PulsingButtonStyle {
     
@@ -15,6 +16,7 @@ extension CTAButton where ButtonStyle == PulsingButtonStyle {
          animationSpeed: Double = 0.1,
          animationPeriod: Double? = 5.0,
          animateOnTap: Bool = true,
+         animationOccurenceHandler: (() -> Void)? = nil,
          hiddenTuple: (hidden: Bool, unhideHandler: (() -> Void)?) = (false, nil),
          wideButton: Bool = false,
          width: CGFloat? = nil,
@@ -27,13 +29,14 @@ extension CTAButton where ButtonStyle == PulsingButtonStyle {
                   animationSpeed: animationSpeed,
                   animationPeriod: animationPeriod,
                   animateOnTap: animateOnTap,
+                  animationOccurenceHandler: animationOccurenceHandler,
                   hiddenTuple: hiddenTuple,
                   wideButton: wideButton,
                   width: width,
                   height: height,
                   buttonAction: buttonAction)
     }
-
+    
 }
 
 struct ImageWrapper {
@@ -52,8 +55,9 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
     var animationSpeed: Double
     var animationPeriod: Double?
     var animateOnTap: Bool
+    var animationOccurenceHandler: (() -> Void)?
     var hiddenTuple: (hidden: Bool, unhideHandler: (() -> Void)?)
-
+    
     let wideButton: Bool
     var width: CGFloat?
     var height: CGFloat?
@@ -72,6 +76,7 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
          animationSpeed: Double,
          animationPeriod: Double?,
          animateOnTap: Bool,
+         animationOccurenceHandler: (() -> Void)? = nil,
          hiddenTuple: (hidden: Bool, unhideHandler: (() -> Void)?),
          wideButton: Bool,
          width: CGFloat?,
@@ -86,6 +91,7 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
         self.animationSpeed = animationSpeed
         self.animationPeriod = animationPeriod
         self.animateOnTap = animateOnTap
+        self.animationOccurenceHandler = animationOccurenceHandler
         self.wideButton = wideButton
         self.width = width
         self.height = height
@@ -94,21 +100,21 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
     
     var body: some View {
         Button(action: tapHandler) { buttonView }
-        .buttonStyle(buttonStyle.init(animation: animation, width: width, height: height, wideButton: wideButton, disabled: !isEnabled))
-        .onReceive(timer, perform: { (_) in handleTimer() })
-        .scaleEffect(hiddenTuple.hidden ? scale : 1)
-        .onAppear {
-            if hiddenTuple.hidden {
-                withAnimation(.linear(duration: 0.3) ) { scale = 1.1  }
+            .buttonStyle(buttonStyle.init(animation: animation, width: width, height: height, wideButton: wideButton, disabled: !isEnabled))
+            .onReceive(timer, perform: { (_) in handleTimer() })
+            .scaleEffect(hiddenTuple.hidden ? scale : 1)
+            .onAppear {
+                if hiddenTuple.hidden {
+                    withAnimation(.linear(duration: 0.3) ) { scale = 1.1  }
+                }
             }
-        }
-        .onAnimationCompleted(for: animation) { handleAnimationComplete() }
-        .onAnimationCompleted(for: scale) {
-            withAnimation { scale = 1 }
-            hiddenTuple.unhideHandler?()
-        }
+            .onAnimationCompleted(for: animation) { handleAnimationComplete() }
+            .onAnimationCompleted(for: scale) {
+                withAnimation { scale = 1 }
+                hiddenTuple.unhideHandler?()
+            }
     }
-
+    
     private var buttonView: some View {
         VStack {
             if let wrapper = imageWrapper {
@@ -154,7 +160,8 @@ extension CTAButton {
         guard animationPeriod != nil && isEnabled else {
             return
         }
+        animationOccurenceHandler?()
         animateTo(1.05)
     }
-
+    
 }

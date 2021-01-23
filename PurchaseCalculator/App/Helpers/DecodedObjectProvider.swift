@@ -33,12 +33,13 @@ class DecodedObjectProvider {
         provide(.specificPurchaseUnitGroups, type: [SpecificPurchaseUnitGroup].self)
     }
     
-    static var specificPurchaseUnits: [SpecificPurchaseUnit]? {
+    static var allSpecificPurchaseUnits: [SpecificPurchaseUnit]? {
+        // Careful. This will get all units regardless of whether they have an item or not. Most callers should check the item is nil or not
         provide(.specificPurchaseUnits, type: [SpecificPurchaseUnit].self)
     }
     
     static func popularSpecificPurchaseUnits(limit: Int) -> [SpecificPurchaseUnit]? {
-        Array(specificPurchaseUnits?.sorted { $0.evaluationCount ?? 0 > $1.evaluationCount ?? 0 }.prefix(limit) ?? [])
+        return Array(allSpecificPurchaseUnits?.sorted { $0.evaluationCount ?? 0 > $1.evaluationCount ?? 0 }.prefix(limit) ?? []).filter { $0.item != nil }
     }
     
     static var purchaseBrands: [PurchaseBrand]? {
@@ -63,12 +64,10 @@ class DecodedObjectProvider {
     }
     
     static var evaluationScreenBlocks: [ScreenBlock]? {
-        provide(.evaluationScreenBlocks, type: [ScreenBlock].self)
+        provide(.evaluationScreenBlocks, type: [ScreenBlock].self)?.filter { $0.isHidden == false }
     }
     
-    
     private static func provide<D: Decodable>(_ object: PurchaseCalculatorDatabaseChildType, type: D.Type) -> D? {
-        // FIXME: - Keeping for debugging but remove bang
-        try! JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)
+        try? JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)
     }
 }

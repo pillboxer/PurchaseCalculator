@@ -20,7 +20,7 @@ extension SpecificPurchaseUnitGroup {
         guard let unitIDs = unitIDs else {
             return nil
         }
-        let units = DecodedObjectProvider.specificPurchaseUnits
+        let units = DecodedObjectProvider.allSpecificPurchaseUnits
         let filtered = units?.filter { unitIDs.contains($0.uuid) }
         return filtered
     }

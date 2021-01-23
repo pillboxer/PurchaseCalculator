@@ -61,8 +61,8 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
 // MARK: - Fetching
 extension CloudKitCoordinator {
     
-    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, completion: @escaping ([CKRecord]?, Error?) -> Void) {
-        let query = CKQuery(recordType: type.cloudKitType, predicate: NSPredicate(value: true))
+    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, usingCloudKitType: Bool = false, completion: @escaping ([CKRecord]?, Error?) -> Void) {
+        let query = CKQuery(recordType: usingCloudKitType ? type.cloudKitType : type.rawValue, predicate: NSPredicate(value: true))
         db.perform(query, inZoneWith: nil, completionHandler: completion)
     }
     
@@ -87,16 +87,48 @@ extension CloudKitCoordinator {
 // MARK: - Adding
 extension CloudKitCoordinator {
     
+    public func createNewMultiplierRecord(groupUUID: String, attributeUUID: String, multiplier: Double) -> CKRecord {
+        let record = CKRecord(recordType: PurchaseCalculatorDatabaseChildType.attributeMultiplierGroups.cloudKitType)
+        
+        // Group
+        let groupRecordID = CKRecord.ID(recordName: groupUUID)
+        let groupRecord = CKRecord(recordType: PurchaseCalculatorDatabaseChildType.attributeMultiplierGroups.rawValue, recordID: groupRecordID)
+        let newGroupReference = CKRecord.Reference(record: groupRecord, action: .deleteSelf)
+        record.setValue(newGroupReference, forKey: "group")
+        
+        //Attribute
+        let attributeRecordID = CKRecord.ID(recordName: attributeUUID)
+        let attributeRecord = CKRecord(recordType: PurchaseCalculatorDatabaseChildType.attributes.rawValue, recordID: attributeRecordID)
+        let newAttributeReference = CKRecord.Reference(record: attributeRecord, action: .deleteSelf)
+        record.setValue(newAttributeReference, forKey: "attribute")
+        
+        // Multiplier
+        record.setValue(multiplier, forKey: PurchaseCalculatorDatabaseValueType.multiplier.rawValue)
+        
+        return record
+        
+    }
+    
+    public func batchAdd(_ records: [CKRecord], child: PurchaseCalculatorDatabaseChildType) {
+        let operation = CKModifyRecordsOperation(recordsToSave: records)
+        db.add(operation)
+        operation.completionBlock = {
+            DispatchQueue.main.async {
+                self.latestChildAdded = child
+            }
+        }
+    }
+    
     public func addValues(_ parameters: [PurchaseCalculatorDatabaseValueType: Any], to child: PurchaseCalculatorDatabaseChildType) {
         
         let stringParams = parameters.map { (key: $0.key.rawValue, value: $0.value, reference: $0.key.childReference) }
-        let record = CKRecord(recordType: child.cloudKitType)
+        let record = CKRecord(recordType: child.rawValue)
         
         stringParams.forEach { param in
             if let referenceType = param.reference {
                 let id = CKRecord.ID.init(recordName: param.value as? String ?? "")
-                let referencedRecord = CKRecord(recordType: referenceType.cloudKitType, recordID: id)
-                let reference = CKRecord.Reference(record: referencedRecord, action: .none)
+                let referencedRecord = CKRecord(recordType: referenceType.rawValue, recordID: id)
+                let reference = CKRecord.Reference(record: referencedRecord, action: child.deleteSelfIfReferencesDeleted ? .deleteSelf : .none)
                 print(reference)
                 record.setValue(reference, forKey: param.key)
             }
@@ -150,7 +182,7 @@ extension CloudKitCoordinator {
     }
     
     public func updateValues(_ values: [PurchaseCalculatorDatabaseValueType:Any], withPredicate predicate: NSPredicate, for child: PurchaseCalculatorDatabaseChildType) {
-        let query = CKQuery(recordType: child.cloudKitType, predicate: predicate)
+        let query = CKQuery(recordType: child.rawValue, predicate: predicate)
       
         db.perform(query, inZoneWith: nil) { [weak self] (records, error) in
             
@@ -184,7 +216,8 @@ extension CloudKitCoordinator {
     }
     
     public func updateJSON(_ type: PurchaseCalculatorDatabaseChildType) {
-        fetch(type) { [weak self] records, error in
+        let useCloudKitType = type == .attributeMultiplierGroups
+        fetch(type, usingCloudKitType: useCloudKitType) { [weak self] records, error in
             if let records = records,
                !records.isEmpty {
                 let arrayOfDictionaries = self?.retriever.retrieveJSONFromRecords(records, for: type) ?? []

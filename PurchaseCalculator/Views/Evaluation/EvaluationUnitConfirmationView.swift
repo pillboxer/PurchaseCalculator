@@ -21,7 +21,6 @@ struct EvaluationUnitConfirmationView: View {
         self.unit = unit
         self.item = item
         self.evaluationManager = EvaluationManager(item: item)
-        // FIXME: - What actually is this? Find out
         self._isActive = isActive
     }
     

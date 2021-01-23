@@ -64,6 +64,8 @@ class ScreenBlockHelper: ObservableObject {
             EvaluationHistoryView()
         case .brands:
             BrandSelectionView(isActive: isActive)
+        case .items:
+            ItemSelectionView(isActive: isActive)
         default:
             HomescreenView()
         }

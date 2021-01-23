@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PurchaseItem: Decodable {
+struct PurchaseItem: Decodable, Identifiable, Equatable {
     
     let uuid: String
     let handle: String
@@ -15,6 +15,9 @@ struct PurchaseItem: Decodable {
     let specificPurchaseUnitGroupID: String
     let imageName: String
 
+    var id: String {
+        uuid
+    }
 
 }
 

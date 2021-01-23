@@ -39,6 +39,17 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     public var id: String {
         rawValue
     }
+    
+    public var deleteSelfIfReferencesDeleted: Bool {
+        switch self {
+        case .homescreenBlockContainers, .evaluationScreenBlockContainers, .categories, .purchaseItemGroups, .specificPurchaseUnitGroups:
+            return false
+        case .attributeMultiplierGroups, .specificPurchaseUnits, .purchaseItems:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 public enum PurchaseCalculatorDatabaseValueType: String {
@@ -57,11 +68,15 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case isWide
     case position
     case isHidden
-    
+    case multiplier
+    case attributeMultiplierGroup
+
    public var childReference: PurchaseCalculatorDatabaseChildType? {
         switch self {
         case .brand:
         return .purchaseBrands
+        case .attributeMultiplierGroup:
+            return .attributeMultiplierGroups
         default:
             return nil
         }
@@ -87,10 +102,11 @@ public enum BlockDestination: String {
     case history
     case error
     case brands
+    case items
     
     public var isModal: Bool {
         switch self {
-        case .evaluation, .popular, .history, .brands:
+        case .evaluation, .popular, .history, .brands, .items:
             return false
         default:
             return true

@@ -22,7 +22,6 @@ class LaunchHelper {
         #if EPHEMERAL
         UserDefaults.isFirstLaunch = true
         #endif
-
         if UserDefaults.isFirstLaunch {
             BundledContentManager.shared.saveBundledContentToDisk()
             UserDefaults.isFirstLaunch = false

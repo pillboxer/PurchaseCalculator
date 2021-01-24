@@ -17,9 +17,6 @@ struct AttributesDetailsView: View {
     
     var body: some View {
         VStack {
-            #if DEBUG
-            Button("SKIP") { viewModel.currentContext = .complete }
-            #endif
             // Top Icons
             AttributeIconsDisplayView(iconNames: viewModel.iconNames,
                                       topIndexDisplayed: viewModel.topIndexDisplayed,

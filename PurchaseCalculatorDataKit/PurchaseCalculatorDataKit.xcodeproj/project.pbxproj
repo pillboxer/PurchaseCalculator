@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		865C35FB259DE20B00E0F7B5 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; };
-		865C35FC259DE20B00E0F7B5 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4AB259259DF006B29BA /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86868E0525BC791B00092970 /* EvaluationScreenBlockContainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868DF825BC791B00092970 /* EvaluationScreenBlockContainers.json */; };
 		86868E1425BC794F00092970 /* PurchaseAttributeMultiplierGroups.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0825BC794F00092970 /* PurchaseAttributeMultiplierGroups.json */; };
 		86868E1525BC794F00092970 /* PurchaseBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 86868E0925BC794F00092970 /* PurchaseBrands.json */; };
@@ -41,20 +40,6 @@
 			remoteInfo = PurchaseCalculatorDataKit;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		86026CBE2594FBC60047296F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				865C35FC259DE20B00E0F7B5 /* SystemKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8625C4AB259259DF006B29BA /* SystemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SystemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +183,6 @@
 				86D29B19258B56C30074B8BE /* Sources */,
 				86D29B1A258B56C30074B8BE /* Frameworks */,
 				86D29B1B258B56C30074B8BE /* Resources */,
-				86026CBE2594FBC60047296F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

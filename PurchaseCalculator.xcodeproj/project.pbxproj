@@ -12,6 +12,8 @@
 		8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8602628C254D72EC0085ACD5 /* Preview Assets.xcassets */; };
 		86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026297254D72EC0085ACD5 /* PurchaseCalculatorTests.swift */; };
 		86026CB0259491310047296F /* EvaluationCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026CAF259491310047296F /* EvaluationCalculationView.swift */; };
+		860687D225BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
+		860687D325BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8609E63F25A0C1C400FE0604 /* BlockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609E63E25A0C1C400FE0604 /* BlockContainer.swift */; };
 		860EC84925A79FD6007DB05C /* StringFormatterKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860EC84825A79FD6007DB05C /* StringFormatterKey.swift */; };
 		8620FA6E257CDF880005D8AF /* BasicNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */; };
@@ -34,8 +36,6 @@
 		8634C68925BC18F5005FF649 /* BasicGridSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8634C68825BC18F5005FF649 /* BasicGridSelectionView.swift */; };
 		864016492589FCCA00B78BE9 /* LaunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864016482589FCCA00B78BE9 /* LaunchHelper.swift */; };
 		86446FE725582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86446FE625582CF300D0AC5E /* PotentialPurchase+CoreDataProperties.swift.swift */; };
-		864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
-		864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		864BDDCF2598A2F100CC6628 /* BasicSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDCE2598A2F100CC6628 /* BasicSummaryView.swift */; };
 		864BDDD22598A31000CC6628 /* DetailedSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD12598A31000CC6628 /* DetailedSummaryView.swift */; };
 		864BDDD52598A35800CC6628 /* BasicSummaryBulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864BDDD42598A35800CC6628 /* BasicSummaryBulletView.swift */; };
@@ -68,7 +68,6 @@
 		8675644225B0A8BA000C0B79 /* EvaluationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675644125B0A8BA000C0B79 /* EvaluationResult.swift */; };
 		8675644625B0A930000C0B79 /* Evaluation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675644525B0A930000C0B79 /* Evaluation+Extensions.swift */; };
 		8675644925B0A9F8000C0B79 /* SystemKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675644825B0A9F8000C0B79 /* SystemKit.framework */; };
-		8675644A25B0A9F8000C0B79 /* SystemKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8675644825B0A9F8000C0B79 /* SystemKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86789F08254D9D5E00A198C0 /* PurchaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86789F07254D9D5E00A198C0 /* PurchaseCategory.swift */; };
 		867E2A8B25559493002B618C /* PotentialPurchase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E2A8925559493002B618C /* PotentialPurchase+CoreDataClass.swift */; };
 		86812DDA255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86812DD8255588EE00C1245E /* PurchaseCalculatorDataModel.xcdatamodeld */; };
@@ -140,8 +139,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8675644A25B0A9F8000C0B79 /* SystemKit.framework in Embed Frameworks */,
-				864BDDCC2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
+				860687D325BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +275,7 @@
 			files = (
 				86D59BF0259E0DDC00694959 /* CloudKit.framework in Frameworks */,
 				8675644925B0A9F8000C0B79 /* SystemKit.framework in Frameworks */,
-				864BDDCB2597AAE500CC6628 /* PurchaseCalculatorDataKit.framework in Frameworks */,
+				860687D225BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,7 +1101,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;
@@ -1128,7 +1126,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;
@@ -1262,7 +1260,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PurchaseCalculator/PurchaseCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseCalculator/Preview Content\"";
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_PREVIEWS = YES;

@@ -10,7 +10,7 @@ import Foundation
 public extension String {
     
     static func forKey(_ key: String) -> String {
-        guard let json = try? JSONDecoder.decodeLocalJSON(file: "Strings", type: [[String:String]].self) else {
+        guard let json = try? JSONDecoder.decodeLocalJSON(folder: "Emptor/JSON", file: "Strings", type: [[String:String]].self) else {
             return key
         }
         return json.first?[key.lowercased()] ?? key

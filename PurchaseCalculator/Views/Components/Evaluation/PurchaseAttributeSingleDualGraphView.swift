@@ -52,6 +52,7 @@ struct PurchaseAttributeSingleDualGraphView: View {
                 .padding(2)
                 .hidden(!selected)
         }
+        .opacity(selected ? 1 : 0.35)
         .onChange(of: barAnimationComplete, perform: { value in
             HapticManager.performFeedbackHaptic(.success)
             withAnimation { scale = 1.5 }

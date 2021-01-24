@@ -12,6 +12,7 @@ extension UserDefaults {
     enum UserDefaultsKey: String {
         case isFirstLaunch
         case hasEvaluationHistory
+        case imageFetch
     }
     
     @UserDefault(key: .isFirstLaunch, defaultValue: true)
@@ -19,5 +20,8 @@ extension UserDefaults {
     
     @UserDefault(key: .hasEvaluationHistory, defaultValue: false)
     static var hasEvaluationHistory
+    
+    @UserDefault(key: .imageFetch, defaultValue: Double.zero)
+    static var imageFetchTimeStamp
 
 }

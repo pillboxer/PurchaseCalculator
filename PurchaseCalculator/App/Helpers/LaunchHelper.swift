@@ -22,6 +22,14 @@ class LaunchHelper {
         #if EPHEMERAL
         UserDefaults.isFirstLaunch = true
         #endif
+        
+        // FIXME: - 
+        let date = Date(timeIntervalSince1970: UserDefaults.imageFetchTimeStamp)
+        CloudKitCoordinator.shared.fetchAllImages(since: date)
+        UserDefaults.imageFetchTimeStamp = Date().timeIntervalSince1970
+
+        
+        
         if UserDefaults.isFirstLaunch {
             BundledContentManager.shared.saveBundledContentToDisk()
             UserDefaults.isFirstLaunch = false

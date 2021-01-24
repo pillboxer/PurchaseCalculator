@@ -35,6 +35,8 @@ class CloudKitRetriever {
             return blockContainersFromRecords(records)
         case .homescreenBlocks, .evaluationScreenBlocks:
             return blocksFromRecords(records)
+        default:
+            return DictArray()
         }
     }
     
@@ -51,8 +53,7 @@ class CloudKitRetriever {
         }
         return array
     }
-    
-    
+        
     private func attributesJSONFromRecords(_ records: [CKRecord]) -> DictArray {
         getBasicKeysAndValuesFrom(records)
     }

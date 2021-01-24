@@ -27,11 +27,11 @@ public extension JSONDecoder {
         }
     }
     
-    static func decodeLocalJSON<T: Decodable>(file: String, type: T.Type) throws -> T {
+    static func decodeLocalJSON<T: Decodable>(folder: String?, file: String, type: T.Type) throws -> T {
         let fileManager = FileManager.default
         let decoder = JSONDecoder()
         do {
-            let data = try fileManager.dataFromDocuments(file: file)
+            let data = try fileManager.dataFromLibrary(file: file, folder: folder)
             let decoded = try decoder.decode(T.self, from: data)
             return decoded
         }

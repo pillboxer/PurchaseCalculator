@@ -68,6 +68,6 @@ class DecodedObjectProvider {
     }
     
     private static func provide<D: Decodable>(_ object: PurchaseCalculatorDatabaseChildType, type: D.Type) -> D? {
-        try? JSONDecoder.decodeLocalJSON(file: object.rawValue, type: type)
+        try? JSONDecoder.decodeLocalJSON(folder: "Emptor/JSON", file: object.rawValue, type: type)
     }
 }

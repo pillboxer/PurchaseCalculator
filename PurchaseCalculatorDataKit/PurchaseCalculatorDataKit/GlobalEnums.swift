@@ -27,7 +27,9 @@ public enum PurchaseCalculatorDatabaseChildType: String, CaseIterable, Identifia
     
     case evaluationScreenBlockContainers = "EvaluationScreenBlockContainers"
     case evaluationScreenBlocks = "EvaluationScreenBlocks"
-    
+       
+    case images = "Images"
+
     var cloudKitType: String {
         switch self {
         case .attributeMultiplierGroups:
@@ -70,6 +72,7 @@ public enum PurchaseCalculatorDatabaseValueType: String {
     case isHidden
     case multiplier
     case attributeMultiplierGroup
+    case blocks
 
    public var childReference: PurchaseCalculatorDatabaseChildType? {
         switch self {

@@ -24,7 +24,7 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
     private let db = CKContainer(identifier: "iCloud.com.SixEye.purchaseCalculator").publicCloudDatabase
     
     public func link(_ id: String, to value: PurchaseCalculatorDatabaseValueType, belongingTo child: PurchaseCalculatorDatabaseChildType, withRecordID recordIDString: String) {
-                
+        
         fetchRecord(recordIDString) { [weak self] record in
             
             if let record = record {
@@ -41,7 +41,7 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
                 else {
                     referenceToAdd = value.isList ? [reference] : reference
                 }
-
+                
                 record.setValue(referenceToAdd, forKey: value.rawValue)
                 
                 self?.db.save(record) { (record, error) in
@@ -61,8 +61,8 @@ public class CloudKitCoordinator: NSObject, ObservableObject {
 // MARK: - Fetching
 extension CloudKitCoordinator {
     
-    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, usingCloudKitType: Bool = false, completion: @escaping ([CKRecord]?, Error?) -> Void) {
-        let query = CKQuery(recordType: usingCloudKitType ? type.cloudKitType : type.rawValue, predicate: NSPredicate(value: true))
+    public func fetch(_ type: PurchaseCalculatorDatabaseChildType, usingCloudKitType: Bool = false, predicate: NSPredicate? = nil, completion: @escaping ([CKRecord]?, Error?) -> Void) {
+        let query = CKQuery(recordType: usingCloudKitType ? type.cloudKitType : type.rawValue, predicate: predicate ?? NSPredicate.all())
         db.perform(query, inZoneWith: nil, completionHandler: completion)
     }
     
@@ -81,6 +81,24 @@ extension CloudKitCoordinator {
                 return completion(record)
             }
         }
+    }
+    
+    public func fetchAllImages(since date: Date) {
+        let since1970 = date.timeIntervalSince1970
+        let predicate: NSPredicate = since1970 == 0 ? NSPredicate.all() : NSPredicate(format: "modificationDate > %@", date as NSDate)
+        // predicate
+        fetch(.images, predicate: predicate) { (records, error) in
+            print("Number of records is: \(records?.count)")
+            if let record = records?.first,
+               let asset = record.asset(),
+               let url = asset.fileURL {
+                print(record.modificationDate)
+                let data = try! Data(contentsOf: url)
+                let name = record.stringFor(.handle).appending(".png")
+                try? FileManager.default.writeDataToLibrary(data: data, file: name, folder: "Emptor/Assets")
+            }
+        }
+        
     }
 }
 
@@ -147,12 +165,12 @@ extension CloudKitCoordinator {
             }
         }
     }
-
+    
 }
 
 // MARK: - Updating
 extension CloudKitCoordinator {
-        
+    
     private func saveAndUpdateJSON(with record: CKRecord, for child: PurchaseCalculatorDatabaseChildType) {
         
         db.save(record) { [weak self] (_, error) in
@@ -166,7 +184,7 @@ extension CloudKitCoordinator {
                     self?.updateJSON()
                     self?.latestChildAdded = child
                 }
-
+                
             }
         }
     }
@@ -183,7 +201,7 @@ extension CloudKitCoordinator {
     
     public func updateValues(_ values: [PurchaseCalculatorDatabaseValueType:Any], withPredicate predicate: NSPredicate, for child: PurchaseCalculatorDatabaseChildType) {
         let query = CKQuery(recordType: child.rawValue, predicate: predicate)
-      
+        
         db.perform(query, inZoneWith: nil) { [weak self] (records, error) in
             
             if let error = error {
@@ -204,7 +222,7 @@ extension CloudKitCoordinator {
             }
         }
     }
-
+    
     
     public func updateValues(_ values: [PurchaseCalculatorDatabaseValueType:Any], for child: PurchaseCalculatorDatabaseChildType, belongingTo uuid: String) {
         fetchRecord(uuid) { [weak self] (record) in
@@ -224,7 +242,7 @@ extension CloudKitCoordinator {
                 
                 if let data = try? JSONSerialization.data(withJSONObject: arrayOfDictionaries, options: []) {
                     do {
-                        try FileManager.default.writeDataToDocuments(data: data, file: type.rawValue)
+                        try FileManager.default.writeDataToLibrary(data: data, file: type.rawValue, folder: "Emptor/JSON")
                     }
                     catch {
                         print("Could not save new data to documents.")
@@ -264,12 +282,24 @@ public extension CKRecord {
         retrieve(type: [String].self, fromPath: value.rawValue, defaultType: [])
     }
     
+    func asset() -> CKAsset? {
+        self["asset"] as? CKAsset
+    }
+    
     func referencesFor(_ value: PurchaseCalculatorDatabaseValueType) -> [CKRecord.Reference] {
         retrieve(type: [CKRecord.Reference].self, fromPath: value.rawValue, defaultType: [])
     }
     
     private func retrieve<T>(type: T.Type, fromPath path: String, defaultType: T) -> T {
         self[path] as? T ?? defaultType
+    }
+    
+}
+
+extension NSPredicate {
+    
+    static func all() -> NSPredicate {
+        NSPredicate(value: true)
     }
     
 }

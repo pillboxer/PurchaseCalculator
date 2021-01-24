@@ -25,7 +25,7 @@ public class BundledContentManager: NSObject {
         do {
             let bundle = Bundle(for: classForCoder)
             let data = try fileManager.dataFromBundle(bundle: bundle, file: type.rawValue, type: "json")
-            try fileManager.writeDataToDocuments(data: data, file: type.rawValue)
+            try fileManager.writeDataToLibrary(data: data, file: type.rawValue, folder: "Emptor/JSON")
         }
         catch let error {
             print("Could not save bundled contents - \(error)")

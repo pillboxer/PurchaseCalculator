@@ -9,13 +9,14 @@ import Foundation
 
 extension FileManager {
     
-    var documentsURL: URL! {
-        urls(for: .documentDirectory, in: .userDomainMask).first
+    var library: URL! {
+        urls(for: .libraryDirectory, in: .userDomainMask).first
     }
     
     enum FileManagerError: SystemKitError {
         case couldNotOpenFile
         case couldNotCreateData
+        case couldNotCreateFolder
         case couldNotOpenDocuments
         case couldNotWriteToDocuments
         
@@ -25,6 +26,8 @@ extension FileManager {
                 return "Could Not Open File"
             case .couldNotCreateData:
                 return "Could Not Create Data"
+            case .couldNotCreateFolder:
+                return "Could Not Create Folder"
             case .couldNotOpenDocuments:
                 return "Could Not Open Documents"
             case .couldNotWriteToDocuments:
@@ -42,8 +45,26 @@ extension FileManager {
                 return 003
             case .couldNotWriteToDocuments:
                 return 004
+            case .couldNotCreateFolder:
+                return 005
             }
         }
+    }
+    
+    public func createFolderIfNecessary(name: String)  {
+        let url = library.appendingPathComponent(name)
+        if !fileExists(atPath: url.path) {
+            do {
+                try createDirectory(atPath: url.path, withIntermediateDirectories: true, attributes: nil)
+            }
+            catch {
+                print(FileManagerError.couldNotCreateFolder.errorDescription)
+            }
+        }
+    }
+    
+    public func savePNGToFolder(name: String) {
+        
     }
     
     public func dataFromBundle(bundle: Bundle, file: String, type: String) throws -> Data {
@@ -55,9 +76,10 @@ extension FileManager {
         return data
     }
     
-    func dataFromDocuments(file: String) throws -> Data {
+    func dataFromLibrary(file: String, folder: String? = nil) throws -> Data {
         do {
-            let url = documentsURL.appendingPathComponent(file)
+            let folder = folder ?? ""
+            let url = library.appendingPathComponent(folder).appendingPathComponent(file)
             let file = try String(contentsOf: url)
             if let data = file.data(using: .utf8) {
                 return data
@@ -72,9 +94,17 @@ extension FileManager {
         }
     }
     
-    public func writeDataToDocuments(data: Data, file: String) throws  {
+    public func writeDataToLibrary(data: Data, file: String, folder: String?) throws  {
+        let url: URL
+        if let folder = folder {
+            createFolderIfNecessary(name: folder)
+            url = library.appendingPathComponent(folder).appendingPathComponent(file)
+        }
+        else {
+            url = library.appendingPathComponent(file)
+        }
         do {
-            try data.write(to: documentsURL.appendingPathComponent(file))
+            try data.write(to: url)
         }
         catch let error {
             print(error)

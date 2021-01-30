@@ -56,7 +56,6 @@
 		86685D0B2561603000F139D7 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86685D0A2561603000F139D7 /* GlobalEnums.swift */; };
 		8669FFE6257C1D8B00DD28F4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */; };
 		866E3DC725933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DC625933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift */; };
-		866E3DCB25938C9000A35313 /* ExpandableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DCA25938C9000A35313 /* ExpandableRowView.swift */; };
 		866E3DCF25938CC900A35313 /* OpacityReducingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DCE25938CC900A35313 /* OpacityReducingRowView.swift */; };
 		866E3DD525938D3900A35313 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DD425938D3900A35313 /* Divider.swift */; };
 		866E3DDB25938EBB00A35313 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866E3DDA25938EBB00A35313 /* PriceFormatter.swift */; };
@@ -201,7 +200,6 @@
 		86685D0A2561603000F139D7 /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
 		8669FFE5257C1D8B00DD28F4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		866E3DC625933EAD00A35313 /* SpecificPurchaseUnitSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificPurchaseUnitSelectionViewModel.swift; sourceTree = "<group>"; };
-		866E3DCA25938C9000A35313 /* ExpandableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableRowView.swift; sourceTree = "<group>"; };
 		866E3DCE25938CC900A35313 /* OpacityReducingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityReducingRowView.swift; sourceTree = "<group>"; };
 		866E3DD425938D3900A35313 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		866E3DDA25938EBB00A35313 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
@@ -484,7 +482,6 @@
 			children = (
 				862ED0762573F3AC005F4FCF /* RowViewWithButton.swift */,
 				862ED07F25743683005F4FCF /* NavigationLinkedRowView.swift */,
-				866E3DCA25938C9000A35313 /* ExpandableRowView.swift */,
 				866E3DCE25938CC900A35313 /* OpacityReducingRowView.swift */,
 			);
 			path = Rows;
@@ -868,7 +865,6 @@
 				8655AFF025AB5A4700A282B9 /* ReportTitleView.swift in Sources */,
 				8620FA7E257CF5890005D8AF /* BorderedButtonView.swift in Sources */,
 				8634C68925BC18F5005FF649 /* BasicGridSelectionView.swift in Sources */,
-				866E3DCB25938C9000A35313 /* ExpandableRowView.swift in Sources */,
 				86C62FBB25B2F94C00C37AB1 /* EvaluationHistoryView.swift in Sources */,
 				8655AFB625A9D13400A282B9 /* PurchaseAttributeEvaluationFormatter.swift in Sources */,
 				86B9609C259B7C2200F1D5A6 /* AttributeIconsGroupView.swift in Sources */,

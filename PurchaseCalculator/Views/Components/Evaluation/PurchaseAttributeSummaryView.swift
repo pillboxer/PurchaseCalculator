@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SystemKit
+import PurchaseCalculatorDataKit
 
 struct PurchaseAttributeSummaryView: View {
     
@@ -104,7 +105,7 @@ struct CircleAndTextView: View {
                 .frame(width: 10, height: 10)
             Label(text)
                 if let inspectionHandler = inspectionHandler {
-                Image("question")
+                    Image(named: "question")
                     .resizable()
                     .frame(width: 10, height: 10)
                     .onTapGesture {
@@ -114,4 +115,17 @@ struct CircleAndTextView: View {
         }
     }
     
+}
+
+extension Image {
+    
+    init(named name: String) {
+        if let image = ImageRetriever.image(named: name) {
+            self.init(uiImage: image)
+        }
+        else {
+            self.init(name)
+        }
+    }
+
 }

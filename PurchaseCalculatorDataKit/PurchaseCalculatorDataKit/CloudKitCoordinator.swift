@@ -83,19 +83,25 @@ extension CloudKitCoordinator {
         }
     }
     
-    public func fetchAllImages(since date: Date) {
+    public func fetchAllImages(since date: Date, completion: @escaping (Bool) -> Void) {
         let since1970 = date.timeIntervalSince1970
         let predicate: NSPredicate = since1970 == 0 ? NSPredicate.all() : NSPredicate(format: "modificationDate > %@", date as NSDate)
-        // predicate
         fetch(.images, predicate: predicate) { (records, error) in
-            print("Number of records is: \(records?.count)")
-            if let record = records?.first,
-               let asset = record.asset(),
-               let url = asset.fileURL {
-                print(record.modificationDate)
-                let data = try! Data(contentsOf: url)
-                let name = record.stringFor(.handle).appending(".png")
-                try? FileManager.default.writeDataToLibrary(data: data, file: name, folder: "Emptor/Assets")
+            if let error = error {
+                print(error.localizedDescription)
+                return completion(false)
+            }
+            if let records = records {
+                records.forEach { record in
+                    if let asset = record.asset(),
+                       let url = asset.fileURL,
+                       let data = try? Data(contentsOf: url) {
+                        let name = record.stringFor(.handle).appending(".png")
+                        try? FileManager.default.writeDataToLibrary(data: data, file: name, folder: "Emptor/Assets")
+                    }
+                    completion(true)
+                }
+                
             }
         }
         
@@ -176,7 +182,9 @@ extension CloudKitCoordinator {
         db.save(record) { [weak self] (_, error) in
             if let error = error {
                 print(error)
-                self?.databaseAddingError = true
+                DispatchQueue.main.async {
+                    self?.databaseAddingError = true
+                }
                 return
             }
             else {

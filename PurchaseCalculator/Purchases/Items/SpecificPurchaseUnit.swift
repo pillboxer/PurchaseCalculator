@@ -6,6 +6,7 @@
 //
 
 import SystemKit
+import PurchaseCalculatorDataKit
 
 struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
     
@@ -22,7 +23,7 @@ struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
     
     var imageName: String {
         if let brandImage = brand?.imageName,
-           brandImage.existsAsImage {
+           ImageRetriever.image(named: brandImage) != nil {
             return brandImage
         }
         return item?.imageName ?? "warning"

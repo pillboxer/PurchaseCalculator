@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension FileManager {
     
@@ -76,7 +77,13 @@ extension FileManager {
         return data
     }
     
-    func dataFromLibrary(file: String, folder: String? = nil) throws -> Data {
+    public func imageFromLibrary(file: String, folder: String? = nil) -> UIImage? {
+        let folder = folder ?? ""
+        let url = library.appendingPathComponent(folder).appendingPathComponent(file)
+        return UIImage(contentsOfFile: url.path)
+    }
+    
+    public func dataFromLibrary(file: String, folder: String? = nil) throws -> Data {
         do {
             let folder = folder ?? ""
             let url = library.appendingPathComponent(folder).appendingPathComponent(file)

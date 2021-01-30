@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct AttributeIconsGroupView: View {
     
@@ -30,7 +31,7 @@ struct AnimatingIconView: View {
     private let timer = Timer.publish(every: Double.random(in: 3...5), on: RunLoop.current, in: .common).autoconnect()
     
     var body: some View {
-        Image(iconName)
+        Image(named: iconName)
             .resizable()
             .frame(width: 25, height: 25)
             .offset(CGSize(width: 0, height: offset))

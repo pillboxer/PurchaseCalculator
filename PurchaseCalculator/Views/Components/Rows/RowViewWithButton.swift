@@ -6,32 +6,25 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct RowViewWithButton: View {
-        
+    
     let title: String
-    let imageName: String?
-    var usesSystemImage: Bool = false
+    let imageName: String
     
     var buttonRotation: Double = 0
     
     var buttonImageName: String = "arrow.right.circle"
     var buttonHandler: () -> Void
     
-    var image: Image {
-        let name = imageName ?? "exclamationmark.triangle.fill"
-        return usesSystemImage ? Image(systemName: name) : Image(name)
-    }
-    
     var body: some View {
         HStack {
-            if imageName != nil {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 20, maxHeight: 20)
-                    .padding(.trailing)
-            }
+            Image(named: imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 20, maxHeight: 20)
+                .padding(.trailing)
             Label(title)
             Spacer()
             Button(action: {

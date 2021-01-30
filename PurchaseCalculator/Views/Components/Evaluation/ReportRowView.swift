@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct ReportRowView: View {
     
@@ -17,7 +18,7 @@ struct ReportRowView: View {
     
     var body: some View {
         HStack {
-            Image(String.forKey(imageWrapper.name))
+            Image(named: String.forKey(imageWrapper.name))
                 .renderingMode(imageWrapper.renderingMode)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

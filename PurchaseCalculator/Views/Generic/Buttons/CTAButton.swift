@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import SystemKit
+import PurchaseCalculatorDataKit
 
 extension CTAButton where ButtonStyle == PulsingButtonStyle {
     
@@ -118,7 +119,7 @@ struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {
     private var buttonView: some View {
         VStack {
             if let wrapper = imageWrapper {
-                Image(wrapper.name)
+                Image(named: wrapper.name)
                     .resizable()
                     .renderingMode(wrapper.renderingMode)
                     .aspectRatio(contentMode: .fit)

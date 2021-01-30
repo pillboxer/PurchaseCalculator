@@ -17,7 +17,6 @@ public class BundledContentManager: NSObject {
     public static let shared = BundledContentManager()
     
     public func saveBundledContentToDisk() {
-        print("SAVING EVERYTHING")
         PurchaseCalculatorDatabaseChildType.allCases.forEach { saveBundledContent(of: $0) }
     }
     

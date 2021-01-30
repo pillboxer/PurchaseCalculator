@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PurchaseCalculatorDataKit
 
 struct AttributeIconsDisplayView: View {
     
@@ -25,7 +26,7 @@ struct AttributeIconsDisplayView: View {
         HStack {
             ForEach(iconNames, id: \.self) { iconName in
                 VStack {
-                    Image(iconName)
+                    Image(named: iconName)
                         .resizable()
                         .frame(width: 25, height: 25)
                         .opacity(showIcon(iconName) ? 1 : 0)

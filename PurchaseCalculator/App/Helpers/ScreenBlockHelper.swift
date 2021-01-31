@@ -60,12 +60,15 @@ class ScreenBlockHelper: ObservableObject {
         case .error:
             // FIXME: - 
             Text("Oops! Something's gone wrong")
+            DismissalButton()
         case .history:
             EvaluationHistoryView()
         case .brands:
             BrandSelectionView(isActive: isActive)
         case .items:
             ItemSelectionView(isActive: isActive)
+        case .addYourOwn:
+            ItemSelectionView(isActive: isActive, isAddingYourOwn: true)
         default:
             HomescreenView()
         }

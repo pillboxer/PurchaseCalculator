@@ -12,6 +12,7 @@
 		8602628D254D72EC0085ACD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8602628C254D72EC0085ACD5 /* Preview Assets.xcassets */; };
 		86026298254D72EC0085ACD5 /* PurchaseCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026297254D72EC0085ACD5 /* PurchaseCalculatorTests.swift */; };
 		86026CB0259491310047296F /* EvaluationCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026CAF259491310047296F /* EvaluationCalculationView.swift */; };
+		8604192325C6B9C5007AB43F /* CustomUnitCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8604192225C6B9C5007AB43F /* CustomUnitCreationView.swift */; };
 		860687D225BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; };
 		860687D325BDAFCE00FAFB19 /* PurchaseCalculatorDataKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8625C4A0259259B8006B29BA /* PurchaseCalculatorDataKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8609E63F25A0C1C400FE0604 /* BlockContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609E63E25A0C1C400FE0604 /* BlockContainer.swift */; };
@@ -156,6 +157,7 @@
 		86026299254D72EC0085ACD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860262B4254D733E0085ACD5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		86026CAF259491310047296F /* EvaluationCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationCalculationView.swift; sourceTree = "<group>"; };
+		8604192225C6B9C5007AB43F /* CustomUnitCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUnitCreationView.swift; sourceTree = "<group>"; };
 		8609E63E25A0C1C400FE0604 /* BlockContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockContainer.swift; sourceTree = "<group>"; };
 		860EC84825A79FD6007DB05C /* StringFormatterKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFormatterKey.swift; sourceTree = "<group>"; };
 		8620FA6D257CDF880005D8AF /* BasicNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNavigationView.swift; sourceTree = "<group>"; };
@@ -356,6 +358,14 @@
 			path = Evaluation;
 			sourceTree = "<group>";
 		};
+		8604192125C6B9B3007AB43F /* Custom Unit */ = {
+			isa = PBXGroup;
+			children = (
+				8604192225C6B9C5007AB43F /* CustomUnitCreationView.swift */,
+			);
+			path = "Custom Unit";
+			sourceTree = "<group>";
+		};
 		8620FA8A257D3E720005D8AF /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +448,7 @@
 		865C35F5259DE12800E0F7B5 /* Evaluation */ = {
 			isa = PBXGroup;
 			children = (
+				8604192125C6B9B3007AB43F /* Custom Unit */,
 				8634C68325BC18B1005FF649 /* Items */,
 				86C62FCB25B3404000C37AB1 /* Brands */,
 				8634C68225BC189D005FF649 /* Calculation */,
@@ -868,6 +879,7 @@
 				86C62FBB25B2F94C00C37AB1 /* EvaluationHistoryView.swift in Sources */,
 				8655AFB625A9D13400A282B9 /* PurchaseAttributeEvaluationFormatter.swift in Sources */,
 				86B9609C259B7C2200F1D5A6 /* AttributeIconsGroupView.swift in Sources */,
+				8604192325C6B9C5007AB43F /* CustomUnitCreationView.swift in Sources */,
 				86F9DDC425ACE07900B69880 /* DismissalButton.swift in Sources */,
 				864BDDD82598A3C200CC6628 /* EvaluationReportView.swift in Sources */,
 				8655AFF625AB5AAB00A282B9 /* ReportRowView.swift in Sources */,

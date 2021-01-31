@@ -106,13 +106,14 @@ public enum BlockDestination: String {
     case error
     case brands
     case items
+    case addYourOwn
     
     public var isModal: Bool {
         switch self {
-        case .evaluation, .popular, .history, .brands, .items:
-            return false
-        default:
+        case .displayPreferences, .userPreferences:
             return true
+        default:
+            return false
         }
     }
 }

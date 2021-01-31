@@ -14,11 +14,21 @@ struct HomescreenView: View {
     @State private var isPresenting = false
     @State private var isPushing = false
     @ObservedObject var noUserViewModel = NoUserHomescreenViewModel()
-    
+    @State private var isShowingAlert = false
     var body: some View {
         EmptorColorSchemeAdaptingView {
             bodyToShow
+                // FIXME: - 
+                .alert(isPresented: $isShowingAlert, content: {
+                    Alert(title: Text("No Images Found"),
+                          message: Text("Please Make sure you have connection to the internet"),
+                          dismissButton: .default(Text("OK")))
+                })
+                .onAppear {
+                    isShowingAlert = !FileManager.default.folderInLibraryExists(name: "Emptor/Assets")
+                }
         }
+
     }
     
     @ViewBuilder

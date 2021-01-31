@@ -54,7 +54,7 @@ extension FileManager {
     
     public func createFolderIfNecessary(name: String)  {
         let url = library.appendingPathComponent(name)
-        if !fileExists(atPath: url.path) {
+        if !folderInLibraryExists(name: name) {
             do {
                 try createDirectory(atPath: url.path, withIntermediateDirectories: true, attributes: nil)
             }
@@ -64,8 +64,9 @@ extension FileManager {
         }
     }
     
-    public func savePNGToFolder(name: String) {
-        
+    public func folderInLibraryExists(name: String) -> Bool {
+        let url = library.appendingPathComponent(name)
+        return fileExists(atPath: url.path)
     }
     
     public func dataFromBundle(bundle: Bundle, file: String, type: String) throws -> Data {

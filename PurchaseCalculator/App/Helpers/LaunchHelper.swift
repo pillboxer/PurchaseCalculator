@@ -20,12 +20,8 @@ class LaunchHelper {
         
     func start() {
         #if EPHEMERAL
-//        UserDefaults.isFirstLaunch = true
+        UserDefaults.isFirstLaunch = true
         #endif
-        
-        CloudKitCoordinator.shared.fetchAllImages(since: Date(timeIntervalSince1970: UserDefaults.imageFetchTimeStamp)) { success in
-            UserDefaults.imageFetchTimeStamp = success ? Date().timeIntervalSince1970 : 0
-        }
         
         if UserDefaults.isFirstLaunch {
             BundledContentManager.shared.saveBundledContentToDisk()
@@ -36,10 +32,11 @@ class LaunchHelper {
     
     private func listenToConnectionStatus() {
         SystemReachability.shared.$connectionStatus
-            .sink { (connectionStatus) in
-                if connectionStatus != .disconnected {
+            .sink { (_) in
+                    CloudKitCoordinator.shared.fetchAllImages(since: Date(timeIntervalSince1970: UserDefaults.imageFetchTimeStamp)) { success in
+                        UserDefaults.imageFetchTimeStamp = success ? Date().timeIntervalSince1970 : 0
+                    }
                     CloudKitCoordinator.shared.updateJSON()
-                }
             }.store(in: &cancellables)
     }
 }

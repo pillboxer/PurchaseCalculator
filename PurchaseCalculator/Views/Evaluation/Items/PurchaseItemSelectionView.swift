@@ -9,27 +9,20 @@ import SwiftUI
 
 struct ItemSelectionView: View {
     
-    @State private var selectedItem: PurchaseItem?
     @Binding var isActive: Bool
-    @State var isPushed = false
+    var isAddingYourOwn: Bool = false
+    
+    @State private var selectedItem: PurchaseItem?
+    @State private var isPushed = false
     
     var items: [PurchaseItem] {
         let unsorted = DecodedObjectProvider.purchaseItems?.filter { $0.specificPurchaseUnits != nil } ?? []
         return unsorted.sorted { $0.handle < $1.handle }
     }
-    
-    var units: [SpecificPurchaseUnit] {
-        selectedItem?.specificPurchaseUnits?.sorted { unit1, unit2 in
-            if unit1.brandHandle == unit2.brandHandle {
-                return unit1.modelName < unit2.modelName
-            }
-            return unit1.brandHandle < unit2.brandHandle
-        } ?? []
-    }
-    
+     
     @ViewBuilder
     private var destination: some View {
-        BrandSelectionView(isActive: $isActive, item: selectedItem)
+        BrandSelectionView(isActive: $isActive, item: selectedItem, isAddingYourOwn: isAddingYourOwn)
     }
     
     var body: some View {

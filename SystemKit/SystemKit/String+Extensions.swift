@@ -27,4 +27,10 @@ public extension String {
         return regex?.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: "$1_$2").lowercased() ?? self
     }
     
+    mutating func safeRemove(at index: String.Index?) {
+        if let index = index {
+            remove(at: index)
+        }
+    }
+    
 }

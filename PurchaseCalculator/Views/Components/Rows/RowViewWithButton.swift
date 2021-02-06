@@ -18,9 +18,14 @@ struct RowViewWithButton: View {
     var buttonImageName: String = "arrow.right.circle"
     var buttonHandler: () -> Void
     
+    var wrapper: ImageWrapper {
+        ImageWrapper(name: imageName)
+    }
+    
     var body: some View {
         HStack {
-            Image(named: imageName)
+            Image(named: wrapper.name)
+                .renderingMode(wrapper.renderingMode)
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 20, maxHeight: 20)

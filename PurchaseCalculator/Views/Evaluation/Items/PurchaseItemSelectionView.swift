@@ -29,7 +29,7 @@ struct ItemSelectionView: View {
         HiddenNavigationLink(destination: destination, isActive: $isPushed)
         BasicGridSelectionView(header: "items_header") {
             ForEach(items) { item in
-                CTAButton(text: item.handle, imageWrapper: ImageWrapper(name: item.imageName, renderingMode: .original), animationPeriod: nil) {
+                CTAButton(text: item.handle, imageWrapper: ImageWrapper(name: item.imageName), animationPeriod: nil) {
                     selectedItem = item
                     isPushed = true
                 }

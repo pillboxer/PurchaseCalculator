@@ -21,12 +21,13 @@ struct SpecificPurchaseUnit: Decodable, Equatable, RowType {
         return formatter.formattedString
     }
     
-    var imageName: String {
-        if let brandImage = brand?.imageName,
-           ImageRetriever.image(named: brandImage) != nil {
-            return brandImage
+    var imageName: String? {
+        // Don't use the brand object below as it will be nil if using a custom unit
+        if let brand = (DecodedObjectProvider.purchaseBrands?.filter { $0.uuid == brandID}.first),
+           ImageRetriever.image(named: ImageWrapper(name: brand.imageName).name) != nil {
+            return brand.imageName
         }
-        return item?.imageName ?? "warning"
+        return nil
     }
     
     var brandHandle: String {

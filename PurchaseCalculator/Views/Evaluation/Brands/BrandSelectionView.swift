@@ -37,31 +37,34 @@ struct BrandSelectionView: View {
     @ViewBuilder
     private var destination: some View {
         if isAddingYourOwn, let item = item {
-            CustomUnitCreationView(item: item, brandName: selectedBrand?.handle ?? "")
+            CustomUnitCreationView(item: item, initialBrandName: selectedBrand?.handle ?? "", isActive: $isActive)
         }
         else {
             EvaluationUnitSelectionView(units: units, isActive: $isActive)
-
+            
         }
     }
     
     var body: some View {
         HiddenNavigationLink(destination: destination, isActive: $isPushed)
-        VStack {
-            if isAddingYourOwn {
-                CTAButton(text: "Custom Brand", width: 100) {
-                    isPushed = true
-                }
-                    .padding()
-            }
-            BasicGridSelectionView(header: header) {
-                ForEach(brands) { brand in
-                    CTAButton(text: brand.handle, imageWrapper: ImageWrapper(name: brand.imageName, renderingMode: .template), animationPeriod: nil) {
-                        selectedBrand = brand
+        EmptorColorSchemeAdaptingView {
+            VStack {
+                if isAddingYourOwn {
+                    CTAButton(text: "custom_brand_cta", width: 150) {
                         isPushed = true
+                    }
+                    .padding()
+                }
+                BasicGridSelectionView(header: header) {
+                    ForEach(brands) { brand in
+                        CTAButton(text: brand.handle, imageWrapper: ImageWrapper(name: brand.imageName), animationPeriod: nil) {
+                            selectedBrand = brand
+                            isPushed = true
+                        }
                     }
                 }
             }
+
         }
     }
     

@@ -27,7 +27,7 @@ extension ErrorPublisher {
 // MARK: - UI
 protocol RowType: Identifiable {
     var uuid: String { get }
-    var imageName: String { get }
+    var imageName: String? { get }
     var isSystemImage: Bool { get }
     var rowTitle: String { get }
 }

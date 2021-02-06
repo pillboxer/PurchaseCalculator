@@ -42,7 +42,12 @@ extension CTAButton where ButtonStyle == PulsingButtonStyle {
 
 struct ImageWrapper {
     let name: String
-    var renderingMode: Image.TemplateRenderingMode = .original
+    let renderingMode: Image.TemplateRenderingMode
+    
+    init(name: String) {
+        self.renderingMode = name.contains("_template") ? .template : .original
+        self.name = name.replacingOccurrences(of: "_template", with: "")
+    }
 }
 
 struct CTAButton<ButtonStyle: AnimatingButtonStyle>: View {

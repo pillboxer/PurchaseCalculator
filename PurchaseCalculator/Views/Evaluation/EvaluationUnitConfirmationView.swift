@@ -40,7 +40,7 @@ struct EvaluationUnitConfirmationView: View {
                 ReportTitleView(text: "confirmation_report_title")
                     .padding()
                 ReportRowView(title: "confirmation_report_row_0", value: item.handle, imageWrapper: ImageWrapper(name: item.imageName))
-                ReportRowView(title: "confirmation_report_row_1", value: unit.modelName, imageWrapper: ImageWrapper(name: unit.imageName, renderingMode: .template))
+                ReportRowView(title: "confirmation_report_row_1", value: unit.modelName, imageWrapper: ImageWrapper(name: unit.imageName ?? item.imageName))
                 ReportRowView(title: "confirmation_report_row_2", value: PriceFormatter.format(cost: unit.cost), imageWrapper: ImageWrapper(name: "confirmation_report_row_2_image"))
                 if let evaluationCount = unit.evaluationCount,
                    evaluationCount > 0 {

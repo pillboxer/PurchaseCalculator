@@ -105,7 +105,7 @@ class AttributesDetailsViewModel: ObservableObject {
     
     var pulsingDuration: Double {
         if currentContext == .elevatorPitch {
-            return 4
+            return 2.5
         }
         if currentContext == .attribute {
             return 1

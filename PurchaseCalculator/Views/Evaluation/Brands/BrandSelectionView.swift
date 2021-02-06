@@ -14,8 +14,9 @@ struct BrandSelectionView: View {
     @State var isPushed = false
     var item: PurchaseItem?
     var isAddingYourOwn: Bool = false
+    
     var brands: [PurchaseBrand] {
-        let brandsToSort = item?.brands ?? DecodedObjectProvider.allSpecificPurchaseUnits?.compactMap { $0.brand } ?? []
+        let brandsToSort = isAddingYourOwn ? DecodedObjectProvider.purchaseBrands ?? [] :  item?.brands ?? DecodedObjectProvider.allSpecificPurchaseUnits?.compactMap { $0.brand } ?? []
         let unsorted = Set(brandsToSort)
         return unsorted.sorted { $0.handle < $1.handle }
         

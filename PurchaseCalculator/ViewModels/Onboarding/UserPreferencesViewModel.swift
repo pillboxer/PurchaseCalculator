@@ -25,7 +25,7 @@ class UserPreferencesViewModel: ObservableObject, ErrorPublisher {
     
     // MARK: - Name
     var minimumCharactersInName = 3
-    var maximumCharactersInName = 15
+    var maximumCharactersInName = 30
     
     var userName = "" {
         didSet {

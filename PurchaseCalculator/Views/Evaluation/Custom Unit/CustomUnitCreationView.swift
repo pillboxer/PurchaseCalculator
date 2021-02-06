@@ -43,7 +43,7 @@ struct CustomUnitCreationView: View {
                     .padding(.horizontal)
                 TextFieldWithLimitView(placeholder: placeholderFor("model"),
                                        textFieldText: $viewModel.modelName,
-                                       minimumCharacters: 5,
+                                       minimumCharacters: 1,
                                        font: UIFont.boldSystemFont(ofSize: 12))
                     .padding(.horizontal)
                 TextFieldWithLimitView(placeholder: placeholderFor("cost"),
@@ -76,7 +76,7 @@ struct CustomUnitCreationView: View {
     }
     
     private func createUnit() {
-        let brandID = DecodedObjectProvider.purchaseBrands?.filter { $0.handle == viewModel.brandName }.first?.uuid ?? UUID().uuidString
+        let brandID = DecodedObjectProvider.purchaseBrands?.filter { $0.handle == viewModel.brandName.trimmingCharacters(in: .whitespacesAndNewlines) }.first?.uuid ?? UUID().uuidString
         let unit = SpecificPurchaseUnit(uuid: UUID().uuidString, brandID: brandID, modelName: viewModel.modelName, cost: viewModel.cost, evaluationCount: 0)
         customUnit = unit
     }

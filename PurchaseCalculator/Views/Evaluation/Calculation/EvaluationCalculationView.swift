@@ -36,11 +36,13 @@ struct EvaluationCalculationView: View {
                     EvaluationReportView(evaluation: evaluation)
                     if presentedFromHistory {
                         DismissalButton()
+                            .padding()
                     } else {
                         CTAButton(text: "save_cta") {
                             CoreDataManager.shared.save(evaluation.managedObjectContext)
                             isActive = false
                         }
+                        .padding()
                     }
                 }
                 .onAppear {

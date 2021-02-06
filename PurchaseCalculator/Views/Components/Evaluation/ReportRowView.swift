@@ -26,7 +26,7 @@ struct ReportRowView: View {
             Label(title)
                 .padding(.leading)
             if let inspectionHandler = inspectionHandler {
-                Image("question")
+                Image(named: "question")
                     .resizable()
                     .frame(width: 10, height: 10)
                     .onTapGesture {
